@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donate &amp; Support Our Initiatives — Krutadnyata Foundation (कृतज्ञता फाउंडेशन)</title>
+  <meta name="description" content="Support Krutadnyata Foundation's on-ground initiatives in Maharashtra. Your tax-deductible donation funds free health camps, student scholarships, rural medicine, and emergency community aid." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Mukta:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- GSAP & Lenis Smooth Scroll CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              green: 'var(--color-green)',
+              navy: 'var(--color-navy)',
+              mint: 'var(--color-mint)',
+              bg: 'var(--color-bg)',
+              ink: 'var(--color-ink)',
+              muted: 'var(--color-muted)',
+              accent: 'var(--color-accent)',
+              border: 'var(--color-border)',
+            }
+          },
+          fontFamily: {
+            sans: ['"Inter"', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+            marathi: ['"Mukta"', 'sans-serif'],
+          },
+          letterSpacing: {
+            tightest: '-0.035em',
+            tighter: '-0.02em',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --color-green: #00985A;
+      --color-navy: #0B2D4F;
+      --color-mint: #D6EFE5;
+      --color-bg: #FAFAF7;
+      --color-ink: #1A1A1A;
+      --color-muted: #6B7280;
+      --color-accent: #F2B84B;
+      --color-border: #E5E7EB;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-ink);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-marathi { font-family: 'Mukta', sans-serif; }
+
+    .glass-nav {
+      background: rgba(250, 250, 247, 0.9);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    /* Interactive donation chips */
+    .amount-chip.active {
+      background-color: var(--color-navy);
+      color: #ffffff;
+      border-color: var(--color-navy);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(11, 45, 79, 0.15);
+    }
+
+    .frequency-btn.active {
+      background-color: #ffffff;
+      color: var(--color-navy);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      font-weight: 700;
+    }
+
+    .allocation-card.active {
+      border-color: var(--color-green);
+      background-color: #ffffff;
+    }
+    .allocation-card.active .check-indicator {
+      background-color: var(--color-green);
+      border-color: var(--color-green);
+      color: #ffffff;
+    }
+
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="selection:bg-brand-mint selection:text-brand-navy">
+
+  <!-- ================================================================= -->
+  <!-- 1. HEADER                                                         -->
+  <!-- ================================================================= -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-brand-border/60 glass-nav">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3.5 group" aria-label="Krutadnyata Foundation Home">
+        <div class="w-10 h-10 rounded-xl bg-brand-navy flex items-center justify-center text-brand-mint font-marathi font-bold text-xl transition-transform duration-300 group-hover:scale-105 shadow-sm">
+          कृ
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display font-extrabold text-lg text-brand-navy tracking-tight leading-tight">
+            KRUTADNYATA
+          </span>
+          <span class="text-[11px] font-marathi font-semibold text-brand-green tracking-wide -mt-0.5">
+            कृतज्ञता फाउंडेशन <span class="text-neutral-400 font-sans font-normal text-[10px]">• 2019</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-neutral-600">
+        <a href="index.html" class="hover:text-brand-navy transition-colors py-1">Home</a>
+        <a href="index.html#about" class="hover:text-brand-navy transition-colors py-1">About Us</a>
+        <a href="our-work.html" class="hover:text-brand-navy transition-colors py-1">Our Work</a>
+        <a href="gallery.html" class="hover:text-brand-navy transition-colors py-1">Gallery</a>
+        <a href="volunteer.html" class="hover:text-brand-navy transition-colors py-1">Volunteer</a>
+        <a href="contact.html" class="hover:text-brand-navy transition-colors py-1">Contact</a>
+      </nav>
+
+      <!-- Right Action CTA -->
+      <div class="hidden sm:flex items-center gap-5">
+        <a href="#bank-transfer" class="text-xs font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
+          NEFT / Bank Details
+        </a>
+        <a href="#donation-flow" class="bg-brand-green text-white text-xs font-semibold px-5 py-2.5 rounded-full hover:bg-emerald-700 active:scale-95 transition-all shadow-sm hover:shadow-md flex items-center gap-1.5">
+          <span>Give Online</span>
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-toggle" aria-label="Toggle navigation menu" class="lg:hidden p-2 rounded-lg text-neutral-800 hover:bg-neutral-100 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-menu" class="fixed inset-0 bg-brand-navy/95 z-50 flex flex-col justify-between p-8 text-white translate-x-full transition-transform duration-300 lg:hidden">
+    <div class="flex items-center justify-between border-b border-white/10 pb-5">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-brand-green flex items-center justify-center text-white font-marathi font-bold text-xl">कृ</div>
+        <span class="font-display font-bold text-lg">Krutadnyata</span>
+      </div>
+      <button id="mobile-close" aria-label="Close menu" class="p-2 text-white/80 hover:text-white">
+        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="grid gap-6 text-xl font-display font-semibold">
+      <a href="index.html" class="text-white/80 hover:text-white">Home</a>
+      <a href="our-work.html" class="text-white/80 hover:text-white">Our Work</a>
+      <a href="gallery.html" class="text-white/80 hover:text-white">Field Gallery</a>
+      <a href="volunteer.html" class="text-white/80 hover:text-white">Volunteer</a>
+      <a href="donate.html" class="text-brand-mint">Donate Online</a>
+      <a href="contact.html" class="text-white/80 hover:text-white">Contact Desk</a>
+    </div>
+
+    <div class="grid gap-3 pt-6 border-t border-white/10">
+      <a href="#donation-flow" class="mobile-link w-full py-3.5 bg-brand-green rounded-xl text-center font-semibold text-white">Give Online</a>
+      <a href="#bank-transfer" class="mobile-link w-full py-3.5 bg-white/10 rounded-xl text-center font-medium text-white/80">NEFT / RTGS Details</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ================================================================= -->
+    <!-- 2. DONATION HERO                                                  -->
+    <!-- ================================================================= -->
+    <section class="relative pt-36 pb-16 overflow-hidden bg-gradient-to-b from-brand-mint/35 via-brand-bg to-brand-bg border-b border-brand-border/60">
+      
+      <!-- Decorative Devanagari Glyph -->
+      <div class="absolute -top-12 -right-10 text-[280px] lg:text-[440px] font-marathi font-black text-brand-mint/35 select-none pointer-events-none leading-none -z-0">
+        कृ
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-brand-border shadow-xs text-xs font-medium text-neutral-700 mb-6">
+            <span class="w-2 h-2 rounded-full bg-brand-green"></span>
+            <span>100% Program Direct Disbursal • Tax Deductible</span>
+          </div>
+
+          <h1 class="font-display font-extrabold text-4xl sm:text-6xl text-brand-navy tracking-tightest leading-[1.06]">
+            Every Rupee Protects a Life, a Student, or an Ecosystem.
+          </h1>
+
+          <p class="mt-6 text-base sm:text-lg text-neutral-600 font-normal leading-relaxed">
+            Your contributions directly fund free medical camps in rural hamlets like Sangameshwar, educational essentials for youth, competitive coaching, and emergency aid for ailing patients across Maharashtra.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 3. INTERACTIVE DONATION FLOW & ALLOCATION SPLIT                   -->
+    <!-- ================================================================= -->
+    <section id="donation-flow" class="py-20 bg-brand-bg">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          <!-- Left Column: Unified Donation Checkout Card -->
+          <div class="lg:col-span-7 bg-white rounded-3xl p-8 sm:p-12 border border-neutral-200/90 shadow-sm">
+            
+            <!-- Frequency Toggle -->
+            <div class="flex items-center justify-between pb-6 border-b border-neutral-100">
+              <span class="text-xs font-bold uppercase tracking-widest text-neutral-500">Contribution Frequency</span>
+              <div class="flex items-center bg-neutral-100 p-1 rounded-xl">
+                <button type="button" class="frequency-btn active px-4 py-1.5 rounded-lg text-xs transition-all" data-freq="one-time">One-Time</button>
+                <button type="button" class="frequency-btn px-4 py-1.5 rounded-lg text-xs text-neutral-600 transition-all" data-freq="monthly">Monthly Sustainer</button>
+              </div>
+            </div>
+
+            <!-- Amount Chips Grid -->
+            <div class="mt-8">
+              <label class="text-xs font-bold text-neutral-700 uppercase tracking-wider block mb-3">Choose Amount (INR)</label>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <button type="button" class="amount-chip active py-3.5 px-4 rounded-2xl border border-neutral-200 text-sm font-bold text-neutral-800 transition-all" data-amount="500">₹500</button>
+                <button type="button" class="amount-chip py-3.5 px-4 rounded-2xl border border-neutral-200 text-sm font-bold text-neutral-800 transition-all" data-amount="1500">₹1,500</button>
+                <button type="button" class="amount-chip py-3.5 px-4 rounded-2xl border border-neutral-200 text-sm font-bold text-neutral-800 transition-all" data-amount="3000">₹3,000</button>
+                <button type="button" class="amount-chip py-3.5 px-4 rounded-2xl border border-neutral-200 text-sm font-bold text-neutral-800 transition-all" data-amount="5000">₹5,000</button>
+              </div>
+
+              <!-- Custom Amount Input -->
+              <div class="mt-4 relative">
+                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-400 font-bold text-sm">₹</span>
+                <input type="number" id="custom-amount-input" placeholder="Or enter custom amount in Rupees" class="w-full pl-8 pr-4 py-3.5 rounded-xl bg-brand-bg border border-neutral-200 text-xs font-semibold text-neutral-800 placeholder-neutral-400 focus:outline-none focus:border-brand-green focus:bg-white transition-all" />
+              </div>
+            </div>
+
+            <!-- Dynamic Impact Demonstration Note -->
+            <div class="mt-6 p-4 rounded-2xl bg-brand-mint/40 border border-brand-mint flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-brand-green mt-1.5 shrink-0"></span>
+              <p id="impact-preview-text" class="text-xs text-neutral-700 leading-relaxed">
+                <strong>₹500</strong> covers free primary pulse diagnosis and emergency medicine kits for 2 rural villagers at our Konkan camps.
+              </p>
+            </div>
+
+            <!-- Program Allocation Selector -->
+            <div class="mt-8">
+              <label class="text-xs font-bold text-neutral-700 uppercase tracking-wider block mb-3">Direct My Contribution Towards</label>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="allocation-container">
+                
+                <div class="allocation-card active p-3.5 rounded-xl border border-neutral-200 bg-brand-bg cursor-pointer hover:border-brand-green transition-all" data-allocation="Where Most Needed">
+                  <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold text-brand-navy">Where Most Needed</span>
+                    <div class="check-indicator w-4 h-4 rounded-full border border-neutral-300 flex items-center justify-center text-[9px]">✓</div>
+                  </div>
+                  <p class="text-[11px] text-neutral-500 mt-1">Directs aid to current highest priority emergencies.</p>
+                </div>
+
+                <div class="allocation-card p-3.5 rounded-xl border border-neutral-200 bg-brand-bg cursor-pointer hover:border-brand-green transition-all" data-allocation="Rural Health Camps">
+                  <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold text-brand-navy">Rural Medical Camps</span>
+                    <div class="check-indicator w-4 h-4 rounded-full border border-neutral-300 flex items-center justify-center text-[9px]">✓</div>
+                  </div>
+                  <p class="text-[11px] text-neutral-500 mt-1">Ayurvedic checkups in Ratnagiri &amp; Solapur[cite: 1].</p>
+                </div>
+
+                <div class="allocation-card p-3.5 rounded-xl border border-neutral-200 bg-brand-bg cursor-pointer hover:border-brand-green transition-all" data-allocation="Student Guidance &amp; Skills">
+                  <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold text-brand-navy">Student Guidance &amp; Skills</span>
+                    <div class="check-indicator w-4 h-4 rounded-full border border-neutral-300 flex items-center justify-center text-[9px]">✓</div>
+                  </div>
+                  <p class="text-[11px] text-neutral-500 mt-1">UPSC/MPSC seminars &amp; free exam entrance prep[cite: 1].</p>
+                </div>
+
+                <div class="allocation-card p-3.5 rounded-xl border border-neutral-200 bg-brand-bg cursor-pointer hover:border-brand-green transition-all" data-allocation="Blanket &amp; Disaster Relief">
+                  <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold text-brand-navy">Blanket &amp; Emergency Aid</span>
+                    <div class="check-indicator w-4 h-4 rounded-full border border-neutral-300 flex items-center justify-center text-[9px]">✓</div>
+                  </div>
+                  <p class="text-[11px] text-neutral-500 mt-1">Direct grants for ailing patients &amp; winter relief[cite: 1].</p>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Donor Identity & Tax Exemption Form -->
+            <form id="donation-checkout-form" class="mt-8 pt-6 border-t border-neutral-100 space-y-4" onsubmit="event.preventDefault(); alert('Redirecting to 256-bit secure Razorpay payment gateway...');">
+              <input type="hidden" id="final-amount" name="amount" value="500" />
+              <input type="hidden" id="final-allocation" name="allocation" value="Where Most Needed" />
+              <input type="hidden" id="final-frequency" name="frequency" value="One-Time" />
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="text-xs font-semibold text-neutral-700 block mb-1">Full Legal Name *</label>
+                  <input type="text" required placeholder="Name as per PAN card" class="w-full px-4 py-3 rounded-xl bg-brand-bg border border-neutral-200 text-xs text-neutral-800 placeholder-neutral-400 focus:outline-none focus:border-brand-green focus:bg-white transition-all" />
+                </div>
+                <div>
+                  <label class="text-xs font-semibold text-neutral-700 block mb-1">Phone / WhatsApp Number *</label>
+                  <input type="tel" required placeholder="+91 98XXX XXXXX" class="w-full px-4 py-3 rounded-xl bg-brand-bg border border-neutral-200 text-xs text-neutral-800 placeholder-neutral-400 focus:outline-none focus:border-brand-green focus:bg-white transition-all" />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="text-xs font-semibold text-neutral-700 block mb-1">Email Address (for Receipt) *</label>
+                  <input type="email" required placeholder="name@domain.com" class="w-full px-4 py-3 rounded-xl bg-brand-bg border border-neutral-200 text-xs text-neutral-800 placeholder-neutral-400 focus:outline-none focus:border-brand-green focus:bg-white transition-all" />
+                </div>
+                <div>
+                  <label class="text-xs font-semibold text-neutral-700 block mb-1">PAN Number (for 80G Tax Exemption)</label>
+                  <input type="text" maxlength="10" placeholder="e.g. ABCDE1234F" class="w-full uppercase px-4 py-3 rounded-xl bg-brand-bg border border-neutral-200 text-xs text-neutral-800 placeholder-neutral-400 focus:outline-none focus:border-brand-green focus:bg-white transition-all" />
+                </div>
+              </div>
+
+              <!-- Security reassurance strip -->
+              <div class="text-[11px] text-neutral-500 pt-2 flex items-center justify-between">
+                <span class="flex items-center gap-1.5">
+                  <svg class="w-4 h-4 text-brand-green shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                  <span>256-bit SSL encrypted • Instant 80G tax receipt via email</span>
+                </span>
+                <span class="font-semibold text-neutral-700">Razorpay Verified</span>
+              </div>
+
+              <button type="submit" class="w-full py-4 bg-brand-green text-white font-semibold rounded-2xl hover:bg-emerald-700 active:scale-[0.99] transition-all text-sm shadow-md flex items-center justify-center gap-2">
+                <span>Proceed to Complete Donation</span>
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </button>
+            </form>
+
+          </div>
+
+          <!-- Right Column: Tangible Impact Tiers & Audit Guarantees -->
+          <div class="lg:col-span-5 space-y-6">
+
+            <!-- Real Field Impact Reference Card -->
+            <div class="bg-brand-navy text-white p-8 rounded-3xl shadow-sm relative overflow-hidden">
+              <div class="absolute -right-10 -bottom-10 w-52 h-52 rounded-full bg-brand-green/20 blur-3xl pointer-events-none"></div>
+
+              <span class="text-xs font-bold uppercase tracking-widest text-brand-accent mb-2 block">Direct Beneficiary Reach</span>
+              <h3 class="font-display font-bold text-2xl text-white">What Your Contribution Achieves</h3>
+              
+              <div class="mt-6 space-y-4 text-xs">
+                <div class="p-4 rounded-2xl bg-white/10 border border-white/10">
+                  <span class="font-bold text-brand-accent block text-sm">₹1,500 Contribution</span>
+                  <p class="text-neutral-300 mt-1 leading-relaxed">
+                    Provides comprehensive sports uniforms and athletic footwear for 3 underprivileged school athletes[cite: 1].
+                  </p>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-white/10 border border-white/10">
+                  <span class="font-bold text-brand-accent block text-sm">₹3,000 Contribution</span>
+                  <p class="text-neutral-300 mt-1 leading-relaxed">
+                    Sponsors winter blankets and hot nutritional provisions for 15 homeless citizens during cold spells[cite: 1].
+                  </p>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-white/10 border border-white/10">
+                  <span class="font-bold text-brand-accent block text-sm">₹10,000+ Institutional / CSR</span>
+                  <p class="text-neutral-300 mt-1 leading-relaxed">
+                    Co-sponsors full village Ayurvedic and primary diagnostic checkups, covering doctor fees and essential medicines[cite: 1].
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-neutral-300">
+                <span>Verified in 2019–2025 Field Report[cite: 1]</span>
+                <a href="our-work.html" class="text-brand-accent underline">View Pillars →</a>
+              </div>
+            </div>
+
+            <!-- Tax & Trust Strip -->
+            <div class="bg-white p-8 rounded-3xl border border-neutral-200/90 shadow-sm space-y-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-brand-mint text-brand-green flex items-center justify-center font-bold">
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-display font-bold text-sm text-brand-navy">Audited Financial Stewardship</h4>
+                  <p class="text-[11px] text-neutral-500">Charity Commissioner &amp; Public Disclosures</p>
+                </div>
+              </div>
+
+              <p class="text-xs text-neutral-600 leading-relaxed">
+                Krutadnyata Foundation maintains separate dedicated programmatic bank accounts for healthcare camps, education subsidies, and community disaster relief.
+              </p>
+
+              <div class="pt-2 border-t border-neutral-100 text-[11px] text-neutral-500 space-y-1 font-mono">
+                <p>Registration: [TO CONFIRM: Trust Reg No.]</p>
+                <p>80G Exemption: [TO CONFIRM: 80G Order Number]</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 4. BANK TRANSFER & CSR NEFT CREDENTIALS                           -->
+    <!-- ================================================================= -->
+    <section id="bank-transfer" class="py-20 bg-white border-t border-brand-border">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        
+        <div class="max-w-3xl mx-auto text-center mb-12">
+          <span class="text-xs font-bold uppercase tracking-widest text-brand-green">High-Value Donors &amp; CSR Wings</span>
+          <h2 class="font-display font-bold text-3xl text-brand-navy mt-1">Direct Bank Transfer / NEFT / RTGS</h2>
+          <p class="text-xs sm:text-sm text-neutral-600 mt-2">For institutional contributions, corporate CSR grants, and wire transfers without gateway charges.</p>
+        </div>
+
+        <div class="max-w-3xl mx-auto bg-brand-bg rounded-3xl p-8 sm:p-12 border border-neutral-200/90 shadow-sm">
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-xs">
+            
+            <div class="p-4 rounded-2xl bg-white border border-neutral-200/80">
+              <span class="text-neutral-400 uppercase tracking-widest text-[10px] font-bold block">Account Beneficiary</span>
+              <p class="font-display font-bold text-sm text-brand-navy mt-1">Krutadnyata Foundation</p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-white border border-neutral-200/80">
+              <span class="text-neutral-400 uppercase tracking-widest text-[10px] font-bold block">Bank Name</span>
+              <p class="font-display font-bold text-sm text-brand-navy mt-1">[TO CONFIRM: Official Bank Name]</p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-white border border-neutral-200/80">
+              <span class="text-neutral-400 uppercase tracking-widest text-[10px] font-bold block">Account Number</span>
+              <p class="font-display font-bold text-sm text-brand-navy mt-1 font-mono">[TO CONFIRM: Account Number]</p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-white border border-neutral-200/80">
+              <span class="text-neutral-400 uppercase tracking-widest text-[10px] font-bold block">IFSC Code</span>
+              <p class="font-display font-bold text-sm text-brand-navy mt-1 font-mono">[TO CONFIRM: IFSC Code]</p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-white border border-neutral-200/80">
+              <span class="text-neutral-400 uppercase tracking-widest text-[10px] font-bold block">Account Type</span>
+              <p class="font-display font-bold text-sm text-brand-navy mt-1">Current Account</p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-white border border-neutral-200/80">
+              <span class="text-neutral-400 uppercase tracking-widest text-[10px] font-bold block">Branch Location</span>
+              <p class="font-display font-bold text-sm text-brand-navy mt-1">Borivali / Mumbai, Maharashtra</p>
+            </div>
+
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-neutral-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+            <p class="text-neutral-600">
+              After initiating an NEFT/RTGS transfer, please WhatsApp or email your UTR transaction reference to receive an official stamped 80G receipt.
+            </p>
+            <a href="https://wa.me/919833861159" target="_blank" rel="noopener" class="whitespace-nowrap px-5 py-2.5 rounded-xl bg-brand-navy text-white font-semibold hover:bg-neutral-800 transition-colors">
+              Send UTR on WhatsApp[cite: 1]
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 5. FREQUENTLY ASKED DONATION QUESTIONS                            -->
+    <!-- ================================================================= -->
+    <section class="py-20 bg-brand-bg border-t border-brand-border">
+      <div class="max-w-4xl mx-auto px-5 sm:px-8">
+        
+        <div class="text-center mb-12">
+          <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Transparency &amp; Governance</span>
+          <h2 class="font-display font-bold text-3xl text-brand-navy mt-1">Questions About Giving</h2>
+        </div>
+
+        <div class="space-y-4">
+          
+          <div class="p-6 rounded-2xl bg-white border border-neutral-200/80">
+            <h4 class="font-display font-bold text-sm text-brand-navy">Can I specify which initiative my funds support?</h4>
+            <p class="text-xs text-neutral-600 mt-2 leading-relaxed">
+              Yes. You can select your preferred vertical on our form—whether rural medical camps[cite: 1], educational exam coaching[cite: 1], or emergency community relief[cite: 1]. We disburse restricted funds exclusively to the chosen program.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white border border-neutral-200/80">
+            <h4 class="font-display font-bold text-sm text-brand-navy">How soon will I receive my tax receipt?</h4>
+            <p class="text-xs text-neutral-600 mt-2 leading-relaxed">
+              For online gateway donations, receipts are emailed instantly to the address entered at checkout. For direct NEFT/RTGS bank transfers, our accounts desk generates your stamped 80G certificate within 2 business days of transaction confirmation.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white border border-neutral-200/80">
+            <h4 class="font-display font-bold text-sm text-brand-navy">Do you accept corporate CSR partnerships?</h4>
+            <p class="text-xs text-neutral-600 mt-2 leading-relaxed">
+              Yes. We provide end-to-end CSR project implementation across Maharashtra, complete with baseline surveys, photographic documentation, beneficiary lists, and chartered accountant-audited utilization certificates[cite: 1].
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ================================================================= -->
+  <!-- 6. FOOTER                                                         -->
+  <!-- ================================================================= -->
+  <footer class="bg-brand-navy text-white border-t border-neutral-800 pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-16 border-b border-white/10">
+        
+        <div class="lg:col-span-4 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-brand-green flex items-center justify-center font-marathi font-bold text-white text-lg">कृ</div>
+            <span class="font-display font-extrabold text-xl text-white tracking-tight">Krutadnyata Foundation</span>
+          </div>
+          <p class="text-xs text-neutral-300 leading-relaxed font-normal">
+            A Maharashtra-based registered social organisation dedicated to bridging educational inequalities, conducting preventive healthcare, and empowering communities since 2019[cite: 1].
+          </p>
+          <div class="text-xs text-neutral-400 space-y-1">
+            <p><strong>Charity Reg:</strong> [TO CONFIRM: Trust Registration Number]</p>
+            <p><strong>Head Office:</strong> [TO CONFIRM: Official Registered Address], Suburban Mumbai, Maharashtra</p>
+            <p><strong>Helpline:</strong> +91 98338 61159[cite: 1]</p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-2 space-y-3 text-xs">
+          <p class="font-display font-bold text-white uppercase tracking-wider text-[11px]">Key Verticals</p>
+          <ul class="space-y-2 text-neutral-300">
+            <li><a href="our-work.html#pillar-health" class="hover:text-brand-mint transition-colors">Health Camps</a></li>
+            <li><a href="our-work.html#pillar-education" class="hover:text-brand-mint transition-colors">Civil Services Prep</a></li>
+            <li><a href="our-work.html#pillar-sports" class="hover:text-brand-mint transition-colors">Marathons &amp; Sports</a></li>
+            <li><a href="our-work.html#pillar-environment" class="hover:text-brand-mint transition-colors">Tree Protection</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-2 space-y-3 text-xs">
+          <p class="font-display font-bold text-white uppercase tracking-wider text-[11px]">Explore</p>
+          <ul class="space-y-2 text-neutral-300">
+            <li><a href="index.html" class="hover:text-brand-mint transition-colors">Home</a></li>
+            <li><a href="our-work.html" class="hover:text-brand-mint transition-colors">Our Work</a></li>
+            <li><a href="gallery.html" class="hover:text-brand-mint transition-colors">Field Gallery</a></li>
+            <li><a href="volunteer.html" class="hover:text-brand-mint transition-colors">Volunteer</a></li>
+            <li><a href="contact.html" class="hover:text-brand-mint transition-colors">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-4 space-y-4">
+          <p class="font-display font-bold text-white uppercase tracking-wider text-[11px]">CSR &amp; Donor Desk</p>
+          <p class="text-xs text-neutral-300 leading-relaxed">Need customized MOU agreements or project audit reports for your company's CSR committee?</p>
+          <a href="contact.html" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold transition-colors">
+            <span>Connect with our Trust Secretariat</span>
+            <span>→</span>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-neutral-400 gap-4">
+        <div>
+          © 2019–2026 Krutadnyata Foundation (कृतज्ञता फाउंडेशन). All public contributions are utilized strictly towards community welfare programs.
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-neutral-200 transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-neutral-200 transition-colors">Terms of Donation</a>
+          <a href="#" class="hover:text-neutral-200 transition-colors">80G Verification</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================================================================= -->
+  <!-- JAVASCRIPT LOGIC                                                  -->
+  <!-- ================================================================= -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Lenis Smooth Scrolling
+      const lenis = new Lenis({
+        duration: 1.1,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smooth: true,
+      });
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // 2. Mobile Menu
+      const mobileToggle = document.getElementById('mobile-toggle');
+      const mobileClose = document.getElementById('mobile-close');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      mobileToggle.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
+      mobileClose.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
+
+      // 3. Dynamic Donation Amount Selection
+      const amountChips = document.querySelectorAll('.amount-chip');
+      const customInput = document.getElementById('custom-amount-input');
+      const finalAmountInput = document.getElementById('final-amount');
+      const impactPreviewText = document.getElementById('impact-preview-text');
+
+      const impactNarratives = {
+        '500': '<strong>₹500</strong> covers free primary pulse diagnosis and emergency medicine kits for 2 rural villagers at our Konkan camps.',
+        '1500': '<strong>₹1,500</strong> provides comprehensive athletic gear and sports uniforms for 3 school students from low-income families.',
+        '3000': '<strong>₹3,000</strong> supplies warm winter blankets and nutritional supplies for 15 homeless citizens.',
+        '5000': '<strong>₹5,000</strong> funds career guidance and competitive civil services study material for 10 college students.'
+      };
+
+      amountChips.forEach((chip) => {
+        chip.addEventListener('click', () => {
+          amountChips.forEach(c => c.classList.remove('active'));
+          chip.classList.add('active');
+          customInput.value = '';
+
+          const amount = chip.getAttribute('data-amount');
+          finalAmountInput.value = amount;
+
+          if (impactNarratives[amount]) {
+            impactPreviewText.innerHTML = impactNarratives[amount];
+          }
+        });
+      });
+
+      customInput.addEventListener('input', (e) => {
+        amountChips.forEach(c => c.classList.remove('active'));
+        const val = e.target.value;
+        finalAmountInput.value = val;
+        if (val && val > 0) {
+          impactPreviewText.innerHTML = `<strong>₹${parseInt(val).toLocaleString('en-IN')}</strong> will be directly disbursed towards active community programs.`;
+        } else {
+          impactPreviewText.innerHTML = `Select or enter an amount to see its programmatic impact.`;
+        }
+      });
+
+      // 4. Frequency Selector
+      const freqButtons = document.querySelectorAll('.frequency-btn');
+      const finalFreqInput = document.getElementById('final-frequency');
+
+      freqButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          freqButtons.forEach(b => {
+            b.classList.remove('active');
+            b.classList.add('text-neutral-600');
+          });
+          btn.classList.add('active');
+          btn.classList.remove('text-neutral-600');
+          finalFreqInput.value = btn.textContent.trim();
+        });
+      });
+
+      // 5. Allocation Selection Cards
+      const allocationCards = document.querySelectorAll('.allocation-card');
+      const finalAllocationInput = document.getElementById('final-allocation');
+
+      allocationCards.forEach((card) => {
+        card.addEventListener('click', () => {
+          allocationCards.forEach(c => c.classList.remove('active'));
+          card.classList.add('active');
+          const allocation = card.getAttribute('data-allocation');
+          finalAllocationInput.value = allocation;
+        });
+      });
+    });
+  </script>
+</body>
+</html>

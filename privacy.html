@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy &amp; Data Protection — Krutadnyata Foundation (कृतज्ञता फाउंडेशन)</title>
+  <meta name="description" content="Privacy policy and data protection framework of Krutadnyata Foundation. Learn how donor details, volunteer records, and beneficiary healthcare data are safeguarded." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Mukta:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lenis Smooth Scroll CDN -->
+  <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              green: 'var(--color-green)',
+              navy: 'var(--color-navy)',
+              mint: 'var(--color-mint)',
+              bg: 'var(--color-bg)',
+              ink: 'var(--color-ink)',
+              muted: 'var(--color-muted)',
+              accent: 'var(--color-accent)',
+              border: 'var(--color-border)',
+            }
+          },
+          fontFamily: {
+            sans: ['"Inter"', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+            marathi: ['"Mukta"', 'sans-serif'],
+          },
+          letterSpacing: {
+            tightest: '-0.035em',
+            tighter: '-0.02em',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --color-green: #00985A;
+      --color-navy: #0B2D4F;
+      --color-mint: #D6EFE5;
+      --color-bg: #FAFAF7;
+      --color-ink: #1A1A1A;
+      --color-muted: #6B7280;
+      --color-accent: #F2B84B;
+      --color-border: #E5E7EB;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-ink);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-marathi { font-family: 'Mukta', sans-serif; }
+
+    .glass-nav {
+      background: rgba(250, 250, 247, 0.9);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .policy-content h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: var(--color-navy);
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(229, 231, 235, 0.7);
+    }
+
+    .policy-content p {
+      font-size: 0.9375rem;
+      line-height: 1.8;
+      color: #374151;
+      margin-bottom: 1.25rem;
+    }
+
+    .policy-content ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: #374151;
+      font-size: 0.9375rem;
+      line-height: 1.8;
+    }
+
+    .policy-content li {
+      margin-bottom: 0.5rem;
+    }
+
+    .toc-link.active {
+      color: var(--color-green);
+      font-weight: 600;
+      border-left-color: var(--color-green);
+    }
+
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="selection:bg-brand-mint selection:text-brand-navy">
+
+  <!-- ================================================================= -->
+  <!-- 1. HEADER                                                         -->
+  <!-- ================================================================= -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-brand-border/60 glass-nav">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3.5 group" aria-label="Krutadnyata Foundation Home">
+        <div class="w-10 h-10 rounded-xl bg-brand-navy flex items-center justify-center text-brand-mint font-marathi font-bold text-xl transition-transform duration-300 group-hover:scale-105 shadow-sm">
+          कृ
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display font-extrabold text-lg text-brand-navy tracking-tight leading-tight">
+            KRUTADNYATA
+          </span>
+          <span class="text-[11px] font-marathi font-semibold text-brand-green tracking-wide -mt-0.5">
+            कृतज्ञता फाउंडेशन <span class="text-neutral-400 font-sans font-normal text-[10px]">• 2019</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-neutral-600">
+        <a href="index.html" class="hover:text-brand-navy transition-colors py-1">Home</a>
+        <a href="about.html" class="hover:text-brand-navy transition-colors py-1">About Us</a>
+        <a href="our-work.html" class="hover:text-brand-navy transition-colors py-1">Our Work</a>
+        <a href="gallery.html" class="hover:text-brand-navy transition-colors py-1">Gallery</a>
+        <a href="stories.html" class="hover:text-brand-navy transition-colors py-1">Stories</a>
+        <a href="contact.html" class="hover:text-brand-navy transition-colors py-1">Contact</a>
+      </nav>
+
+      <!-- Right Action CTA -->
+      <div class="hidden sm:flex items-center gap-5">
+        <a href="index.html" class="text-xs font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
+          Return to Home
+        </a>
+        <a href="donate.html" class="bg-brand-green text-white text-xs font-semibold px-5 py-2.5 rounded-full hover:bg-emerald-700 active:scale-95 transition-all shadow-sm hover:shadow-md flex items-center gap-1.5">
+          <span>Donate</span>
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-toggle" aria-label="Toggle navigation menu" class="lg:hidden p-2 rounded-lg text-neutral-800 hover:bg-neutral-100 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-menu" class="fixed inset-0 bg-brand-navy/95 z-50 flex flex-col justify-between p-8 text-white translate-x-full transition-transform duration-300 lg:hidden">
+    <div class="flex items-center justify-between border-b border-white/10 pb-5">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-brand-green flex items-center justify-center text-white font-marathi font-bold text-xl">कृ</div>
+        <span class="font-display font-bold text-lg">Krutadnyata</span>
+      </div>
+      <button id="mobile-close" aria-label="Close menu" class="p-2 text-white/80 hover:text-white">
+        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="grid gap-6 text-xl font-display font-semibold">
+      <a href="index.html" class="text-white/80 hover:text-white">Home</a>
+      <a href="about.html" class="text-white/80 hover:text-white">About Us</a>
+      <a href="our-work.html" class="text-white/80 hover:text-white">Our Work</a>
+      <a href="gallery.html" class="text-white/80 hover:text-white">Field Gallery</a>
+      <a href="stories.html" class="text-white/80 hover:text-white">Stories</a>
+      <a href="contact.html" class="text-white/80 hover:text-white">Contact</a>
+    </div>
+
+    <div class="grid gap-3 pt-6 border-t border-white/10">
+      <a href="donate.html" class="w-full py-3.5 bg-brand-green rounded-xl text-center font-semibold text-white">Donate to Programs</a>
+      <a href="volunteer.html" class="w-full py-3.5 bg-white/10 rounded-xl text-center font-medium text-white/80">Become a Volunteer</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ================================================================= -->
+    <!-- 2. POLICY HERO                                                    -->
+    <!-- ================================================================= -->
+    <section class="relative pt-36 pb-16 overflow-hidden bg-gradient-to-b from-brand-mint/35 via-brand-bg to-brand-bg border-b border-brand-border/60">
+      
+      <!-- Decorative Devanagari Glyph -->
+      <div class="absolute -top-12 -right-10 text-[280px] lg:text-[440px] font-marathi font-black text-brand-mint/35 select-none pointer-events-none leading-none -z-0">
+        कृ
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-brand-border shadow-xs text-xs font-medium text-neutral-700 mb-6">
+            <span class="w-2 h-2 rounded-full bg-brand-green"></span>
+            <span>Statutory Privacy Compliance &amp; Beneficiary Safeguards</span>
+          </div>
+
+          <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-brand-navy tracking-tightest leading-[1.08]">
+            Privacy Policy &amp; Data Protection
+          </h1>
+
+          <p class="mt-6 text-base sm:text-lg text-neutral-600 font-normal leading-relaxed">
+            Krutadnyata Foundation (कृतज्ञता फाउंडेशन) is committed to safeguarding personal information collected through our online portals, volunteer desks, donor records, and on-ground health and legal clinics across Maharashtra.
+          </p>
+
+          <div class="mt-6 flex flex-wrap items-center gap-4 text-xs text-neutral-400 font-medium">
+            <span>Last Updated: January 2026</span>
+            <span>•</span>
+            <span>Governing Law: Republic of India</span>
+            <span>•</span>
+            <span>IT Act 2000 &amp; DPDP Compliant</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 3. MAIN POLICY BODY + STICKY NAVIGATION                           -->
+    <!-- ================================================================= -->
+    <section class="py-20 bg-brand-bg">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          <!-- Sticky Table of Contents Sidebar -->
+          <aside class="lg:col-span-4 sticky top-28 hidden lg:block">
+            <div class="bg-white rounded-2xl p-6 border border-neutral-200/90 shadow-sm space-y-3">
+              <span class="text-[11px] font-bold uppercase tracking-widest text-brand-green block mb-1">
+                Contents
+              </span>
+              <nav class="flex flex-col space-y-1 text-xs text-neutral-600">
+                <a href="#section-introduction" class="toc-link py-1.5 pl-3 border-l-2 border-transparent hover:text-brand-navy transition-colors">1. Introduction &amp; Legal Entity</a>
+                <a href="#section-information-collected" class="toc-link py-1.5 pl-3 border-l-2 border-transparent hover:text-brand-navy transition-colors">2. Categories of Data Collected</a>
+                <a href="#section-purpose" class="toc-link py-1.5 pl-3 border-l-2 border-transparent hover:text-brand-navy transition-colors">3. How Information is Utilized</a>
+                <a href="#section-beneficiary-protection" class="toc-link py-1.5 pl-3 border-l-2 border-transparent hover:text-brand-navy transition-colors">4. Beneficiary &amp; Health Privacy</a>
+                <a href="#section-payments" class="toc-link py-1.5 pl-3 border-l-2 border-transparent hover:text-brand-navy transition-colors">5. 80G Tax &amp; Payment Gateways</a>
+                <a href="#section-cookies" class="toc-link py-1.5 pl-3 border-l-2 border-transparent hover:text-brand-navy transition-colors">6. Cookies &amp; Digital Analytics</a>
+                <a href="#section-data-security" class="toc-link py-1.5 pl-3 border-l-2 border-transparent hover:text-brand-navy transition-colors">7. Data Storage &amp; Security</a>
+                <a href="#section-rights" class="toc-link py-1.5 pl-3 border-l-2 border-transparent hover:text-brand-navy transition-colors">8. Your Data Protection Rights</a>
+                <a href="#section-grievance" class="toc-link py-1.5 pl-3 border-l-2 border-transparent hover:text-brand-navy transition-colors">9. Grievance Officer &amp; Redressal</a>
+              </nav>
+
+              <div class="pt-4 border-t border-neutral-100">
+                <p class="text-[11px] text-neutral-400">
+                  Questions regarding your data? Contact our trust secretariat directly.
+                </p>
+                <a href="https://wa.me/919833861159" class="mt-2 inline-block text-xs font-semibold text-brand-green hover:underline">
+                  Helpline: +91 98338 61159 →
+                </a>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Main Legal Text Container -->
+          <div class="lg:col-span-8 bg-white p-8 sm:p-14 rounded-3xl border border-neutral-200/90 shadow-sm policy-content">
+
+            <!-- Section 1 -->
+            <div id="section-introduction">
+              <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Section 1</span>
+              <h2 class="!mt-2 !border-t-0 !pt-0">Introduction &amp; Legal Entity</h2>
+              <p>
+                This Privacy Policy outlines how <strong>Krutadnyata Foundation</strong> (referred to as “the Foundation”, “we”, “our”, or “us”), a registered public social organisation established under the laws of Maharashtra, collects, processes, stores, and protects personal data obtained through our official website and offline community welfare interventions.
+              </p>
+              <p>
+                By accessing our web portal, submitting volunteer applications, enrolling in vocational skilling batches[cite: 1], registering for marathons[cite: 1], or making voluntary charitable contributions, you acknowledge and agree to the practices described in this policy.
+              </p>
+            </div>
+
+            <!-- Section 2 -->
+            <div id="section-information-collected">
+              <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Section 2</span>
+              <h2>Categories of Data We Collect</h2>
+              <p>
+                We only gather personal information that is reasonably necessary to fulfill our statutory, charitable, and administrative responsibilities:
+              </p>
+              <ul>
+                <li><strong>Donor Information:</strong> Full legal name, contact address, email address, phone number, and Permanent Account Number (PAN) where legally required under the Income Tax Act, 1961 for issuance of Form 10BE and 80G tax exemption receipts.</li>
+                <li><strong>Volunteer &amp; Event Participants:</strong> Full name, WhatsApp contact number, academic institution or workplace, city of residence, athletic emergency contacts (for marathon participants)[cite: 1], and participation hours.</li>
+                <li><strong>Institutional &amp; CSR Partners:</strong> Corporate representative names, corporate identity numbers (CIN), business correspondence addresses, and formal memorandum details[cite: 1].</li>
+                <li><strong>Beneficiary &amp; Clinic Records:</strong> Patient demographics, contact phone numbers, and case summaries collected strictly for attendance, doctor consult allocation, or medical grant dispersal[cite: 1].</li>
+              </ul>
+            </div>
+
+            <!-- Section 3 -->
+            <div id="section-purpose">
+              <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Section 3</span>
+              <h2>How Your Information is Utilized</h2>
+              <p>
+                All personal information entrusted to Krutadnyata Foundation is used strictly for legitimate charitable purposes, including:
+              </p>
+              <ul>
+                <li>Generating and issuing authenticated digital donation receipts and statutory 80G certificates.</li>
+                <li>Coordinating volunteer rosters and issuing verified participation certificates for NSS and academic hours.</li>
+                <li>Communicating schedule notices for upcoming rural health screenings, blood donation camps, or free legal advice sessions[cite: 1].</li>
+                <li>Maintaining compliance with the Charity Commissioner, Maharashtra State, the Income Tax Department, and statutory regulatory filings[cite: 1].</li>
+                <li>Transmitting quarterly newsletters and programmatic activity reports (subject to recipient opt-out at any time).</li>
+              </ul>
+            </div>
+
+            <!-- Section 4 -->
+            <div id="section-beneficiary-protection">
+              <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Section 4</span>
+              <h2>Beneficiary, Patient &amp; Clinic Confidentiality</h2>
+              <p>
+                A core pillar of our social responsibility is protecting the dignity and personal security of the vulnerable groups we serve[cite: 1]:
+              </p>
+              <ul>
+                <li><strong>Free Legal Advice Clinic:</strong> Case files, consultation notes, matrimonial inquiries, and family disputes handled during our bi-monthly legal clinics with Wonders Group are strictly confidential and protected under client privilege protocols[cite: 1]. Under no circumstances are legal case notes published or shared.</li>
+                <li><strong>Emergency Medical Grants:</strong> While financial disbursals (such as the ₹3,00,000 medical grant to Prakash Gangurde)[cite: 1] are recorded for public audits, individual medical history, diagnostic charts, and personal home details are kept secure and shared only with certified medical panels or statutory auditors.</li>
+                <li><strong>Marginalized Group Protection:</strong> Specific protection protocols are maintained for records concerning the transgender community, women in distress, and Divyangjan beneficiaries, preventing any stigmatizing exposure[cite: 1].</li>
+              </ul>
+            </div>
+
+            <!-- Section 5 -->
+            <div id="section-payments">
+              <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Section 5</span>
+              <h2>80G Tax Compliance &amp; Payment Processing</h2>
+              <p>
+                Online donations to Krutadnyata Foundation are processed through certified, PCI-DSS compliant third-party payment gateways (including Razorpay). 
+              </p>
+              <p>
+                <strong>Credit/Debit Card &amp; NetBanking Details:</strong> The Foundation <em>does not</em> store, process, or have access to your full credit card numbers, CVV codes, or banking passwords. All payment transactions are encrypted via 256-bit Secure Socket Layer (SSL) encryption through the gateway.
+              </p>
+              <p>
+                <strong>PAN &amp; Tax Filings:</strong> Under Central Board of Direct Taxes (CBDT) notifications, donor PAN numbers are mandatory to report philanthropic contributions on the Income Tax Department portal for Form 10BE generation. This data is handled exclusively by authorized accounting personnel.
+              </p>
+            </div>
+
+            <!-- Section 6 -->
+            <div id="section-cookies">
+              <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Section 6</span>
+              <h2>Cookies &amp; Digital Analytics</h2>
+              <p>
+                Our website uses basic, privacy-friendly technical cookies to ensure smooth website navigation, maintain session state, and evaluate general website traffic metrics (e.g., page load speeds, popular project pages).
+              </p>
+              <p>
+                We do not deploy invasive third-party cross-site advertising trackers, behavioral profiling scripts, or data-broker trackers. You can modify your browser settings to disable cookies, although certain layout features may adjust accordingly.
+              </p>
+            </div>
+
+            <!-- Section 7 -->
+            <div id="section-data-security">
+              <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Section 7</span>
+              <h2>Data Storage, Retention &amp; Security</h2>
+              <p>
+                We implement reasonable administrative, technical, and physical security measures to protect personal information against unauthorized access, loss, alteration, or disclosure:
+              </p>
+              <ul>
+                <li>Digital records are stored on secure cloud servers utilizing encrypted databases and role-based access controls.</li>
+                <li>Physical attendance sheets from field camps are archived under lock and key at the foundation's administrative desk[cite: 1].</li>
+                <li>Donation transaction logs are preserved for a minimum period of 7 years in compliance with the Bombay Public Trusts Act, 1950 and the Income Tax Act.</li>
+              </ul>
+            </div>
+
+            <!-- Section 8 -->
+            <div id="section-rights">
+              <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Section 8</span>
+              <h2>Your Data Protection Rights</h2>
+              <p>
+                Under prevailing Indian data protection laws, visitors, donors, and volunteers enjoy the following rights regarding their personal records:
+              </p>
+              <ul>
+                <li><strong>Right to Review:</strong> You may request a summary of personal information held about you in our records.</li>
+                <li><strong>Right to Rectification:</strong> You may request correction of inaccurate, outdated, or incomplete donor or contact records.</li>
+                <li><strong>Right to Opt-Out:</strong> You may unsubscribe from routine newsletters, email updates, or volunteer message groups at any time by clicking the unsubscribe link or contacting our secretariat.</li>
+              </ul>
+            </div>
+
+            <!-- Section 9 -->
+            <div id="section-grievance">
+              <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Section 9</span>
+              <h2>Grievance Redressal &amp; Trust Contact</h2>
+              <p>
+                In compliance with the Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011, the designated Grievance Officer for Krutadnyata Foundation is:
+              </p>
+
+              <div class="mt-4 p-6 rounded-2xl bg-brand-bg border border-neutral-200/90 text-xs space-y-2">
+                <p><strong>Officer in Charge:</strong> Secretarial Compliance Desk</p>
+                <p><strong>Organization:</strong> Krutadnyata Foundation (कृतज्ञता फाउंडेशन)</p>
+                <p><strong>Head Office:</strong> [TO CONFIRM: Official Registered Street Address], Suburban Mumbai, Maharashtra</p>
+                <p><strong>Helpline / WhatsApp:</strong> <a href="https://wa.me/919833861159" class="text-brand-green font-semibold underline">+91 98338 61159</a>[cite: 1]</p>
+                <p><strong>Official Email:</strong> <a href="mailto:privacy@krutadnyata.org" class="text-brand-navy font-semibold underline">privacy@krutadnyata.org</a></p>
+              </div>
+
+              <p class="mt-4 text-xs text-neutral-500">
+                Grievances or rectification notices received via email or registered post will be acknowledged within 48 business hours and resolved within statutory timeframes.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================================================================= -->
+  <!-- 4. FOOTER                                                         -->
+  <!-- ================================================================= -->
+  <footer class="bg-brand-navy text-white border-t border-neutral-800 pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-16 border-b border-white/10">
+        
+        <div class="lg:col-span-4 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-brand-green flex items-center justify-center font-marathi font-bold text-white text-lg">कृ</div>
+            <span class="font-display font-extrabold text-xl text-white tracking-tight">Krutadnyata Foundation</span>
+          </div>
+          <p class="text-xs text-neutral-300 leading-relaxed font-normal">
+            A Maharashtra-based registered social organisation dedicated to bridging educational inequalities, conducting preventive healthcare, and empowering communities since 2019[cite: 1].
+          </p>
+          <div class="text-xs text-neutral-400 space-y-1">
+            <p><strong>Charity Reg:</strong> [TO CONFIRM: Trust Registration Number]</p>
+            <p><strong>Head Office:</strong> [TO CONFIRM: Official Registered Address], Suburban Mumbai, Maharashtra</p>
+            <p><strong>Helpline:</strong> +91 98338 61159[cite: 1]</p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-2 space-y-3 text-xs">
+          <p class="font-display font-bold text-white uppercase tracking-wider text-[11px]">Key Programs</p>
+          <ul class="space-y-2 text-neutral-300">
+            <li><a href="our-work.html#pillar-health" class="hover:text-brand-mint transition-colors">Health Camps[cite: 1]</a></li>
+            <li><a href="our-work.html#pillar-education" class="hover:text-brand-mint transition-colors">Civil Services Prep[cite: 1]</a></li>
+            <li><a href="our-work.html#pillar-sports" class="hover:text-brand-mint transition-colors">Sports Marathons[cite: 1]</a></li>
+            <li><a href="our-work.html#pillar-environment" class="hover:text-brand-mint transition-colors">Tree Protection[cite: 1]</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-2 space-y-3 text-xs">
+          <p class="font-display font-bold text-white uppercase tracking-wider text-[11px]">Navigation</p>
+          <ul class="space-y-2 text-neutral-300">
+            <li><a href="index.html" class="hover:text-brand-mint transition-colors">Home</a></li>
+            <li><a href="about.html" class="hover:text-brand-mint transition-colors">About Us</a></li>
+            <li><a href="our-work.html" class="hover:text-brand-mint transition-colors">Our Work</a></li>
+            <li><a href="gallery.html" class="hover:text-brand-mint transition-colors">Field Gallery</a></li>
+            <li><a href="privacy.html" class="hover:text-brand-mint transition-colors">Privacy Policy</a></li>
+            <li><a href="contact.html" class="hover:text-brand-mint transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-4 space-y-4">
+          <p class="font-display font-bold text-white uppercase tracking-wider text-[11px]">Grievance Desk</p>
+          <p class="text-xs text-neutral-300 leading-relaxed">Questions regarding personal data protection or statutory 80G tax receipt inquiries? Connect directly with our compliance desk[cite: 1].</p>
+          <a href="https://wa.me/919833861159" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold transition-colors">
+            <span>WhatsApp Compliance Desk (+91 98338 61159)</span>[cite: 1]
+            <span>↗</span>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-neutral-400 gap-4">
+        <div>
+          © 2019–2026 Krutadnyata Foundation (कृतज्ञता फाउंडेशन). All public contributions are utilized strictly towards community welfare programs[cite: 1].
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="privacy.html" class="text-white font-semibold">Privacy Policy</a>
+          <a href="contact.html" class="hover:text-neutral-200 transition-colors">Legal Clinic Desk[cite: 1]</a>
+          <a href="donate.html" class="hover:text-neutral-200 transition-colors">80G Verification</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================================================================= -->
+  <!-- JAVASCRIPT LOGIC                                                  -->
+  <!-- ================================================================= -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Lenis Smooth Scrolling
+      const lenis = new Lenis({
+        duration: 1.1,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smooth: true,
+      });
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // 2. Mobile Menu
+      const mobileToggle = document.getElementById('mobile-toggle');
+      const mobileClose = document.getElementById('mobile-close');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      mobileToggle.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
+      mobileClose.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
+
+      // 3. Table of Contents ScrollSpy
+      const sections = document.querySelectorAll('div[id^="section-"]');
+      const tocLinks = document.querySelectorAll('.toc-link');
+
+      window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 140;
+          if (window.pageYOffset >= sectionTop) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        tocLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

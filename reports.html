@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Annual Reports &amp; Transparency Hub — Krutadnyata Foundation (कृतज्ञता फाउंडेशन)</title>
+  <meta name="description" content="Access verified annual work reports, financial disclosures, institutional MOUs, and CSR compliance ledgers of Krutadnyata Foundation across Maharashtra." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Mukta:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lenis Smooth Scroll CDN -->
+  <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              green: 'var(--color-green)',
+              navy: 'var(--color-navy)',
+              mint: 'var(--color-mint)',
+              bg: 'var(--color-bg)',
+              ink: 'var(--color-ink)',
+              muted: 'var(--color-muted)',
+              accent: 'var(--color-accent)',
+              border: 'var(--color-border)',
+            }
+          },
+          fontFamily: {
+            sans: ['"Inter"', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+            marathi: ['"Mukta"', 'sans-serif'],
+          },
+          letterSpacing: {
+            tightest: '-0.035em',
+            tighter: '-0.02em',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --color-green: #00985A;
+      --color-navy: #0B2D4F;
+      --color-mint: #D6EFE5;
+      --color-bg: #FAFAF7;
+      --color-ink: #1A1A1A;
+      --color-muted: #6B7280;
+      --color-accent: #F2B84B;
+      --color-border: #E5E7EB;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-ink);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-marathi { font-family: 'Mukta', sans-serif; }
+
+    .glass-nav {
+      background: rgba(250, 250, 247, 0.9);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    /* Tab filters */
+    .tab-btn.active {
+      background-color: var(--color-navy);
+      color: #ffffff;
+      border-color: var(--color-navy);
+    }
+
+    /* Modal styles */
+    #download-modal {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #download-modal.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="selection:bg-brand-mint selection:text-brand-navy">
+
+  <!-- ================================================================= -->
+  <!-- 1. HEADER                                                         -->
+  <!-- ================================================================= -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-brand-border/60 glass-nav">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3.5 group" aria-label="Krutadnyata Foundation Home">
+        <div class="w-10 h-10 rounded-xl bg-brand-navy flex items-center justify-center text-brand-mint font-marathi font-bold text-xl transition-transform duration-300 group-hover:scale-105 shadow-sm">
+          कृ
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display font-extrabold text-lg text-brand-navy tracking-tight leading-tight">
+            KRUTADNYATA
+          </span>
+          <span class="text-[11px] font-marathi font-semibold text-brand-green tracking-wide -mt-0.5">
+            कृतज्ञता फाउंडेशन <span class="text-neutral-400 font-sans font-normal text-[10px]">• 2019</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-neutral-600">
+        <a href="index.html" class="hover:text-brand-navy transition-colors py-1">Home</a>
+        <a href="about.html" class="hover:text-brand-navy transition-colors py-1">About Us</a>
+        <a href="our-work.html" class="hover:text-brand-navy transition-colors py-1">Our Work</a>
+        <a href="gallery.html" class="hover:text-brand-navy transition-colors py-1">Gallery</a>
+        <a href="reports.html" class="text-brand-navy font-semibold relative after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:right-0 after:h-0.5 after:bg-brand-green">
+          Reports &amp; Audits
+        </a>
+        <a href="stories.html" class="hover:text-brand-navy transition-colors py-1">Stories</a>
+        <a href="contact.html" class="hover:text-brand-navy transition-colors py-1">Contact</a>
+      </nav>
+
+      <!-- Right Action CTA -->
+      <div class="hidden sm:flex items-center gap-5">
+        <a href="volunteer.html" class="text-xs font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
+          Volunteer
+        </a>
+        <a href="donate.html" class="bg-brand-green text-white text-xs font-semibold px-5 py-2.5 rounded-full hover:bg-emerald-700 active:scale-95 transition-all shadow-sm hover:shadow-md flex items-center gap-1.5">
+          <span>Donate Now</span>
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-toggle" aria-label="Toggle navigation menu" class="lg:hidden p-2 rounded-lg text-neutral-800 hover:bg-neutral-100 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-menu" class="fixed inset-0 bg-brand-navy/95 z-50 flex flex-col justify-between p-8 text-white translate-x-full transition-transform duration-300 lg:hidden">
+    <div class="flex items-center justify-between border-b border-white/10 pb-5">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-brand-green flex items-center justify-center text-white font-marathi font-bold text-xl">कृ</div>
+        <span class="font-display font-bold text-lg">Krutadnyata</span>
+      </div>
+      <button id="mobile-close" aria-label="Close menu" class="p-2 text-white/80 hover:text-white">
+        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="grid gap-6 text-xl font-display font-semibold">
+      <a href="index.html" class="text-white/80 hover:text-white">Home</a>
+      <a href="about.html" class="text-white/80 hover:text-white">About Us</a>
+      <a href="our-work.html" class="text-white/80 hover:text-white">Our Work</a>
+      <a href="reports.html" class="text-brand-mint">Reports &amp; Audits</a>
+      <a href="gallery.html" class="text-white/80 hover:text-white">Field Gallery</a>
+      <a href="contact.html" class="text-white/80 hover:text-white">Contact</a>
+    </div>
+
+    <div class="grid gap-3 pt-6 border-t border-white/10">
+      <a href="donate.html" class="w-full py-3.5 bg-brand-green rounded-xl text-center font-semibold text-white">Donate to Programs</a>
+      <a href="volunteer.html" class="w-full py-3.5 bg-white/10 rounded-xl text-center font-medium text-white/80">Become a Volunteer</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ================================================================= -->
+    <!-- 2. HERO SECTION                                                   -->
+    <!-- ================================================================= -->
+    <section class="relative pt-36 pb-16 overflow-hidden bg-gradient-to-b from-brand-mint/35 via-brand-bg to-brand-bg border-b border-brand-border/60">
+      
+      <!-- Decorative Devanagari Glyph -->
+      <div class="absolute -top-12 -right-10 text-[280px] lg:text-[440px] font-marathi font-black text-brand-mint/35 select-none pointer-events-none leading-none -z-0">
+        कृ
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-brand-border shadow-xs text-xs font-medium text-neutral-700 mb-6">
+            <span class="w-2 h-2 rounded-full bg-brand-green"></span>
+            <span>Audited Accountability &amp; Institutional Disclosures</span>
+          </div>
+
+          <h1 class="font-display font-extrabold text-4xl sm:text-6xl text-brand-navy tracking-tightest leading-[1.06]">
+            Every Rupee Accounted.<br />Every Initiative Documented.
+          </h1>
+
+          <p class="mt-6 text-base sm:text-lg text-neutral-600 font-normal leading-relaxed">
+            True social responsibility requires radical transparency. Download our verified 41-page field work reports, inspect government and academic partnership MOUs, and review statutory compliance records.
+          </p>
+        </div>
+
+        <!-- Filter Tab System -->
+        <div class="mt-12 flex items-center gap-2 overflow-x-auto no-scrollbar pt-6 border-t border-neutral-200/70" id="report-tabs">
+          <button class="tab-btn active px-4 py-2 rounded-full text-xs font-semibold border border-neutral-200 bg-brand-navy text-white transition-all whitespace-nowrap" data-target="all">
+            All Documents
+          </button>
+          <button class="tab-btn px-4 py-2 rounded-full text-xs font-semibold border border-neutral-200 bg-white text-neutral-600 hover:border-neutral-400 transition-all whitespace-nowrap" data-target="work-reports">
+            Annual Work Reports
+          </button>
+          <button class="tab-btn px-4 py-2 rounded-full text-xs font-semibold border border-neutral-200 bg-white text-neutral-600 hover:border-neutral-400 transition-all whitespace-nowrap" data-target="mou-agreements">
+            Institutional MOUs
+          </button>
+          <button class="tab-btn px-4 py-2 rounded-full text-xs font-semibold border border-neutral-200 bg-white text-neutral-600 hover:border-neutral-400 transition-all whitespace-nowrap" data-target="statutory">
+            Statutory &amp; 80G
+          </button>
+          <button class="tab-btn px-4 py-2 rounded-full text-xs font-semibold border border-neutral-200 bg-white text-neutral-600 hover:border-neutral-400 transition-all whitespace-nowrap" data-target="csr-pack">
+            CSR Evaluation Kit
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 3. FEATURED ASSET: 41-PAGE WORK REPORT 2019-2025                  -->
+    <!-- ================================================================= -->
+    <section class="py-16 bg-white border-b border-brand-border">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        
+        <div class="bg-brand-bg rounded-3xl p-8 sm:p-12 border border-neutral-200/90 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          <div class="lg:col-span-4">
+            <div class="aspect-[3/4] bg-neutral-900 rounded-2xl p-6 flex flex-col justify-between text-white relative shadow-lg overflow-hidden border border-neutral-800">
+              <div class="absolute -right-10 -bottom-10 w-44 h-44 rounded-full bg-brand-green/20 blur-2xl"></div>
+              <div>
+                <span class="text-[10px] font-mono uppercase tracking-widest text-brand-mint">Document Identifier</span>
+                <p class="font-display font-extrabold text-xl mt-1">WORK REPORT 2019 TO 2025</p>
+                <p class="text-xs text-neutral-400 mt-1 font-marathi">कृतज्ञता फाउंडेशन — A social responsibility</p>
+              </div>
+
+              <div class="space-y-2 border-t border-white/10 pt-4 text-[11px] text-neutral-300">
+                <div class="flex justify-between">
+                  <span>Scope:</span>
+                  <span class="font-semibold text-white">41 Pages Verified[cite: 1]</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Format:</span>
+                  <span class="font-semibold text-white">PDF (Searchable)</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Audited Initiatives:</span>
+                  <span class="font-semibold text-white">35+ Field Drives[cite: 1]</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-8 space-y-4">
+            <div class="flex items-center gap-3">
+              <span class="px-3 py-1 rounded-full bg-brand-mint text-brand-green text-xs font-bold uppercase tracking-wider">
+                Primary Public Disclosure[cite: 1]
+              </span>
+              <span class="text-xs text-neutral-400 font-medium">• Document Hash Verified</span>
+            </div>
+
+            <h2 class="font-display font-bold text-2xl sm:text-3xl text-brand-navy leading-tight">
+              Krutadnyata Foundation Comprehensive Work Report (2019 To 2025)[cite: 1]
+            </h2>
+
+            <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">
+              The foundation's definitive 41-page chronicle detailing every primary healthcare clinic[cite: 1], collegiate blood donation drive[cite: 1], World Environment Day sapling campaign[cite: 1], State Sports Day marathon[cite: 1], and verified financial disbursal across Maharashtra[cite: 1].
+            </p>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 py-3 border-y border-neutral-200/70 text-xs">
+              <div>
+                <span class="text-neutral-400 text-[10px] uppercase font-bold block">Medical Aid[cite: 1]</span>
+                <span class="font-display font-bold text-brand-navy text-sm">₹3 Lakh Grant[cite: 1]</span>
+              </div>
+              <div>
+                <span class="text-neutral-400 text-[10px] uppercase font-bold block">Quality Run[cite: 1]</span>
+                <span class="font-display font-bold text-brand-navy text-sm">1,200+ Runners[cite: 1]</span>
+              </div>
+              <div>
+                <span class="text-neutral-400 text-[10px] uppercase font-bold block">Vocational Batches[cite: 1]</span>
+                <span class="font-display font-bold text-brand-navy text-sm">MSSDC Certified[cite: 1]</span>
+              </div>
+              <div>
+                <span class="text-neutral-400 text-[10px] uppercase font-bold block">Regional Reach[cite: 1]</span>
+                <span class="font-display font-bold text-brand-navy text-sm">10+ MH Centers[cite: 1]</span>
+              </div>
+            </div>
+
+            <div class="pt-2 flex flex-wrap items-center gap-4">
+              <button onclick="openModal('Work Report (2019-2025)', '41 Pages • Complete Field Documentation PDF', 'PDF (12.4 MB)')" class="px-6 py-3.5 rounded-xl bg-brand-green text-white font-semibold text-xs hover:bg-emerald-700 transition-all flex items-center gap-2 shadow-sm">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                <span>Download Verified PDF (Report)[cite: 1]</span>
+              </button>
+              <a href="gallery.html" class="px-6 py-3.5 rounded-xl bg-white border border-neutral-300 text-brand-navy font-semibold text-xs hover:bg-neutral-50 transition-all">
+                Browse Visual Evidence Gallery
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 4. STRUCTURED REPORTS & MOU DIRECTORY                              -->
+    <!-- ================================================================= -->
+    <section class="py-20 bg-brand-bg">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Downloadable Library</span>
+            <h2 class="font-display font-bold text-2xl sm:text-3xl text-brand-navy mt-1">Official Document Archives</h2>
+          </div>
+          <p class="text-xs text-neutral-400 mt-2 sm:mt-0">All files sealed by the Trust Secretariat</p>
+        </div>
+
+        <div id="documents-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Doc 1: BIS MOU Agreement -->
+          <div class="doc-card bg-white p-6 rounded-2xl border border-neutral-200/80 shadow-xs hover:shadow-lg transition-all flex flex-col justify-between" data-category="mou-agreements">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-2.5 py-1 rounded-md bg-neutral-100 text-brand-navy text-[10px] font-bold uppercase tracking-wider">
+                  MOU Agreement[cite: 1]
+                </span>
+                <span class="text-[11px] font-mono text-neutral-400">PDF • Signed[cite: 1]</span>
+              </div>
+              <h3 class="font-display font-bold text-base text-brand-navy">
+                Bureau of Indian Standards (BIS) Partnership Agreement[cite: 1]
+              </h3>
+              <p class="text-xs text-neutral-600 mt-2 leading-relaxed">
+                Formal agreement between Krutadnyata Foundation &amp; BIS Mumbai Branch-I for establishing school/college Standard Clubs and co-organizing the Quality Run[cite: 1].
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between text-xs">
+              <span class="text-neutral-400">Borivali / Mumbai[cite: 1]</span>
+              <button onclick="openModal('BIS MoU Agreement', 'Official Standards Club Partnership Document', 'PDF (1.8 MB)')" class="font-semibold text-brand-green hover:underline">
+                Download MOU[cite: 1] →
+              </button>
+            </div>
+          </div>
+
+          <!-- Doc 2: MSSDC Skill Centre Affiliation -->
+          <div class="doc-card bg-white p-6 rounded-2xl border border-neutral-200/80 shadow-xs hover:shadow-lg transition-all flex flex-col justify-between" data-category="mou-agreements">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-2.5 py-1 rounded-md bg-neutral-100 text-brand-navy text-[10px] font-bold uppercase tracking-wider">
+                  Skill Affiliation[cite: 1]
+                </span>
+                <span class="text-[11px] font-mono text-neutral-400">PDF • Official[cite: 1]</span>
+              </div>
+              <h3 class="font-display font-bold text-base text-brand-navy">
+                Maharashtra State Skill Development Corp (MSSDC) Order[cite: 1]
+              </h3>
+              <p class="text-xs text-neutral-600 mt-2 leading-relaxed">
+                Authorization and student batch notices for Aarya Skill Development Centre covering Web Developer and Accounts Executive certification schemes[cite: 1].
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between text-xs">
+              <span class="text-neutral-400">Batches 2022-25[cite: 1]</span>
+              <button onclick="openModal('MSSDC Affiliation Order', 'Government Vocational Center Verification', 'PDF (2.2 MB)')" class="font-semibold text-brand-green hover:underline">
+                Download Order[cite: 1] →
+              </button>
+            </div>
+          </div>
+
+          <!-- Doc 3: State Sports Day Marathon Notification -->
+          <div class="doc-card bg-white p-6 rounded-2xl border border-neutral-200/80 shadow-xs hover:shadow-lg transition-all flex flex-col justify-between" data-category="mou-agreements">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-2.5 py-1 rounded-md bg-neutral-100 text-brand-navy text-[10px] font-bold uppercase tracking-wider">
+                  State Sports Sanction[cite: 1]
+                </span>
+                <span class="text-[11px] font-mono text-neutral-400">PDF • 2026[cite: 1]</span>
+              </div>
+              <h3 class="font-display font-bold text-base text-brand-navy">
+                State Sports Day Marathon Notification &amp; Route Approval[cite: 1]
+              </h3>
+              <p class="text-xs text-neutral-600 mt-2 leading-relaxed">
+                Joint circular with Directorate of Sports &amp; Youth Services Maharashtra, District Sports Council, and facilitating law &amp; degree colleges[cite: 1].
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between text-xs">
+              <span class="text-neutral-400">24 January 2026[cite: 1]</span>
+              <button onclick="openModal('State Sports Day 2026 Circular', 'Directorate of Sports Joint Sanction', 'PDF (1.1 MB)')" class="font-semibold text-brand-green hover:underline">
+                Download PDF[cite: 1] →
+              </button>
+            </div>
+          </div>
+
+          <!-- Doc 4: Medical Relief Disbursal Ledger -->
+          <div class="doc-card bg-white p-6 rounded-2xl border border-neutral-200/80 shadow-xs hover:shadow-lg transition-all flex flex-col justify-between" data-category="work-reports">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-2.5 py-1 rounded-md bg-brand-mint text-brand-green text-[10px] font-bold uppercase tracking-wider">
+                  Financial Grant[cite: 1]
+                </span>
+                <span class="text-[11px] font-mono text-neutral-400">Case Audit[cite: 1]</span>
+              </div>
+              <h3 class="font-display font-bold text-base text-brand-navy">
+                Emergency Medical Aid Disbursal Ledger: ₹3,00,000[cite: 1]
+              </h3>
+              <p class="text-xs text-neutral-600 mt-2 leading-relaxed">
+                Account verification and hospital transfer receipts for the financial aid provided to the family of ailing patient Mr. Prakash Gangurde (Pune)[cite: 1].
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between text-xs">
+              <span class="text-neutral-400">04 Jan 2024[cite: 1]</span>
+              <button onclick="openModal('Medical Aid Disbursal Ledger', '₹3 Lakh Grant Bank Confirmation Receipts', 'PDF (850 KB)')" class="font-semibold text-brand-green hover:underline">
+                Download Audit[cite: 1] →
+              </button>
+            </div>
+          </div>
+
+          <!-- Doc 5: Trust Registration Certificate -->
+          <div class="doc-card bg-white p-6 rounded-2xl border border-neutral-200/80 shadow-xs hover:shadow-lg transition-all flex flex-col justify-between" data-category="statutory">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-2.5 py-1 rounded-md bg-neutral-100 text-neutral-700 text-[10px] font-bold uppercase tracking-wider">
+                  Trust Deed
+                </span>
+                <span class="text-[11px] font-mono text-neutral-400">Charity Comm.</span>
+              </div>
+              <h3 class="font-display font-bold text-base text-brand-navy">
+                Maharashtra Public Trusts Act Registration Certificate
+              </h3>
+              <p class="text-xs text-neutral-600 mt-2 leading-relaxed">
+                Official certificate of registration under the Bombay Public Trusts Act, 1950 issued by the Charity Commissioner, Mumbai.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between text-xs">
+              <span class="font-mono text-neutral-400">[TO CONFIRM: Reg No.]</span>
+              <button onclick="openModal('Charity Trust Registration', 'Registration Certificate under Bombay Public Trusts Act', 'PDF (1.2 MB)')" class="font-semibold text-brand-green hover:underline">
+                Download Certificate →
+              </button>
+            </div>
+          </div>
+
+          <!-- Doc 6: CSR Compliance & Schedule VII Mapping -->
+          <div class="doc-card bg-white p-6 rounded-2xl border border-neutral-200/80 shadow-xs hover:shadow-lg transition-all flex flex-col justify-between" data-category="csr-pack">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-2.5 py-1 rounded-md bg-brand-accent text-brand-navy text-[10px] font-bold uppercase tracking-wider">
+                  CSR Pack
+                </span>
+                <span class="text-[11px] font-mono text-neutral-400">Section 135</span>
+              </div>
+              <h3 class="font-display font-bold text-base text-brand-navy">
+                Corporate Social Responsibility (CSR) Implementation Dossier
+              </h3>
+              <p class="text-xs text-neutral-600 mt-2 leading-relaxed">
+                Companies Act 2013 Schedule VII thematic mapping covering Item (i) Healthcare[cite: 1], Item (ii) Education/Livelihoods[cite: 1], and Item (iv) Environmental Sustainability[cite: 1].
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between text-xs">
+              <span class="text-neutral-400">MCA Compliant</span>
+              <button onclick="openModal('CSR Evaluation Dossier', 'Schedule VII Thematic Project Matrix', 'PDF (3.4 MB)')" class="font-semibold text-brand-green hover:underline">
+                Download Dossier →
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 5. CSR PARTNERSHIP COMPLIANCE MATRIX                              -->
+    <!-- ================================================================= -->
+    <section class="py-20 bg-white border-t border-brand-border">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        
+        <div class="max-w-3xl mb-12">
+          <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Corporate Partnerships</span>
+          <h2 class="font-display font-bold text-2xl sm:text-3xl text-brand-navy mt-1">CSR Schedule VII Alignment</h2>
+          <p class="text-xs sm:text-sm text-neutral-600 mt-2">
+            Every initiative conducted by Krutadnyata Foundation fits directly into eligible activities under Section 135 of the Companies Act, 2013:
+          </p>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border border-neutral-200 rounded-2xl overflow-hidden text-xs">
+            <thead class="bg-brand-bg text-brand-navy font-display font-bold border-b border-neutral-200">
+              <tr>
+                <th class="p-4">Schedule VII Thematic Head</th>
+                <th class="p-4">Foundation Initiative[cite: 1]</th>
+                <th class="p-4">Collaborating Entity[cite: 1]</th>
+                <th class="p-4">Audit Deliverable</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-neutral-100 text-neutral-700">
+              <tr class="hover:bg-neutral-50 transition-colors">
+                <td class="p-4 font-semibold text-brand-navy">Item (i) Eradicating Poverty &amp; Healthcare</td>
+                <td class="p-4">Free Ayurvedic Health Camps (Sangola, Ratnagiri) &amp; Blood Camps[cite: 1]</td>
+                <td class="p-4">Pushkar Ayurvedic Health Center &amp; Sailee Degree College[cite: 1]</td>
+                <td class="p-4">Patient attendance logs &amp; medicine receipts[cite: 1]</td>
+              </tr>
+              <tr class="hover:bg-neutral-50 transition-colors">
+                <td class="p-4 font-semibold text-brand-navy">Item (ii) Education &amp; Vocational Skilling</td>
+                <td class="p-4">Web Developer &amp; Accounts Executive Certified Batches[cite: 1]</td>
+                <td class="p-4">Maharashtra State Skill Development Corporation (MSSDC)[cite: 1]</td>
+                <td class="p-4">Govt batch pass certificates &amp; attendance[cite: 1]</td>
+              </tr>
+              <tr class="hover:bg-neutral-50 transition-colors">
+                <td class="p-4 font-semibold text-brand-navy">Item (iv) Environmental Sustainability</td>
+                <td class="p-4">Nail-Free Tree Campaign &amp; Badlapur Sapling Plantation[cite: 1]</td>
+                <td class="p-4">Angholichi Goli &amp; Siddharth College, Badlapur[cite: 1]</td>
+                <td class="p-4">Geo-tagged photos &amp; sapling audit[cite: 1]</td>
+              </tr>
+              <tr class="hover:bg-neutral-50 transition-colors">
+                <td class="p-4 font-semibold text-brand-navy">Item (vii) Training to Promote Rural &amp; State Sports</td>
+                <td class="p-4">State Sports Day Marathon &amp; School Athletic Uniform Kits[cite: 1]</td>
+                <td class="p-4">Directorate of Sports &amp; Youth Services Maharashtra[cite: 1]</td>
+                <td class="p-4">Bib rosters, runner certificates &amp; kit bills[cite: 1]</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mt-8 flex flex-col sm:flex-row items-center justify-between p-6 rounded-2xl bg-brand-bg border border-neutral-200/90 text-xs gap-4">
+          <div class="text-neutral-600">
+            <strong>Need Customized Utilization Certificates?</strong> Our chartered accountants provide quarterly and annual financial utilization certificates tailored to your company's CSR Committee.
+          </div>
+          <a href="contact.html" class="px-5 py-2.5 rounded-xl bg-brand-navy text-white font-semibold whitespace-nowrap hover:bg-neutral-800 transition-colors">
+            Request CSR Consultation →
+          </a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ================================================================= -->
+  <!-- DOWNLOAD CONFIRMATION MODAL                                       -->
+  <!-- ================================================================= -->
+  <div id="download-modal" class="fixed inset-0 z-50 bg-brand-navy/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8">
+    <div class="relative max-w-lg w-full bg-white rounded-3xl overflow-hidden shadow-2xl border border-neutral-200 p-6 sm:p-8 text-neutral-800">
+      
+      <button onclick="closeModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-neutral-100 hover:bg-neutral-200 text-neutral-700 flex items-center justify-center transition-colors">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <div class="w-12 h-12 rounded-2xl bg-brand-mint text-brand-green flex items-center justify-center font-bold text-xl mb-4">
+        ↓
+      </div>
+
+      <h3 id="modal-doc-title" class="font-display font-bold text-xl text-brand-navy">Document Title</h3>
+      <p id="modal-doc-desc" class="text-xs text-neutral-500 mt-1">Document description placeholder</p>
+
+      <div class="my-6 p-4 rounded-xl bg-brand-bg border border-neutral-200/70 text-xs space-y-1.5 font-mono text-neutral-600">
+        <div class="flex justify-between">
+          <span>File Type:</span>
+          <span id="modal-doc-size" class="font-bold text-neutral-800">PDF</span>
+        </div>
+        <div class="flex justify-between">
+          <span>Access:</span>
+          <span class="font-bold text-brand-green">Public Charitable Record</span>
+        </div>
+        <div class="flex justify-between">
+          <span>Trust Authority:</span>
+          <span>Krutadnyata Foundation[cite: 1]</span>
+        </div>
+      </div>
+
+      <div class="space-y-3">
+        <a id="modal-download-btn" href="#" onclick="alert('Downloading authenticated document from Krutadnyata repository...'); closeModal();" class="w-full py-3.5 bg-brand-green text-white font-semibold text-xs rounded-xl hover:bg-emerald-700 transition-all flex items-center justify-center gap-2 shadow-sm">
+          <span>Confirm &amp; Download Document</span>
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+        </a>
+        <button onclick="closeModal()" class="w-full py-2.5 bg-white border border-neutral-200 text-neutral-600 font-semibold text-xs rounded-xl hover:bg-neutral-50 transition-colors">
+          Cancel
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- 6. FOOTER                                                         -->
+  <!-- ================================================================= -->
+  <footer class="bg-brand-navy text-white border-t border-neutral-800 pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-16 border-b border-white/10">
+        
+        <div class="lg:col-span-4 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-brand-green flex items-center justify-center font-marathi font-bold text-white text-lg">कृ</div>
+            <span class="font-display font-extrabold text-xl text-white tracking-tight">Krutadnyata Foundation</span>
+          </div>
+          <p class="text-xs text-neutral-300 leading-relaxed font-normal">
+            A Maharashtra-based registered social organisation dedicated to bridging educational inequalities, conducting preventive healthcare, and empowering communities since 2019[cite: 1].
+          </p>
+          <div class="text-xs text-neutral-400 space-y-1">
+            <p><strong>Charity Reg:</strong> [TO CONFIRM: Trust Registration Number]</p>
+            <p><strong>Head Office:</strong> [TO CONFIRM: Official Registered Address], Suburban Mumbai, Maharashtra</p>
+            <p><strong>Helpline:</strong> +91 98338 61159[cite: 1]</p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-2 space-y-3 text-xs">
+          <p class="font-display font-bold text-white uppercase tracking-wider text-[11px]">Key Programs</p>
+          <ul class="space-y-2 text-neutral-300">
+            <li><a href="our-work.html#pillar-health" class="hover:text-brand-mint transition-colors">Health Camps[cite: 1]</a></li>
+            <li><a href="our-work.html#pillar-education" class="hover:text-brand-mint transition-colors">Civil Services Prep[cite: 1]</a></li>
+            <li><a href="our-work.html#pillar-sports" class="hover:text-brand-mint transition-colors">Sports Marathons[cite: 1]</a></li>
+            <li><a href="our-work.html#pillar-environment" class="hover:text-brand-mint transition-colors">Tree Protection[cite: 1]</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-2 space-y-3 text-xs">
+          <p class="font-display font-bold text-white uppercase tracking-wider text-[11px]">Navigation</p>
+          <ul class="space-y-2 text-neutral-300">
+            <li><a href="index.html" class="hover:text-brand-mint transition-colors">Home</a></li>
+            <li><a href="about.html" class="hover:text-brand-mint transition-colors">About Us</a></li>
+            <li><a href="our-work.html" class="hover:text-brand-mint transition-colors">Our Work</a></li>
+            <li><a href="reports.html" class="hover:text-brand-mint transition-colors">Reports &amp; Audits</a></li>
+            <li><a href="contact.html" class="hover:text-brand-mint transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-4 space-y-4">
+          <p class="font-display font-bold text-white uppercase tracking-wider text-[11px]">CSR Desk Inquiries</p>
+          <p class="text-xs text-neutral-300 leading-relaxed">Corporate CSR committees requiring physical audited balance sheets or customized project agreements can connect directly[cite: 1].</p>
+          <a href="contact.html" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold transition-colors">
+            <span>Contact Secretarial Desk</span>
+            <span>→</span>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-neutral-400 gap-4">
+        <div>
+          © 2019–2026 Krutadnyata Foundation (कृतज्ञता फाउंडेशन)[cite: 1]. All public contributions are utilized strictly towards community welfare programs[cite: 1].
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="privacy.html" class="hover:text-neutral-200 transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-neutral-200 transition-colors">Schedule VII Compliance</a>
+          <a href="donate.html" class="hover:text-neutral-200 transition-colors">80G Verification</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================================================================= -->
+  <!-- JAVASCRIPT LOGIC                                                  -->
+  <!-- ================================================================= -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Lenis Smooth Scrolling
+      const lenis = new Lenis({
+        duration: 1.1,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smooth: true,
+      });
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // 2. Mobile Menu
+      const mobileToggle = document.getElementById('mobile-toggle');
+      const mobileClose = document.getElementById('mobile-close');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      mobileToggle.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
+      mobileClose.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
+
+      // 3. Tab Filter System
+      const tabs = document.querySelectorAll('.tab-btn');
+      const docCards = document.querySelectorAll('.doc-card');
+
+      tabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => {
+            t.classList.remove('active', 'bg-brand-navy', 'text-white');
+            t.classList.add('bg-white', 'text-neutral-600');
+          });
+          tab.classList.add('active', 'bg-brand-navy', 'text-white');
+          tab.classList.remove('bg-white', 'text-neutral-600');
+
+          const target = tab.getAttribute('data-target');
+
+          docCards.forEach((card) => {
+            const category = card.getAttribute('data-category');
+            if (target === 'all' || category === target) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+
+    // 4. Modal Handlers
+    const modal = document.getElementById('download-modal');
+    const modalTitle = document.getElementById('modal-doc-title');
+    const modalDesc = document.getElementById('modal-doc-desc');
+    const modalSize = document.getElementById('modal-doc-size');
+
+    function openModal(title, desc, size) {
+      modalTitle.textContent = title;
+      modalDesc.textContent = desc;
+      modalSize.textContent = size;
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+</html>

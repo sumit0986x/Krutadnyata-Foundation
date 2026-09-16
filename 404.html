@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found (404) — Krutadnyata Foundation (कृतज्ञता फाउंडेशन)</title>
+  <meta name="description" content="The page you are looking for does not exist or has been relocated. Explore Krutadnyata Foundation's on-ground initiatives across Maharashtra." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Mukta:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              green: 'var(--color-green)',
+              navy: 'var(--color-navy)',
+              mint: 'var(--color-mint)',
+              bg: 'var(--color-bg)',
+              ink: 'var(--color-ink)',
+              muted: 'var(--color-muted)',
+              accent: 'var(--color-accent)',
+              border: 'var(--color-border)',
+            }
+          },
+          fontFamily: {
+            sans: ['"Inter"', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+            marathi: ['"Mukta"', 'sans-serif'],
+          },
+          letterSpacing: {
+            tightest: '-0.035em',
+            tighter: '-0.02em',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --color-green: #00985A;
+      --color-navy: #0B2D4F;
+      --color-mint: #D6EFE5;
+      --color-bg: #FAFAF7;
+      --color-ink: #1A1A1A;
+      --color-muted: #6B7280;
+      --color-accent: #F2B84B;
+      --color-border: #E5E7EB;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-ink);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-marathi { font-family: 'Mukta', sans-serif; }
+
+    .glass-nav {
+      background: rgba(250, 250, 247, 0.9);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+  </style>
+</head>
+<body class="selection:bg-brand-mint selection:text-brand-navy min-h-screen flex flex-col justify-between">
+
+  <!-- ================================================================= -->
+  <!-- 1. HEADER                                                         -->
+  <!-- ================================================================= -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 border-b border-brand-border/60 glass-nav">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3.5 group" aria-label="Krutadnyata Foundation Home">
+        <div class="w-10 h-10 rounded-xl bg-brand-navy flex items-center justify-center text-brand-mint font-marathi font-bold text-xl transition-transform duration-300 group-hover:scale-105 shadow-sm">
+          कृ
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display font-extrabold text-lg text-brand-navy tracking-tight leading-tight">
+            KRUTADNYATA
+          </span>
+          <span class="text-[11px] font-marathi font-semibold text-brand-green tracking-wide -mt-0.5">
+            कृतज्ञता फाउंडेशन <span class="text-neutral-400 font-sans font-normal text-[10px]">• 2019</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-neutral-600">
+        <a href="index.html" class="hover:text-brand-navy transition-colors py-1">Home</a>
+        <a href="about.html" class="hover:text-brand-navy transition-colors py-1">About Us</a>
+        <a href="our-work.html" class="hover:text-brand-navy transition-colors py-1">Our Work</a>
+        <a href="gallery.html" class="hover:text-brand-navy transition-colors py-1">Gallery</a>
+        <a href="stories.html" class="hover:text-brand-navy transition-colors py-1">Stories</a>
+        <a href="volunteer.html" class="hover:text-brand-navy transition-colors py-1">Volunteer</a>
+        <a href="contact.html" class="hover:text-brand-navy transition-colors py-1">Contact</a>
+      </nav>
+
+      <!-- CTA -->
+      <div class="hidden sm:flex items-center gap-5">
+        <a href="index.html" class="text-xs font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
+          Return Home
+        </a>
+        <a href="donate.html" class="bg-brand-green text-white text-xs font-semibold px-5 py-2.5 rounded-full hover:bg-emerald-700 active:scale-95 transition-all shadow-sm hover:shadow-md flex items-center gap-1.5">
+          <span>Donate Now</span>
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-toggle" aria-label="Toggle navigation menu" class="lg:hidden p-2 rounded-lg text-neutral-800 hover:bg-neutral-100 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-menu" class="fixed inset-0 bg-brand-navy/95 z-50 flex flex-col justify-between p-8 text-white translate-x-full transition-transform duration-300 lg:hidden">
+    <div class="flex items-center justify-between border-b border-white/10 pb-5">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-brand-green flex items-center justify-center text-white font-marathi font-bold text-xl">कृ</div>
+        <span class="font-display font-bold text-lg">Krutadnyata</span>
+      </div>
+      <button id="mobile-close" aria-label="Close menu" class="p-2 text-white/80 hover:text-white">
+        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="grid gap-6 text-xl font-display font-semibold">
+      <a href="index.html" class="text-white/80 hover:text-white">Home</a>
+      <a href="about.html" class="text-white/80 hover:text-white">About Us</a>
+      <a href="our-work.html" class="text-white/80 hover:text-white">Our Work</a>
+      <a href="gallery.html" class="text-white/80 hover:text-white">Field Gallery</a>
+      <a href="stories.html" class="text-white/80 hover:text-white">Stories &amp; Voices</a>
+      <a href="contact.html" class="text-white/80 hover:text-white">Contact Desk</a>
+    </div>
+
+    <div class="grid gap-3 pt-6 border-t border-white/10">
+      <a href="donate.html" class="w-full py-3.5 bg-brand-green rounded-xl text-center font-semibold text-white">Donate to Programs</a>
+      <a href="volunteer.html" class="w-full py-3.5 bg-white/10 rounded-xl text-center font-medium text-white/80">Become a Volunteer</a>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- 2. MAIN 404 DISPLAY & QUICK RECOVERY DIRECTORY                    -->
+  <!-- ================================================================= -->
+  <main class="flex-grow flex items-center justify-center pt-32 pb-20 relative overflow-hidden">
+    
+    <!-- Giant Decorative Devanagari Glyph Background -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[300px] sm:text-[500px] lg:text-[620px] font-marathi font-black text-brand-mint/35 select-none pointer-events-none leading-none -z-0">
+      कृ
+    </div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-5 sm:px-8 text-center flex flex-col items-center">
+      
+      <!-- Status pill -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-brand-border shadow-xs text-xs font-semibold text-neutral-600 mb-6">
+        <span class="w-2 h-2 rounded-full bg-brand-green animate-pulse"></span>
+        <span>Error 404 • Page Not Found</span>
+      </div>
+
+      <!-- Giant 404 Headline -->
+      <h1 class="font-display font-extrabold text-7xl sm:text-9xl lg:text-[130px] text-brand-navy tracking-tightest leading-none">
+        404
+      </h1>
+
+      <p class="mt-4 font-display font-bold text-xl sm:text-2xl text-brand-navy max-w-lg">
+        This link seems to have stepped off the track.
+      </p>
+
+      <p class="mt-3 text-sm sm:text-base text-neutral-600 max-w-md font-normal leading-relaxed">
+        The page you are looking for may have been moved, renamed, or is temporarily unavailable. Let's guide you back to our active work.
+      </p>
+
+      <!-- Primary Action Buttons -->
+      <div class="mt-8 flex flex-col sm:flex-row items-center gap-3.5 w-full sm:w-auto">
+        <a href="index.html" class="w-full sm:w-auto px-7 py-3.5 bg-brand-green text-white font-semibold rounded-full hover:bg-emerald-700 hover:shadow-md transition-all text-xs sm:text-sm flex items-center justify-center gap-2">
+          <span>Return to Homepage</span>
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          </svg>
+        </a>
+        <a href="our-work.html" class="w-full sm:w-auto px-7 py-3.5 bg-white border border-neutral-300 text-brand-navy font-semibold rounded-full hover:bg-neutral-50 transition-all text-xs sm:text-sm flex items-center justify-center">
+          Explore Our Initiatives
+        </a>
+      </div>
+
+      <!-- Quick Directory Recovery Card -->
+      <div class="mt-14 w-full bg-white rounded-3xl p-6 sm:p-8 border border-neutral-200/90 shadow-sm text-left">
+        <span class="text-[11px] font-bold uppercase tracking-widest text-brand-green block mb-4">
+          Looking for Something Specific?
+        </span>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs">
+          
+          <a href="our-work.html#pillar-health" class="p-3.5 rounded-xl bg-brand-bg border border-neutral-200/70 hover:border-brand-green transition-all block group">
+            <span class="font-display font-bold text-brand-navy group-hover:text-brand-green transition-colors block">Health Camps</span>
+            <span class="text-neutral-500 text-[11px] mt-0.5 block">Rural &amp; urban medical clinics</span>
+          </a>
+
+          <a href="gallery.html" class="p-3.5 rounded-xl bg-brand-bg border border-neutral-200/70 hover:border-brand-green transition-all block group">
+            <span class="font-display font-bold text-brand-navy group-hover:text-brand-green transition-colors block">Photo Gallery</span>
+            <span class="text-neutral-500 text-[11px] mt-0.5 block">Verified field photography</span>
+          </a>
+
+          <a href="volunteer.html" class="p-3.5 rounded-xl bg-brand-bg border border-neutral-200/70 hover:border-brand-green transition-all block group">
+            <span class="font-display font-bold text-brand-navy group-hover:text-brand-green transition-colors block">Volunteer Portal</span>
+            <span class="text-neutral-500 text-[11px] mt-0.5 block">Join upcoming project teams</span>
+          </a>
+
+          <a href="contact.html" class="p-3.5 rounded-xl bg-brand-bg border border-neutral-200/70 hover:border-brand-green transition-all block group">
+            <span class="font-display font-bold text-brand-navy group-hover:text-brand-green transition-colors block">Free Legal Clinic</span>
+            <span class="text-neutral-500 text-[11px] mt-0.5 block">Bi-monthly Mumbai advice desk</span>
+          </a>
+
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-neutral-100 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-500 gap-2">
+          <span>Need immediate assistance or have a grievance?</span>
+          <a href="https://wa.me/919833861159" target="_blank" rel="noopener" class="font-semibold text-brand-green hover:underline">
+            WhatsApp Helpline: +91 98338 61159 →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ================================================================= -->
+  <!-- 3. FOOTER                                                         -->
+  <!-- ================================================================= -->
+  <footer class="bg-brand-navy text-white border-t border-neutral-800 py-10">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-400">
+      <div class="flex items-center gap-3">
+        <div class="w-7 h-7 rounded-lg bg-brand-green flex items-center justify-center font-marathi font-bold text-white text-xs">
+          कृ
+        </div>
+        <span>© 2019–2026 Krutadnyata Foundation (कृतज्ञता फाउंडेशन).</span>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <a href="index.html" class="hover:text-white transition-colors">Home</a>
+        <a href="our-work.html" class="hover:text-white transition-colors">Our Work</a>
+        <a href="contact.html" class="hover:text-white transition-colors">Contact</a>
+        <a href="donate.html" class="hover:text-white transition-colors">Donate</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const mobileToggle = document.getElementById('mobile-toggle');
+      const mobileClose = document.getElementById('mobile-close');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      mobileToggle.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
+      mobileClose.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
+    });
+  </script>
+</body>
+</html>

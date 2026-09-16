@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — Krutadnyata Foundation (कृतज्ञता फाउंडेशन)</title>
+  <meta name="description" content="Learn about the genesis, mission, leadership, and community charter of Krutadnyata Foundation, serving Maharashtra through grassroots initiatives since 2018–2019." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Mukta:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- GSAP & Lenis Smooth Scroll CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              green: 'var(--color-green)',
+              navy: 'var(--color-navy)',
+              mint: 'var(--color-mint)',
+              bg: 'var(--color-bg)',
+              ink: 'var(--color-ink)',
+              muted: 'var(--color-muted)',
+              accent: 'var(--color-accent)',
+              border: 'var(--color-border)',
+            }
+          },
+          fontFamily: {
+            sans: ['"Inter"', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+            marathi: ['"Mukta"', 'sans-serif'],
+          },
+          letterSpacing: {
+            tightest: '-0.035em',
+            tighter: '-0.02em',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --color-green: #00985A;
+      --color-navy: #0B2D4F;
+      --color-mint: #D6EFE5;
+      --color-bg: #FAFAF7;
+      --color-ink: #1A1A1A;
+      --color-muted: #6B7280;
+      --color-accent: #F2B84B;
+      --color-border: #E5E7EB;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-ink);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-marathi { font-family: 'Mukta', sans-serif; }
+
+    .glass-nav {
+      background: rgba(250, 250, 247, 0.9);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="selection:bg-brand-mint selection:text-brand-navy">
+
+  <!-- ================================================================= -->
+  <!-- 1. HEADER                                                         -->
+  <!-- ================================================================= -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-brand-border/60 glass-nav">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3.5 group" aria-label="Krutadnyata Foundation Home">
+        <div class="w-10 h-10 rounded-xl bg-brand-navy flex items-center justify-center text-brand-mint font-marathi font-bold text-xl transition-transform duration-300 group-hover:scale-105 shadow-sm">
+          कृ
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display font-extrabold text-lg text-brand-navy tracking-tight leading-tight">
+            KRUTADNYATA
+          </span>
+          <span class="text-[11px] font-marathi font-semibold text-brand-green tracking-wide -mt-0.5">
+            कृतज्ञता फाउंडेशन <span class="text-neutral-400 font-sans font-normal text-[10px]">• 2019</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-neutral-600">
+        <a href="index.html" class="hover:text-brand-navy transition-colors py-1">Home</a>
+        <a href="about.html" class="text-brand-navy font-semibold relative after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:right-0 after:h-0.5 after:bg-brand-green">
+          About Us
+        </a>
+        <a href="our-work.html" class="hover:text-brand-navy transition-colors py-1">Our Work</a>
+        <a href="gallery.html" class="hover:text-brand-navy transition-colors py-1">Gallery</a>
+        <a href="volunteer.html" class="hover:text-brand-navy transition-colors py-1">Volunteer</a>
+        <a href="contact.html" class="hover:text-brand-navy transition-colors py-1">Contact</a>
+      </nav>
+
+      <!-- Right Action CTA -->
+      <div class="hidden sm:flex items-center gap-5">
+        <a href="volunteer.html" class="text-xs font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
+          Join Ground Team
+        </a>
+        <a href="donate.html" class="bg-brand-green text-white text-xs font-semibold px-5 py-2.5 rounded-full hover:bg-emerald-700 active:scale-95 transition-all shadow-sm hover:shadow-md flex items-center gap-1.5">
+          <span>Donate Now</span>
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button id="mobile-toggle" aria-label="Toggle navigation menu" class="lg:hidden p-2 rounded-lg text-neutral-800 hover:bg-neutral-100 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- Mobile Overlay Menu -->
+  <div id="mobile-menu" class="fixed inset-0 bg-brand-navy/95 z-50 flex flex-col justify-between p-8 text-white translate-x-full transition-transform duration-300 lg:hidden">
+    <div class="flex items-center justify-between border-b border-white/10 pb-5">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-brand-green flex items-center justify-center text-white font-marathi font-bold text-xl">कृ</div>
+        <span class="font-display font-bold text-lg">Krutadnyata</span>
+      </div>
+      <button id="mobile-close" aria-label="Close menu" class="p-2 text-white/80 hover:text-white">
+        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="grid gap-6 text-xl font-display font-semibold">
+      <a href="index.html" class="text-white/80 hover:text-white">Home</a>
+      <a href="about.html" class="text-brand-mint">About Us</a>
+      <a href="our-work.html" class="text-white/80 hover:text-white">Our Work</a>
+      <a href="gallery.html" class="text-white/80 hover:text-white">Field Gallery</a>
+      <a href="volunteer.html" class="text-white/80 hover:text-white">Volunteer</a>
+      <a href="contact.html" class="text-white/80 hover:text-white">Contact Desk</a>
+    </div>
+
+    <div class="grid gap-3 pt-6 border-t border-white/10">
+      <a href="donate.html" class="w-full py-3.5 bg-brand-green rounded-xl text-center font-semibold text-white">Donate to Programs</a>
+      <a href="volunteer.html" class="w-full py-3.5 bg-white/10 rounded-xl text-center font-medium text-white/80">Become a Volunteer</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ================================================================= -->
+    <!-- 2. HERO: GENESIS & MEANING                                        -->
+    <!-- ================================================================= -->
+    <section class="relative pt-36 pb-20 overflow-hidden bg-gradient-to-b from-brand-mint/35 via-brand-bg to-brand-bg border-b border-brand-border/60">
+      
+      <!-- Decorative Devanagari Glyph -->
+      <div class="absolute -top-12 -right-10 text-[280px] lg:text-[440px] font-marathi font-black text-brand-mint/35 select-none pointer-events-none leading-none -z-0">
+        कृ
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-brand-border shadow-xs text-xs font-medium text-neutral-700 mb-6">
+            <span class="w-2 h-2 rounded-full bg-brand-green"></span>
+            <span>A Social Responsibility • Founded in 2018–2019</span>
+          </div>
+
+          <h1 class="font-display font-extrabold text-4xl sm:text-6xl text-brand-navy tracking-tightest leading-[1.06]">
+            Rooted in Compassion.<br />Guided by Gratitude.
+          </h1>
+
+          <p class="mt-6 text-base sm:text-lg text-neutral-600 font-normal leading-relaxed">
+            "Krutadnyata" (कृतज्ञता) translates to gratitude. We believe that true gratitude toward society is not a passive sentiment, but an active, disciplined responsibility to uplift those whom circumstances have left behind.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 3. OUR STORY & PHILOSOPHY (Split Layout)                          -->
+    <!-- ================================================================= -->
+    <section class="py-24 bg-white border-b border-brand-border">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          
+          <div class="lg:col-span-5 sticky top-28">
+            <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Genesis &amp; Founding Spirit</span>
+            <h2 class="font-display font-bold text-3xl sm:text-4xl text-brand-navy mt-2 leading-tight">
+              Bridging the divides of inequality across Maharashtra.
+            </h2>
+            <div class="mt-6 p-6 rounded-2xl bg-brand-bg border border-neutral-200/80 space-y-3">
+              <span class="text-xs font-bold text-brand-navy uppercase tracking-wider block">Foundational Creed</span>
+              <p class="text-xs text-neutral-600 leading-relaxed italic">
+                “Every individual, regardless of their circumstances, deserves the right to access quality education, basic healthcare, and unlock their full potential without the barrier of poverty.”
+              </p>
+              <span class="text-[11px] font-semibold text-brand-green block">— Krutadnyata Foundation Charter</span>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 space-y-6 text-sm text-neutral-600 leading-relaxed font-normal">
+            <p>
+              Founded in 2018 and actively operational across Maharashtra since 2019, Krutadnyata Foundation emerged from a simple collective realization: developmental solutions cannot be transient or superficial. True empowerment requires deep, sustained grassroots intervention that links <strong>education, preventive healthcare, and environmental conservation</strong>[cite: 1].
+            </p>
+            <p>
+              From our operational centers in Suburban Mumbai (Borivali, Gorai, Kandivali) to remote rural wadis in the Konkan belt (Sangameshwar, Rajapur) and dry talukas in Solapur (Sangola), our teams work directly where municipal and private infrastructure falls short[cite: 1].
+            </p>
+            <p>
+              We do not function in isolation. Our long-term impact is built by forging formal institutional ties with statutory bodies like the <strong>Bureau of Indian Standards (BIS)</strong>, the <strong>Directorate of Sports &amp; Youth Services Maharashtra</strong>, and the <strong>Maharashtra State Skill Development Corporation (MSSDC)</strong>[cite: 1].
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+              <div class="p-5 rounded-2xl bg-brand-bg border border-neutral-200/80">
+                <span class="font-display font-bold text-base text-brand-navy block mb-1">Environmental Synergy</span>
+                <p class="text-xs text-neutral-600 leading-relaxed">
+                  We recognize that community prosperity is inextricably tied to ecological wellness — hence our active tree de-nailing, sapling drives, and clean living campaigns[cite: 1].
+                </p>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-brand-bg border border-neutral-200/80">
+                <span class="font-display font-bold text-base text-brand-navy block mb-1">Inclusive Dignity</span>
+                <p class="text-xs text-neutral-600 leading-relaxed">
+                  Dedicated welfare tracks for women, the transgender community, Divyangjan, and low-income families to ensure equitable civic standing[cite: 1].
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 4. VISION & MISSION CARDS                                         -->
+    <!-- ================================================================= -->
+    <section class="py-20 bg-brand-bg border-b border-brand-border">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <!-- Vision -->
+          <div class="p-8 sm:p-12 rounded-3xl bg-white border border-neutral-200/90 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-brand-mint text-brand-green flex items-center justify-center font-bold text-xl mb-6">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+              </div>
+              <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Long-term Aspiration</span>
+              <h3 class="font-display font-bold text-2xl text-brand-navy mt-1">Our Vision</h3>
+              <p class="text-xs sm:text-sm text-neutral-600 mt-4 leading-relaxed font-normal">
+                A world where quality education serves as a universal bridge to opportunity, where every child, woman, man, transgender person, and differently-abled individual is empowered to contribute with self-sufficiency and dignity, within a sustainably protected natural ecosystem[cite: 1].
+              </p>
+            </div>
+            <div class="mt-8 pt-4 border-t border-neutral-100 text-[11px] font-semibold text-neutral-400">
+              Universal Educational Access &amp; Ecology[cite: 1]
+            </div>
+          </div>
+
+          <!-- Mission -->
+          <div class="p-8 sm:p-12 rounded-3xl bg-white border border-neutral-200/90 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-brand-navy text-white flex items-center justify-center font-bold text-xl mb-6">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <span class="text-xs font-bold uppercase tracking-widest text-brand-navy">Ground Mandate</span>
+              <h3 class="font-display font-bold text-2xl text-brand-navy mt-1">Our Mission</h3>
+              <p class="text-xs sm:text-sm text-neutral-600 mt-4 leading-relaxed font-normal">
+                To uplift those excluded from opportunities through free preventive healthcare, civil services and professional entrance coaching, accredited technical skilling, environmental remediation, and emergency aid — working hand in hand with community leaders, colleges, and statutory bodies[cite: 1].
+              </p>
+            </div>
+            <div class="mt-8 pt-4 border-t border-neutral-100 text-[11px] font-semibold text-neutral-400">
+              Practical Action Since 2019[cite: 1]
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 5. LEADERSHIP & COMMITTED ADVISORS                                -->
+    <!-- ================================================================= -->
+    <section class="py-24 bg-white border-b border-brand-border">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        
+        <div class="max-w-2xl mb-16">
+          <span class="text-xs font-bold uppercase tracking-widest text-brand-green">On-Ground Stewards</span>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-brand-navy mt-1">Key Leadership &amp; Advisors</h2>
+          <p class="text-xs sm:text-sm text-neutral-500 mt-2 leading-relaxed">
+            Medical practitioners, educational trustees, and civic leaders documented across our work reports who guide our programmatic initiatives[cite: 1].
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          
+          <!-- Leader 1 -->
+          <div class="bg-brand-bg rounded-2xl p-6 border border-neutral-200/80 flex flex-col justify-between">
+            <div>
+              <div class="w-16 h-16 rounded-2xl bg-neutral-200 flex items-center justify-center font-display font-bold text-brand-navy text-xl mb-5">
+                PL
+              </div>
+              <h3 class="font-display font-bold text-base text-brand-navy">Dr. Pradnya Lokhande</h3>
+              <span class="text-[11px] font-semibold text-brand-green uppercase tracking-wider block mt-0.5">Trustee &amp; Medical Coordinator</span>
+              <p class="text-xs text-neutral-600 mt-3 leading-relaxed">
+                Leads healthcare camp logistics and educational outreach programs across Mumbai and Konkan regions[cite: 1].
+              </p>
+            </div>
+            <div class="mt-6 pt-3 border-t border-neutral-200/60 text-[10px] text-neutral-400 font-semibold uppercase">
+              Krutadnyata Foundation[cite: 1]
+            </div>
+          </div>
+
+          <!-- Leader 2 -->
+          <div class="bg-brand-bg rounded-2xl p-6 border border-neutral-200/80 flex flex-col justify-between">
+            <div>
+              <div class="w-16 h-16 rounded-2xl bg-neutral-200 flex items-center justify-center font-display font-bold text-brand-navy text-xl mb-5">
+                MK
+              </div>
+              <h3 class="font-display font-bold text-base text-brand-navy">Vaidya Mangesh Khade</h3>
+              <span class="text-[11px] font-semibold text-brand-green uppercase tracking-wider block mt-0.5">Ayurvedic Health Director</span>
+              <p class="text-xs text-neutral-600 mt-3 leading-relaxed">
+                Director at Pushkar Ayurvedic Health Center; drives rural health screening camps in Gorai, Sangola, and Pachal[cite: 1].
+              </p>
+            </div>
+            <div class="mt-6 pt-3 border-t border-neutral-200/60 text-[10px] text-neutral-400 font-semibold uppercase">
+              Pushkar Ayurvedic Center[cite: 1]
+            </div>
+          </div>
+
+          <!-- Leader 3 -->
+          <div class="bg-brand-bg rounded-2xl p-6 border border-neutral-200/80 flex flex-col justify-between">
+            <div>
+              <div class="w-16 h-16 rounded-2xl bg-neutral-200 flex items-center justify-center font-display font-bold text-brand-navy text-xl mb-5">
+                SL
+              </div>
+              <h3 class="font-display font-bold text-base text-brand-navy">Shrikant Lokhande</h3>
+              <span class="text-[11px] font-semibold text-brand-green uppercase tracking-wider block mt-0.5">Institutional Patron</span>
+              <p class="text-xs text-neutral-600 mt-3 leading-relaxed">
+                President of Namita Education Society; collaborates on environmental drives, sports days, and student facilities[cite: 1].
+              </p>
+            </div>
+            <div class="mt-6 pt-3 border-t border-neutral-200/60 text-[10px] text-neutral-400 font-semibold uppercase">
+              Education &amp; Environment Patron[cite: 1]
+            </div>
+          </div>
+
+          <!-- Leader 4 -->
+          <div class="bg-brand-bg rounded-2xl p-6 border border-neutral-200/80 flex flex-col justify-between">
+            <div>
+              <div class="w-16 h-16 rounded-2xl bg-neutral-200 flex items-center justify-center font-display font-bold text-brand-navy text-xl mb-5">
+                SS
+              </div>
+              <h3 class="font-display font-bold text-base text-brand-navy">Sambhaji Shirsath</h3>
+              <span class="text-[11px] font-semibold text-brand-green uppercase tracking-wider block mt-0.5">Academic Event Advisor</span>
+              <p class="text-xs text-neutral-600 mt-3 leading-relaxed">
+                Senior Advisor coordinating inter-college seminars, World Environment Day events, and student welfare initiatives[cite: 1].
+              </p>
+            </div>
+            <div class="mt-6 pt-3 border-t border-neutral-200/60 text-[10px] text-neutral-400 font-semibold uppercase">
+              Siddharth College Advisory[cite: 1]
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 6. GOVERNANCE & STATUTORY TRANSPARENCY                            -->
+    <!-- ================================================================= -->
+    <section class="py-20 bg-brand-bg border-b border-brand-border">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        
+        <div class="bg-brand-navy text-white rounded-3xl p-8 sm:p-14 relative overflow-hidden">
+          <div class="absolute -right-16 -top-16 w-80 h-80 rounded-full bg-brand-green/20 blur-3xl pointer-events-none"></div>
+
+          <div class="relative z-10 max-w-3xl">
+            <span class="text-xs font-bold uppercase tracking-widest text-brand-accent mb-2 block">Accountability</span>
+            <h3 class="font-display font-bold text-2xl sm:text-4xl text-white leading-tight">
+              Governance Built on Documented Truth
+            </h3>
+            <p class="mt-4 text-xs sm:text-sm text-neutral-300 leading-relaxed font-normal">
+              We operate under strict transparency benchmarks. Every health camp attendance ledger, blood unit donation slip, and student uniform receipt is preserved in our public annual work reports[cite: 1].
+            </p>
+
+            <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+              <div class="p-4 rounded-xl bg-white/10 border border-white/10">
+                <span class="text-brand-accent font-bold block mb-1">Public Trust</span>
+                <span class="text-neutral-300">Mumbai Charity Commissioner records [TO CONFIRM: Trust Reg No.]</span>
+              </div>
+              <div class="p-4 rounded-xl bg-white/10 border border-white/10">
+                <span class="text-brand-accent font-bold block mb-1">Tax Deductible</span>
+                <span class="text-neutral-300">80G &amp; 12A Certification [TO CONFIRM: 80G Order No.]</span>
+              </div>
+              <div class="p-4 rounded-xl bg-white/10 border border-white/10">
+                <span class="text-brand-accent font-bold block mb-1">Public Audits</span>
+                <span class="text-neutral-300">Complete 2019–2025 work report open for CSR verification[cite: 1]</span>
+              </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center gap-4">
+              <a href="gallery.html" class="px-6 py-3.5 rounded-full bg-brand-green text-white font-semibold text-xs hover:bg-emerald-700 transition-colors">
+                View Field Evidence Gallery
+              </a>
+              <a href="contact.html" class="px-6 py-3.5 rounded-full bg-white/10 text-white font-semibold text-xs hover:bg-white/20 transition-colors">
+                Connect with Secretariat
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ================================================================= -->
+  <!-- 7. FOOTER                                                         -->
+  <!-- ================================================================= -->
+  <footer class="bg-brand-navy text-white border-t border-neutral-800 pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-16 border-b border-white/10">
+        
+        <div class="lg:col-span-4 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-brand-green flex items-center justify-center font-marathi font-bold text-white text-lg">कृ</div>
+            <span class="font-display font-extrabold text-xl text-white tracking-tight">Krutadnyata Foundation</span>
+          </div>
+          <p class="text-xs text-neutral-300 leading-relaxed font-normal">
+            A Maharashtra-based registered social organisation dedicated to bridging educational inequalities, conducting preventive healthcare, and empowering communities since 2019[cite: 1].
+          </p>
+          <div class="text-xs text-neutral-400 space-y-1">
+            <p><strong>Charity Reg:</strong> [TO CONFIRM: Trust Registration Number]</p>
+            <p><strong>Head Office:</strong> [TO CONFIRM: Official Registered Address], Suburban Mumbai, Maharashtra</p>
+            <p><strong>Helpline:</strong> +91 98338 61159[cite: 1]</p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-2 space-y-3 text-xs">
+          <p class="font-display font-bold text-white uppercase tracking-wider text-[11px]">Programs</p>
+          <ul class="space-y-2 text-neutral-300">
+            <li><a href="our-work.html#pillar-health" class="hover:text-brand-mint transition-colors">Health Camps</a></li>
+            <li><a href="our-work.html#pillar-education" class="hover:text-brand-mint transition-colors">Civil Services</a></li>
+            <li><a href="our-work.html#pillar-sports" class="hover:text-brand-mint transition-colors">Sports Marathons</a></li>
+            <li><a href="our-work.html#pillar-environment" class="hover:text-brand-mint transition-colors">Tree Protection</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-2 space-y-3 text-xs">
+          <p class="font-display font-bold text-white uppercase tracking-wider text-[11px]">Explore</p>
+          <ul class="space-y-2 text-neutral-300">
+            <li><a href="index.html" class="hover:text-brand-mint transition-colors">Home</a></li>
+            <li><a href="about.html" class="hover:text-brand-mint transition-colors">About Us</a></li>
+            <li><a href="our-work.html" class="hover:text-brand-mint transition-colors">Our Work</a></li>
+            <li><a href="gallery.html" class="hover:text-brand-mint transition-colors">Field Gallery</a></li>
+            <li><a href="volunteer.html" class="hover:text-brand-mint transition-colors">Volunteer</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-4 space-y-4">
+          <p class="font-display font-bold text-white uppercase tracking-wider text-[11px]">Official Contact</p>
+          <p class="text-xs text-neutral-300 leading-relaxed">Have questions about our charter, governance, or institutional partnerships?</p>
+          <a href="contact.html" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold transition-colors">
+            <span>Contact Secretarial Desk</span>
+            <span>→</span>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-neutral-400 gap-4">
+        <div>
+          © 2019–2026 Krutadnyata Foundation (कृतज्ञता फाउंडेशन). All public contributions are utilized strictly towards community welfare programs.
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-neutral-200 transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-neutral-200 transition-colors">Governance Charter</a>
+          <a href="#" class="hover:text-neutral-200 transition-colors">80G Verification</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================================================================= -->
+  <!-- JAVASCRIPT LOGIC                                                  -->
+  <!-- ================================================================= -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Lenis Smooth Scrolling
+      const lenis = new Lenis({
+        duration: 1.1,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smooth: true,
+      });
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // 2. Mobile Menu
+      const mobileToggle = document.getElementById('mobile-toggle');
+      const mobileClose = document.getElementById('mobile-close');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      mobileToggle.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
+      mobileClose.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
+    });
+  </script>
+</body>
+</html>
