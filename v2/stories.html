@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us — Krutadnyata Foundation (कृतज्ञता फाउंडेशन)</title>
-  <meta name="description" content="Learn about the genesis, mission, leadership, and community charter of Krutadnyata Foundation, serving Maharashtra through grassroots initiatives since 2018–2019." />
+  <title>Stories from the Ground — Krutadnyata Foundation (कृतज्ञता फाउंडेशन)</title>
+  <meta name="description" content="Read first-person beneficiary stories, patient relief accounts, student success journeys, and ground testimonials from Krutadnyata Foundation across Maharashtra." />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,9 +14,7 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- GSAP & Lenis Smooth Scroll CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Lenis Smooth Scroll CDN -->
   <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
 
   <script>
@@ -78,6 +76,17 @@
       -webkit-backdrop-filter: blur(14px);
     }
 
+    /* Video modal styles */
+    #video-modal {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #video-modal.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
@@ -85,7 +94,7 @@
 <body class="selection:bg-brand-mint selection:text-brand-navy">
 
   <!-- ================================================================= -->
-  <!-- 1. HEADER                                                         -->
+  <!-- 1. STICKY HEADER                                                  -->
   <!-- ================================================================= -->
   <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-brand-border/60 glass-nav">
     <div class="max-w-7xl mx-auto px-5 sm:px-8 h-24 flex items-center justify-between">
@@ -166,7 +175,7 @@
     </div>
   </header>
 
-  <!-- Mobile Overlay Menu -->
+  <!-- Mobile Menu Drawer -->
   <div id="mobile-menu" class="fixed inset-0 bg-brand-navy/95 z-50 flex flex-col justify-between p-8 text-white translate-x-full transition-transform duration-300 xl:hidden overflow-y-auto">
     <div class="flex items-center justify-between border-b border-white/10 pb-5">
       <div class="flex items-center gap-3">
@@ -199,130 +208,118 @@
 
   <main>
     <!-- ================================================================= -->
-    <!-- 2. HERO: GENESIS & MEANING                                        -->
+    <!-- 2. STORIES HERO                                                   -->
     <!-- ================================================================= -->
-    <section class="relative pt-36 pb-20 overflow-hidden bg-gradient-to-b from-brand-mint/35 via-brand-bg to-brand-bg border-b border-brand-border/60">
-      
-      <!-- Decorative Devanagari Glyph -->
-      <div class="absolute -top-12 -right-10 text-[280px] lg:text-[440px] font-marathi font-black text-brand-mint/35 select-none pointer-events-none leading-none -z-0">
-        कृ
-      </div>
+    <section class="relative pt-36 pb-10 overflow-hidden bg-gradient-to-b from-brand-mint/30 via-brand-bg to-brand-bg">
 
       <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8">
-        <div class="max-w-3xl">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-brand-border shadow-xs text-xs font-medium text-neutral-700 mb-6">
-            <span class="w-2 h-2 rounded-full bg-brand-green"></span>
-            <span>A Social Responsibility • Founded in 2018–2019</span>
-          </div>
 
-          <h1 class="font-display font-extrabold text-4xl sm:text-6xl text-brand-navy tracking-tightest leading-[1.06]">
-            Rooted in Compassion.<br />Guided by Gratitude.
+        <div class="max-w-4xl mx-auto text-center">
+          <div class="flex items-center justify-center gap-4 mb-5">
+            <span class="h-px w-10 bg-neutral-300"></span>
+            <span class="text-[11px] font-bold uppercase tracking-[0.3em] text-neutral-500">Stories</span>
+            <span class="h-px w-10 bg-neutral-300"></span>
+          </div>
+          <h1 class="font-display font-bold text-3xl sm:text-5xl text-brand-navy leading-[1.15]">
+            Every Number Represents a Living Human Being.
           </h1>
-
-          <p class="mt-6 text-base sm:text-lg text-neutral-600 font-normal leading-relaxed">
-            "Krutadnyata" (कृतज्ञता) translates to gratitude. We believe that true gratitude toward society is not a passive sentiment, but an active, disciplined responsibility to uplift those whom circumstances have left behind.
-          </p>
+          <div class="mt-6 flex items-center justify-center">
+            <span class="h-px w-16 bg-brand-green"></span>
+          </div>
         </div>
+
+
       </div>
     </section>
 
     <!-- ================================================================= -->
-    <!-- 3. OUR STORY & PHILOSOPHY (Split Layout)                          -->
+    <!-- 4. ON-GROUND VIDEO DOCUMENTARIES & TESTIMONIALS                   -->
     <!-- ================================================================= -->
-    <section class="py-24 bg-white border-b border-brand-border">
+    <section class="pt-8 pb-20 bg-brand-bg border-b border-brand-border">
       <div class="max-w-7xl mx-auto px-5 sm:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          
-          <div class="lg:col-span-5 sticky top-28">
-            <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Genesis &amp; Founding Spirit</span>
-            <h2 class="font-display font-bold text-3xl sm:text-4xl text-brand-navy mt-2 leading-tight">
-              Bridging the divides of inequality across Maharashtra.
-            </h2>
-            <div class="mt-6 p-6 rounded-2xl bg-brand-bg border border-neutral-200/80 space-y-3">
-              <span class="text-xs font-bold text-brand-navy uppercase tracking-wider block">Foundational Creed</span>
-              <p class="text-xs text-neutral-600 leading-relaxed italic">
-                “Every individual, regardless of their circumstances, deserves the right to access quality education, basic healthcare, and unlock their full potential without the barrier of poverty.”
-              </p>
-              <span class="text-[11px] font-semibold text-brand-green block">— Krutadnyata Foundation Charter</span>
-            </div>
-          </div>
 
-          <div class="lg:col-span-7 space-y-6 text-sm text-neutral-600 leading-relaxed font-normal">
-            <p>
-              Founded in 2018 and actively operational across Maharashtra since 2019, Krutadnyata Foundation emerged from a simple collective realization: developmental solutions cannot be transient or superficial. True empowerment requires deep, sustained grassroots intervention that links <strong>education, preventive healthcare, and environmental conservation</strong>[cite: 1].
-            </p>
-            <p>
-              From our operational centers in Suburban Mumbai (Borivali, Gorai, Kandivali) to remote rural wadis in the Konkan belt (Sangameshwar, Rajapur) and dry talukas in Solapur (Sangola), our teams work directly where municipal and private infrastructure falls short[cite: 1].
-            </p>
-            <p>
-              We do not function in isolation. Our long-term impact is built by forging formal institutional ties with statutory bodies like the <strong>Bureau of Indian Standards (BIS)</strong>, the <strong>Directorate of Sports &amp; Youth Services Maharashtra</strong>, and the <strong>Maharashtra State Skill Development Corporation (MSSDC)</strong>[cite: 1].
-            </p>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
-              <div class="p-5 rounded-2xl bg-brand-bg border border-neutral-200/80">
-                <span class="font-display font-bold text-base text-brand-navy block mb-1">Environmental Synergy</span>
-                <p class="text-xs text-neutral-600 leading-relaxed">
-                  We recognize that community prosperity is inextricably tied to ecological wellness — hence our active tree de-nailing, sapling drives, and clean living campaigns[cite: 1].
-                </p>
-              </div>
-
-              <div class="p-5 rounded-2xl bg-brand-bg border border-neutral-200/80">
-                <span class="font-display font-bold text-base text-brand-navy block mb-1">Inclusive Dignity</span>
-                <p class="text-xs text-neutral-600 leading-relaxed">
-                  Dedicated welfare tracks for women, the transgender community, Divyangjan, and low-income families to ensure equitable civic standing[cite: 1].
-                </p>
-              </div>
-            </div>
-          </div>
-
+        <div class="mb-12">
+          <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Live Perspectives</span>
+          <h2 class="font-display font-bold text-3xl text-brand-navy mt-1">Ground Documentaries &amp; Field Footage</h2>
         </div>
-      </div>
-    </section>
 
-    <!-- ================================================================= -->
-    <!-- 4. VISION & MISSION CARDS                                         -->
-    <!-- ================================================================= -->
-    <section class="py-20 bg-brand-bg border-b border-brand-border">
-      <div class="max-w-7xl mx-auto px-5 sm:px-8">
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          
-          <!-- Vision -->
-          <div class="p-8 sm:p-12 rounded-3xl bg-white border border-neutral-200/90 shadow-sm flex flex-col justify-between">
-            <div>
-              <div class="w-12 h-12 rounded-2xl bg-brand-mint text-brand-green flex items-center justify-center font-bold text-xl mb-6">
-                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                </svg>
-              </div>
-              <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Long-term Aspiration</span>
-              <h3 class="font-display font-bold text-2xl text-brand-navy mt-1">Our Vision</h3>
-              <p class="text-xs sm:text-sm text-neutral-600 mt-4 leading-relaxed font-normal">
-                A world where quality education serves as a universal bridge to opportunity, where every child, woman, man, transgender person, and differently-abled individual is empowered to contribute with self-sufficiency and dignity, within a sustainably protected natural ecosystem[cite: 1].
-              </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <!-- Video Card 1 -->
+          <div class="video-card group cursor-pointer relative aspect-[4/5] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" data-video-title="1,200 Runners at the BIS Quality Run" data-video-meta="Borivali, Mumbai • Sailee Degree College" data-video-id="aqz-KE-bpKQ">
+            <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=600&h=750&fit=crop" alt="BIS Quality Run" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/50"></div>
+            <div class="absolute top-4 left-4 right-4">
+              <h3 class="font-display font-bold text-white text-base leading-snug">1,200 Runners at the BIS Quality Run</h3>
+              <p class="text-xs text-neutral-200 mt-1">Borivali, Mumbai</p>
             </div>
-            <div class="mt-8 pt-4 border-t border-neutral-100 text-[11px] font-semibold text-neutral-400">
-              Universal Educational Access &amp; Ecology[cite: 1]
+            <div class="absolute bottom-4 left-4 w-11 h-11 rounded-full bg-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+              <svg class="w-4 h-4 text-brand-navy ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             </div>
           </div>
 
-          <!-- Mission -->
-          <div class="p-8 sm:p-12 rounded-3xl bg-white border border-neutral-200/90 shadow-sm flex flex-col justify-between">
-            <div>
-              <div class="w-12 h-12 rounded-2xl bg-brand-navy text-white flex items-center justify-center font-bold text-xl mb-6">
-                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <span class="text-xs font-bold uppercase tracking-widest text-brand-navy">Ground Mandate</span>
-              <h3 class="font-display font-bold text-2xl text-brand-navy mt-1">Our Mission</h3>
-              <p class="text-xs sm:text-sm text-neutral-600 mt-4 leading-relaxed font-normal">
-                To uplift those excluded from opportunities through free preventive healthcare, civil services and professional entrance coaching, accredited technical skilling, environmental remediation, and emergency aid — working hand in hand with community leaders, colleges, and statutory bodies[cite: 1].
-              </p>
+          <!-- Video Card 2 -->
+          <div class="video-card group cursor-pointer relative aspect-[4/5] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" data-video-title="Sangameshwar Rural Ayurvedic Health Camp" data-video-meta="Dhamapur Dhanawade Wadi, Ratnagiri" data-video-id="eRsGyueVLvQ">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=750&fit=crop" alt="Rural Ayurvedic Health Camp" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/50"></div>
+            <div class="absolute top-4 left-4 right-4">
+              <h3 class="font-display font-bold text-white text-base leading-snug">Sangameshwar Rural Ayurvedic Health Camp</h3>
+              <p class="text-xs text-neutral-200 mt-1">Dhamapur Dhanawade Wadi, Ratnagiri</p>
             </div>
-            <div class="mt-8 pt-4 border-t border-neutral-100 text-[11px] font-semibold text-neutral-400">
-              Practical Action Since 2019[cite: 1]
+            <div class="absolute bottom-4 left-4 w-11 h-11 rounded-full bg-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+              <svg class="w-4 h-4 text-brand-navy ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+
+          <!-- Video Card 3 -->
+          <div class="video-card group cursor-pointer relative aspect-[4/5] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" data-video-title="MSSDC Web Development & Accounts Batch" data-video-meta="Aarya Skill Development Centre" data-video-id="R6MlUcmOul8">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=750&fit=crop" alt="MSSDC Web Development Batch" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/50"></div>
+            <div class="absolute top-4 left-4 right-4">
+              <h3 class="font-display font-bold text-white text-base leading-snug">MSSDC Web Development &amp; Accounts Batch</h3>
+              <p class="text-xs text-neutral-200 mt-1">Aarya Skill Development Centre</p>
+            </div>
+            <div class="absolute bottom-4 left-4 w-11 h-11 rounded-full bg-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+              <svg class="w-4 h-4 text-brand-navy ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+
+          <!-- Video Card 4 -->
+          <div class="video-card group cursor-pointer relative aspect-[4/5] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" data-video-title="Borivali Blood Donation Camp" data-video-meta="MHB Colony, Borivali West, Mumbai" data-video-id="aqz-KE-bpKQ">
+            <img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=600&h=750&fit=crop" alt="Borivali Blood Donation Camp" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/50"></div>
+            <div class="absolute top-4 left-4 right-4">
+              <h3 class="font-display font-bold text-white text-base leading-snug">Borivali Blood Donation Camp</h3>
+              <p class="text-xs text-neutral-200 mt-1">MHB Colony, Borivali West</p>
+            </div>
+            <div class="absolute bottom-4 left-4 w-11 h-11 rounded-full bg-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+              <svg class="w-4 h-4 text-brand-navy ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+
+          <!-- Video Card 5 -->
+          <div class="video-card group cursor-pointer relative aspect-[4/5] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" data-video-title="World Environment Day Tree Plantation" data-video-meta="Siddharth College, Badlapur, Thane" data-video-id="eRsGyueVLvQ">
+            <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?w=600&h=750&fit=crop" alt="Tree Plantation Drive" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/50"></div>
+            <div class="absolute top-4 left-4 right-4">
+              <h3 class="font-display font-bold text-white text-base leading-snug">World Environment Day Tree Plantation</h3>
+              <p class="text-xs text-neutral-200 mt-1">Badlapur, Thane</p>
+            </div>
+            <div class="absolute bottom-4 left-4 w-11 h-11 rounded-full bg-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+              <svg class="w-4 h-4 text-brand-navy ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+
+          <!-- Video Card 6 -->
+          <div class="video-card group cursor-pointer relative aspect-[4/5] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" data-video-title="State Sports Day Marathon 2026" data-video-meta="Suburban Mumbai, Maharashtra" data-video-id="R6MlUcmOul8">
+            <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=600&h=750&fit=crop" alt="State Sports Day Marathon" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/50"></div>
+            <div class="absolute top-4 left-4 right-4">
+              <h3 class="font-display font-bold text-white text-base leading-snug">State Sports Day Marathon 2026</h3>
+              <p class="text-xs text-neutral-200 mt-1">Suburban Mumbai</p>
+            </div>
+            <div class="absolute bottom-4 left-4 w-11 h-11 rounded-full bg-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+              <svg class="w-4 h-4 text-brand-navy ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             </div>
           </div>
 
@@ -331,143 +328,32 @@
       </div>
     </section>
 
-    <!-- ================================================================= -->
-    <!-- 5. LEADERSHIP & COMMITTED ADVISORS                                -->
-    <!-- ================================================================= -->
-    <section class="py-24 bg-white border-b border-brand-border">
-      <div class="max-w-7xl mx-auto px-5 sm:px-8">
-        
-        <div class="max-w-2xl mb-16">
-          <span class="text-xs font-bold uppercase tracking-widest text-brand-green">On-Ground Stewards</span>
-          <h2 class="font-display font-bold text-3xl sm:text-4xl text-brand-navy mt-1">Key Leadership &amp; Advisors</h2>
-          <p class="text-xs sm:text-sm text-neutral-500 mt-2 leading-relaxed">
-            Medical practitioners, educational trustees, and civic leaders documented across our work reports who guide our programmatic initiatives[cite: 1].
-          </p>
-        </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          
-          <!-- Leader 1 -->
-          <div class="bg-brand-bg rounded-2xl p-6 border border-neutral-200/80 flex flex-col justify-between">
-            <div>
-              <div class="w-16 h-16 rounded-2xl bg-neutral-200 flex items-center justify-center font-display font-bold text-brand-navy text-xl mb-5">
-                PL
-              </div>
-              <h3 class="font-display font-bold text-base text-brand-navy">Dr. Pradnya Lokhande</h3>
-              <span class="text-[11px] font-semibold text-brand-green uppercase tracking-wider block mt-0.5">Trustee &amp; Medical Coordinator</span>
-              <p class="text-xs text-neutral-600 mt-3 leading-relaxed">
-                Leads healthcare camp logistics and educational outreach programs across Mumbai and Konkan regions[cite: 1].
-              </p>
-            </div>
-            <div class="mt-6 pt-3 border-t border-neutral-200/60 text-[10px] text-neutral-400 font-semibold uppercase">
-              Krutadnyata Foundation[cite: 1]
-            </div>
-          </div>
-
-          <!-- Leader 2 -->
-          <div class="bg-brand-bg rounded-2xl p-6 border border-neutral-200/80 flex flex-col justify-between">
-            <div>
-              <div class="w-16 h-16 rounded-2xl bg-neutral-200 flex items-center justify-center font-display font-bold text-brand-navy text-xl mb-5">
-                MK
-              </div>
-              <h3 class="font-display font-bold text-base text-brand-navy">Vaidya Mangesh Khade</h3>
-              <span class="text-[11px] font-semibold text-brand-green uppercase tracking-wider block mt-0.5">Ayurvedic Health Director</span>
-              <p class="text-xs text-neutral-600 mt-3 leading-relaxed">
-                Director at Pushkar Ayurvedic Health Center; drives rural health screening camps in Gorai, Sangola, and Pachal[cite: 1].
-              </p>
-            </div>
-            <div class="mt-6 pt-3 border-t border-neutral-200/60 text-[10px] text-neutral-400 font-semibold uppercase">
-              Pushkar Ayurvedic Center[cite: 1]
-            </div>
-          </div>
-
-          <!-- Leader 3 -->
-          <div class="bg-brand-bg rounded-2xl p-6 border border-neutral-200/80 flex flex-col justify-between">
-            <div>
-              <div class="w-16 h-16 rounded-2xl bg-neutral-200 flex items-center justify-center font-display font-bold text-brand-navy text-xl mb-5">
-                SL
-              </div>
-              <h3 class="font-display font-bold text-base text-brand-navy">Shrikant Lokhande</h3>
-              <span class="text-[11px] font-semibold text-brand-green uppercase tracking-wider block mt-0.5">Institutional Patron</span>
-              <p class="text-xs text-neutral-600 mt-3 leading-relaxed">
-                President of Namita Education Society; collaborates on environmental drives, sports days, and student facilities[cite: 1].
-              </p>
-            </div>
-            <div class="mt-6 pt-3 border-t border-neutral-200/60 text-[10px] text-neutral-400 font-semibold uppercase">
-              Education &amp; Environment Patron[cite: 1]
-            </div>
-          </div>
-
-          <!-- Leader 4 -->
-          <div class="bg-brand-bg rounded-2xl p-6 border border-neutral-200/80 flex flex-col justify-between">
-            <div>
-              <div class="w-16 h-16 rounded-2xl bg-neutral-200 flex items-center justify-center font-display font-bold text-brand-navy text-xl mb-5">
-                SS
-              </div>
-              <h3 class="font-display font-bold text-base text-brand-navy">Sambhaji Shirsath</h3>
-              <span class="text-[11px] font-semibold text-brand-green uppercase tracking-wider block mt-0.5">Academic Event Advisor</span>
-              <p class="text-xs text-neutral-600 mt-3 leading-relaxed">
-                Senior Advisor coordinating inter-college seminars, World Environment Day events, and student welfare initiatives[cite: 1].
-              </p>
-            </div>
-            <div class="mt-6 pt-3 border-t border-neutral-200/60 text-[10px] text-neutral-400 font-semibold uppercase">
-              Siddharth College Advisory[cite: 1]
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ================================================================= -->
-    <!-- 6. GOVERNANCE & STATUTORY TRANSPARENCY                            -->
-    <!-- ================================================================= -->
-    <section class="py-20 bg-brand-bg border-b border-brand-border">
-      <div class="max-w-7xl mx-auto px-5 sm:px-8">
-        
-        <div class="bg-brand-navy text-white rounded-3xl p-8 sm:p-14 relative overflow-hidden">
-          <div class="absolute -right-16 -top-16 w-80 h-80 rounded-full bg-brand-green/20 blur-3xl pointer-events-none"></div>
-
-          <div class="relative z-10 max-w-3xl">
-            <span class="text-xs font-bold uppercase tracking-widest text-brand-accent mb-2 block">Accountability</span>
-            <h3 class="font-display font-bold text-2xl sm:text-4xl text-white leading-tight">
-              Governance Built on Documented Truth
-            </h3>
-            <p class="mt-4 text-xs sm:text-sm text-neutral-300 leading-relaxed font-normal">
-              We operate under strict transparency benchmarks. Every health camp attendance ledger, blood unit donation slip, and student uniform receipt is preserved in our public annual work reports[cite: 1].
-            </p>
-
-            <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
-              <div class="p-4 rounded-xl bg-white/10 border border-white/10">
-                <span class="text-brand-accent font-bold block mb-1">Public Trust</span>
-                <span class="text-neutral-300">Mumbai Charity Commissioner records [TO CONFIRM: Trust Reg No.]</span>
-              </div>
-              <div class="p-4 rounded-xl bg-white/10 border border-white/10">
-                <span class="text-brand-accent font-bold block mb-1">Tax Deductible</span>
-                <span class="text-neutral-300">80G &amp; 12A Certification [TO CONFIRM: 80G Order No.]</span>
-              </div>
-              <div class="p-4 rounded-xl bg-white/10 border border-white/10">
-                <span class="text-brand-accent font-bold block mb-1">Public Audits</span>
-                <span class="text-neutral-300">Complete 2019–2025 work report open for CSR verification[cite: 1]</span>
-              </div>
-            </div>
-
-            <div class="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center gap-4">
-              <a href="gallery.html" class="px-6 py-3.5 rounded-full bg-brand-green text-white font-semibold text-xs hover:bg-emerald-700 transition-colors">
-                View Field Evidence Gallery
-              </a>
-              <a href="contact.html" class="px-6 py-3.5 rounded-full bg-white/10 text-white font-semibold text-xs hover:bg-white/20 transition-colors">
-                Connect with Secretariat
-              </a>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
   </main>
+
+  <!-- ================================================================= -->
+  <!-- VIDEO MODAL PREVIEW                                               -->
+  <!-- ================================================================= -->
+  <div id="video-modal" class="fixed inset-0 z-50 bg-brand-navy/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8">
+    <div class="relative max-w-3xl w-full bg-neutral-900 rounded-3xl overflow-hidden shadow-2xl border border-white/10 p-6">
+
+      <button id="modal-close" class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <div class="aspect-video bg-neutral-800 rounded-2xl overflow-hidden border border-white/5">
+        <iframe id="video-modal-iframe" class="w-full h-full" src="" title="Video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+
+      <div class="pt-4">
+        <h4 id="video-modal-title" class="font-display font-bold text-lg text-white">Video Documentary</h4>
+        <p id="video-modal-meta" class="text-xs text-neutral-400 mt-1">Field Documentation Preview</p>
+      </div>
+
+    </div>
+  </div>
 
   <!-- ================================================================= -->
   <!-- 7. FOOTER                                                         -->
@@ -572,6 +458,46 @@
 
       mobileToggle.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
       mobileClose.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
+
+      // 4. Video Modal Handler
+      const videoCards = document.querySelectorAll('.video-card');
+      const videoModal = document.getElementById('video-modal');
+      const modalClose = document.getElementById('modal-close');
+      const modalTitle = document.getElementById('video-modal-title');
+      const modalMeta = document.getElementById('video-modal-meta');
+      const modalIframe = document.getElementById('video-modal-iframe');
+
+      videoCards.forEach((card) => {
+        card.addEventListener('click', () => {
+          const title = card.getAttribute('data-video-title');
+          const meta = card.getAttribute('data-video-meta');
+          const videoId = card.getAttribute('data-video-id');
+
+          modalTitle.textContent = title;
+          modalMeta.textContent = meta;
+          modalIframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0';
+
+          videoModal.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      const closeVideo = () => {
+        videoModal.classList.remove('open');
+        document.body.style.overflow = '';
+        modalIframe.src = '';
+      };
+
+      modalClose.addEventListener('click', closeVideo);
+      videoModal.addEventListener('click', (e) => {
+        if (e.target === videoModal) closeVideo();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && videoModal.classList.contains('open')) {
+          closeVideo();
+        }
+      });
     });
   </script>
   <script>

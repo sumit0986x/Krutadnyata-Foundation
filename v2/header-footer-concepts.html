@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Header &amp; Footer Concepts — Krutadnyata Foundation</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Mukta:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              green: 'var(--color-green)',
+              navy: 'var(--color-navy)',
+              mint: 'var(--color-mint)',
+              bg: 'var(--color-bg)',
+              ink: 'var(--color-ink)',
+              muted: 'var(--color-muted)',
+              accent: 'var(--color-accent)',
+              border: 'var(--color-border)',
+            }
+          },
+          fontFamily: {
+            sans: ['"Inter"', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+            marathi: ['"Mukta"', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --color-green: #00985A;
+      --color-navy: #0B2D4F;
+      --color-mint: #D6EFE5;
+      --color-bg: #FAFAF7;
+      --color-ink: #1A1A1A;
+      --color-muted: #6B7280;
+      --color-accent: #F2B84B;
+      --color-border: #E5E7EB;
+    }
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-ink);
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-marathi { font-family: 'Mukta', sans-serif; }
+    .label-bar {
+      background: var(--color-navy);
+      color: white;
+    }
+    .demo-body {
+      height: 220px;
+      background:
+        repeating-linear-gradient(135deg, #eef1ec, #eef1ec 12px, #e7ebe4 12px, #e7ebe4 24px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #9CA3AF;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="label-bar px-5 py-3 text-center text-xs sm:text-sm font-semibold tracking-wide sticky top-0 z-50">
+    Header &amp; Footer Concepts Preview — sirf comparison ke liye, live site change nahi hui
+  </div>
+
+  <!-- =================================================================== -->
+  <!-- HEADER A — Current refined (glass, centered nav)                    -->
+  <!-- =================================================================== -->
+  <div class="bg-brand-navy text-white text-center py-2 text-[11px] font-bold uppercase tracking-widest">Header A — Glass Minimal (current style, polished)</div>
+  <header class="relative border-b border-brand-border/60" style="background: rgba(250,250,247,0.95);">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 h-24 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="assets/Krutadnyata Foundation logo (icon only).png" class="h-11 w-auto" alt="" />
+        <div class="leading-tight">
+          <p class="font-display font-extrabold text-brand-navy text-base">KRUTADNYATA</p>
+          <p class="text-[10px] text-brand-green font-semibold">A Social Responsibility</p>
+        </div>
+      </div>
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-neutral-600">
+        <a class="hover:text-brand-navy transition-colors" href="#">Home</a>
+        <a class="hover:text-brand-navy transition-colors" href="#">About</a>
+        <a class="hover:text-brand-navy transition-colors flex items-center gap-1" href="#">Our Work
+          <svg class="w-3.5 h-3.5 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+        </a>
+        <a class="hover:text-brand-navy transition-colors" href="#">Gallery</a>
+        <a class="hover:text-brand-navy transition-colors" href="#">Reports</a>
+        <a class="hover:text-brand-navy transition-colors" href="#">Contact</a>
+      </nav>
+      <a href="#" class="bg-brand-green text-white text-xs font-semibold px-5 py-2.5 rounded-full hover:bg-emerald-700 transition-all flex items-center gap-1.5">
+        Donate Now
+        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+      </a>
+    </div>
+  </header>
+  <div class="demo-body">page content</div>
+
+  <!-- =================================================================== -->
+  <!-- HEADER B — Bold Navy (dark, high contrast)                          -->
+  <!-- =================================================================== -->
+  <div class="bg-brand-navy text-white text-center py-2 text-[11px] font-bold uppercase tracking-widest">Header B — Bold Navy</div>
+  <header class="relative bg-brand-navy">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="assets/Krutadnyata Foundation logo (icon only).png" class="h-9 w-auto brightness-0 invert" alt="" />
+        <p class="font-display font-extrabold text-white text-base tracking-tight">KRUTADNYATA</p>
+      </div>
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-neutral-300">
+        <a class="hover:text-white transition-colors" href="#">Home</a>
+        <a class="hover:text-white transition-colors" href="#">About</a>
+        <a class="hover:text-white transition-colors" href="#">Our Work</a>
+        <a class="hover:text-white transition-colors" href="#">Gallery</a>
+        <a class="hover:text-white transition-colors" href="#">Reports</a>
+        <a class="hover:text-white transition-colors" href="#">Contact</a>
+      </nav>
+      <a href="#" class="bg-white text-brand-navy text-xs font-bold px-5 py-2.5 rounded-lg hover:bg-brand-mint transition-all">
+        Donate Now
+      </a>
+    </div>
+    <div class="h-1 w-full bg-gradient-to-r from-brand-green via-brand-accent to-brand-green"></div>
+  </header>
+  <div class="demo-body">page content</div>
+
+  <!-- =================================================================== -->
+  <!-- HEADER C — Two-Tier (utility bar + centered logo nav)               -->
+  <!-- =================================================================== -->
+  <div class="bg-brand-navy text-white text-center py-2 text-[11px] font-bold uppercase tracking-widest">Header C — Two-Tier Utility Bar</div>
+  <header class="relative bg-white border-b border-brand-border">
+    <!-- Utility bar -->
+    <div class="bg-brand-navy text-neutral-300 text-[11px]">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 h-9 flex items-center justify-between">
+        <div class="flex items-center gap-5">
+          <span class="flex items-center gap-1.5"><svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> krutadnyatafoundation@gmail.com</span>
+          <span class="hidden sm:flex items-center gap-1.5"><svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg> +91 98338 61159</span>
+        </div>
+        <span class="text-brand-mint font-medium">Registered NGO • 80G &amp; 12A Certified</span>
+      </div>
+    </div>
+    <!-- Main row -->
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 h-24 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="assets/Krutadnyata Foundation logo (with text).png" class="h-14 w-auto" alt="" />
+      </div>
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-brand-navy">
+        <a class="hover:text-brand-green transition-colors" href="#">Home</a>
+        <a class="hover:text-brand-green transition-colors" href="#">About</a>
+        <a class="hover:text-brand-green transition-colors" href="#">Our Work</a>
+        <a class="hover:text-brand-green transition-colors" href="#">Gallery</a>
+        <a class="hover:text-brand-green transition-colors" href="#">Reports</a>
+      </nav>
+      <a href="#" class="bg-brand-green text-white text-xs font-semibold px-6 py-3 rounded-full hover:bg-emerald-700 transition-all">
+        Donate Now
+      </a>
+    </div>
+  </header>
+  <div class="demo-body">page content</div>
+
+  <!-- =================================================================== -->
+  <!-- HEADER D — Floating Pill (rounded island nav, modern)               -->
+  <!-- =================================================================== -->
+  <div class="bg-brand-navy text-white text-center py-2 text-[11px] font-bold uppercase tracking-widest">Header D — Floating Pill Nav</div>
+  <header class="relative bg-brand-bg pt-5 pb-3">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="bg-white rounded-full shadow-lg border border-neutral-100 h-[72px] flex items-center justify-between px-5 sm:px-7">
+        <div class="flex items-center gap-2.5">
+          <img src="assets/Krutadnyata Foundation logo (icon only).png" class="h-9 w-auto" alt="" />
+          <p class="font-display font-extrabold text-brand-navy text-sm hidden sm:block">KRUTADNYATA</p>
+        </div>
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-neutral-600">
+          <a class="px-3.5 py-2 rounded-full hover:bg-brand-bg hover:text-brand-navy transition-colors" href="#">Home</a>
+          <a class="px-3.5 py-2 rounded-full hover:bg-brand-bg hover:text-brand-navy transition-colors" href="#">About</a>
+          <a class="px-3.5 py-2 rounded-full hover:bg-brand-bg hover:text-brand-navy transition-colors" href="#">Our Work</a>
+          <a class="px-3.5 py-2 rounded-full hover:bg-brand-bg hover:text-brand-navy transition-colors" href="#">Gallery</a>
+          <a class="px-3.5 py-2 rounded-full hover:bg-brand-bg hover:text-brand-navy transition-colors" href="#">Reports</a>
+          <a class="px-3.5 py-2 rounded-full hover:bg-brand-bg hover:text-brand-navy transition-colors" href="#">Contact</a>
+        </nav>
+        <a href="#" class="bg-brand-navy text-white text-xs font-semibold px-5 py-2.5 rounded-full hover:bg-[#0e3f66] transition-all">
+          Donate Now
+        </a>
+      </div>
+    </div>
+  </header>
+  <div class="demo-body">page content</div>
+
+  <!-- =================================================================== -->
+  <!-- HEADER E — Plain Nonprofit (flat, generous whitespace)              -->
+  <!-- =================================================================== -->
+  <div class="bg-brand-navy text-white text-center py-2 text-[11px] font-bold uppercase tracking-widest">Header E — Plain Nonprofit (matches reference footer)</div>
+  <header class="relative bg-white border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <img src="assets/Krutadnyata Foundation logo (icon only).png" class="h-8 w-auto" alt="" />
+        <p class="font-display font-bold text-brand-navy text-[15px]">Krutadnyata Foundation</p>
+      </div>
+      <nav class="hidden lg:flex items-center gap-8 text-[14px] text-neutral-700">
+        <a class="hover:text-brand-navy transition-colors" href="#">About</a>
+        <a class="hover:text-brand-navy transition-colors" href="#">Programs</a>
+        <a class="hover:text-brand-navy transition-colors" href="#">Gallery</a>
+        <a class="hover:text-brand-navy transition-colors" href="#">Reports</a>
+        <a class="hover:text-brand-navy transition-colors" href="#">Get Involved</a>
+        <a class="hover:text-brand-navy transition-colors" href="#">Contact</a>
+      </nav>
+      <a href="#" class="bg-brand-navy text-white text-[13px] font-semibold px-5 py-2.5 rounded-md hover:bg-[#0e3f66] transition-all">
+        Donate
+      </a>
+    </div>
+  </header>
+  <div class="demo-body">page content</div>
+
+
+  <!-- =================================================================== -->
+  <!-- FOOTER A — Current Light (brand-bg, 4 column)                       -->
+  <!-- =================================================================== -->
+  <div class="bg-brand-navy text-white text-center py-2 text-[11px] font-bold uppercase tracking-widest">Footer A — Current Light (reference)</div>
+  <footer class="bg-brand-bg text-brand-navy border-t border-brand-border/60 pt-14 pb-10">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-10 border-b border-neutral-200">
+        <div class="lg:col-span-4 space-y-3">
+          <img src="assets/Krutadnyata Foundation logo (with text).png" class="h-12 w-auto" alt="" />
+          <p class="text-xs text-neutral-600 leading-relaxed">A Maharashtra-based registered social organisation dedicated to community welfare since 2019.</p>
+        </div>
+        <div class="lg:col-span-2 space-y-2 text-xs">
+          <p class="font-display font-bold uppercase tracking-wider text-[11px]">Core Work</p>
+          <p class="text-neutral-600">Health Camps</p>
+          <p class="text-neutral-600">Sports Day</p>
+          <p class="text-neutral-600">Skill Centre</p>
+        </div>
+        <div class="lg:col-span-2 space-y-2 text-xs">
+          <p class="font-display font-bold uppercase tracking-wider text-[11px]">Navigation</p>
+          <p class="text-neutral-600">Home</p>
+          <p class="text-neutral-600">About Us</p>
+          <p class="text-neutral-600">Contact</p>
+        </div>
+        <div class="lg:col-span-4 space-y-3">
+          <p class="font-display font-bold uppercase tracking-wider text-[11px]">Stay Informed</p>
+          <div class="flex gap-2">
+            <input placeholder="Your email" class="bg-white border border-neutral-300 px-3 py-2 rounded-xl text-xs flex-1" />
+            <button class="px-4 py-2 bg-brand-green text-white text-xs font-semibold rounded-xl">Join</button>
+          </div>
+        </div>
+      </div>
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-neutral-500 gap-3">
+        <span>© 2019–2026 Krutadnyata Foundation. All rights reserved.</span>
+        <div class="flex items-center gap-5"><span>Privacy</span><span>MOU</span><span>80G</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =================================================================== -->
+  <!-- FOOTER B — Deep Navy Classic (dark, bold, trust-heavy)              -->
+  <!-- =================================================================== -->
+  <div class="bg-brand-navy text-white text-center py-2 text-[11px] font-bold uppercase tracking-widest">Footer B — Deep Navy Classic</div>
+  <footer class="bg-brand-navy text-white pt-16 pb-10">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+        <div class="lg:col-span-4 space-y-4">
+          <img src="assets/Krutadnyata Foundation logo (icon only).png" class="h-12 w-auto" alt="" />
+          <p class="font-display font-extrabold text-xl">Krutadnyata Foundation</p>
+          <p class="text-xs text-neutral-300 leading-relaxed">A Maharashtra-based registered social organisation. Registered NGO Trust • 80G &amp; 12A Certified.</p>
+          <div class="flex gap-3 pt-2">
+            <span class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs">f</span>
+            <span class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs">in</span>
+            <span class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs">ig</span>
+          </div>
+        </div>
+        <div class="lg:col-span-2 space-y-2.5 text-xs text-neutral-300">
+          <p class="font-display font-bold uppercase tracking-wider text-[11px] text-brand-mint">Core Work</p>
+          <p class="hover:text-white transition-colors cursor-pointer">Health Camps</p>
+          <p class="hover:text-white transition-colors cursor-pointer">Sports Day</p>
+          <p class="hover:text-white transition-colors cursor-pointer">Skill Centre</p>
+          <p class="hover:text-white transition-colors cursor-pointer">Tree Protection</p>
+        </div>
+        <div class="lg:col-span-2 space-y-2.5 text-xs text-neutral-300">
+          <p class="font-display font-bold uppercase tracking-wider text-[11px] text-brand-mint">Navigation</p>
+          <p class="hover:text-white transition-colors cursor-pointer">Home</p>
+          <p class="hover:text-white transition-colors cursor-pointer">About Us</p>
+          <p class="hover:text-white transition-colors cursor-pointer">Reports</p>
+          <p class="hover:text-white transition-colors cursor-pointer">Contact</p>
+        </div>
+        <div class="lg:col-span-4 bg-white/5 rounded-2xl p-5 border border-white/10">
+          <p class="font-display font-bold text-sm mb-1">Charity Registration</p>
+          <p class="text-[11px] text-neutral-400 leading-relaxed">Mumbai Charity Commissioner records: [TO CONFIRM: Trust Reg No.]<br/>Helpline: +91 98338 61159</p>
+        </div>
+      </div>
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-neutral-400 gap-3">
+        <span>© 2019–2026 Krutadnyata Foundation (कृतज्ञता फाउंडेशन). All rights reserved.</span>
+        <div class="flex items-center gap-5"><span class="hover:text-white cursor-pointer">Privacy Policy</span><span class="hover:text-white cursor-pointer">MOU Records</span><span class="hover:text-white cursor-pointer">80G Verification</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =================================================================== -->
+  <!-- FOOTER C — Minimal Single Row (compact, CTA-first)                  -->
+  <!-- =================================================================== -->
+  <div class="bg-brand-navy text-white text-center py-2 text-[11px] font-bold uppercase tracking-widest">Footer C — Minimal Single Row + CTA Band</div>
+  <footer class="bg-white">
+    <!-- CTA band -->
+    <div class="bg-brand-green">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 py-10 flex flex-col sm:flex-row items-center justify-between gap-5 text-white">
+        <div>
+          <p class="font-display font-bold text-xl sm:text-2xl">Ready to make an impact?</p>
+          <p class="text-emerald-50 text-sm mt-1">Every contribution reaches the ground, fully accounted for.</p>
+        </div>
+        <a href="#" class="shrink-0 px-7 py-3.5 bg-white text-brand-green font-bold rounded-full hover:bg-neutral-50 transition-all text-sm">Donate Now →</a>
+      </div>
+    </div>
+    <!-- Compact row -->
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 py-8 flex flex-col md:flex-row items-center justify-between gap-5 border-b border-neutral-200">
+      <div class="flex items-center gap-3">
+        <img src="assets/Krutadnyata Foundation logo (icon only).png" class="h-9 w-auto" alt="" />
+        <p class="font-display font-bold text-brand-navy text-sm">Krutadnyata Foundation</p>
+      </div>
+      <nav class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-medium text-neutral-600">
+        <span>Home</span><span>About</span><span>Our Work</span><span>Gallery</span><span>Reports</span><span>Volunteer</span><span>Contact</span>
+      </nav>
+    </div>
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-neutral-500">
+      <span>© 2019–2026 Krutadnyata Foundation. All rights reserved.</span>
+      <div class="flex items-center gap-5"><span>Privacy</span><span>MOU Records</span><span>80G Verification</span></div>
+    </div>
+  </footer>
+
+  <!-- =================================================================== -->
+  <!-- FOOTER D — Newsletter-First (big signup focus)                      -->
+  <!-- =================================================================== -->
+  <div class="bg-brand-navy text-white text-center py-2 text-[11px] font-bold uppercase tracking-widest">Footer D — Newsletter-First</div>
+  <footer class="bg-brand-bg border-t border-brand-border">
+    <div class="max-w-5xl mx-auto px-5 sm:px-8 py-16 text-center">
+      <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Stay In The Loop</span>
+      <h3 class="font-display font-extrabold text-3xl sm:text-4xl text-brand-navy mt-2">Get quarterly field reports in your inbox.</h3>
+      <form class="mt-8 flex flex-col sm:flex-row items-center gap-3 max-w-md mx-auto">
+        <input placeholder="Your email address" class="w-full bg-white border border-neutral-300 px-4 py-3.5 rounded-full text-sm" />
+        <button class="w-full sm:w-auto shrink-0 px-7 py-3.5 bg-brand-green text-white font-semibold rounded-full hover:bg-emerald-700 transition-all text-sm">Subscribe</button>
+      </form>
+    </div>
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 py-10 border-t border-neutral-200">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <img src="assets/Krutadnyata Foundation logo (with text).png" class="h-11 w-auto" alt="" />
+        </div>
+        <nav class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-medium text-neutral-600">
+          <span>Home</span><span>About</span><span>Our Work</span><span>Gallery</span><span>Stories</span><span>Blog</span><span>Reports</span><span>Volunteer</span><span>Contact</span>
+        </nav>
+      </div>
+      <div class="mt-8 pt-6 border-t border-neutral-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-neutral-500">
+        <span>© 2019–2026 Krutadnyata Foundation (कृतज्ञता फाउंडेशन). All rights reserved.</span>
+        <div class="flex items-center gap-5"><span>Privacy Policy</span><span>MOU Records</span><span>80G Verification</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =================================================================== -->
+  <!-- FOOTER E — Plain Nonprofit (reference-matched: simple columns)      -->
+  <!-- =================================================================== -->
+  <div class="bg-brand-navy text-white text-center py-2 text-[11px] font-bold uppercase tracking-widest">Footer E — Plain Nonprofit (as per your reference image)</div>
+  <footer class="bg-white">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 pt-16 pb-10 border-t border-neutral-200">
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-10">
+        <div>
+          <p class="font-display font-bold text-brand-navy text-base mb-4">About</p>
+          <ul class="space-y-3 text-sm text-neutral-600">
+            <li><a href="#" class="hover:text-brand-green transition-colors">Our why and mission</a></li>
+            <li><a href="#" class="hover:text-brand-green transition-colors">Board of Trustees</a></li>
+            <li><a href="#" class="hover:text-brand-green transition-colors">News</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-display font-bold text-brand-navy text-base mb-4">Programs</p>
+          <ul class="space-y-3 text-sm text-neutral-600">
+            <li><a href="#" class="hover:text-brand-green transition-colors">Health Camps</a></li>
+            <li><a href="#" class="hover:text-brand-green transition-colors">Skill Centre</a></li>
+            <li><a href="#" class="hover:text-brand-green transition-colors">Field Gallery</a></li>
+            <li><a href="#" class="hover:text-brand-green transition-colors">Stories</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-display font-bold text-brand-navy text-base mb-4">Get Involved</p>
+          <ul class="space-y-3 text-sm text-neutral-600">
+            <li><a href="#" class="hover:text-brand-green transition-colors">Donate</a></li>
+            <li><a href="#" class="hover:text-brand-green transition-colors">Volunteer</a></li>
+            <li><a href="#" class="hover:text-brand-green transition-colors">Become a CSR Partner</a></li>
+            <li><a href="#" class="hover:text-brand-green transition-colors">Fundraise For Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-display font-bold text-brand-navy text-base mb-4">More</p>
+          <ul class="space-y-3 text-sm text-neutral-600">
+            <li><a href="#" class="hover:text-brand-green transition-colors">Ask for Help</a></li>
+            <li><a href="#" class="hover:text-brand-green transition-colors">Reports &amp; Audits</a></li>
+            <li><a href="#" class="hover:text-brand-green transition-colors">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-14 pt-6 border-t border-neutral-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-5 text-sm">
+          <span class="px-3 py-1.5 rounded-md bg-neutral-100 text-neutral-700 font-medium">Nonprofit Status</span>
+          <a href="#" class="text-neutral-600 hover:text-brand-navy transition-colors">Terms</a>
+          <a href="#" class="text-neutral-600 hover:text-brand-navy transition-colors">Privacy</a>
+        </div>
+        <div class="flex items-center gap-5 text-sm text-neutral-600">
+          <a href="#" class="hover:text-brand-navy transition-colors">Facebook</a>
+          <a href="#" class="hover:text-brand-navy transition-colors">Instagram</a>
+        </div>
+      </div>
+
+      <div class="mt-6 pt-6 border-t border-neutral-200 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-neutral-400">
+        <span>All donations are tax deductible under 80G and utilized strictly towards verified community welfare programs.</span>
+        <span>Krutadnyata Foundation • Maharashtra</span>
+      </div>
+
+    </div>
+  </footer>
+
+  <div class="bg-brand-navy text-white text-center py-6 text-xs">End of preview — batao kaunsa header (A/B/C/D/E) aur kaunsa footer (A/B/C/D/E) final karna hai, ya mix-match bhi bata sakte ho.</div>
+
+</body>
+</html>

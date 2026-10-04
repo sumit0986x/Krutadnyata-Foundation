@@ -72,6 +72,27 @@
     .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
     .font-marathi { font-family: 'Mukta', sans-serif; }
 
+    /* Section index tag: small, clean, professional */
+    .section-index {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      color: var(--color-navy);
+    }
+    .section-index::before {
+      content: '';
+      display: inline-block;
+      width: 1.5rem;
+      height: 2px;
+      background: var(--color-green);
+    }
+    .section-index.on-dark { color: #ffffff; }
+    .section-index.on-dark::before { background: var(--color-accent); }
+
     /* Scroll Fill Effect */
     .word-reveal {
       color: #9CA3AF;
@@ -244,11 +265,6 @@
     <!-- ================================================================= -->
     <section class="relative min-h-[92vh] flex items-center justify-center pt-28 pb-16 overflow-hidden bg-gradient-to-b from-brand-mint/35 via-brand-bg to-brand-bg">
       
-      <!-- Subtle Decorative Devanagari Glyph -->
-      <div class="absolute -top-12 -right-8 text-[320px] lg:text-[500px] font-marathi font-black text-brand-mint/40 select-none pointer-events-none leading-none -z-0">
-        कृ
-      </div>
-
       <div class="relative z-10 max-w-5xl mx-auto px-5 text-center flex flex-col items-center">
         
         <!-- Trust badge pill -->
@@ -269,7 +285,7 @@
 
         <!-- CTA Buttons -->
         <div class="mt-10 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-          <a href="#donate" class="w-full sm:w-auto px-8 py-4 bg-brand-green text-white font-semibold rounded-full hover:bg-emerald-700 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all text-sm flex items-center justify-center gap-2">
+          <a href="donation.html" class="w-full sm:w-auto px-8 py-4 bg-brand-green text-white font-semibold rounded-full hover:bg-emerald-700 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all text-sm flex items-center justify-center gap-2">
             <span>Support Our Programs</span>
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -320,8 +336,11 @@
     <!-- 4. FLOATING PHOTO COLLAGE                                         -->
     <!-- ================================================================= -->
     <section class="py-28 sm:py-36 relative overflow-hidden bg-brand-bg">
+      <div class="max-w-7xl mx-auto px-5 mb-10">
+        <span class="section-index">02 — Moments From The Field</span>
+      </div>
       <div class="max-w-7xl mx-auto px-5 relative min-h-[580px] lg:min-h-[720px] flex items-center justify-center">
-        
+
         <!-- Giant Center Word -->
         <div class="center-word select-none pointer-events-none text-center z-10">
           <span class="font-marathi font-extrabold text-7xl sm:text-9xl md:text-[140px] lg:text-[170px] text-neutral-200/90 tracking-normal block leading-none">
@@ -455,23 +474,22 @@
     <!-- ================================================================= -->
     <!-- 6. DARK IMAGE BANNER CTA                                          -->
     <!-- ================================================================= -->
-    <section class="max-w-7xl mx-auto px-5 sm:px-8 my-16">
-      <div class="relative rounded-3xl overflow-hidden bg-brand-navy text-white px-8 sm:px-16 py-20 lg:py-24 shadow-xl">
-        
-        <!-- Background Tint Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy/95 to-brand-navy/80 z-0"></div>
-        <div class="absolute -right-20 -bottom-20 w-96 h-96 rounded-full bg-brand-green/20 blur-3xl pointer-events-none"></div>
+    <section class="relative overflow-hidden bg-brand-navy text-white">
+      <div class="absolute -right-24 -bottom-24 w-96 h-96 rounded-full bg-brand-green/20 blur-3xl pointer-events-none"></div>
 
-        <div class="relative z-10 max-w-3xl">
-          <span class="text-xs font-bold uppercase tracking-widest text-brand-accent mb-4 block">Core Conviction</span>
-          <h3 class="font-display font-bold text-2xl sm:text-4xl lg:text-5xl leading-tight">
-            “No one should be left behind because of where they were born or what they can afford.”
-          </h3>
-          <p class="mt-6 text-neutral-300 text-sm sm:text-base leading-relaxed max-w-2xl font-normal">
-            Whether it is rural health screenings in Sangameshwar, competitive exam coaching for youth in Pune, or free winter blankets in Gorai, we work where the safety net is thinnest.
-          </p>
-          <div class="mt-8 flex items-center gap-4">
-            <a href="#timeline" class="px-6 py-3.5 rounded-full bg-white text-brand-navy font-semibold text-xs sm:text-sm hover:bg-neutral-100 transition-colors inline-flex items-center gap-2">
+      <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 py-20 lg:py-24">
+        <span class="section-index on-dark mb-6">03 — Core Conviction</span>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end mt-6">
+          <div class="lg:col-span-9">
+            <h3 class="font-display font-bold text-3xl sm:text-5xl lg:text-[56px] leading-[1.15] tracking-tight">
+              “No one should be left behind because of where they were born or what they can afford.”
+            </h3>
+          </div>
+          <div class="lg:col-span-3 lg:border-l lg:border-white/15 lg:pl-8">
+            <p class="text-neutral-300 text-sm leading-relaxed font-normal">
+              Whether it is rural health screenings in Sangameshwar, competitive exam coaching for youth in Pune, or free winter blankets in Gorai — we work where the safety net is thinnest.
+            </p>
+            <a href="#timeline" class="mt-6 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white border-b-2 border-brand-green pb-1 hover:text-brand-mint transition-colors">
               <span>View Ground Initiatives</span>
               <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -479,7 +497,6 @@
             </a>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -640,44 +657,52 @@
     <!-- ================================================================= -->
     <!-- 8. WHY IT MATTERS (Split 4:5 Image + Text)                         -->
     <!-- ================================================================= -->
-    <section class="py-24 bg-brand-bg border-t border-brand-border">
+    <section class="relative py-24 sm:py-32 bg-brand-bg border-t border-brand-border overflow-hidden">
       <div class="max-w-7xl mx-auto px-5 sm:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
-          <!-- Image 4:5 Block -->
+
+        <span class="section-index mb-6">04 — Bridging The Divides</span>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mt-6">
+
+          <!-- Headline Block -->
           <div class="lg:col-span-5">
-            <div class="relative rounded-3xl overflow-hidden shadow-xl aspect-[4/5] bg-neutral-200 border-4 border-white">
-              <div class="w-full h-full bg-gradient-to-tr from-brand-navy/80 via-neutral-400/40 to-neutral-200 flex flex-col justify-end p-8 text-white relative">
-                <span class="px-3 py-1 rounded-full bg-brand-green text-[11px] font-semibold tracking-wide w-max mb-3">Field Document</span>
-                <p class="text-lg font-display font-bold">Medical camp at Dhamapur Dhanawade Wadi, Sangameshwar</p>
-                <p class="text-xs text-neutral-200 mt-1">Free consultation and preventive medicines delivered to remote rural hamlets.</p>
+            <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-[44px] text-brand-navy leading-[1.1] tracking-tight">
+              Reaching remote rural wadis and congested urban wards with equal resolve.
+            </h2>
+
+            <div class="mt-10 relative rounded-2xl overflow-hidden shadow-lg aspect-[4/3] bg-neutral-200 border-4 border-white hidden lg:block">
+              <div class="w-full h-full bg-gradient-to-tr from-brand-navy/80 via-neutral-400/40 to-neutral-200 flex flex-col justify-end p-6 text-white relative">
+                <span class="px-3 py-1 rounded-full bg-brand-green text-[11px] font-semibold tracking-wide w-max mb-2">Field Document</span>
+                <p class="text-sm font-display font-bold">Medical camp at Dhamapur Dhanawade Wadi, Sangameshwar</p>
               </div>
             </div>
           </div>
 
           <!-- Text Block -->
-          <div class="lg:col-span-7">
-            <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Bridging The Divides</span>
-            <h2 class="font-display font-bold text-3xl sm:text-4xl text-brand-navy mt-2 leading-tight">
-              Reaching remote rural wadis and congested urban wards with equal resolve.
-            </h2>
-            <div class="mt-6 space-y-4 text-neutral-600 text-sm sm:text-base leading-relaxed">
+          <div class="lg:col-span-7 lg:border-l lg:border-neutral-200 lg:pl-12">
+            <div class="space-y-5 text-neutral-600 text-sm sm:text-base leading-relaxed font-normal">
               <p>
-                Marginalized populations often fall through the gaps of municipal programs. In remote talukas like <strong>Sangola (Solapur)</strong> and <strong>Pachal (Rajapur)</strong>, basic health screenings can save lives by diagnosing conditions before they become catastrophic emergencies.
+                Marginalized populations often fall through the gaps of municipal programs. In remote talukas like <strong class="text-brand-navy">Sangola (Solapur)</strong> and <strong class="text-brand-navy">Pachal (Rajapur)</strong>, basic health screenings can save lives by diagnosing conditions before they become catastrophic emergencies.
               </p>
               <p>
-                Meanwhile, in urban belts like <strong>Gorai, Borivali, and Ghatkopar</strong>, young students frequently lack the mentorship needed to navigate competitive exams or global admissions. Through our partnerships with academic institutions, we provide free UPSC/MPSC guidance, free entrance training for MBA and Law, and government-certified vocational courses.
+                Meanwhile, in urban belts like <strong class="text-brand-navy">Gorai, Borivali, and Ghatkopar</strong>, young students frequently lack the mentorship needed to navigate competitive exams or global admissions. Through our partnerships with academic institutions, we provide free UPSC/MPSC guidance, free entrance training for MBA and Law, and government-certified vocational courses.
               </p>
             </div>
 
-            <div class="mt-8 grid grid-cols-2 gap-4 border-t border-neutral-200 pt-6">
-              <div>
-                <p class="font-display font-bold text-lg text-brand-navy">Holistic Inclusion</p>
-                <p class="text-xs text-neutral-500 mt-0.5">Direct aid, transgender community support, women's self-reliance, and Divyangjan assistance.</p>
+            <div class="mt-10 divide-y divide-neutral-200 border-t border-b border-neutral-200">
+              <div class="flex items-start gap-5 py-5">
+                <span class="font-display font-bold text-sm text-brand-green w-8 shrink-0">01</span>
+                <div>
+                  <p class="font-display font-bold text-base text-brand-navy">Holistic Inclusion</p>
+                  <p class="text-xs text-neutral-500 mt-1">Direct aid, transgender community support, women's self-reliance, and Divyangjan assistance.</p>
+                </div>
               </div>
-              <div>
-                <p class="font-display font-bold text-lg text-brand-navy">Institutional MOUs</p>
-                <p class="text-xs text-neutral-500 mt-0.5">Formally partnered with Bureau of Indian Standards (BIS) and Maharashtra Skill Corp.</p>
+              <div class="flex items-start gap-5 py-5">
+                <span class="font-display font-bold text-sm text-brand-green w-8 shrink-0">02</span>
+                <div>
+                  <p class="font-display font-bold text-base text-brand-navy">Institutional MOUs</p>
+                  <p class="text-xs text-neutral-500 mt-1">Formally partnered with Bureau of Indian Standards (BIS) and Maharashtra Skill Corp.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -689,15 +714,16 @@
     <!-- ================================================================= -->
     <!-- 9. LATEST INITIATIVES (Reusable Card Template)                    -->
     <!-- ================================================================= -->
-    <section class="py-24 bg-white border-t border-brand-border">
+    <section class="relative py-24 sm:py-32 bg-white border-t border-brand-border overflow-hidden">
       <div class="max-w-7xl mx-auto px-5 sm:px-8">
-        
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12">
-          <div>
-            <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Field Chronicle</span>
-            <h2 class="font-display font-bold text-3xl sm:text-4xl text-brand-navy mt-1">Latest On-Ground Work</h2>
-          </div>
-          <a href="#timeline" class="mt-4 sm:mt-0 inline-flex items-center gap-1.5 text-xs font-bold text-brand-green hover:underline">
+
+        <span class="section-index mb-6">05 — Field Chronicle</span>
+
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-14 gap-4 mt-6">
+          <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-brand-navy tracking-tight leading-tight max-w-xl">
+            Latest On-Ground Work
+          </h2>
+          <a href="#timeline" class="shrink-0 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-navy border-b-2 border-brand-green pb-1 hover:text-brand-green transition-colors">
             <span>View All Historical Work</span>
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -705,101 +731,84 @@
           </a>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Editorial Index List -->
+        <div class="divide-y divide-neutral-200 border-t border-b border-neutral-200">
 
-          <!-- Card 1 (Template Reused) -->
-          <article class="bg-brand-bg rounded-2xl overflow-hidden border border-neutral-200/80 hover:shadow-xl transition-all duration-300 flex flex-col">
-            <!-- 16:10 Ratio Container -->
-            <div class="aspect-[16/10] bg-neutral-200 relative overflow-hidden group">
-              <div class="w-full h-full bg-neutral-300 flex items-center justify-center text-xs text-neutral-500 font-medium">
-                Marathon 2026 Crowd — 16:10
+          <!-- Row 1 -->
+          <article class="group grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center py-8">
+            <span class="hidden md:flex md:col-span-1 items-center justify-center w-10 h-10 rounded-full bg-brand-bg text-brand-navy font-display font-bold text-sm border border-neutral-200 group-hover:border-brand-green group-hover:text-brand-green transition-colors">01</span>
+            <div class="md:col-span-3">
+              <div class="aspect-[16/11] bg-neutral-200 rounded-xl overflow-hidden flex items-center justify-center text-[11px] text-neutral-500 font-medium relative">
+                Marathon 2026 Crowd
+                <span class="absolute top-2.5 left-2.5 bg-brand-navy text-white text-[9px] font-semibold px-2 py-1 rounded-full uppercase tracking-wider">Youth &amp; Sports</span>
               </div>
-              <span class="absolute top-3 left-3 bg-brand-navy text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">
-                Youth &amp; Sports
-              </span>
             </div>
-            <div class="p-6 flex-1 flex flex-col justify-between">
-              <div>
-                <p class="text-[11px] font-medium text-brand-green uppercase tracking-wider">
-                  24 Jan 2026 • Suburban Mumbai
-                </p>
-                <h3 class="font-display font-bold text-lg text-brand-navy mt-1.5 leading-snug">
-                  State Sports Day Marathon 2026
-                </h3>
-                <p class="text-xs text-neutral-600 mt-2.5 line-clamp-2 leading-relaxed">
-                  Arranged in collaboration with the Directorate of Sports &amp; Youth Services, Maharashtra State, marking the birth anniversary of Olympic medalist KD Jadhav.
-                </p>
-              </div>
-              <div class="mt-6 pt-4 border-t border-neutral-200/60">
-                <a href="#contact" class="inline-flex items-center gap-1 text-xs font-semibold text-brand-navy hover:text-brand-green transition-colors">
-                  <span>Read full report</span>
-                  <span class="text-base leading-none">→</span>
-                </a>
-              </div>
+            <div class="md:col-span-6">
+              <p class="text-[11px] font-medium text-brand-green uppercase tracking-wider">24 Jan 2026 • Suburban Mumbai</p>
+              <h3 class="font-display font-bold text-xl sm:text-2xl text-brand-navy mt-1.5 leading-snug group-hover:text-brand-green transition-colors">
+                State Sports Day Marathon 2026
+              </h3>
+              <p class="text-xs sm:text-sm text-neutral-600 mt-2 leading-relaxed">
+                Arranged in collaboration with the Directorate of Sports &amp; Youth Services, Maharashtra State, marking the birth anniversary of Olympic medalist KD Jadhav.
+              </p>
+            </div>
+            <div class="md:col-span-2 md:text-right">
+              <a href="#contact" class="inline-flex items-center gap-1 text-xs font-semibold text-brand-navy hover:text-brand-green transition-colors">
+                <span>Read report</span>
+                <span class="text-base leading-none">→</span>
+              </a>
             </div>
           </article>
 
-          <!-- Card 2 (Template Reused) -->
-          <article class="bg-brand-bg rounded-2xl overflow-hidden border border-neutral-200/80 hover:shadow-xl transition-all duration-300 flex flex-col">
-            <!-- 16:10 Ratio Container -->
-            <div class="aspect-[16/10] bg-neutral-200 relative overflow-hidden group">
-              <div class="w-full h-full bg-neutral-300 flex items-center justify-center text-xs text-neutral-500 font-medium">
-                Blood Donation Camp — 16:10
+          <!-- Row 2 -->
+          <article class="group grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center py-8">
+            <span class="hidden md:flex md:col-span-1 items-center justify-center w-10 h-10 rounded-full bg-brand-bg text-brand-navy font-display font-bold text-sm border border-neutral-200 group-hover:border-brand-green group-hover:text-brand-green transition-colors">02</span>
+            <div class="md:col-span-3">
+              <div class="aspect-[16/11] bg-neutral-200 rounded-xl overflow-hidden flex items-center justify-center text-[11px] text-neutral-500 font-medium relative">
+                Blood Donation Camp
+                <span class="absolute top-2.5 left-2.5 bg-brand-navy text-white text-[9px] font-semibold px-2 py-1 rounded-full uppercase tracking-wider">Healthcare</span>
               </div>
-              <span class="absolute top-3 left-3 bg-brand-navy text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">
-                Healthcare
-              </span>
             </div>
-            <div class="p-6 flex-1 flex flex-col justify-between">
-              <div>
-                <p class="text-[11px] font-medium text-brand-green uppercase tracking-wider">
-                  13 Dec 2025 • Borivali, Mumbai
-                </p>
-                <h3 class="font-display font-bold text-lg text-brand-navy mt-1.5 leading-snug">
-                  Community Blood Donation Drive
-                </h3>
-                <p class="text-xs text-neutral-600 mt-2.5 line-clamp-2 leading-relaxed">
-                  Organized at Manapurna banquet with Sailee Degree College and CDS College of Engineering in loving memory of Late Mrs. Mandakini Lokhande.
-                </p>
-              </div>
-              <div class="mt-6 pt-4 border-t border-neutral-200/60">
-                <a href="#contact" class="inline-flex items-center gap-1 text-xs font-semibold text-brand-navy hover:text-brand-green transition-colors">
-                  <span>Read full report</span>
-                  <span class="text-base leading-none">→</span>
-                </a>
-              </div>
+            <div class="md:col-span-6">
+              <p class="text-[11px] font-medium text-brand-green uppercase tracking-wider">13 Dec 2025 • Borivali, Mumbai</p>
+              <h3 class="font-display font-bold text-xl sm:text-2xl text-brand-navy mt-1.5 leading-snug group-hover:text-brand-green transition-colors">
+                Community Blood Donation Drive
+              </h3>
+              <p class="text-xs sm:text-sm text-neutral-600 mt-2 leading-relaxed">
+                Organized at Manapurna banquet with Sailee Degree College and CDS College of Engineering in loving memory of Late Mrs. Mandakini Lokhande.
+              </p>
+            </div>
+            <div class="md:col-span-2 md:text-right">
+              <a href="#contact" class="inline-flex items-center gap-1 text-xs font-semibold text-brand-navy hover:text-brand-green transition-colors">
+                <span>Read report</span>
+                <span class="text-base leading-none">→</span>
+              </a>
             </div>
           </article>
 
-          <!-- Card 3 (Template Reused) -->
-          <article class="bg-brand-bg rounded-2xl overflow-hidden border border-neutral-200/80 hover:shadow-xl transition-all duration-300 flex flex-col">
-            <!-- 16:10 Ratio Container -->
-            <div class="aspect-[16/10] bg-neutral-200 relative overflow-hidden group">
-              <div class="w-full h-full bg-neutral-300 flex items-center justify-center text-xs text-neutral-500 font-medium">
-                Food Safety Seminar — 16:10
+          <!-- Row 3 -->
+          <article class="group grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center py-8">
+            <span class="hidden md:flex md:col-span-1 items-center justify-center w-10 h-10 rounded-full bg-brand-bg text-brand-navy font-display font-bold text-sm border border-neutral-200 group-hover:border-brand-green group-hover:text-brand-green transition-colors">03</span>
+            <div class="md:col-span-3">
+              <div class="aspect-[16/11] bg-neutral-200 rounded-xl overflow-hidden flex items-center justify-center text-[11px] text-neutral-500 font-medium relative">
+                Food Safety Seminar
+                <span class="absolute top-2.5 left-2.5 bg-brand-navy text-white text-[9px] font-semibold px-2 py-1 rounded-full uppercase tracking-wider">Public Safety</span>
               </div>
-              <span class="absolute top-3 left-3 bg-brand-navy text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">
-                Public Safety
-              </span>
             </div>
-            <div class="p-6 flex-1 flex flex-col justify-between">
-              <div>
-                <p class="text-[11px] font-medium text-brand-green uppercase tracking-wider">
-                  03 Dec 2025 • Borivali, Mumbai
-                </p>
-                <h3 class="font-display font-bold text-lg text-brand-navy mt-1.5 leading-snug">
-                  Eat Safe, Eat Healthy: FDA Session
-                </h3>
-                <p class="text-xs text-neutral-600 mt-2.5 line-clamp-2 leading-relaxed">
-                  Special interactive orientation on the Food Act and detection of household adulteration conducted by retired FDA Senior Scientific Officer Sheela Gauli.
-                </p>
-              </div>
-              <div class="mt-6 pt-4 border-t border-neutral-200/60">
-                <a href="#contact" class="inline-flex items-center gap-1 text-xs font-semibold text-brand-navy hover:text-brand-green transition-colors">
-                  <span>Read full report</span>
-                  <span class="text-base leading-none">→</span>
-                </a>
-              </div>
+            <div class="md:col-span-6">
+              <p class="text-[11px] font-medium text-brand-green uppercase tracking-wider">03 Dec 2025 • Borivali, Mumbai</p>
+              <h3 class="font-display font-bold text-xl sm:text-2xl text-brand-navy mt-1.5 leading-snug group-hover:text-brand-green transition-colors">
+                Eat Safe, Eat Healthy: FDA Session
+              </h3>
+              <p class="text-xs sm:text-sm text-neutral-600 mt-2 leading-relaxed">
+                Special interactive orientation on the Food Act and detection of household adulteration conducted by retired FDA Senior Scientific Officer Sheela Gauli.
+              </p>
+            </div>
+            <div class="md:col-span-2 md:text-right">
+              <a href="#contact" class="inline-flex items-center gap-1 text-xs font-semibold text-brand-navy hover:text-brand-green transition-colors">
+                <span>Read report</span>
+                <span class="text-base leading-none">→</span>
+              </a>
             </div>
           </article>
 
@@ -810,13 +819,14 @@
     <!-- ================================================================= -->
     <!-- 10. WHERE WE'VE SERVED (Dotted Maharashtra Map & Pins)            -->
     <!-- ================================================================= -->
-    <section id="map" class="py-24 bg-brand-bg border-t border-brand-border">
+    <section id="map" class="relative py-24 sm:py-32 bg-brand-bg border-t border-brand-border overflow-hidden">
       <div class="max-w-7xl mx-auto px-5 sm:px-8">
-        
-        <div class="text-center max-w-2xl mx-auto mb-12">
-          <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Field Presence</span>
-          <h2 class="font-display font-bold text-3xl sm:text-4xl text-brand-navy mt-1">Where We Have Served</h2>
-          <p class="text-neutral-600 text-sm mt-2">Active initiatives spanning Mumbai Metropolitan Region, Western Maharashtra, and the Konkan belt.</p>
+
+        <span class="section-index mb-6">06 — Field Presence</span>
+
+        <div class="max-w-2xl mb-14 mt-6">
+          <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-brand-navy tracking-tight leading-tight">Where We Have Served</h2>
+          <p class="text-neutral-600 text-sm mt-3 leading-relaxed">Active initiatives spanning the Mumbai Metropolitan Region, Western Maharashtra, and the Konkan belt.</p>
         </div>
 
         <div class="relative bg-white rounded-3xl p-6 sm:p-12 border border-neutral-200/90 shadow-sm max-w-4xl mx-auto overflow-hidden">
@@ -1133,12 +1143,7 @@
     <!-- ================================================================= -->
     <!-- 13. PARTNERS & RECOGNITION (Marquee)                              -->
     <!-- ================================================================= -->
-    <section class="py-20 bg-white border-t border-brand-border overflow-hidden">
-      <div class="max-w-7xl mx-auto px-5 mb-10 text-center">
-        <span class="text-xs font-bold uppercase tracking-widest text-neutral-400">Institutional Collaborators</span>
-        <h2 class="font-display font-bold text-2xl sm:text-3xl text-brand-navy mt-1">Trusted By Academic &amp; Government Bodies</h2>
-      </div>
-
+    <section class="bg-white border-t border-brand-border overflow-hidden">
       <!-- Auto Scrolling Marquee -->
       <div class="relative w-full overflow-hidden border-y border-neutral-100 py-6">
         <div class="animate-marquee items-center gap-12 text-sm font-display font-semibold text-neutral-500 uppercase tracking-wider">
@@ -1187,225 +1192,65 @@
 
         </div>
       </div>
-
-      <!-- Featured In: PIB Mention Banner -->
-      <div class="max-w-4xl mx-auto px-5 mt-10">
-        <div class="p-4 rounded-2xl bg-brand-bg border border-neutral-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div class="flex items-center gap-3">
-            <span class="px-2.5 py-1 rounded bg-neutral-900 text-white font-mono font-bold text-[10px]">PIB</span>
-            <span class="text-xs text-neutral-700 font-medium">Official Press Information Bureau (PIB) coverage for Borivali Quality Run with BIS.</span>
-          </div>
-          <span class="text-[11px] font-semibold text-brand-green whitespace-nowrap">Official Release Documented</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================================================================= -->
-    <!-- 14. TRUST & TRANSPARENCY STRIP                                    -->
-    <!-- ================================================================= -->
-    <section id="transparency" class="py-16 bg-brand-navy text-white border-t border-brand-navy">
-      <div class="max-w-7xl mx-auto px-5 sm:px-8">
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          
-          <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
-            <div class="w-9 h-9 rounded-lg bg-brand-green/20 text-brand-green flex items-center justify-center mb-4">
-              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-              </svg>
-            </div>
-            <h3 class="font-display font-bold text-base">Registered NGO Trust</h3>
-            <p class="text-xs text-neutral-300 mt-1.5 leading-relaxed">Mumbai Charity Commissioner records: <span class="font-mono text-[11px] text-white">[TO CONFIRM: Trust Reg No.]</span></p>
-          </div>
-
-          <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
-            <div class="w-9 h-9 rounded-lg bg-brand-green/20 text-brand-green flex items-center justify-center mb-4">
-              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z" />
-              </svg>
-            </div>
-            <h3 class="font-display font-bold text-base">Tax Exemption Status</h3>
-            <p class="text-xs text-neutral-300 mt-1.5 leading-relaxed">80G &amp; 12A Certification: <span class="font-mono text-[11px] text-white">[TO CONFIRM: 80G Approval Status]</span></p>
-          </div>
-
-          <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
-            <div class="w-9 h-9 rounded-lg bg-brand-green/20 text-brand-green flex items-center justify-center mb-4">
-              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-            </div>
-            <h3 class="font-display font-bold text-base">Annual Work Reports</h3>
-            <p class="text-xs text-neutral-300 mt-1.5 leading-relaxed">Comprehensive 2019–2025 field report available for CSR audits.</p>
-            <a href="#" class="inline-block text-[11px] font-semibold text-brand-accent mt-2 hover:underline">Download PDF (Verified) →</a>
-          </div>
-
-          <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
-            <div class="w-9 h-9 rounded-lg bg-brand-green/20 text-brand-green flex items-center justify-center mb-4">
-              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-              </svg>
-            </div>
-            <h3 class="font-display font-bold text-base">Every Rupee Accounted</h3>
-            <p class="text-xs text-neutral-300 mt-1.5 leading-relaxed">Regular programmatic audits and verifiable disbursals for all community initiatives.</p>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ================================================================= -->
-    <!-- 15. GET INVOLVED (Dual Card: Donate + Volunteer)                   -->
-    <!-- ================================================================= -->
-    <section id="get-involved" class="py-24 bg-brand-bg">
-      <div class="max-w-7xl mx-auto px-5 sm:px-8">
-        
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          
-          <!-- Donate Card -->
-          <div id="donate" class="lg:col-span-6 bg-white rounded-3xl p-8 sm:p-10 border border-neutral-200/90 shadow-sm flex flex-col justify-between">
-            <div>
-              <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-mint text-brand-green text-xs font-semibold mb-4">
-                <span>Immediate Direct Impact</span>
-              </div>
-              <h3 class="font-display font-bold text-2xl sm:text-3xl text-brand-navy">Donate to Welfare Programs</h3>
-              <p class="text-xs sm:text-sm text-neutral-600 mt-2 leading-relaxed">
-                Your contributions directly fuel free medicines, rural student kits, uniforms, and life-saving medical aid for families across Maharashtra.
-              </p>
-
-              <!-- Amount Chips -->
-              <div class="mt-8">
-                <label class="text-xs font-semibold text-neutral-500 uppercase tracking-wider block mb-3">Select Contribution</label>
-                <div class="grid grid-cols-4 gap-2.5">
-                  <button type="button" class="amount-btn py-3 rounded-xl border border-neutral-200 text-xs font-semibold text-neutral-700 hover:border-brand-green focus:bg-brand-green focus:text-white transition-all">₹500</button>
-                  <button type="button" class="amount-btn py-3 rounded-xl border border-neutral-200 text-xs font-semibold text-neutral-700 hover:border-brand-green focus:bg-brand-green focus:text-white transition-all">₹1,000</button>
-                  <button type="button" class="amount-btn py-3 rounded-xl border border-neutral-200 text-xs font-semibold text-neutral-700 hover:border-brand-green focus:bg-brand-green focus:text-white transition-all">₹2,500</button>
-                  <button type="button" class="amount-btn py-3 rounded-xl border border-neutral-200 text-xs font-semibold text-neutral-700 hover:border-brand-green focus:bg-brand-green focus:text-white transition-all">Custom</button>
-                </div>
-              </div>
-
-              <!-- Payment reassurance -->
-              <div class="mt-6 flex items-center gap-2 text-xs text-neutral-500">
-                <svg class="w-4 h-4 text-brand-green" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                </svg>
-                <span>Encrypted 256-bit payment integration via Razorpay</span>
-              </div>
-            </div>
-
-            <div class="mt-8 pt-6 border-t border-neutral-100">
-              <button type="button" class="w-full py-4 bg-brand-green text-white font-semibold rounded-2xl hover:bg-emerald-700 transition-all text-sm shadow-md flex items-center justify-center gap-2">
-                <span>Proceed to Secure Donation</span>
-                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- Volunteer Card -->
-          <div class="lg:col-span-6 bg-brand-navy rounded-3xl p-8 sm:p-10 text-white shadow-sm flex flex-col justify-between">
-            <div>
-              <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-brand-accent text-xs font-semibold mb-4">
-                <span>Join Our Team</span>
-              </div>
-              <h3 class="font-display font-bold text-2xl sm:text-3xl text-white">Join as a Field Volunteer</h3>
-              <p class="text-xs sm:text-sm text-neutral-300 mt-2 leading-relaxed">
-                Be an active participant at our marathons, health camps, sapling drives, or career orientation workshops across Maharashtra.
-              </p>
-
-              <form class="mt-6 space-y-3" onsubmit="event.preventDefault(); alert('Thank you for registering as a volunteer! Our coordinator will contact you.');">
-                <div>
-                  <input type="text" placeholder="Full Name" required class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/15 text-white placeholder-neutral-400 text-xs focus:outline-none focus:border-brand-green" />
-                </div>
-                <div>
-                  <input type="tel" placeholder="Mobile / WhatsApp Number" required class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/15 text-white placeholder-neutral-400 text-xs focus:outline-none focus:border-brand-green" />
-                </div>
-                <div>
-                  <select class="w-full px-4 py-3 rounded-xl bg-neutral-800 border border-white/15 text-white placeholder-neutral-400 text-xs focus:outline-none focus:border-brand-green">
-                    <option value="" disabled selected>Preferred Area of Contribution</option>
-                    <option value="medical">Health &amp; Medical Camps</option>
-                    <option value="sports">Sports Day &amp; Marathons</option>
-                    <option value="environment">Environment &amp; Tree Plantation</option>
-                    <option value="education">Career Guidance &amp; Teaching</option>
-                    <option value="legal">Legal Aid Support</option>
-                  </select>
-                </div>
-                <button type="submit" class="w-full mt-2 py-3.5 bg-white text-brand-navy font-semibold rounded-xl hover:bg-neutral-100 transition-all text-xs">
-                  Submit Volunteer Application
-                </button>
-              </form>
-            </div>
-
-            <p class="text-[11px] text-neutral-400 mt-6 pt-4 border-t border-white/10">
-              Volunteers receive authentic participation certificates for eligible field hours.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
     </section>
   </main>
 
   <!-- ================================================================= -->
   <!-- 16. FOOTER (Navy)                                                 -->
   <!-- ================================================================= -->
-  <footer id="contact" class="bg-brand-navy text-white border-t border-neutral-800 pt-16 pb-12">
+  <footer id="contact" class="bg-brand-bg text-brand-navy border-t border-brand-border/60 pt-16 pb-12">
     <div class="max-w-7xl mx-auto px-5 sm:px-8">
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-16 border-b border-white/10">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-16 border-b border-neutral-200">
 
         <!-- Foundation Info -->
         <div class="lg:col-span-4 space-y-4">
-          <div class="flex items-center gap-3">
-            <img src="assets/Krutadnyata Foundation logo (with text).png" alt="Krutadnyata Foundation" class="h-14 w-auto object-contain" />
-          </div>
-          <p class="text-xs text-neutral-300 leading-relaxed font-normal">
+          <img src="assets/Krutadnyata Foundation logo (with text).png" alt="Krutadnyata Foundation" class="h-14 w-auto object-contain" />
+          <p class="text-xs text-neutral-600 leading-relaxed font-normal">
             A Maharashtra-based registered social organisation dedicated to bridging educational inequalities, conducting preventive healthcare, and empowering communities since 2019.
           </p>
-          <div class="text-xs text-neutral-400 space-y-1">
-            <p><strong>Charity Reg:</strong> [TO CONFIRM: Trust Registration Number]</p>
-            <p><strong>Head Office:</strong> [TO CONFIRM: Official Registered Address], Suburban Mumbai, Maharashtra</p>
-            <p><strong>Helpline:</strong> +91 98338 61159 (Inquiries)</p>
+          <div class="text-xs text-neutral-500 space-y-1">
+            <p><strong class="text-brand-navy">Charity Reg:</strong> [TO CONFIRM: Trust Registration Number]</p>
+            <p><strong class="text-brand-navy">Head Office:</strong> [TO CONFIRM: Official Registered Address], Suburban Mumbai, Maharashtra</p>
+            <p><strong class="text-brand-navy">Helpline:</strong> +91 98338 61159 (Inquiries)</p>
           </div>
         </div>
 
         <!-- Core Work -->
         <div class="lg:col-span-2 space-y-3 text-xs">
-          <p class="font-display font-bold text-white uppercase tracking-wider text-[11px]">Core Work</p>
-          <ul class="space-y-2 text-neutral-300">
-            <li><a href="our-work.html#pillar-health" class="hover:text-brand-mint transition-colors">Health Camps</a></li>
-            <li><a href="our-work.html#pillar-sports" class="hover:text-brand-mint transition-colors">State Sports Day</a></li>
-            <li><a href="our-work.html#pillar-skilling" class="hover:text-brand-mint transition-colors">Aarya Skill Centre</a></li>
-            <li><a href="our-work.html#pillar-environment" class="hover:text-brand-mint transition-colors">Tree Protection</a></li>
-            <li><a href="our-work.html#pillar-relief" class="hover:text-brand-mint transition-colors">Community Relief</a></li>
+          <p class="font-display font-bold text-brand-navy uppercase tracking-wider text-[11px]">Core Work</p>
+          <ul class="space-y-2 text-neutral-600">
+            <li><a href="our-work.html#pillar-health" class="hover:text-brand-green transition-colors">Health Camps</a></li>
+            <li><a href="our-work.html#pillar-sports" class="hover:text-brand-green transition-colors">State Sports Day</a></li>
+            <li><a href="our-work.html#pillar-skilling" class="hover:text-brand-green transition-colors">Aarya Skill Centre</a></li>
+            <li><a href="our-work.html#pillar-environment" class="hover:text-brand-green transition-colors">Tree Protection</a></li>
+            <li><a href="our-work.html#pillar-relief" class="hover:text-brand-green transition-colors">Community Relief</a></li>
           </ul>
         </div>
 
         <!-- Navigation -->
         <div class="lg:col-span-2 space-y-3 text-xs">
-          <p class="font-display font-bold text-white uppercase tracking-wider text-[11px]">Navigation</p>
-          <ul class="space-y-2 text-neutral-300">
-            <li><a href="index.html" class="hover:text-brand-mint transition-colors">Home</a></li>
-            <li><a href="about.html" class="hover:text-brand-mint transition-colors">About Us</a></li>
-            <li><a href="our-work.html" class="hover:text-brand-mint transition-colors">Our Work</a></li>
-            <li><a href="gallery.html" class="hover:text-brand-mint transition-colors">Field Gallery</a></li>
-            <li><a href="stories.html" class="hover:text-brand-mint transition-colors">Stories</a></li>
-            <li><a href="blog.html" class="hover:text-brand-mint transition-colors">Blog</a></li>
-            <li><a href="reports.html" class="hover:text-brand-mint transition-colors">Reports &amp; Audits</a></li>
-            <li><a href="volunteer.html" class="hover:text-brand-mint transition-colors">Volunteer</a></li>
-            <li><a href="contact.html" class="hover:text-brand-mint transition-colors">Contact</a></li>
+          <p class="font-display font-bold text-brand-navy uppercase tracking-wider text-[11px]">Navigation</p>
+          <ul class="space-y-2 text-neutral-600">
+            <li><a href="index.html" class="hover:text-brand-green transition-colors">Home</a></li>
+            <li><a href="about.html" class="hover:text-brand-green transition-colors">About Us</a></li>
+            <li><a href="our-work.html" class="hover:text-brand-green transition-colors">Our Work</a></li>
+            <li><a href="gallery.html" class="hover:text-brand-green transition-colors">Field Gallery</a></li>
+            <li><a href="stories.html" class="hover:text-brand-green transition-colors">Stories</a></li>
+            <li><a href="blog.html" class="hover:text-brand-green transition-colors">Blog</a></li>
+            <li><a href="reports.html" class="hover:text-brand-green transition-colors">Reports &amp; Audits</a></li>
+            <li><a href="volunteer.html" class="hover:text-brand-green transition-colors">Volunteer</a></li>
+            <li><a href="contact.html" class="hover:text-brand-green transition-colors">Contact</a></li>
           </ul>
         </div>
 
         <!-- Stay Informed -->
         <div class="lg:col-span-4 space-y-4">
-          <p class="font-display font-bold text-white uppercase tracking-wider text-[11px]">Stay Informed</p>
-          <p class="text-xs text-neutral-300 leading-relaxed">Subscribe to receive our verified quarterly field activity bulletins and volunteer opportunities.</p>
+          <p class="font-display font-bold text-brand-navy uppercase tracking-wider text-[11px]">Stay Informed</p>
+          <p class="text-xs text-neutral-600 leading-relaxed">Subscribe to receive our verified quarterly field activity bulletins and volunteer opportunities.</p>
 
           <form class="flex items-center gap-2" onsubmit="event.preventDefault(); alert('Subscribed to Krutadnyata updates.');">
-            <input type="email" placeholder="Your email address" required class="bg-white/10 border border-white/15 px-3.5 py-2.5 rounded-xl text-xs text-white placeholder-neutral-400 focus:outline-none focus:border-brand-green flex-1" />
+            <input type="email" placeholder="Your email address" required class="bg-white border border-neutral-300 px-3.5 py-2.5 rounded-xl text-xs text-brand-navy placeholder-neutral-400 focus:outline-none focus:border-brand-green flex-1" />
             <button type="submit" class="px-4 py-2.5 bg-brand-green text-white text-xs font-semibold rounded-xl hover:bg-emerald-700 transition-colors whitespace-nowrap">Join</button>
           </form>
         </div>
@@ -1413,14 +1258,14 @@
       </div>
 
       <!-- Bottom Disclaimer & Copyright -->
-      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-neutral-400 gap-4">
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-neutral-500 gap-4">
         <div>
           © 2019–2026 Krutadnyata Foundation (कृतज्ञता फाउंडेशन). All public contributions are utilized strictly towards community welfare programs.
         </div>
         <div class="flex items-center gap-6">
-          <a href="privacy.html" class="hover:text-neutral-200 transition-colors">Privacy Policy</a>
-          <a href="reports.html" class="hover:text-neutral-200 transition-colors">MOU Records</a>
-          <a href="donation.html" class="hover:text-neutral-200 transition-colors">80G Verification</a>
+          <a href="privacy.html" class="hover:text-brand-navy transition-colors">Privacy Policy</a>
+          <a href="reports.html" class="hover:text-brand-navy transition-colors">MOU Records</a>
+          <a href="donation.html" class="hover:text-brand-navy transition-colors">80G Verification</a>
         </div>
       </div>
 

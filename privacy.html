@@ -124,48 +124,76 @@
   <!-- 1. HEADER                                                         -->
   <!-- ================================================================= -->
   <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-brand-border/60 glass-nav">
-    <div class="max-w-7xl mx-auto px-5 sm:px-8 h-20 flex items-center justify-between">
-      
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 h-24 flex items-center justify-between">
+
       <!-- Brand Logo -->
-      <a href="index.html" class="flex items-center gap-3.5 group" aria-label="Krutadnyata Foundation Home">
-        <div class="w-10 h-10 rounded-xl bg-brand-navy flex items-center justify-center text-brand-mint font-marathi font-bold text-xl transition-transform duration-300 group-hover:scale-105 shadow-sm">
-          कृ
-        </div>
-        <div class="flex flex-col">
-          <span class="font-display font-extrabold text-lg text-brand-navy tracking-tight leading-tight">
-            KRUTADNYATA
-          </span>
-          <span class="text-[11px] font-marathi font-semibold text-brand-green tracking-wide -mt-0.5">
-            कृतज्ञता फाउंडेशन <span class="text-neutral-400 font-sans font-normal text-[10px]">• 2019</span>
-          </span>
-        </div>
+      <a href="index.html" class="flex items-center group" aria-label="Krutadnyata Foundation Home">
+        <img src="assets/Krutadnyata Foundation logo (with text).png" alt="Krutadnyata Foundation" class="h-16 w-auto transition-transform duration-300 group-hover:scale-105" />
       </a>
 
       <!-- Desktop Nav -->
-      <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-neutral-600">
-        <a href="index.html" class="hover:text-brand-navy transition-colors py-1">Home</a>
-        <a href="about.html" class="hover:text-brand-navy transition-colors py-1">About Us</a>
-        <a href="our-work.html" class="hover:text-brand-navy transition-colors py-1">Our Work</a>
-        <a href="gallery.html" class="hover:text-brand-navy transition-colors py-1">Gallery</a>
-        <a href="stories.html" class="hover:text-brand-navy transition-colors py-1">Stories</a>
-        <a href="contact.html" class="hover:text-brand-navy transition-colors py-1">Contact</a>
+      <nav class="hidden xl:flex items-center gap-5 text-sm font-medium text-neutral-600">
+        <a href="index.html" class="nav-link hover:text-brand-navy transition-colors py-1">Home</a>
+        <a href="about.html" class="nav-link hover:text-brand-navy transition-colors py-1">About Us</a>
+
+        <!-- Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1.5 hover:text-brand-navy transition-colors py-1 focus:outline-none">
+            <span>Our Work</span>
+            <svg class="w-3.5 h-3.5 text-neutral-400 group-hover:rotate-180 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="absolute left-0 top-full pt-3 w-72 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200">
+            <div class="bg-white rounded-2xl p-2.5 shadow-xl border border-neutral-100 grid gap-1 text-xs">
+              <a href="our-work.html#pillar-health" class="px-3 py-2 rounded-xl hover:bg-neutral-50 hover:text-brand-green flex items-center justify-between font-medium">
+                <span>Health & Medical Camps</span>
+                <span class="text-[10px] text-neutral-400">Rural/Urban</span>
+              </a>
+              <a href="our-work.html#pillar-education" class="px-3 py-2 rounded-xl hover:bg-neutral-50 hover:text-brand-green flex items-center justify-between font-medium">
+                <span>Education & Civil Services</span>
+                <span class="text-[10px] text-neutral-400">UPSC/MPSC</span>
+              </a>
+              <a href="our-work.html#pillar-environment" class="px-3 py-2 rounded-xl hover:bg-neutral-50 hover:text-brand-green flex items-center justify-between font-medium">
+                <span>Environment & Conservation</span>
+                <span class="text-[10px] text-neutral-400">Nail-Free</span>
+              </a>
+              <a href="our-work.html#pillar-sports" class="px-3 py-2 rounded-xl hover:bg-neutral-50 hover:text-brand-green flex items-center justify-between font-medium">
+                <span>Youth & State Sports</span>
+                <span class="text-[10px] text-neutral-400">Marathons</span>
+              </a>
+              <a href="our-work.html#pillar-relief" class="px-3 py-2 rounded-xl hover:bg-neutral-50 hover:text-brand-green flex items-center justify-between font-medium">
+                <span>Community & Blanket Relief</span>
+                <span class="text-[10px] text-neutral-400">Disadvantaged</span>
+              </a>
+              <a href="our-work.html#pillar-skilling" class="px-3 py-2 rounded-xl hover:bg-neutral-50 hover:text-brand-green flex items-center justify-between font-medium">
+                <span>Skill Development (MSSDC)</span>
+                <span class="text-[10px] text-neutral-400">Vocational</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a href="gallery.html" class="nav-link hover:text-brand-navy transition-colors py-1">Gallery</a>
+        <a href="stories.html" class="nav-link hover:text-brand-navy transition-colors py-1">Stories</a>
+        <a href="blog.html" class="nav-link hover:text-brand-navy transition-colors py-1">Blog</a>
+        <a href="reports.html" class="nav-link hover:text-brand-navy transition-colors py-1">Reports &amp; Audits</a>
+        <a href="volunteer.html" class="nav-link hover:text-brand-navy transition-colors py-1">Volunteer</a>
+        <a href="contact.html" class="nav-link hover:text-brand-navy transition-colors py-1">Contact</a>
       </nav>
 
       <!-- Right Action CTA -->
       <div class="hidden sm:flex items-center gap-5">
-        <a href="index.html" class="text-xs font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
-          Return to Home
-        </a>
         <a href="donation.html" class="bg-brand-green text-white text-xs font-semibold px-5 py-2.5 rounded-full hover:bg-emerald-700 active:scale-95 transition-all shadow-sm hover:shadow-md flex items-center gap-1.5">
-          <span>Donate</span>
+          <span>Donate Now</span>
           <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
         </a>
       </div>
 
-      <!-- Mobile Menu Button -->
-      <button id="mobile-toggle" aria-label="Toggle navigation menu" class="lg:hidden p-2 rounded-lg text-neutral-800 hover:bg-neutral-100 focus:outline-none">
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-toggle" aria-label="Toggle navigation menu" class="xl:hidden p-2 rounded-lg text-neutral-800 hover:bg-neutral-100 focus:outline-none">
         <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
@@ -175,10 +203,10 @@
   </header>
 
   <!-- Mobile Drawer -->
-  <div id="mobile-menu" class="fixed inset-0 bg-brand-navy/95 z-50 flex flex-col justify-between p-8 text-white translate-x-full transition-transform duration-300 lg:hidden">
+  <div id="mobile-menu" class="fixed inset-0 bg-brand-navy/95 z-50 flex flex-col justify-between p-8 text-white translate-x-full transition-transform duration-300 xl:hidden overflow-y-auto">
     <div class="flex items-center justify-between border-b border-white/10 pb-5">
       <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-brand-green flex items-center justify-center text-white font-marathi font-bold text-xl">कृ</div>
+        <img src="assets/Krutadnyata Foundation logo (icon only).png" alt="Krutadnyata Foundation" class="w-10 h-10 object-contain" />
         <span class="font-display font-bold text-lg">Krutadnyata</span>
       </div>
       <button id="mobile-close" aria-label="Close menu" class="p-2 text-white/80 hover:text-white">
@@ -188,18 +216,20 @@
       </button>
     </div>
 
-    <div class="grid gap-6 text-xl font-display font-semibold">
-      <a href="index.html" class="text-white/80 hover:text-white">Home</a>
-      <a href="about.html" class="text-white/80 hover:text-white">About Us</a>
-      <a href="our-work.html" class="text-white/80 hover:text-white">Our Work</a>
-      <a href="gallery.html" class="text-white/80 hover:text-white">Field Gallery</a>
-      <a href="stories.html" class="text-white/80 hover:text-white">Stories</a>
-      <a href="contact.html" class="text-white/80 hover:text-white">Contact</a>
+    <div class="grid gap-4 text-lg font-display font-semibold py-6">
+      <a href="index.html" class="nav-link mobile-link text-white/80 hover:text-white">Home</a>
+      <a href="about.html" class="nav-link mobile-link text-white/80 hover:text-white">About Us</a>
+      <a href="our-work.html" class="nav-link mobile-link text-white/80 hover:text-white">Our Work</a>
+      <a href="gallery.html" class="nav-link mobile-link text-white/80 hover:text-white">Gallery</a>
+      <a href="stories.html" class="nav-link mobile-link text-white/80 hover:text-white">Stories</a>
+      <a href="blog.html" class="nav-link mobile-link text-white/80 hover:text-white">Blog</a>
+      <a href="reports.html" class="nav-link mobile-link text-white/80 hover:text-white">Reports &amp; Audits</a>
+      <a href="volunteer.html" class="nav-link mobile-link text-white/80 hover:text-white">Volunteer</a>
+      <a href="contact.html" class="nav-link mobile-link text-white/80 hover:text-white">Contact</a>
     </div>
 
     <div class="grid gap-3 pt-6 border-t border-white/10">
-      <a href="donation.html" class="w-full py-3.5 bg-brand-green rounded-xl text-center font-semibold text-white">Donate to Programs</a>
-      <a href="volunteer.html" class="w-full py-3.5 bg-white/10 rounded-xl text-center font-medium text-white/80">Become a Volunteer</a>
+      <a href="donation.html" class="mobile-link w-full py-3.5 bg-brand-green rounded-xl text-center font-semibold text-white">Donate to Programs</a>
     </div>
   </div>
 
@@ -422,36 +452,39 @@
   <!-- ================================================================= -->
   <!-- 4. FOOTER                                                         -->
   <!-- ================================================================= -->
-  <footer class="bg-brand-navy text-white border-t border-neutral-800 pt-16 pb-12">
+  <footer id="contact" class="bg-brand-navy text-white border-t border-neutral-800 pt-16 pb-12">
     <div class="max-w-7xl mx-auto px-5 sm:px-8">
-      
+
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-16 border-b border-white/10">
-        
+
+        <!-- Foundation Info -->
         <div class="lg:col-span-4 space-y-4">
           <div class="flex items-center gap-3">
-            <div class="w-9 h-9 rounded-xl bg-brand-green flex items-center justify-center font-marathi font-bold text-white text-lg">कृ</div>
-            <span class="font-display font-extrabold text-xl text-white tracking-tight">Krutadnyata Foundation</span>
+            <img src="assets/Krutadnyata Foundation logo (with text).png" alt="Krutadnyata Foundation" class="h-14 w-auto object-contain" />
           </div>
           <p class="text-xs text-neutral-300 leading-relaxed font-normal">
-            A Maharashtra-based registered social organisation dedicated to bridging educational inequalities, conducting preventive healthcare, and empowering communities since 2019[cite: 1].
+            A Maharashtra-based registered social organisation dedicated to bridging educational inequalities, conducting preventive healthcare, and empowering communities since 2019.
           </p>
           <div class="text-xs text-neutral-400 space-y-1">
             <p><strong>Charity Reg:</strong> [TO CONFIRM: Trust Registration Number]</p>
             <p><strong>Head Office:</strong> [TO CONFIRM: Official Registered Address], Suburban Mumbai, Maharashtra</p>
-            <p><strong>Helpline:</strong> +91 98338 61159[cite: 1]</p>
+            <p><strong>Helpline:</strong> +91 98338 61159 (Inquiries)</p>
           </div>
         </div>
 
+        <!-- Core Work -->
         <div class="lg:col-span-2 space-y-3 text-xs">
-          <p class="font-display font-bold text-white uppercase tracking-wider text-[11px]">Key Programs</p>
+          <p class="font-display font-bold text-white uppercase tracking-wider text-[11px]">Core Work</p>
           <ul class="space-y-2 text-neutral-300">
-            <li><a href="our-work.html#pillar-health" class="hover:text-brand-mint transition-colors">Health Camps[cite: 1]</a></li>
-            <li><a href="our-work.html#pillar-education" class="hover:text-brand-mint transition-colors">Civil Services Prep[cite: 1]</a></li>
-            <li><a href="our-work.html#pillar-sports" class="hover:text-brand-mint transition-colors">Sports Marathons[cite: 1]</a></li>
-            <li><a href="our-work.html#pillar-environment" class="hover:text-brand-mint transition-colors">Tree Protection[cite: 1]</a></li>
+            <li><a href="our-work.html#pillar-health" class="hover:text-brand-mint transition-colors">Health Camps</a></li>
+            <li><a href="our-work.html#pillar-sports" class="hover:text-brand-mint transition-colors">State Sports Day</a></li>
+            <li><a href="our-work.html#pillar-skilling" class="hover:text-brand-mint transition-colors">Aarya Skill Centre</a></li>
+            <li><a href="our-work.html#pillar-environment" class="hover:text-brand-mint transition-colors">Tree Protection</a></li>
+            <li><a href="our-work.html#pillar-relief" class="hover:text-brand-mint transition-colors">Community Relief</a></li>
           </ul>
         </div>
 
+        <!-- Navigation -->
         <div class="lg:col-span-2 space-y-3 text-xs">
           <p class="font-display font-bold text-white uppercase tracking-wider text-[11px]">Navigation</p>
           <ul class="space-y-2 text-neutral-300">
@@ -459,29 +492,35 @@
             <li><a href="about.html" class="hover:text-brand-mint transition-colors">About Us</a></li>
             <li><a href="our-work.html" class="hover:text-brand-mint transition-colors">Our Work</a></li>
             <li><a href="gallery.html" class="hover:text-brand-mint transition-colors">Field Gallery</a></li>
-            <li><a href="privacy.html" class="hover:text-brand-mint transition-colors">Privacy Policy</a></li>
+            <li><a href="stories.html" class="hover:text-brand-mint transition-colors">Stories</a></li>
+            <li><a href="blog.html" class="hover:text-brand-mint transition-colors">Blog</a></li>
+            <li><a href="reports.html" class="hover:text-brand-mint transition-colors">Reports &amp; Audits</a></li>
+            <li><a href="volunteer.html" class="hover:text-brand-mint transition-colors">Volunteer</a></li>
             <li><a href="contact.html" class="hover:text-brand-mint transition-colors">Contact</a></li>
           </ul>
         </div>
 
+        <!-- Stay Informed -->
         <div class="lg:col-span-4 space-y-4">
-          <p class="font-display font-bold text-white uppercase tracking-wider text-[11px]">Grievance Desk</p>
-          <p class="text-xs text-neutral-300 leading-relaxed">Questions regarding personal data protection or statutory 80G tax receipt inquiries? Connect directly with our compliance desk[cite: 1].</p>
-          <a href="https://wa.me/919833861159" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold transition-colors">
-            <span>WhatsApp Compliance Desk (+91 98338 61159)</span>[cite: 1]
-            <span>↗</span>
-          </a>
+          <p class="font-display font-bold text-white uppercase tracking-wider text-[11px]">Stay Informed</p>
+          <p class="text-xs text-neutral-300 leading-relaxed">Subscribe to receive our verified quarterly field activity bulletins and volunteer opportunities.</p>
+
+          <form class="flex items-center gap-2" onsubmit="event.preventDefault(); alert('Subscribed to Krutadnyata updates.');">
+            <input type="email" placeholder="Your email address" required class="bg-white/10 border border-white/15 px-3.5 py-2.5 rounded-xl text-xs text-white placeholder-neutral-400 focus:outline-none focus:border-brand-green flex-1" />
+            <button type="submit" class="px-4 py-2.5 bg-brand-green text-white text-xs font-semibold rounded-xl hover:bg-emerald-700 transition-colors whitespace-nowrap">Join</button>
+          </form>
         </div>
 
       </div>
 
+      <!-- Bottom Disclaimer & Copyright -->
       <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-neutral-400 gap-4">
         <div>
-          © 2019–2026 Krutadnyata Foundation (कृतज्ञता फाउंडेशन). All public contributions are utilized strictly towards community welfare programs[cite: 1].
+          © 2019–2026 Krutadnyata Foundation (कृतज्ञता फाउंडेशन). All public contributions are utilized strictly towards community welfare programs.
         </div>
         <div class="flex items-center gap-6">
-          <a href="privacy.html" class="text-white font-semibold">Privacy Policy</a>
-          <a href="contact.html" class="hover:text-neutral-200 transition-colors">Legal Clinic Desk[cite: 1]</a>
+          <a href="privacy.html" class="hover:text-neutral-200 transition-colors">Privacy Policy</a>
+          <a href="reports.html" class="hover:text-neutral-200 transition-colors">MOU Records</a>
           <a href="donation.html" class="hover:text-neutral-200 transition-colors">80G Verification</a>
         </div>
       </div>
@@ -535,6 +574,17 @@
         });
       });
     });
+  </script>
+  <script>
+    (function () {
+      var path = location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.nav-link[href]').forEach(function (a) {
+        if (a.getAttribute('href') === path) {
+          a.classList.add('text-brand-navy', 'font-semibold');
+          a.classList.add('active-nav-link');
+        }
+      });
+    })();
   </script>
 </body>
 </html>

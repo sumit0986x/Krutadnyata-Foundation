@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Banner Concepts — Krutadnyata Foundation</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Mukta:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              green: 'var(--color-green)',
+              navy: 'var(--color-navy)',
+              mint: 'var(--color-mint)',
+              bg: 'var(--color-bg)',
+              ink: 'var(--color-ink)',
+              muted: 'var(--color-muted)',
+              accent: 'var(--color-accent)',
+              border: 'var(--color-border)',
+            }
+          },
+          fontFamily: {
+            sans: ['"Inter"', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+            marathi: ['"Mukta"', 'sans-serif'],
+          },
+          letterSpacing: {
+            tightest: '-0.035em',
+            tighter: '-0.02em',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --color-green: #00985A;
+      --color-navy: #0B2D4F;
+      --color-mint: #D6EFE5;
+      --color-bg: #FAFAF7;
+      --color-ink: #1A1A1A;
+      --color-muted: #6B7280;
+      --color-accent: #F2B84B;
+      --color-border: #E5E7EB;
+    }
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-ink);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-marathi { font-family: 'Mukta', sans-serif; }
+
+    .concept-label {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: var(--color-navy);
+      color: white;
+    }
+
+    /* Variant 3 slider */
+    .slide { opacity: 0; position: absolute; inset: 0; transition: opacity 1s ease; }
+    .slide.active { opacity: 1; position: relative; }
+    .slide-bg-a { background: linear-gradient(135deg, #0B2D4F 0%, #0E3F66 60%, #00985A 140%); }
+    .slide-bg-b { background: linear-gradient(135deg, #00985A 0%, #0B2D4F 100%); }
+    .slide-bg-c { background: linear-gradient(135deg, #0B2D4F 0%, #163f63 50%, #00985A 160%); }
+    .dot { width: 8px; height: 8px; border-radius: 999px; background: rgba(255,255,255,0.35); transition: all .25s ease; cursor: pointer; }
+    .dot.active { background: #fff; width: 22px; }
+  </style>
+</head>
+<body class="selection:bg-brand-mint selection:text-brand-navy">
+
+  <div class="concept-label px-5 py-3 text-center text-xs sm:text-sm font-semibold tracking-wide">
+    Banner Concepts Preview — scroll to compare all 3 versions (yeh file sirf comparison ke liye hai, live homepage nahi)
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- VARIANT 1 — "Clean Classic" (refined centered hero)               -->
+  <!-- ================================================================= -->
+  <div class="bg-brand-navy text-white text-center py-2.5 text-[11px] font-bold uppercase tracking-widest">Variant 1 — Clean Classic</div>
+  <section class="relative min-h-[88vh] flex items-center justify-center pt-16 pb-16 overflow-hidden bg-gradient-to-b from-brand-mint/30 via-brand-bg to-brand-bg">
+    <div class="relative z-10 max-w-5xl mx-auto px-5 text-center flex flex-col items-center">
+
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-brand-border shadow-sm text-xs font-medium text-neutral-700 mb-8">
+        <span class="w-2 h-2 rounded-full bg-brand-green animate-pulse"></span>
+        <span>Grassroots Social Responsibility across Maharashtra • Est. 2019</span>
+      </div>
+
+      <h1 class="font-display font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-[80px] text-brand-navy tracking-tightest leading-[1.06] max-w-4xl">
+        Serving Maharashtra with Gratitude.
+      </h1>
+
+      <p class="mt-7 text-lg sm:text-xl text-neutral-600 max-w-2xl font-normal leading-relaxed">
+        Health camps, career empowerment, environmental defense, and emergency community relief — documented on the ground every year since 2019.
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+        <a href="donation.html" class="w-full sm:w-auto px-8 py-4 bg-brand-green text-white font-semibold rounded-full hover:bg-emerald-700 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all text-sm flex items-center justify-center gap-2">
+          <span>Support Our Programs</span>
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+        </a>
+        <a href="our-work.html" class="w-full sm:w-auto px-8 py-4 bg-white border border-neutral-300 text-brand-navy font-semibold rounded-full hover:bg-neutral-50 hover:border-neutral-400 transition-all text-sm flex items-center justify-center">
+          Explore Initiatives
+        </a>
+      </div>
+
+      <!-- Trust / quick stats strip -->
+      <div class="mt-14 grid grid-cols-3 gap-6 sm:gap-14 pt-8 border-t border-neutral-200 w-full max-w-2xl">
+        <div>
+          <p class="font-display font-extrabold text-2xl sm:text-3xl text-brand-navy">2019</p>
+          <p class="text-[11px] sm:text-xs text-neutral-500 mt-1 uppercase tracking-wide">Est. Since</p>
+        </div>
+        <div>
+          <p class="font-display font-extrabold text-2xl sm:text-3xl text-brand-navy">25K+</p>
+          <p class="text-[11px] sm:text-xs text-neutral-500 mt-1 uppercase tracking-wide">Lives Touched</p>
+        </div>
+        <div>
+          <p class="font-display font-extrabold text-2xl sm:text-3xl text-brand-navy">7</p>
+          <p class="text-[11px] sm:text-xs text-neutral-500 mt-1 uppercase tracking-wide">Focus Areas</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- VARIANT 1B — "Layered Mosaic" (redesign of Variant 1)             -->
+  <!-- ================================================================= -->
+  <div class="bg-brand-navy text-white text-center py-2.5 text-[11px] font-bold uppercase tracking-widest">Variant 1B — Layered Mosaic (redesign)</div>
+  <section class="relative min-h-[88vh] flex items-center overflow-hidden bg-brand-bg">
+
+    <!-- Decorative background blobs -->
+    <div class="absolute -top-32 -left-32 w-[420px] h-[420px] rounded-full bg-brand-mint/50 blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-40 -right-20 w-[380px] h-[380px] rounded-full bg-brand-green/15 blur-3xl pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-20">
+
+      <!-- Text (left-aligned, not centered) -->
+      <div class="lg:col-span-7">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-brand-border shadow-sm text-xs font-medium text-neutral-700 mb-7">
+          <span class="w-2 h-2 rounded-full bg-brand-green animate-pulse"></span>
+          <span>Grassroots Social Responsibility • Est. 2019</span>
+        </div>
+
+        <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-7xl text-brand-navy tracking-tightest leading-[1.05]">
+          Serving Maharashtra <span class="text-brand-green">with Gratitude.</span>
+        </h1>
+
+        <p class="mt-6 text-base sm:text-lg text-neutral-600 max-w-xl leading-relaxed">
+          Health camps, career empowerment, environmental defense, and emergency community relief — documented on the ground every year since 2019.
+        </p>
+
+        <div class="mt-9 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <a href="donation.html" class="px-8 py-4 bg-brand-green text-white font-semibold rounded-full hover:bg-emerald-700 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all text-sm flex items-center justify-center gap-2">
+            <span>Support Our Programs</span>
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+          </a>
+          <a href="our-work.html" class="px-8 py-4 bg-white border border-neutral-300 text-brand-navy font-semibold rounded-full hover:bg-neutral-50 hover:border-neutral-400 transition-all text-sm flex items-center justify-center">
+            Explore Initiatives
+          </a>
+        </div>
+
+        <!-- Avatar-style trust row -->
+        <div class="mt-12 flex items-center gap-4">
+          <div class="flex -space-x-3">
+            <div class="w-9 h-9 rounded-full bg-brand-navy border-2 border-brand-bg"></div>
+            <div class="w-9 h-9 rounded-full bg-brand-green border-2 border-brand-bg"></div>
+            <div class="w-9 h-9 rounded-full bg-brand-accent border-2 border-brand-bg"></div>
+            <div class="w-9 h-9 rounded-full bg-neutral-300 border-2 border-brand-bg flex items-center justify-center text-[10px] font-bold text-brand-navy">9+</div>
+          </div>
+          <p class="text-xs text-neutral-500 leading-snug">Trusted by <strong class="text-brand-navy">9+ institutional partners</strong> incl. BIS &amp; Maharashtra Skill Corp</p>
+        </div>
+      </div>
+
+      <!-- Mosaic photo grid (right) -->
+      <div class="lg:col-span-5">
+        <div class="grid grid-cols-2 gap-4">
+          <div class="col-span-2 aspect-[16/10] rounded-2xl overflow-hidden shadow-lg bg-gradient-to-br from-brand-navy to-[#0e3f66] relative">
+            <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
+              <p class="text-xs font-display font-bold">Marathon 2026 • 1,200+ Runners</p>
+            </div>
+          </div>
+          <div class="aspect-square rounded-2xl overflow-hidden shadow-lg bg-gradient-to-br from-brand-green to-emerald-700"></div>
+          <div class="aspect-square rounded-2xl overflow-hidden shadow-lg bg-gradient-to-br from-brand-accent to-amber-600 relative">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <p class="font-display font-extrabold text-3xl text-white">25K+</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- VARIANT 2 — "Split Layout" (asymmetric, donor-style)              -->
+  <!-- ================================================================= -->
+  <div class="bg-brand-navy text-white text-center py-2.5 text-[11px] font-bold uppercase tracking-widest">Variant 2 — Split Layout</div>
+  <section class="relative min-h-[88vh] flex items-center overflow-hidden bg-brand-bg">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center py-20">
+
+      <!-- Text -->
+      <div class="lg:col-span-6 xl:col-span-7">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-brand-border shadow-sm text-xs font-medium text-neutral-700 mb-7">
+          <span class="w-2 h-2 rounded-full bg-brand-green animate-pulse"></span>
+          <span>Est. 2019 • Maharashtra</span>
+        </div>
+
+        <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-brand-navy tracking-tightest leading-[1.08]">
+          Gratitude in action, across every taluka of Maharashtra.
+        </h1>
+
+        <p class="mt-6 text-base sm:text-lg text-neutral-600 max-w-lg leading-relaxed">
+          From rural health camps to urban skill centres — every rupee and every hour goes straight to the ground.
+        </p>
+
+        <div class="mt-9 flex flex-wrap items-center gap-4">
+          <a href="donation.html" class="px-7 py-3.5 bg-brand-green text-white font-semibold rounded-full hover:bg-emerald-700 hover:shadow-lg transition-all text-sm flex items-center gap-2">
+            <span>Donate Now</span>
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+          </a>
+          <a href="volunteer.html" class="px-7 py-3.5 text-brand-navy font-semibold text-sm border-b-2 border-brand-navy/20 hover:border-brand-green hover:text-brand-green transition-all">
+            Become a Volunteer →
+          </a>
+        </div>
+
+        <div class="mt-12 flex items-center gap-8">
+          <div>
+            <p class="font-display font-extrabold text-2xl text-brand-navy">25K+</p>
+            <p class="text-[11px] text-neutral-500 uppercase tracking-wide mt-0.5">Lives Touched</p>
+          </div>
+          <div class="w-px h-10 bg-neutral-300"></div>
+          <div>
+            <p class="font-display font-extrabold text-2xl text-brand-navy">80G</p>
+            <p class="text-[11px] text-neutral-500 uppercase tracking-wide mt-0.5">Tax Exempt</p>
+          </div>
+          <div class="w-px h-10 bg-neutral-300"></div>
+          <div>
+            <p class="font-display font-extrabold text-2xl text-brand-navy">7</p>
+            <p class="text-[11px] text-neutral-500 uppercase tracking-wide mt-0.5">Focus Areas</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual block -->
+      <div class="lg:col-span-6 xl:col-span-5 relative">
+        <div class="relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl bg-gradient-to-br from-brand-navy via-[#0e3f66] to-brand-green">
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.15),transparent_55%)]"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+            <span class="px-3 py-1 rounded-full bg-white/15 backdrop-blur text-[11px] font-semibold tracking-wide">Field Document</span>
+            <p class="mt-3 font-display font-bold text-lg leading-snug">State Sports Day Marathon 2026</p>
+            <p class="text-xs text-neutral-200 mt-1">1,200+ runners, Suburban Mumbai</p>
+          </div>
+        </div>
+        <!-- Overlapping stat card -->
+        <div class="absolute -left-6 sm:-left-10 bottom-10 bg-white rounded-2xl shadow-xl px-5 py-4 w-44 border border-neutral-100">
+          <p class="font-display font-extrabold text-2xl text-brand-green">₹3L+</p>
+          <p class="text-[11px] text-neutral-500 mt-0.5 leading-snug">Direct emergency medical aid disbursed</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- VARIANT 3 — "Campaign Carousel" (auto-scrolling slides + CTA)     -->
+  <!-- ================================================================= -->
+  <div class="bg-brand-navy text-white text-center py-2.5 text-[11px] font-bold uppercase tracking-widest">Variant 3 — Campaign Carousel</div>
+  <section class="relative min-h-[88vh] overflow-hidden" id="heroCarousel">
+
+    <!-- Slide 1 -->
+    <div class="slide active slide-bg-a flex items-center" data-slide="0">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 w-full">
+        <div class="max-w-2xl text-white py-24">
+          <span class="inline-block px-3 py-1 rounded-full bg-white/10 border border-white/20 text-[11px] font-semibold tracking-wide uppercase mb-6">Current Campaign</span>
+          <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl leading-[1.1] tracking-tight">
+            Winter Relief Drive 2026: Blankets for 2,000 families.
+          </h1>
+          <p class="mt-5 text-base sm:text-lg text-neutral-200 leading-relaxed max-w-xl">
+            Help us reach every cold-exposed family in Gorai, Borivali and rural Konkan before the first week of December.
+          </p>
+          <div class="mt-9 flex flex-wrap gap-4">
+            <a href="donation.html" class="px-7 py-3.5 bg-brand-green text-white font-semibold rounded-full hover:bg-emerald-700 hover:shadow-lg transition-all text-sm inline-flex items-center gap-2">
+              <span>Donate to This Campaign</span>
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </a>
+            <a href="our-work.html" class="px-7 py-3.5 bg-white/10 border border-white/25 text-white font-semibold rounded-full hover:bg-white/20 transition-all text-sm">
+              See All Campaigns
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide slide-bg-b flex items-center" data-slide="1">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 w-full">
+        <div class="max-w-2xl text-white py-24">
+          <span class="inline-block px-3 py-1 rounded-full bg-white/10 border border-white/20 text-[11px] font-semibold tracking-wide uppercase mb-6">Volunteer Call</span>
+          <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl leading-[1.1] tracking-tight">
+            Join the State Sports Day Marathon Core Team.
+          </h1>
+          <p class="mt-5 text-base sm:text-lg text-neutral-200 leading-relaxed max-w-xl">
+            Field volunteers needed for route management, hydration stations and first-aid support — Jan 2027, Suburban Mumbai.
+          </p>
+          <div class="mt-9 flex flex-wrap gap-4">
+            <a href="volunteer.html" class="px-7 py-3.5 bg-brand-green text-white font-semibold rounded-full hover:bg-emerald-700 hover:shadow-lg transition-all text-sm inline-flex items-center gap-2">
+              <span>Register as Volunteer</span>
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </a>
+            <a href="gallery.html" class="px-7 py-3.5 bg-white/10 border border-white/25 text-white font-semibold rounded-full hover:bg-white/20 transition-all text-sm">
+              View Past Marathons
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide slide-bg-c flex items-center" data-slide="2">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 w-full">
+        <div class="max-w-2xl text-white py-24">
+          <span class="inline-block px-3 py-1 rounded-full bg-white/10 border border-white/20 text-[11px] font-semibold tracking-wide uppercase mb-6">New Initiative</span>
+          <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl leading-[1.1] tracking-tight">
+            Aarya Skill Centre: Free Web Dev &amp; Accounts Batches.
+          </h1>
+          <p class="mt-5 text-base sm:text-lg text-neutral-200 leading-relaxed max-w-xl">
+            Government-certified vocational training under MSSDC — admissions open for the January 2027 cohort.
+          </p>
+          <div class="mt-9 flex flex-wrap gap-4">
+            <a href="our-work.html#pillar-skilling" class="px-7 py-3.5 bg-brand-green text-white font-semibold rounded-full hover:bg-emerald-700 hover:shadow-lg transition-all text-sm inline-flex items-center gap-2">
+              <span>Apply for Admission</span>
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </a>
+            <a href="donation.html" class="px-7 py-3.5 bg-white/10 border border-white/25 text-white font-semibold rounded-full hover:bg-white/20 transition-all text-sm">
+              Sponsor a Seat
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Prev / Next -->
+    <button id="prevSlide" aria-label="Previous slide" class="hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/10 border border-white/25 text-white items-center justify-center hover:bg-white/20 transition-colors">
+      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+    </button>
+    <button id="nextSlide" aria-label="Next slide" class="hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/10 border border-white/25 text-white items-center justify-center hover:bg-white/20 transition-colors">
+      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+    </button>
+
+    <!-- Dots -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2.5" id="slideDots">
+      <span class="dot active" data-dot="0"></span>
+      <span class="dot" data-dot="1"></span>
+      <span class="dot" data-dot="2"></span>
+    </div>
+  </section>
+
+  <div class="bg-brand-navy text-white text-center py-6 text-xs">End of preview — batao kaunsa variant (1, 2, ya 3) pasand aaya, ya kisi me mix-match chahiye.</div>
+
+  <script>
+    (function () {
+      const slides = document.querySelectorAll('#heroCarousel .slide');
+      const dots = document.querySelectorAll('#heroCarousel .dot');
+      let current = 0;
+      let timer;
+
+      function goTo(idx) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        current = (idx + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+      }
+
+      function next() { goTo(current + 1); }
+      function prev() { goTo(current - 1); }
+
+      function startAutoplay() {
+        timer = setInterval(next, 5000);
+      }
+      function stopAutoplay() {
+        clearInterval(timer);
+      }
+
+      document.getElementById('nextSlide').addEventListener('click', () => { next(); stopAutoplay(); startAutoplay(); });
+      document.getElementById('prevSlide').addEventListener('click', () => { prev(); stopAutoplay(); startAutoplay(); });
+      dots.forEach(d => d.addEventListener('click', () => { goTo(parseInt(d.dataset.dot, 10)); stopAutoplay(); startAutoplay(); }));
+
+      const carousel = document.getElementById('heroCarousel');
+      carousel.addEventListener('mouseenter', stopAutoplay);
+      carousel.addEventListener('mouseleave', startAutoplay);
+
+      startAutoplay();
+    })();
+  </script>
+
+</body>
+</html>
