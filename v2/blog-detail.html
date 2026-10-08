@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>State Sports Day Marathon 2026: Field Dispatch — Krutadnyata Foundation</title>
+  <meta name="description" content="Field report from Krutadnyata Foundation's State Sports Day Marathon 2026 organized in collaboration with the Directorate of Sports and Youth Services, Maharashtra." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Mukta:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lenis Smooth Scroll CDN -->
+  <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              green: 'var(--color-green)',
+              navy: 'var(--color-navy)',
+              mint: 'var(--color-mint)',
+              bg: 'var(--color-bg)',
+              ink: 'var(--color-ink)',
+              muted: 'var(--color-muted)',
+              accent: 'var(--color-accent)',
+              border: 'var(--color-border)',
+            }
+          },
+          fontFamily: {
+            sans: ['"Inter"', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+            marathi: ['"Mukta"', 'sans-serif'],
+          },
+          letterSpacing: {
+            tightest: '-0.035em',
+            tighter: '-0.02em',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --color-green: #00985A;
+      --color-navy: #0B2D4F;
+      --color-mint: #D6EFE5;
+      --color-bg: #FAFAF7;
+      --color-ink: #1A1A1A;
+      --color-muted: #6B7280;
+      --color-accent: #F2B84B;
+      --color-border: #E5E7EB;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-ink);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-marathi { font-family: 'Mukta', sans-serif; }
+
+    .glass-nav {
+      background: rgba(250, 250, 247, 0.9);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    /* Article typography */
+    .article-body p {
+      margin-bottom: 1.5rem;
+      line-height: 1.85;
+      font-size: 1rem;
+      color: #374151;
+    }
+    .article-body p strong:first-child {
+      color: var(--color-navy);
+    }
+    .article-body ul {
+      list-style: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: #374151;
+      line-height: 1.85;
+    }
+    .article-body li {
+      margin-bottom: 0.5rem;
+    }
+    .article-body em {
+      color: var(--color-muted);
+    }
+
+    #reading-progress {
+      width: 0%;
+      transition: width 0.1s ease-out;
+    }
+  </style>
+</head>
+<body class="selection:bg-brand-mint selection:text-brand-navy">
+
+  <!-- ================================================================= -->
+  <!-- READING PROGRESS BAR                                              -->
+  <!-- ================================================================= -->
+  <div class="fixed top-0 left-0 right-0 h-1 z-[60] bg-transparent">
+    <div id="reading-progress" class="h-full bg-brand-green"></div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- 1. HEADER                                                         -->
+  <!-- ================================================================= -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-brand-border/60 glass-nav">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 h-24 flex items-center justify-between">
+
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center group" aria-label="Krutadnyata Foundation Home">
+        <img src="assets/Krutadnyata Foundation logo (with text).png" alt="Krutadnyata Foundation" class="h-16 w-auto transition-transform duration-300 group-hover:scale-105" />
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden xl:flex items-center gap-5 text-sm font-medium text-neutral-600">
+        <a href="index.html" class="nav-link hover:text-brand-navy transition-colors py-1">Home</a>
+        <a href="about.html" class="nav-link hover:text-brand-navy transition-colors py-1">About Us</a>
+
+        <!-- Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1.5 hover:text-brand-navy transition-colors py-1 focus:outline-none">
+            <span>Our Work</span>
+            <svg class="w-3.5 h-3.5 text-neutral-400 group-hover:rotate-180 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="absolute left-0 top-full pt-3 w-72 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200">
+            <div class="bg-white rounded-2xl p-2.5 shadow-xl border border-neutral-100 grid gap-1 text-xs">
+              <a href="our-work.html#pillar-health" class="px-3 py-2 rounded-xl hover:bg-neutral-50 hover:text-brand-green flex items-center justify-between font-medium">
+                <span>Health & Medical Camps</span>
+                <span class="text-[10px] text-neutral-400">Rural/Urban</span>
+              </a>
+              <a href="our-work.html#pillar-education" class="px-3 py-2 rounded-xl hover:bg-neutral-50 hover:text-brand-green flex items-center justify-between font-medium">
+                <span>Education & Civil Services</span>
+                <span class="text-[10px] text-neutral-400">UPSC/MPSC</span>
+              </a>
+              <a href="our-work.html#pillar-environment" class="px-3 py-2 rounded-xl hover:bg-neutral-50 hover:text-brand-green flex items-center justify-between font-medium">
+                <span>Environment & Conservation</span>
+                <span class="text-[10px] text-neutral-400">Nail-Free</span>
+              </a>
+              <a href="our-work.html#pillar-sports" class="px-3 py-2 rounded-xl hover:bg-neutral-50 hover:text-brand-green flex items-center justify-between font-medium">
+                <span>Youth & State Sports</span>
+                <span class="text-[10px] text-neutral-400">Marathons</span>
+              </a>
+              <a href="our-work.html#pillar-relief" class="px-3 py-2 rounded-xl hover:bg-neutral-50 hover:text-brand-green flex items-center justify-between font-medium">
+                <span>Community & Blanket Relief</span>
+                <span class="text-[10px] text-neutral-400">Disadvantaged</span>
+              </a>
+              <a href="our-work.html#pillar-skilling" class="px-3 py-2 rounded-xl hover:bg-neutral-50 hover:text-brand-green flex items-center justify-between font-medium">
+                <span>Skill Development (MSSDC)</span>
+                <span class="text-[10px] text-neutral-400">Vocational</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a href="gallery.html" class="nav-link hover:text-brand-navy transition-colors py-1">Gallery</a>
+        <a href="stories.html" class="nav-link hover:text-brand-navy transition-colors py-1">Stories</a>
+        <a href="blog.html" class="nav-link hover:text-brand-navy transition-colors py-1">Blog</a>
+        <a href="reports.html" class="nav-link hover:text-brand-navy transition-colors py-1">Reports &amp; Audits</a>
+        <a href="volunteer.html" class="nav-link hover:text-brand-navy transition-colors py-1">Volunteer</a>
+        <a href="contact.html" class="nav-link hover:text-brand-navy transition-colors py-1">Contact</a>
+      </nav>
+
+      <!-- Right Action CTA -->
+      <div class="hidden sm:flex items-center gap-5">
+        <a href="donation.html" class="bg-brand-green text-white text-xs font-semibold px-5 py-2.5 rounded-full hover:bg-emerald-700 active:scale-95 transition-all shadow-sm hover:shadow-md flex items-center gap-1.5">
+          <span>Donate Now</span>
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-toggle" aria-label="Toggle navigation menu" class="xl:hidden p-2 rounded-lg text-neutral-800 hover:bg-neutral-100 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-menu" class="fixed inset-0 bg-brand-navy/95 z-50 flex flex-col justify-between p-8 text-white translate-x-full transition-transform duration-300 xl:hidden overflow-y-auto">
+    <div class="flex items-center justify-between border-b border-white/10 pb-5">
+      <div class="flex items-center gap-3">
+        <img src="assets/Krutadnyata Foundation logo (icon only).png" alt="Krutadnyata Foundation" class="w-10 h-10 object-contain" />
+        <span class="font-display font-bold text-lg">Krutadnyata</span>
+      </div>
+      <button id="mobile-close" aria-label="Close menu" class="p-2 text-white/80 hover:text-white">
+        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="grid gap-4 text-lg font-display font-semibold py-6">
+      <a href="index.html" class="nav-link mobile-link text-white/80 hover:text-white">Home</a>
+      <a href="about.html" class="nav-link mobile-link text-white/80 hover:text-white">About Us</a>
+      <a href="our-work.html" class="nav-link mobile-link text-white/80 hover:text-white">Our Work</a>
+      <a href="gallery.html" class="nav-link mobile-link text-white/80 hover:text-white">Gallery</a>
+      <a href="stories.html" class="nav-link mobile-link text-white/80 hover:text-white">Stories</a>
+      <a href="blog.html" class="nav-link mobile-link text-white/80 hover:text-white">Blog</a>
+      <a href="reports.html" class="nav-link mobile-link text-white/80 hover:text-white">Reports &amp; Audits</a>
+      <a href="volunteer.html" class="nav-link mobile-link text-white/80 hover:text-white">Volunteer</a>
+      <a href="contact.html" class="nav-link mobile-link text-white/80 hover:text-white">Contact</a>
+    </div>
+
+    <div class="grid gap-3 pt-6 border-t border-white/10">
+      <a href="donation.html" class="mobile-link w-full py-3.5 bg-brand-green rounded-xl text-center font-semibold text-white">Donate to Programs</a>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- ARTICLE                                                           -->
+  <!-- ================================================================= -->
+  <main class="pt-36 pb-20">
+    <article class="max-w-5xl mx-auto px-5 sm:px-8">
+
+      <!-- Title -->
+      <h1 class="font-display font-extrabold text-3xl sm:text-4xl text-brand-navy tracking-tight leading-[1.2]">
+        State Sports Day Marathon 2026: Inspiring Community Wellness Across Suburban Mumbai
+      </h1>
+
+      <!-- Author & Date -->
+      <div class="mt-5 flex items-center gap-3">
+        <div class="w-9 h-9 rounded-full bg-brand-navy text-white flex items-center justify-center font-display font-bold text-xs shrink-0">
+          FS
+        </div>
+        <div>
+          <p class="text-xs text-neutral-500">Written by <span class="font-semibold text-neutral-800">Foundation Secretariat</span></p>
+          <p class="text-xs text-neutral-400 mt-0.5">25 January 2026</p>
+        </div>
+      </div>
+
+      <div class="mt-6 pt-6 border-t border-neutral-200"></div>
+
+      <!-- Share row -->
+      <div class="flex items-center gap-3">
+        <span class="text-xs font-semibold text-neutral-500">Share</span>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank" rel="noopener" aria-label="Share on Facebook" class="w-8 h-8 rounded-full bg-neutral-100 hover:bg-brand-mint text-neutral-600 hover:text-brand-green flex items-center justify-center transition-colors">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+        </a>
+        <a href="https://twitter.com/intent/tweet?url=" target="_blank" rel="noopener" aria-label="Share on Twitter/X" class="w-8 h-8 rounded-full bg-neutral-100 hover:bg-brand-mint text-neutral-600 hover:text-brand-green flex items-center justify-center transition-colors">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=" target="_blank" rel="noopener" aria-label="Share on LinkedIn" class="w-8 h-8 rounded-full bg-neutral-100 hover:bg-brand-mint text-neutral-600 hover:text-brand-green flex items-center justify-center transition-colors">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.56z"/></svg>
+        </a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); this.querySelector('span').textContent='Copied!';" aria-label="Copy link" class="w-8 h-8 rounded-full bg-neutral-100 hover:bg-brand-mint text-neutral-600 hover:text-brand-green flex items-center justify-center transition-colors">
+          <span class="sr-only">Copy link</span>
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 010 5.656l-3 3a4 4 0 01-5.656-5.656l1.5-1.5M10.172 13.828a4 4 0 010-5.656l3-3a4 4 0 015.656 5.656l-1.5 1.5" /></svg>
+        </button>
+      </div>
+
+      <!-- Featured Image -->
+      <div class="mt-8 rounded-2xl overflow-hidden border border-neutral-200">
+        <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=1400&h=933&fit=crop" alt="State Sports Day Marathon 2026 starting line and crowd gathering, Suburban Mumbai" class="w-full h-auto object-cover" loading="lazy" />
+      </div>
+
+      <!-- Article Body -->
+      <div class="article-body mt-10">
+
+        <p>
+          <strong>Congratulations to the runners!</strong> On the morning of January 24, 2026, hundreds of students, athletes, and local citizens assembled in Suburban Mumbai to take part in the State Sports Day Marathon 2026 — Krutadnyata Foundation's continuing commitment to health, athletic discipline, and community cohesion.
+        </p>
+
+        <p>
+          Maharashtra celebrates its State Sports Day annually in honor of the birth anniversary of <strong>Khashaba Dadasaheb Jadhav</strong>, who made history at the 1952 Helsinki Summer Olympics by securing independent India's first individual Olympic medal in freestyle wrestling. To honor this feat, the Foundation envisioned the 2026 Marathon not merely as a competitive race, but as a broad civic movement to encourage healthy living and introduce young students from underprivileged backgrounds to institutional athletics.
+        </p>
+
+        <p>
+          <strong>Institutional Collaboration:</strong> Grassroots impact achieves genuine scale when civic organizations collaborate with statutory state bodies. The 2026 Marathon was executed in official collaboration with the Directorate of Sports and Youth Services, Maharashtra State, the District Sports Council, Sailee Degree College, and Jaywant Harchand Lokhande Law College.
+        </p>
+
+        <p>
+          <strong>Key Milestone:</strong> Building on the success of the 2025 BIS Quality Run, this year's marathon mobilized over 1,200 participants — families, junior college athletes, and senior citizens — across Suburban Mumbai along safe, municipal-sanctioned running corridors.
+        </p>
+
+        <p>
+          Managing a high-density urban run requires meticulous logistical planning. Over 40 trained Krutadnyata Foundation volunteers, working hand in hand with local traffic personnel, manned hydration desks, first-aid checkpoints, and participant registration lanes starting at 5:00 AM. Free participation kits, hydration fluids, and completion certificates were provided to every runner, with special sports kit donations presented to promising junior athletes from municipal high schools.
+        </p>
+
+        <p>
+          Here are some photos from the morning:
+        </p>
+
+      </div>
+
+      <!-- Secondary Image -->
+      <div class="rounded-2xl overflow-hidden border border-neutral-200">
+        <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=1400&h=1050&fit=crop" alt="Volunteers and runners gathered at the State Sports Day Marathon" class="w-full h-auto object-cover" loading="lazy" />
+      </div>
+
+      <!-- Support CTA -->
+      <div class="article-body mt-10">
+        <p>
+          <strong>Support Youth Athletics:</strong> If you would like to support the Foundation's ongoing sports and youth wellness programs, you can do so through the following:
+        </p>
+        <ul>
+          <li><a href="donation.html" class="text-brand-green font-semibold hover:underline">Sponsor sports kits for school athletes</a></li>
+          <li><a href="volunteer.html" class="text-brand-green font-semibold hover:underline">Join the volunteer marshalling team</a></li>
+        </ul>
+        <p>
+          Thank you to every volunteer, partner institution, and runner for making this year's marathon a success. Your contributions make a significant difference in the lives of Maharashtra's youth.
+        </p>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- ================================================================= -->
+  <!-- 3. FOOTER                                                         -->
+  <!-- ================================================================= -->
+  <footer id="contact" class="bg-brand-navy text-white border-t border-neutral-800 pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-16 border-b border-white/10">
+
+        <!-- Foundation Info -->
+        <div class="lg:col-span-4 space-y-4">
+          <div class="flex items-center gap-3">
+            <img src="assets/Krutadnyata Foundation logo (with text).png" alt="Krutadnyata Foundation" class="h-14 w-auto object-contain" />
+          </div>
+          <p class="text-xs text-neutral-300 leading-relaxed font-normal">
+            A Maharashtra-based registered social organisation dedicated to bridging educational inequalities, conducting preventive healthcare, and empowering communities since 2019.
+          </p>
+          <div class="text-xs text-neutral-400 space-y-1">
+            <p><strong>Charity Reg:</strong> [TO CONFIRM: Trust Registration Number]</p>
+            <p><strong>Head Office:</strong> [TO CONFIRM: Official Registered Address], Suburban Mumbai, Maharashtra</p>
+            <p><strong>Helpline:</strong> +91 98338 61159 (Inquiries)</p>
+          </div>
+        </div>
+
+        <!-- Core Work -->
+        <div class="lg:col-span-2 space-y-3 text-xs">
+          <p class="font-display font-bold text-white uppercase tracking-wider text-[11px]">Core Work</p>
+          <ul class="space-y-2 text-neutral-300">
+            <li><a href="our-work.html#pillar-health" class="hover:text-brand-mint transition-colors">Health Camps</a></li>
+            <li><a href="our-work.html#pillar-sports" class="hover:text-brand-mint transition-colors">State Sports Day</a></li>
+            <li><a href="our-work.html#pillar-skilling" class="hover:text-brand-mint transition-colors">Aarya Skill Centre</a></li>
+            <li><a href="our-work.html#pillar-environment" class="hover:text-brand-mint transition-colors">Tree Protection</a></li>
+            <li><a href="our-work.html#pillar-relief" class="hover:text-brand-mint transition-colors">Community Relief</a></li>
+          </ul>
+        </div>
+
+        <!-- Navigation -->
+        <div class="lg:col-span-2 space-y-3 text-xs">
+          <p class="font-display font-bold text-white uppercase tracking-wider text-[11px]">Navigation</p>
+          <ul class="space-y-2 text-neutral-300">
+            <li><a href="index.html" class="hover:text-brand-mint transition-colors">Home</a></li>
+            <li><a href="about.html" class="hover:text-brand-mint transition-colors">About Us</a></li>
+            <li><a href="our-work.html" class="hover:text-brand-mint transition-colors">Our Work</a></li>
+            <li><a href="gallery.html" class="hover:text-brand-mint transition-colors">Field Gallery</a></li>
+            <li><a href="stories.html" class="hover:text-brand-mint transition-colors">Stories</a></li>
+            <li><a href="blog.html" class="hover:text-brand-mint transition-colors">Blog</a></li>
+            <li><a href="reports.html" class="hover:text-brand-mint transition-colors">Reports &amp; Audits</a></li>
+            <li><a href="volunteer.html" class="hover:text-brand-mint transition-colors">Volunteer</a></li>
+            <li><a href="contact.html" class="hover:text-brand-mint transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Stay Informed -->
+        <div class="lg:col-span-4 space-y-4">
+          <p class="font-display font-bold text-white uppercase tracking-wider text-[11px]">Stay Informed</p>
+          <p class="text-xs text-neutral-300 leading-relaxed">Subscribe to receive our verified quarterly field activity bulletins and volunteer opportunities.</p>
+
+          <form class="flex items-center gap-2" onsubmit="event.preventDefault(); alert('Subscribed to Krutadnyata updates.');">
+            <input type="email" placeholder="Your email address" required class="bg-white/10 border border-white/15 px-3.5 py-2.5 rounded-xl text-xs text-white placeholder-neutral-400 focus:outline-none focus:border-brand-green flex-1" />
+            <button type="submit" class="px-4 py-2.5 bg-brand-green text-white text-xs font-semibold rounded-xl hover:bg-emerald-700 transition-colors whitespace-nowrap">Join</button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- Bottom Disclaimer & Copyright -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-neutral-400 gap-4">
+        <div>
+          © 2019–2026 Krutadnyata Foundation (कृतज्ञता फाउंडेशन). All public contributions are utilized strictly towards community welfare programs.
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="privacy.html" class="hover:text-neutral-200 transition-colors">Privacy Policy</a>
+          <a href="reports.html" class="hover:text-neutral-200 transition-colors">MOU Records</a>
+          <a href="donation.html" class="hover:text-neutral-200 transition-colors">80G Verification</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================================================================= -->
+  <!-- JAVASCRIPT LOGIC                                                  -->
+  <!-- ================================================================= -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Lenis Smooth Scrolling
+      const lenis = new Lenis({
+        duration: 1.1,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smooth: true,
+      });
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // Mobile Menu
+      const mobileToggle = document.getElementById('mobile-toggle');
+      const mobileClose = document.getElementById('mobile-close');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      mobileToggle.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
+      mobileClose.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
+
+      // Scroll Reading Progress Bar
+      const progressBar = document.getElementById('reading-progress');
+      window.addEventListener('scroll', () => {
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (window.scrollY / totalHeight) * 100;
+        progressBar.style.width = `${Math.min(scrollPercent, 100)}%`;
+      });
+    });
+  </script>
+  <script>
+    (function () {
+      var path = location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.nav-link[href]').forEach(function (a) {
+        if (a.getAttribute('href') === path) {
+          a.classList.add('text-brand-navy', 'font-semibold');
+          a.classList.add('active-nav-link');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
