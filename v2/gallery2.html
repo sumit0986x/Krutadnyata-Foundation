@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Field Gallery — Krutadnyata Foundation (कृतज्ञता फाउंडेशन)</title>
+  <meta name="description" content="Visual documentation of Krutadnyata Foundation's on-ground social initiatives, health camps, sports marathons, and community work across Maharashtra since 2019." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Mukta:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- GSAP & Lenis Smooth Scroll CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              green: 'var(--color-green)',
+              navy: 'var(--color-navy)',
+              mint: 'var(--color-mint)',
+              bg: 'var(--color-bg)',
+              ink: 'var(--color-ink)',
+              muted: 'var(--color-muted)',
+              accent: 'var(--color-accent)',
+              border: 'var(--color-border)',
+            }
+          },
+          fontFamily: {
+            sans: ['"Inter"', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+            marathi: ['"Mukta"', 'sans-serif'],
+          },
+          letterSpacing: {
+            tightest: '-0.035em',
+            tighter: '-0.02em',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --color-green: #00985A;
+      --color-navy: #0B2D4F;
+      --color-mint: #D6EFE5;
+      --color-bg: #F8F9FA;
+      --color-ink: #1A1A1A;
+      --color-muted: #6B7280;
+      --color-accent: #F2B84B;
+      --color-border: #E5E7EB;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-ink);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-marathi { font-family: 'Mukta', sans-serif; }
+
+    .glass-nav {
+      background: rgba(248, 249, 250, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    #main-header.scrolled {
+      box-shadow: 0 4px 24px rgba(11, 45, 79, 0.06);
+    }
+
+    footer#contact {
+      position: relative;
+    }
+    footer#contact::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-green), var(--color-accent), var(--color-green));
+    }
+
+    /* Filter button active state */
+    .filter-btn.active {
+      background-color: var(--color-navy);
+      color: #ffffff;
+      border-color: var(--color-navy);
+    }
+
+    /* Lightbox Modal Fade */
+    #lightbox {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #lightbox.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Lightbox slideshow */
+    .modal-slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+    .modal-slide.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .slide-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.45);
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .slide-dot.active {
+      background: #ffffff;
+      width: 18px;
+    }
+
+    /* Wide editorial card: breaks out of the masonry columns for grid rhythm */
+    @media (min-width: 640px) {
+      .gallery-wide { column-span: all; }
+    }
+  </style>
+</head>
+<body class="selection:bg-brand-mint selection:text-brand-navy">
+
+  <!-- ================================================================= -->
+  <!-- 1. HEADER                                                         -->
+  <!-- ================================================================= -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-nav">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 h-20 flex items-center justify-between gap-6">
+
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center group shrink-0" aria-label="Krutadnyata Foundation Home">
+        <img src="assets/Krutadnyata Foundation logo (with text).png" alt="Krutadnyata Foundation" class="h-12 w-auto transition-transform duration-300 group-hover:scale-105" />
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden xl:flex items-center gap-7 text-[13px] font-semibold text-neutral-500 tracking-wide">
+        <a href="index.html" class="nav-link hover:text-brand-navy transition-colors py-1">Home</a>
+        <a href="about.html" class="nav-link hover:text-brand-navy transition-colors py-1">About Us</a>
+
+        <!-- Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1.5 hover:text-brand-navy transition-colors py-1 focus:outline-none">
+            <span>Our Work</span>
+            <svg class="w-3 h-3 text-neutral-400 group-hover:rotate-180 group-hover:text-brand-green transition-all duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-80 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200">
+            <div class="bg-white rounded-2xl p-2 shadow-2xl shadow-brand-navy/10 border border-neutral-100 grid gap-0.5 text-xs">
+              <a href="our-work.html#pillar-health" class="px-3.5 py-2.5 rounded-xl hover:bg-brand-mint/40 flex items-center gap-3 font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-green shrink-0"></span>
+                <span class="flex-1">Health &amp; Medical Camps</span>
+                <span class="text-[10px] font-medium text-neutral-400">Rural/Urban</span>
+              </a>
+              <a href="our-work.html#pillar-education" class="px-3.5 py-2.5 rounded-xl hover:bg-brand-mint/40 flex items-center gap-3 font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-green shrink-0"></span>
+                <span class="flex-1">Education &amp; Civil Services</span>
+                <span class="text-[10px] font-medium text-neutral-400">UPSC/MPSC</span>
+              </a>
+              <a href="our-work.html#pillar-environment" class="px-3.5 py-2.5 rounded-xl hover:bg-brand-mint/40 flex items-center gap-3 font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-green shrink-0"></span>
+                <span class="flex-1">Environment &amp; Conservation</span>
+                <span class="text-[10px] font-medium text-neutral-400">Nail-Free</span>
+              </a>
+              <a href="our-work.html#pillar-sports" class="px-3.5 py-2.5 rounded-xl hover:bg-brand-mint/40 flex items-center gap-3 font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-green shrink-0"></span>
+                <span class="flex-1">Youth &amp; State Sports</span>
+                <span class="text-[10px] font-medium text-neutral-400">Marathons</span>
+              </a>
+              <a href="our-work.html#pillar-relief" class="px-3.5 py-2.5 rounded-xl hover:bg-brand-mint/40 flex items-center gap-3 font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-green shrink-0"></span>
+                <span class="flex-1">Community &amp; Blanket Relief</span>
+                <span class="text-[10px] font-medium text-neutral-400">Disadvantaged</span>
+              </a>
+              <a href="our-work.html#pillar-skilling" class="px-3.5 py-2.5 rounded-xl hover:bg-brand-mint/40 flex items-center gap-3 font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-green shrink-0"></span>
+                <span class="flex-1">Skill Development (MSSDC)</span>
+                <span class="text-[10px] font-medium text-neutral-400">Vocational</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a href="gallery2.html" class="nav-link hover:text-brand-navy transition-colors py-1">Gallery</a>
+        <a href="stories.html" class="nav-link hover:text-brand-navy transition-colors py-1">Stories</a>
+        <a href="blog.html" class="nav-link hover:text-brand-navy transition-colors py-1">Blog</a>
+        <a href="reports.html" class="nav-link hover:text-brand-navy transition-colors py-1">Reports &amp; Audits</a>
+        <a href="volunteer.html" class="nav-link hover:text-brand-navy transition-colors py-1">Volunteer</a>
+        <a href="contact.html" class="nav-link hover:text-brand-navy transition-colors py-1">Contact</a>
+      </nav>
+
+      <!-- Right Action CTA -->
+      <div class="hidden sm:flex items-center gap-5 shrink-0">
+        <a href="donation.html" class="group relative bg-brand-navy text-white text-xs font-bold px-5 py-3 rounded-full hover:bg-brand-green active:scale-95 transition-all shadow-md hover:shadow-lg flex items-center gap-2 overflow-hidden">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse"></span>
+          <span>Donate Now</span>
+          <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-toggle" aria-label="Toggle navigation menu" class="xl:hidden p-2 rounded-lg text-neutral-800 hover:bg-neutral-100 focus:outline-none shrink-0">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+    </div>
+    <div class="h-px bg-gradient-to-r from-transparent via-brand-border to-transparent"></div>
+  </header>
+
+  <!-- Mobile Overlay Menu -->
+  <div id="mobile-menu" class="fixed inset-0 bg-brand-navy/95 z-50 flex flex-col justify-between p-8 text-white translate-x-full transition-transform duration-300 xl:hidden overflow-y-auto">
+    <div class="flex items-center justify-between border-b border-white/10 pb-5">
+      <div class="flex items-center gap-3">
+        <img src="assets/Krutadnyata Foundation logo (icon only).png" alt="Krutadnyata Foundation" class="w-10 h-10 object-contain" />
+        <span class="font-display font-bold text-lg">Krutadnyata</span>
+      </div>
+      <button id="mobile-close" aria-label="Close menu" class="p-2 text-white/80 hover:text-white">
+        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="grid gap-4 text-lg font-display font-semibold py-6">
+      <a href="index.html" class="nav-link mobile-link text-white/80 hover:text-white">Home</a>
+      <a href="about.html" class="nav-link mobile-link text-white/80 hover:text-white">About Us</a>
+      <a href="our-work.html" class="nav-link mobile-link text-white/80 hover:text-white">Our Work</a>
+      <a href="gallery2.html" class="nav-link mobile-link text-white/80 hover:text-white">Gallery</a>
+      <a href="stories.html" class="nav-link mobile-link text-white/80 hover:text-white">Stories</a>
+      <a href="blog.html" class="nav-link mobile-link text-white/80 hover:text-white">Blog</a>
+      <a href="reports.html" class="nav-link mobile-link text-white/80 hover:text-white">Reports &amp; Audits</a>
+      <a href="volunteer.html" class="nav-link mobile-link text-white/80 hover:text-white">Volunteer</a>
+      <a href="contact.html" class="nav-link mobile-link text-white/80 hover:text-white">Contact</a>
+    </div>
+
+    <div class="grid gap-3 pt-6 border-t border-white/10">
+      <a href="donation.html" class="mobile-link w-full py-3.5 bg-brand-green rounded-xl text-center font-semibold text-white">Donate to Programs</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ================================================================= -->
+    <!-- 2. GALLERY HERO                                                   -->
+    <!-- ================================================================= -->
+    <section class="relative min-h-[70vh] flex items-end overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1517931524326-bdd55a541177?w=1800&h=1200&fit=crop" alt="State Sports Day Marathon 2026" class="absolute inset-0 w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/40 to-brand-navy/10"></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 pb-16 pt-40 w-full">
+        <span class="text-xs font-bold uppercase tracking-[0.3em] text-brand-mint">Gallery</span>
+        <h1 class="mt-3 font-display font-extrabold text-4xl sm:text-6xl lg:text-7xl text-white tracking-tightest leading-[1.05] max-w-3xl">
+          Work on the ground, preserved in pictures.
+        </h1>
+        <p class="mt-5 text-base sm:text-lg text-neutral-200 max-w-xl leading-relaxed">
+          A dated, verified field archive of Krutadnyata Foundation's health camps, marathons, relief drives, and skilling batches — every photograph tied to a report, a partner, and a place across Maharashtra.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- FILTER BAR                                                        -->
+    <!-- ================================================================= -->
+    <section class="pt-10 pb-2 bg-brand-bg">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="flex justify-center">
+          <div class="flex flex-wrap items-center justify-center gap-2.5 max-w-full" id="filter-container">
+            <button class="filter-btn active px-5 py-2.5 rounded-full text-sm font-semibold whitespace-nowrap border border-brand-navy bg-brand-navy text-white shadow-sm hover:shadow-md transition-all" data-filter="all">
+              All Initiatives (<span id="total-count">0</span>)
+            </button>
+            <button class="filter-btn px-5 py-2.5 rounded-full text-sm font-medium whitespace-nowrap border border-neutral-200 bg-white text-neutral-700 shadow-sm hover:shadow-md hover:border-neutral-400 transition-all" data-filter="health">
+              Health &amp; Medical
+            </button>
+            <button class="filter-btn px-5 py-2.5 rounded-full text-sm font-medium whitespace-nowrap border border-neutral-200 bg-white text-neutral-700 shadow-sm hover:shadow-md hover:border-neutral-400 transition-all" data-filter="sports">
+              Youth &amp; Sports
+            </button>
+            <button class="filter-btn px-5 py-2.5 rounded-full text-sm font-medium whitespace-nowrap border border-neutral-200 bg-white text-neutral-700 shadow-sm hover:shadow-md hover:border-neutral-400 transition-all" data-filter="environment">
+              Environment
+            </button>
+            <button class="filter-btn px-5 py-2.5 rounded-full text-sm font-medium whitespace-nowrap border border-neutral-200 bg-white text-neutral-700 shadow-sm hover:shadow-md hover:border-neutral-400 transition-all" data-filter="education">
+              Education &amp; Skills
+            </button>
+            <button class="filter-btn px-5 py-2.5 rounded-full text-sm font-medium whitespace-nowrap border border-neutral-200 bg-white text-neutral-700 shadow-sm hover:shadow-md hover:border-neutral-400 transition-all" data-filter="relief">
+              Community Relief
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 3. FEATURED INITIATIVE                                            -->
+    <!-- ================================================================= -->
+    <section class="pt-4 pb-4 sm:pb-6 bg-brand-bg">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+
+        <div class="flex items-end justify-between mb-6">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Most Recent</span>
+            <h2 class="font-display font-bold text-xl sm:text-2xl text-brand-navy mt-1">This Quarter's Flagship Initiative</h2>
+          </div>
+        </div>
+
+        <!-- 1. Marathon 2026 — Featured -->
+        <div class="gallery-item group cursor-pointer" data-category="sports"
+             data-title="State Sports Day Marathon 2026"
+             data-date="24 January 2026"
+             data-location="Suburban Mumbai, Maharashtra"
+             data-partner="Directorate of Sports and Youth Services & Sailee Degree College"
+             data-caption="Arranged to celebrate State Sports Day marking the birth anniversary of Olympic medalist Khashaba Dadasaheb Jadhav, promoting youth athleticism and community wellness."
+             data-images='["https://images.unsplash.com/photo-1517931524326-bdd55a541177?w=900&h=700&fit=crop","https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=900&h=700&fit=crop","https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=900&h=700&fit=crop"]'>
+          <div class="relative rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 grid sm:grid-cols-2">
+            <div class="relative aspect-[16/10] sm:aspect-auto overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1517931524326-bdd55a541177?w=900&h=700&fit=crop" alt="State Sports Day Marathon 2026" class="w-full h-full object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <span class="absolute top-4 left-4 z-20 bg-brand-accent text-brand-navy text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow">Latest Initiative</span>
+              <span class="absolute top-4 right-4 z-20 bg-white/90 backdrop-blur-xs text-brand-navy text-[11px] font-bold px-2 py-0.5 rounded-md shadow-xs">2026</span>
+            </div>
+            <div class="relative bg-brand-navy text-white p-7 sm:p-9 flex flex-col justify-center">
+              <span class="inline-flex items-center px-3 py-1 rounded-full bg-white/10 text-[10px] font-semibold uppercase tracking-wider w-max mb-4 text-brand-mint">Sports</span>
+              <h3 class="font-display font-bold text-2xl sm:text-3xl leading-tight">State Sports Day Marathon 2026</h3>
+              <p class="text-sm text-neutral-300 mt-3 leading-relaxed max-w-md">Celebrating State Sports Day in honor of Olympic medalist Khashaba Dadasaheb Jadhav — mobilizing youth athleticism and community wellness across Suburban Mumbai.</p>
+              <div class="mt-7 pt-5 border-t border-white/15 flex items-center justify-between text-xs font-semibold">
+                <span class="text-neutral-300">Suburban Mumbai · 24 Jan 2026</span>
+                <span class="text-brand-mint flex items-center gap-1 group-hover:gap-2 transition-all">View details <span>→</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 4. EDITORIAL GALLERY GRID                                         -->
+    <!-- ================================================================= -->
+    <section class="pt-6 pb-16 sm:pb-20 bg-brand-bg min-h-[800px]">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+
+        <div id="gallery-grid" class="columns-1 sm:columns-2 lg:columns-3 gap-5 [column-fill:_balance]">
+
+          <!-- 2. Blood Donation Camp 2025 -->
+          <div class="gallery-item group cursor-pointer mb-5 break-inside-avoid" data-category="health"
+               data-title="Borivali Blood Donation Camp"
+               data-date="13 December 2025"
+               data-location="MHB Colony, Borivali West, Mumbai"
+               data-partner="Sailee Degree College, Jaywant Harchand Lokhande Law College, CDS Engineering"
+               data-caption="Organized at Manapurna Banquet in loving memory of Late Mrs. Mandakini Lokhande, collecting voluntary units for regional blood banks."
+               data-images='["https://images.unsplash.com/photo-1615461066159-fea0960485d5?w=900&h=700&fit=crop","https://images.unsplash.com/photo-1584515933487-779824d29309?w=900&h=700&fit=crop","https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=900&h=700&fit=crop"]'>
+            <div class="relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+              <img src="https://images.unsplash.com/photo-1615461066159-fea0960485d5?w=640&h=560&fit=crop" alt="Borivali Blood Donation Camp" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <span class="absolute top-3 left-3 z-20 bg-brand-green text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">Health</span>
+              <span class="absolute top-3 right-3 z-20 bg-white/90 backdrop-blur-xs text-brand-navy text-[11px] font-bold px-2 py-0.5 rounded-md shadow-xs">2025</span>
+              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent p-4 pt-14">
+                <p class="text-[11px] font-semibold text-brand-mint uppercase tracking-wider">Borivali, Mumbai</p>
+                <h3 class="font-display font-bold text-base text-white mt-1 leading-snug">Blood Donation Drive in Memory of Mrs. Lokhande</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Food Safety FDA 2025 -->
+          <div class="gallery-item group cursor-pointer mb-5 break-inside-avoid" data-category="health"
+               data-title="Eat Safe, Eat Healthy FDA Session"
+               data-date="28 November 2025"
+               data-location="Borivali West, Mumbai"
+               data-partner="Sailee Degree & Lokhande Law College"
+               data-caption="Conducted by Sheela Gauli, retired FDA Senior Scientific Officer, demonstrating household food adulteration tests and educating attendees on the Food Act."
+               data-images='["https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=900&h=700&fit=crop","https://images.unsplash.com/photo-1556911220-bff31c812dba?w=900&h=700&fit=crop","https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=900&h=700&fit=crop"]'>
+            <div class="relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+              <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=640&h=840&fit=crop" alt="Eat Safe, Eat Healthy FDA Session" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <span class="absolute top-3 left-3 z-20 bg-brand-navy text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">Civic Safety</span>
+              <span class="absolute top-3 right-3 z-20 bg-white/90 backdrop-blur-xs text-brand-navy text-[11px] font-bold px-2 py-0.5 rounded-md shadow-xs">2025</span>
+              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent p-4 pt-14">
+                <p class="text-[11px] font-semibold text-brand-mint uppercase tracking-wider">Borivali, Mumbai</p>
+                <h3 class="font-display font-bold text-base text-white mt-1 leading-snug">FDA Food Safety &amp; Adulteration Workshop</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. BIS Quality Run 2025 -->
+          <div class="gallery-item group cursor-pointer mb-5 break-inside-avoid" data-category="sports"
+               data-title="BIS Quality Run (1,200+ Runners)"
+               data-date="25 January 2025"
+               data-location="Sailee College, Borivali, Mumbai"
+               data-partner="Bureau of Indian Standards (BIS) Mumbai Branch-I"
+               data-caption="Over 1,200 participants united in Suburban Mumbai to run for quality awareness and consumer standards across education and industry."
+               data-images='["https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=900&h=700&fit=crop","https://images.unsplash.com/photo-1486218119243-13883505764c?w=900&h=700&fit=crop","https://images.unsplash.com/photo-1517649763962-0c623066013b?w=900&h=700&fit=crop"]'>
+            <div class="relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+              <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=640&h=460&fit=crop" alt="BIS Quality Run" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <span class="absolute top-3 left-3 z-20 bg-brand-navy text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">Sports</span>
+              <span class="absolute top-3 right-3 z-20 bg-white/90 backdrop-blur-xs text-brand-navy text-[11px] font-bold px-2 py-0.5 rounded-md shadow-xs">2025</span>
+              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent p-4 pt-14">
+                <p class="text-[11px] font-semibold text-brand-mint uppercase tracking-wider">Borivali, Mumbai</p>
+                <h3 class="font-display font-bold text-base text-white mt-1 leading-snug">Bureau of Indian Standards Quality Run</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Uniform Donation 2025 -->
+          <div class="gallery-item group cursor-pointer mb-5 break-inside-avoid" data-category="education"
+               data-title="Sports Uniform Donation for Underprivileged Students"
+               data-date="05 January 2025"
+               data-location="Harchand Lokhande High School, Borivali"
+               data-partner="Lokhande Education Trust"
+               data-caption="Encouraging school students by distributing athletic uniforms to build self-confidence and team leadership in local tournaments."
+               data-images='["https://images.unsplash.com/photo-1588072432836-e10032774350?w=900&h=700&fit=crop","https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=900&h=700&fit=crop","https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=900&h=700&fit=crop"]'>
+            <div class="relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+              <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=640&h=600&fit=crop" alt="Sports Uniform Donation" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <span class="absolute top-3 left-3 z-20 bg-brand-green text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">Education</span>
+              <span class="absolute top-3 right-3 z-20 bg-white/90 backdrop-blur-xs text-brand-navy text-[11px] font-bold px-2 py-0.5 rounded-md shadow-xs">2025</span>
+              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent p-4 pt-14">
+                <p class="text-[11px] font-semibold text-brand-mint uppercase tracking-wider">Borivali, Mumbai</p>
+                <h3 class="font-display font-bold text-base text-white mt-1 leading-snug">School Uniforms for Underprivileged Athletes</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Free Blanket Distribution 2024 -->
+          <div class="gallery-item group cursor-pointer mb-5 break-inside-avoid" data-category="relief"
+               data-title="Winter Blanket Relief Drive"
+               data-date="07 February 2024"
+               data-location="Borivali West & Gorai, Mumbai"
+               data-partner="Local Ward Volunteers"
+               data-caption="Distributed warm blankets to homeless and needy citizens during chilly coastal weather spells to uphold humanity and immediate relief."
+               data-images='["https://images.unsplash.com/photo-1573883430697-4c3479aae6b9?w=900&h=700&fit=crop","https://images.unsplash.com/photo-1608889825103-eb5ed706fc64?w=900&h=700&fit=crop","https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=900&h=700&fit=crop"]'>
+            <div class="relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+              <img src="https://images.unsplash.com/photo-1573883430697-4c3479aae6b9?w=640&h=820&fit=crop" alt="Winter Blanket Relief Drive" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <span class="absolute top-3 left-3 z-20 bg-brand-accent text-brand-navy text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">Relief</span>
+              <span class="absolute top-3 right-3 z-20 bg-white/90 backdrop-blur-xs text-brand-navy text-[11px] font-bold px-2 py-0.5 rounded-md shadow-xs">2024</span>
+              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent p-4 pt-14">
+                <p class="text-[11px] font-semibold text-brand-mint uppercase tracking-wider">Gorai, Borivali</p>
+                <h3 class="font-display font-bold text-base text-white mt-1 leading-snug">Winter Blankets for Homeless Citizens</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. MSSDC Skill Center 2023 (wide editorial card for grid rhythm) -->
+          <div class="gallery-item group cursor-pointer mb-5 gallery-wide" data-category="education"
+               data-title="Aarya Skill Centre Vocational Batches"
+               data-date="Academic Year 2023"
+               data-location="Maharashtra Centers"
+               data-partner="Maharashtra State Skill Development Corporation (MSSDC)"
+               data-caption="Conducted government-certified batches in Accounts Executive and Web Development to ensure industry readiness for youth from underserved households."
+               data-images='["https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&h=700&fit=crop","https://images.unsplash.com/photo-1552664730-d307ca884978?w=900&h=700&fit=crop","https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=900&h=700&fit=crop"]'>
+            <div class="relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 bg-white border border-neutral-200/80 flex flex-col sm:flex-row">
+              <div class="relative sm:w-2/5 aspect-[16/9] sm:aspect-auto overflow-hidden shrink-0">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=640&h=500&fit=crop" alt="Aarya Skill Centre Vocational Batches" class="w-full h-full object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                <span class="absolute top-3 left-3 z-20 bg-brand-navy text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">Skills</span>
+                <span class="absolute top-3 right-3 z-20 bg-white/90 backdrop-blur-xs text-brand-navy text-[11px] font-bold px-2 py-0.5 rounded-md shadow-xs">2023</span>
+              </div>
+              <div class="p-6 sm:p-7 flex flex-col justify-center flex-1">
+                <p class="text-[11px] font-semibold text-brand-green uppercase tracking-wider">Maharashtra · Academic Year 2023</p>
+                <h3 class="font-display font-bold text-lg sm:text-xl text-brand-navy mt-1.5 leading-snug">Web Developer &amp; Accounts Trainees</h3>
+                <p class="text-xs sm:text-sm text-neutral-600 mt-2.5 leading-relaxed max-w-md">Government-certified vocational batches in Accounts Executive and Web Development, built for industry readiness among youth from underserved households.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8. Tree Plantation Badlapur 2021 -->
+          <div class="gallery-item group cursor-pointer mb-5 break-inside-avoid" data-category="environment"
+               data-title="World Environment Day Tree Plantation"
+               data-date="05 June 2021"
+               data-location="Siddharth College, Boradpada, Badlapur, Thane"
+               data-partner="Namita Education & Welfare Society"
+               data-caption="Sapling plantation and environmental pledge drive graced by educationist dignitaries, encouraging teachers and youth toward green living."
+               data-images='["https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=900&h=700&fit=crop","https://images.unsplash.com/photo-1444492417251-9c84a5fa18e0?w=900&h=700&fit=crop","https://images.unsplash.com/photo-1511497584788-876760111969?w=900&h=700&fit=crop"]'>
+            <div class="relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+              <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=640&h=700&fit=crop" alt="World Environment Day Tree Plantation" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <span class="absolute top-3 left-3 z-20 bg-brand-green text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">Environment</span>
+              <span class="absolute top-3 right-3 z-20 bg-white/90 backdrop-blur-xs text-brand-navy text-[11px] font-bold px-2 py-0.5 rounded-md shadow-xs">2021</span>
+              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent p-4 pt-14">
+                <p class="text-[11px] font-semibold text-brand-mint uppercase tracking-wider">Badlapur, Thane</p>
+                <h3 class="font-display font-bold text-base text-white mt-1 leading-snug">Sapling Plantation for Environment Day</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- 9. Nail-Free Tree Campaign 2019 -->
+          <div class="gallery-item group cursor-pointer mb-5 break-inside-avoid" data-category="environment"
+               data-title="Nail-Free Tree Campaign"
+               data-date="18 April 2019"
+               data-location="Asha Nagar Road, Kandivali East, Mumbai"
+               data-partner="In association with Angholichi Goli"
+               data-caption="Removed dangerous iron nails and advertisements hammered into roadside trees, healing living urban flora across Kandivali."
+               data-images='["https://images.unsplash.com/photo-1476231682828-37e571bc172f?w=900&h=700&fit=crop","https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?w=900&h=700&fit=crop","https://images.unsplash.com/photo-1448375240586-882707db888b?w=900&h=700&fit=crop"]'>
+            <div class="relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+              <img src="https://images.unsplash.com/photo-1476231682828-37e571bc172f?w=640&h=520&fit=crop" alt="Nail-Free Tree Campaign" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <span class="absolute top-3 left-3 z-20 bg-brand-green text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">Environment</span>
+              <span class="absolute top-3 right-3 z-20 bg-white/90 backdrop-blur-xs text-brand-navy text-[11px] font-bold px-2 py-0.5 rounded-md shadow-xs">2019</span>
+              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent p-4 pt-14">
+                <p class="text-[11px] font-semibold text-brand-mint uppercase tracking-wider">Kandivali East, Mumbai</p>
+                <h3 class="font-display font-bold text-base text-white mt-1 leading-snug">Urban Tree De-nailing Drive</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- 10. Self Defence Workshop 2019 -->
+          <div class="gallery-item group cursor-pointer mb-5 break-inside-avoid" data-category="sports"
+               data-title="Girls Self-Defence Seminar (250 Students)"
+               data-date="26 June 2019"
+               data-location="Sai Lee International School & College, Borivali"
+               data-partner="Rotary Club of Borivali & Inner Wheel Club"
+               data-caption="Conducted with Martial Art Trainer Kunal Rahate, equipping junior college students with real-world physical escape techniques and personal safety confidence."
+               data-images='["https://images.unsplash.com/photo-1555597673-b21d5c935865?w=900&h=700&fit=crop","https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=900&h=700&fit=crop","https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=900&h=700&fit=crop"]'>
+            <div class="relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+              <img src="https://images.unsplash.com/photo-1555597673-b21d5c935865?w=640&h=780&fit=crop" alt="Girls Self-Defence Seminar" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <span class="absolute top-3 left-3 z-20 bg-brand-navy text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">Sports</span>
+              <span class="absolute top-3 right-3 z-20 bg-white/90 backdrop-blur-xs text-brand-navy text-[11px] font-bold px-2 py-0.5 rounded-md shadow-xs">2019</span>
+              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent p-4 pt-14">
+                <p class="text-[11px] font-semibold text-brand-mint uppercase tracking-wider">Borivali, Mumbai</p>
+                <h3 class="font-display font-bold text-base text-white mt-1 leading-snug">Self-Defence Workshop for 250 Young Girls</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- 11. Sangola Ayurvedic Health Camp 2020 -->
+          <div class="gallery-item group cursor-pointer mb-5 break-inside-avoid" data-category="health"
+               data-title="Sangola Rural Ayurvedic Camp"
+               data-date="26 January 2020"
+               data-location="Sangola, Solapur, Maharashtra"
+               data-partner="Pushkar Ayurvedic Health Center"
+               data-caption="Reaching drought-prone rural talukas of Solapur with specialized pulse diagnosis, chronic disorder consultations, and free medicines."
+               data-images='["https://images.unsplash.com/photo-1512069772995-ec65ed45afd6?w=900&h=700&fit=crop","https://images.unsplash.com/photo-1584362917165-526a968579e8?w=900&h=700&fit=crop","https://images.unsplash.com/photo-1509223197845-458d87318791?w=900&h=700&fit=crop"]'>
+            <div class="relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+              <img src="https://images.unsplash.com/photo-1512069772995-ec65ed45afd6?w=640&h=560&fit=crop" alt="Sangola Rural Ayurvedic Camp" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <span class="absolute top-3 left-3 z-20 bg-brand-green text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">Health</span>
+              <span class="absolute top-3 right-3 z-20 bg-white/90 backdrop-blur-xs text-brand-navy text-[11px] font-bold px-2 py-0.5 rounded-md shadow-xs">2020</span>
+              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent p-4 pt-14">
+                <p class="text-[11px] font-semibold text-brand-mint uppercase tracking-wider">Sangola, Solapur</p>
+                <h3 class="font-display font-bold text-base text-white mt-1 leading-snug">Ayurvedic Health Camp in Sangola</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- 12. Matunga Homage Relief 2019 -->
+          <div class="gallery-item group cursor-pointer mb-5 break-inside-avoid" data-category="relief"
+               data-title="Water & Biscuit Distribution at Rajgruha"
+               data-date="06 December 2019"
+               data-location="Near Rajgruha, Matunga, Mumbai"
+               data-partner="MUPTA"
+               data-caption="Serving thousands of devotees paying homage on Mahaparinirvan Diwas with pure drinking water bottles and fresh biscuits throughout the day."
+               data-images='["https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=900&h=700&fit=crop","https://images.unsplash.com/photo-1523362628745-0c100150b504?w=900&h=700&fit=crop","https://images.unsplash.com/photo-1517438322307-e67111335449?w=900&h=700&fit=crop"]'>
+            <div class="relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+              <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=640&h=480&fit=crop" alt="Water & Biscuit Distribution at Rajgruha" class="w-full h-auto object-cover block group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <span class="absolute top-3 left-3 z-20 bg-brand-accent text-brand-navy text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">Relief</span>
+              <span class="absolute top-3 right-3 z-20 bg-white/90 backdrop-blur-xs text-brand-navy text-[11px] font-bold px-2 py-0.5 rounded-md shadow-xs">2019</span>
+              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent p-4 pt-14">
+                <p class="text-[11px] font-semibold text-brand-mint uppercase tracking-wider">Matunga, Mumbai</p>
+                <h3 class="font-display font-bold text-base text-white mt-1 leading-snug">Water &amp; Refreshment Relief at Rajgruha</h3>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- No Results Fallback -->
+        <div id="no-results" class="hidden text-center py-20">
+          <p class="text-base text-neutral-500">No initiatives found in this category.</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================================================================= -->
+  <!-- 5. LIGHTBOX MODAL WITH METADATA DRAWER                            -->
+  <!-- ================================================================= -->
+  <div id="lightbox" class="fixed inset-0 z-50 bg-brand-navy/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8">
+
+    <div class="relative max-w-4xl w-full bg-white rounded-3xl overflow-hidden shadow-2xl border border-neutral-200 max-h-[92vh]">
+
+      <!-- Close Button -->
+      <button id="lightbox-close" class="absolute top-4 right-4 z-30 w-10 h-10 rounded-full bg-white/80 hover:bg-white text-neutral-800 flex items-center justify-center shadow-md">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <!-- Image Display Area / Slideshow -->
+      <div class="w-full aspect-[4/3] sm:aspect-video bg-neutral-900 flex items-center justify-center relative overflow-hidden">
+        <div id="modal-slides" class="w-full h-full relative"></div>
+
+        <!-- Prev / Next Arrows -->
+        <button id="slide-prev" aria-label="Previous image" class="absolute left-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-white/80 hover:bg-white text-neutral-800 flex items-center justify-center shadow-md">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button id="slide-next" aria-label="Next image" class="absolute right-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-white/80 hover:bg-white text-neutral-800 flex items-center justify-center shadow-md">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+
+        <!-- Dot Indicators -->
+        <div id="slide-dots" class="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex items-center gap-1.5"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- 6. FOOTER                                                        -->
+  <!-- ================================================================= -->
+  <footer id="contact" class="bg-brand-bg text-brand-navy pt-0 pb-12">
+
+    <!-- Featured CTA block -->
+    <div class="bg-brand-navy text-white">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 py-12 sm:py-14 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-widest text-brand-mint mb-2">Before You Go</p>
+          <h3 class="font-display font-bold text-2xl sm:text-3xl leading-tight max-w-lg">Your support reaches the field within the same quarter — not years later.</h3>
+        </div>
+        <a href="donation.html" class="shrink-0 px-7 py-3.5 bg-brand-green text-white font-semibold rounded-full hover:bg-emerald-600 hover:-translate-y-0.5 transition-all text-sm flex items-center gap-2">
+          <span>Donate Now</span>
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 pt-16">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-14 border-b border-neutral-200">
+
+        <!-- Foundation Info -->
+        <div class="lg:col-span-4 space-y-5">
+          <img src="assets/Krutadnyata Foundation logo (with text).png" alt="Krutadnyata Foundation" class="h-12 w-auto object-contain" />
+          <p class="text-sm text-neutral-600 leading-relaxed font-normal max-w-xs">
+            A Maharashtra-based registered social organisation dedicated to bridging educational inequalities, conducting preventive healthcare, and empowering communities since 2019.
+          </p>
+          <div class="text-xs text-neutral-500 space-y-1.5 border-l-2 border-brand-mint pl-3.5">
+            <p><strong class="text-brand-navy font-semibold">Charity Reg:</strong> [TO CONFIRM: Trust Registration Number]</p>
+            <p><strong class="text-brand-navy font-semibold">Head Office:</strong> [TO CONFIRM: Official Registered Address], Suburban Mumbai, Maharashtra</p>
+            <p><strong class="text-brand-navy font-semibold">Helpline:</strong> +91 98338 61159 (Inquiries)</p>
+          </div>
+        </div>
+
+        <!-- Core Work -->
+        <div class="lg:col-span-2 space-y-4 text-sm">
+          <p class="font-display font-bold text-brand-navy uppercase tracking-wider text-[11px] flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-green"></span>Core Work</p>
+          <ul class="space-y-2.5 text-neutral-600">
+            <li><a href="our-work.html#pillar-health" class="hover:text-brand-green transition-colors">Health Camps</a></li>
+            <li><a href="our-work.html#pillar-sports" class="hover:text-brand-green transition-colors">State Sports Day</a></li>
+            <li><a href="our-work.html#pillar-skilling" class="hover:text-brand-green transition-colors">Aarya Skill Centre</a></li>
+            <li><a href="our-work.html#pillar-environment" class="hover:text-brand-green transition-colors">Tree Protection</a></li>
+            <li><a href="our-work.html#pillar-relief" class="hover:text-brand-green transition-colors">Community Relief</a></li>
+          </ul>
+        </div>
+
+        <!-- Navigation -->
+        <div class="lg:col-span-2 space-y-4 text-sm">
+          <p class="font-display font-bold text-brand-navy uppercase tracking-wider text-[11px] flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-green"></span>Navigation</p>
+          <ul class="space-y-2.5 text-neutral-600">
+            <li><a href="index.html" class="hover:text-brand-green transition-colors">Home</a></li>
+            <li><a href="about.html" class="hover:text-brand-green transition-colors">About Us</a></li>
+            <li><a href="our-work.html" class="hover:text-brand-green transition-colors">Our Work</a></li>
+            <li><a href="gallery2.html" class="hover:text-brand-green transition-colors">Field Gallery</a></li>
+            <li><a href="stories.html" class="hover:text-brand-green transition-colors">Stories</a></li>
+            <li><a href="blog.html" class="hover:text-brand-green transition-colors">Blog</a></li>
+            <li><a href="reports.html" class="hover:text-brand-green transition-colors">Reports &amp; Audits</a></li>
+            <li><a href="volunteer.html" class="hover:text-brand-green transition-colors">Volunteer</a></li>
+            <li><a href="contact.html" class="hover:text-brand-green transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Stay Informed -->
+        <div class="lg:col-span-4 space-y-4">
+          <p class="font-display font-bold text-brand-navy uppercase tracking-wider text-[11px] flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-green"></span>Stay Informed</p>
+          <div class="bg-white rounded-2xl border border-neutral-200/80 p-5">
+            <p class="text-xs text-neutral-600 leading-relaxed">Subscribe to receive our verified quarterly field activity bulletins and volunteer opportunities.</p>
+            <form class="flex items-center gap-2 mt-4" onsubmit="event.preventDefault(); alert('Subscribed to Krutadnyata updates.');">
+              <input type="email" placeholder="Your email address" required class="bg-brand-bg border border-neutral-300 px-3.5 py-2.5 rounded-xl text-xs text-brand-navy placeholder-neutral-400 focus:outline-none focus:border-brand-green flex-1" />
+              <button type="submit" class="px-4 py-2.5 bg-brand-green text-white text-xs font-semibold rounded-xl hover:bg-emerald-700 transition-colors whitespace-nowrap">Join</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Disclaimer & Copyright -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-neutral-500 gap-4">
+        <div>
+          © 2019–2026 Krutadnyata Foundation (कृतज्ञता फाउंडेशन). All public contributions are utilized strictly towards community welfare programs.
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="privacy.html" class="hover:text-brand-navy transition-colors">Privacy Policy</a>
+          <a href="reports.html" class="hover:text-brand-navy transition-colors">MOU Records</a>
+          <a href="donation.html" class="hover:text-brand-navy transition-colors">80G Verification</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================================================================= -->
+  <!-- JAVASCRIPT LOGIC                                                  -->
+  <!-- ================================================================= -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Lenis Smooth Scroll
+      const lenis = new Lenis({
+        duration: 1.1,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smooth: true,
+      });
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // 2. Mobile Menu
+      const mobileToggle = document.getElementById('mobile-toggle');
+      const mobileClose = document.getElementById('mobile-close');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      mobileToggle.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
+      mobileClose.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
+
+      // 3. Header shadow on scroll
+      const mainHeader = document.getElementById('main-header');
+      window.addEventListener('scroll', () => {
+        mainHeader.classList.toggle('scrolled', window.scrollY > 20);
+      });
+
+      // 4. Category Filter System
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const galleryItems = document.querySelectorAll('.gallery-item');
+      const noResults = document.getElementById('no-results');
+      const totalCountSpan = document.getElementById('total-count');
+
+      totalCountSpan.textContent = galleryItems.length;
+
+      filterButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          // Update active tab classes
+          filterButtons.forEach(b => {
+            b.classList.remove('active', 'bg-brand-navy', 'border-brand-navy', 'text-white');
+            b.classList.add('bg-white', 'border-neutral-200', 'text-neutral-700');
+          });
+          btn.classList.add('active', 'bg-brand-navy', 'border-brand-navy', 'text-white');
+          btn.classList.remove('bg-white', 'border-neutral-200', 'text-neutral-700');
+
+          const filter = btn.getAttribute('data-filter');
+          let visibleCount = 0;
+
+          galleryItems.forEach((item) => {
+            const category = item.getAttribute('data-category');
+            if (filter === 'all' || category === filter) {
+              item.style.display = 'block';
+              visibleCount++;
+            } else {
+              item.style.display = 'none';
+            }
+          });
+
+          if (visibleCount === 0) {
+            noResults.classList.remove('hidden');
+          } else {
+            noResults.classList.add('hidden');
+          }
+        });
+      });
+
+      // 5. Interactive Lightbox Modal
+      const lightbox = document.getElementById('lightbox');
+      const lightboxClose = document.getElementById('lightbox-close');
+      const modalSlides = document.getElementById('modal-slides');
+      const slideDots = document.getElementById('slide-dots');
+      const slidePrev = document.getElementById('slide-prev');
+      const slideNext = document.getElementById('slide-next');
+
+      let currentSlides = [];
+      let currentSlideIndex = 0;
+
+      function renderSlide() {
+        modalSlides.querySelectorAll('.modal-slide').forEach((img, i) => {
+          img.classList.toggle('active', i === currentSlideIndex);
+        });
+        slideDots.querySelectorAll('.slide-dot').forEach((dot, i) => {
+          dot.classList.toggle('active', i === currentSlideIndex);
+        });
+      }
+
+      function goToSlide(index) {
+        const total = currentSlides.length;
+        currentSlideIndex = (index + total) % total;
+        renderSlide();
+      }
+
+      slidePrev.addEventListener('click', (e) => { e.stopPropagation(); goToSlide(currentSlideIndex - 1); });
+      slideNext.addEventListener('click', (e) => { e.stopPropagation(); goToSlide(currentSlideIndex + 1); });
+
+      galleryItems.forEach((item) => {
+        item.addEventListener('click', () => {
+          const title = item.getAttribute('data-title');
+
+          // Build slideshow: use data-images if present, else fall back to the single thumbnail
+          const imagesAttr = item.getAttribute('data-images');
+          const itemImg = item.querySelector('img');
+          currentSlides = imagesAttr ? JSON.parse(imagesAttr) : (itemImg ? [itemImg.src] : []);
+          currentSlideIndex = 0;
+
+          modalSlides.innerHTML = currentSlides.map((src, i) =>
+            `<img src="${src}" alt="${title} — photo ${i + 1} of ${currentSlides.length}" class="modal-slide${i === 0 ? ' active' : ''}" />`
+          ).join('');
+
+          slideDots.innerHTML = currentSlides.map((_, i) =>
+            `<span class="slide-dot${i === 0 ? ' active' : ''}" data-index="${i}"></span>`
+          ).join('');
+          slideDots.querySelectorAll('.slide-dot').forEach((dot) => {
+            dot.addEventListener('click', (e) => {
+              e.stopPropagation();
+              goToSlide(parseInt(dot.getAttribute('data-index'), 10));
+            });
+          });
+
+          const multiSlide = currentSlides.length > 1;
+          slidePrev.style.display = multiSlide ? 'flex' : 'none';
+          slideNext.style.display = multiSlide ? 'flex' : 'none';
+          slideDots.style.display = multiSlide ? 'flex' : 'none';
+
+          lightbox.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      const closeModal = () => {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+      };
+
+      lightboxClose.addEventListener('click', closeModal);
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeModal();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('open')) return;
+        if (e.key === 'Escape') closeModal();
+        if (e.key === 'ArrowLeft') goToSlide(currentSlideIndex - 1);
+        if (e.key === 'ArrowRight') goToSlide(currentSlideIndex + 1);
+      });
+    });
+  </script>
+  <script>
+    (function () {
+      var path = location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.nav-link[href]').forEach(function (a) {
+        if (a.getAttribute('href') === path) {
+          a.classList.add('text-brand-navy', 'font-semibold');
+          a.classList.add('active-nav-link');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

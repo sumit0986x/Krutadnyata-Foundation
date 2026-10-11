@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stories from the Ground — Krutadnyata Foundation (कृतज्ञता फाउंडेशन)</title>
+  <meta name="description" content="First-person beneficiary testimonials and on-ground video documentaries from Krutadnyata Foundation's health camps, skilling batches, and community initiatives across Maharashtra." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Mukta:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lenis Smooth Scroll CDN -->
+  <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              green: 'var(--color-green)',
+              navy: 'var(--color-navy)',
+              mint: 'var(--color-mint)',
+              bg: 'var(--color-bg)',
+              ink: 'var(--color-ink)',
+              muted: 'var(--color-muted)',
+              accent: 'var(--color-accent)',
+              border: 'var(--color-border)',
+            }
+          },
+          fontFamily: {
+            sans: ['"Inter"', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+            marathi: ['"Mukta"', 'sans-serif'],
+          },
+          letterSpacing: {
+            tightest: '-0.035em',
+            tighter: '-0.02em',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --color-green: #00985A;
+      --color-navy: #0B2D4F;
+      --color-mint: #D6EFE5;
+      --color-bg: #F8F9FA;
+      --color-ink: #1A1A1A;
+      --color-muted: #6B7280;
+      --color-accent: #F2B84B;
+      --color-border: #E5E7EB;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-ink);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-marathi { font-family: 'Mukta', sans-serif; }
+
+    .glass-nav {
+      background: rgba(248, 249, 250, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    #main-header.scrolled {
+      box-shadow: 0 4px 24px rgba(11, 45, 79, 0.06);
+    }
+
+    footer#contact {
+      position: relative;
+    }
+    footer#contact::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-green), var(--color-accent), var(--color-green));
+    }
+
+    /* Video modal styles */
+    #video-modal {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #video-modal.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="selection:bg-brand-mint selection:text-brand-navy">
+
+  <!-- ================================================================= -->
+  <!-- 1. HEADER                                                         -->
+  <!-- ================================================================= -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-nav">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 h-20 flex items-center justify-between gap-6">
+
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center group shrink-0" aria-label="Krutadnyata Foundation Home">
+        <img src="assets/Krutadnyata Foundation logo (with text).png" alt="Krutadnyata Foundation" class="h-12 w-auto transition-transform duration-300 group-hover:scale-105" />
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden xl:flex items-center gap-7 text-[13px] font-semibold text-neutral-500 tracking-wide">
+        <a href="index.html" class="nav-link hover:text-brand-navy transition-colors py-1">Home</a>
+        <a href="about.html" class="nav-link hover:text-brand-navy transition-colors py-1">About Us</a>
+
+        <!-- Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1.5 hover:text-brand-navy transition-colors py-1 focus:outline-none">
+            <span>Our Work</span>
+            <svg class="w-3 h-3 text-neutral-400 group-hover:rotate-180 group-hover:text-brand-green transition-all duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-80 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200">
+            <div class="bg-white rounded-2xl p-2 shadow-2xl shadow-brand-navy/10 border border-neutral-100 grid gap-0.5 text-xs">
+              <a href="our-work.html#pillar-health" class="px-3.5 py-2.5 rounded-xl hover:bg-brand-mint/40 flex items-center gap-3 font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-green shrink-0"></span>
+                <span class="flex-1">Health &amp; Medical Camps</span>
+                <span class="text-[10px] font-medium text-neutral-400">Rural/Urban</span>
+              </a>
+              <a href="our-work.html#pillar-education" class="px-3.5 py-2.5 rounded-xl hover:bg-brand-mint/40 flex items-center gap-3 font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-green shrink-0"></span>
+                <span class="flex-1">Education &amp; Civil Services</span>
+                <span class="text-[10px] font-medium text-neutral-400">UPSC/MPSC</span>
+              </a>
+              <a href="our-work.html#pillar-environment" class="px-3.5 py-2.5 rounded-xl hover:bg-brand-mint/40 flex items-center gap-3 font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-green shrink-0"></span>
+                <span class="flex-1">Environment &amp; Conservation</span>
+                <span class="text-[10px] font-medium text-neutral-400">Nail-Free</span>
+              </a>
+              <a href="our-work.html#pillar-sports" class="px-3.5 py-2.5 rounded-xl hover:bg-brand-mint/40 flex items-center gap-3 font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-green shrink-0"></span>
+                <span class="flex-1">Youth &amp; State Sports</span>
+                <span class="text-[10px] font-medium text-neutral-400">Marathons</span>
+              </a>
+              <a href="our-work.html#pillar-relief" class="px-3.5 py-2.5 rounded-xl hover:bg-brand-mint/40 flex items-center gap-3 font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-green shrink-0"></span>
+                <span class="flex-1">Community &amp; Blanket Relief</span>
+                <span class="text-[10px] font-medium text-neutral-400">Disadvantaged</span>
+              </a>
+              <a href="our-work.html#pillar-skilling" class="px-3.5 py-2.5 rounded-xl hover:bg-brand-mint/40 flex items-center gap-3 font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-green shrink-0"></span>
+                <span class="flex-1">Skill Development (MSSDC)</span>
+                <span class="text-[10px] font-medium text-neutral-400">Vocational</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a href="gallery.html" class="nav-link hover:text-brand-navy transition-colors py-1">Gallery</a>
+        <a href="stories2.html" class="nav-link hover:text-brand-navy transition-colors py-1">Stories</a>
+        <a href="blog.html" class="nav-link hover:text-brand-navy transition-colors py-1">Blog</a>
+        <a href="reports.html" class="nav-link hover:text-brand-navy transition-colors py-1">Reports &amp; Audits</a>
+        <a href="volunteer.html" class="nav-link hover:text-brand-navy transition-colors py-1">Volunteer</a>
+        <a href="contact.html" class="nav-link hover:text-brand-navy transition-colors py-1">Contact</a>
+      </nav>
+
+      <!-- Right Action CTA -->
+      <div class="hidden sm:flex items-center gap-5 shrink-0">
+        <a href="donation.html" class="group relative bg-brand-navy text-white text-xs font-bold px-5 py-3 rounded-full hover:bg-brand-green active:scale-95 transition-all shadow-md hover:shadow-lg flex items-center gap-2 overflow-hidden">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse"></span>
+          <span>Donate Now</span>
+          <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-toggle" aria-label="Toggle navigation menu" class="xl:hidden p-2 rounded-lg text-neutral-800 hover:bg-neutral-100 focus:outline-none shrink-0">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+    </div>
+    <div class="h-px bg-gradient-to-r from-transparent via-brand-border to-transparent"></div>
+  </header>
+
+  <!-- Mobile Overlay Menu -->
+  <div id="mobile-menu" class="fixed inset-0 bg-brand-navy/95 z-50 flex flex-col justify-between p-8 text-white translate-x-full transition-transform duration-300 xl:hidden overflow-y-auto">
+    <div class="flex items-center justify-between border-b border-white/10 pb-5">
+      <div class="flex items-center gap-3">
+        <img src="assets/Krutadnyata Foundation logo (icon only).png" alt="Krutadnyata Foundation" class="w-10 h-10 object-contain" />
+        <span class="font-display font-bold text-lg">Krutadnyata</span>
+      </div>
+      <button id="mobile-close" aria-label="Close menu" class="p-2 text-white/80 hover:text-white">
+        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="grid gap-4 text-lg font-display font-semibold py-6">
+      <a href="index.html" class="nav-link mobile-link text-white/80 hover:text-white">Home</a>
+      <a href="about.html" class="nav-link mobile-link text-white/80 hover:text-white">About Us</a>
+      <a href="our-work.html" class="nav-link mobile-link text-white/80 hover:text-white">Our Work</a>
+      <a href="gallery.html" class="nav-link mobile-link text-white/80 hover:text-white">Gallery</a>
+      <a href="stories2.html" class="nav-link mobile-link text-white/80 hover:text-white">Stories</a>
+      <a href="blog.html" class="nav-link mobile-link text-white/80 hover:text-white">Blog</a>
+      <a href="reports.html" class="nav-link mobile-link text-white/80 hover:text-white">Reports &amp; Audits</a>
+      <a href="volunteer.html" class="nav-link mobile-link text-white/80 hover:text-white">Volunteer</a>
+      <a href="contact.html" class="nav-link mobile-link text-white/80 hover:text-white">Contact</a>
+    </div>
+
+    <div class="grid gap-3 pt-6 border-t border-white/10">
+      <a href="donation.html" class="mobile-link w-full py-3.5 bg-brand-green rounded-xl text-center font-semibold text-white">Donate to Programs</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ================================================================= -->
+    <!-- 2. STORIES HERO — intro copy, stat strip, photo mosaic            -->
+    <!-- ================================================================= -->
+    <section class="relative min-h-[70vh] flex items-end overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=1800&h=1200&fit=crop" alt="Volunteer recording a beneficiary's story in the field" class="absolute inset-0 w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/40 to-brand-navy/10"></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 pb-16 pt-40 w-full">
+        <span class="text-xs font-bold uppercase tracking-[0.3em] text-brand-mint">Stories</span>
+        <h1 class="mt-3 font-display font-extrabold text-4xl sm:text-6xl lg:text-7xl text-white tracking-tightest leading-[1.05] max-w-3xl">
+          Every number represents a living human being.
+        </h1>
+        <p class="mt-5 text-base sm:text-lg text-neutral-200 max-w-xl leading-relaxed">
+          Behind every statistic on this site is a name, a family, and a morning that changed because someone showed up. This page carries those voices directly — first-person accounts from the people we've worked alongside — next to the raw field footage that documents where and how it happened.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- ================================================================= -->
+    <!-- 5. ON-GROUND VIDEO DOCUMENTARIES — featured + grid                -->
+    <!-- ================================================================= -->
+    <section class="pt-8 pb-20 bg-white border-b border-brand-border">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+
+        <div class="mb-12">
+          <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Live Perspectives</span>
+          <h2 class="font-display font-bold text-3xl text-brand-navy mt-1">Ground Documentaries &amp; Field Footage</h2>
+          <p class="text-neutral-600 text-sm mt-3 leading-relaxed max-w-xl">Tap any card to preview raw footage captured on-site at our camps, drives, and events.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 gap-6">
+
+          <!-- Video Card 1 — Featured -->
+          <div class="video-card group cursor-pointer relative lg:col-span-2 lg:row-span-2 min-h-[320px] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" data-video-title="1,200 Runners at the BIS Quality Run" data-video-meta="Borivali, Mumbai • Sailee Degree College" data-video-id="aqz-KE-bpKQ">
+            <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=900&h=1000&fit=crop" alt="BIS Quality Run" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/50"></div>
+            <span class="absolute top-5 left-5 px-3 py-1.5 rounded-full bg-brand-accent text-brand-navy text-[10px] font-bold uppercase tracking-wider shadow">Flagship Footage</span>
+            <div class="absolute bottom-5 left-5 right-5">
+              <h3 class="font-display font-bold text-white text-xl sm:text-2xl leading-snug">1,200 Runners at the BIS Quality Run</h3>
+              <p class="text-xs sm:text-sm text-neutral-200 mt-1.5">Borivali, Mumbai &bull; Sailee Degree College</p>
+            </div>
+            <div class="absolute top-5 right-5 w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+              <svg class="w-5 h-5 text-brand-navy ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+
+          <!-- Video Card 2 -->
+          <div class="video-card group cursor-pointer relative aspect-[4/5] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" data-video-title="Sangameshwar Rural Ayurvedic Health Camp" data-video-meta="Dhamapur Dhanawade Wadi, Ratnagiri" data-video-id="eRsGyueVLvQ">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=750&fit=crop" alt="Rural Ayurvedic Health Camp" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/50"></div>
+            <div class="absolute top-4 left-4 right-4">
+              <h3 class="font-display font-bold text-white text-base leading-snug">Sangameshwar Rural Ayurvedic Health Camp</h3>
+              <p class="text-xs text-neutral-200 mt-1">Dhamapur Dhanawade Wadi, Ratnagiri</p>
+            </div>
+            <div class="absolute bottom-4 left-4 w-11 h-11 rounded-full bg-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+              <svg class="w-4 h-4 text-brand-navy ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+
+          <!-- Video Card 3 -->
+          <div class="video-card group cursor-pointer relative aspect-[4/5] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" data-video-title="MSSDC Web Development & Accounts Batch" data-video-meta="Aarya Skill Development Centre" data-video-id="R6MlUcmOul8">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=750&fit=crop" alt="MSSDC Web Development Batch" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/50"></div>
+            <div class="absolute top-4 left-4 right-4">
+              <h3 class="font-display font-bold text-white text-base leading-snug">MSSDC Web Development &amp; Accounts Batch</h3>
+              <p class="text-xs text-neutral-200 mt-1">Aarya Skill Development Centre</p>
+            </div>
+            <div class="absolute bottom-4 left-4 w-11 h-11 rounded-full bg-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+              <svg class="w-4 h-4 text-brand-navy ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+
+          <!-- Video Card 4 -->
+          <div class="video-card group cursor-pointer relative aspect-[4/5] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" data-video-title="Borivali Blood Donation Camp" data-video-meta="MHB Colony, Borivali West, Mumbai" data-video-id="aqz-KE-bpKQ">
+            <img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=600&h=750&fit=crop" alt="Borivali Blood Donation Camp" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/50"></div>
+            <div class="absolute top-4 left-4 right-4">
+              <h3 class="font-display font-bold text-white text-base leading-snug">Borivali Blood Donation Camp</h3>
+              <p class="text-xs text-neutral-200 mt-1">MHB Colony, Borivali West</p>
+            </div>
+            <div class="absolute bottom-4 left-4 w-11 h-11 rounded-full bg-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+              <svg class="w-4 h-4 text-brand-navy ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+
+          <!-- Video Card 5 -->
+          <div class="video-card group cursor-pointer relative aspect-[4/5] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" data-video-title="World Environment Day Tree Plantation" data-video-meta="Siddharth College, Badlapur, Thane" data-video-id="eRsGyueVLvQ">
+            <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?w=600&h=750&fit=crop" alt="Tree Plantation Drive" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/50"></div>
+            <div class="absolute top-4 left-4 right-4">
+              <h3 class="font-display font-bold text-white text-base leading-snug">World Environment Day Tree Plantation</h3>
+              <p class="text-xs text-neutral-200 mt-1">Badlapur, Thane</p>
+            </div>
+            <div class="absolute bottom-4 left-4 w-11 h-11 rounded-full bg-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+              <svg class="w-4 h-4 text-brand-navy ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+
+          <!-- Video Card 6 -->
+          <div class="video-card group cursor-pointer relative aspect-[4/5] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" data-video-title="State Sports Day Marathon 2026" data-video-meta="Suburban Mumbai, Maharashtra" data-video-id="R6MlUcmOul8">
+            <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=600&h=750&fit=crop" alt="State Sports Day Marathon" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/50"></div>
+            <div class="absolute top-4 left-4 right-4">
+              <h3 class="font-display font-bold text-white text-base leading-snug">State Sports Day Marathon 2026</h3>
+              <p class="text-xs text-neutral-200 mt-1">Suburban Mumbai</p>
+            </div>
+            <div class="absolute bottom-4 left-4 w-11 h-11 rounded-full bg-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+              <svg class="w-4 h-4 text-brand-navy ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================================================================= -->
+  <!-- VIDEO MODAL PREVIEW                                               -->
+  <!-- ================================================================= -->
+  <div id="video-modal" class="fixed inset-0 z-50 bg-brand-navy/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8">
+    <div class="relative max-w-3xl w-full bg-neutral-900 rounded-3xl overflow-hidden shadow-2xl border border-white/10 p-6">
+
+      <button id="modal-close" class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <div class="aspect-video bg-neutral-800 rounded-2xl overflow-hidden border border-white/5">
+        <iframe id="video-modal-iframe" class="w-full h-full" src="" title="Video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+
+      <div class="pt-4">
+        <h4 id="video-modal-title" class="font-display font-bold text-lg text-white">Video Documentary</h4>
+        <p id="video-modal-meta" class="text-xs text-neutral-400 mt-1">Field Documentation Preview</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- 6. FOOTER                                                        -->
+  <!-- ================================================================= -->
+  <footer id="contact" class="bg-brand-bg text-brand-navy pt-0 pb-12">
+
+    <!-- Featured CTA block -->
+    <div class="bg-brand-navy text-white">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 py-12 sm:py-14 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-widest text-brand-mint mb-2">Before You Go</p>
+          <h3 class="font-display font-bold text-2xl sm:text-3xl leading-tight max-w-lg">Your support reaches the field within the same quarter — not years later.</h3>
+        </div>
+        <a href="donation.html" class="shrink-0 px-7 py-3.5 bg-brand-green text-white font-semibold rounded-full hover:bg-emerald-600 hover:-translate-y-0.5 transition-all text-sm flex items-center gap-2">
+          <span>Donate Now</span>
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 pt-16">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-14 border-b border-neutral-200">
+
+        <!-- Foundation Info -->
+        <div class="lg:col-span-4 space-y-5">
+          <img src="assets/Krutadnyata Foundation logo (with text).png" alt="Krutadnyata Foundation" class="h-12 w-auto object-contain" />
+          <p class="text-sm text-neutral-600 leading-relaxed font-normal max-w-xs">
+            A Maharashtra-based registered social organisation dedicated to bridging educational inequalities, conducting preventive healthcare, and empowering communities since 2019.
+          </p>
+          <div class="text-xs text-neutral-500 space-y-1.5 border-l-2 border-brand-mint pl-3.5">
+            <p><strong class="text-brand-navy font-semibold">Charity Reg:</strong> [TO CONFIRM: Trust Registration Number]</p>
+            <p><strong class="text-brand-navy font-semibold">Head Office:</strong> [TO CONFIRM: Official Registered Address], Suburban Mumbai, Maharashtra</p>
+            <p><strong class="text-brand-navy font-semibold">Helpline:</strong> +91 98338 61159 (Inquiries)</p>
+          </div>
+        </div>
+
+        <!-- Core Work -->
+        <div class="lg:col-span-2 space-y-4 text-sm">
+          <p class="font-display font-bold text-brand-navy uppercase tracking-wider text-[11px] flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-green"></span>Core Work</p>
+          <ul class="space-y-2.5 text-neutral-600">
+            <li><a href="our-work.html#pillar-health" class="hover:text-brand-green transition-colors">Health Camps</a></li>
+            <li><a href="our-work.html#pillar-sports" class="hover:text-brand-green transition-colors">State Sports Day</a></li>
+            <li><a href="our-work.html#pillar-skilling" class="hover:text-brand-green transition-colors">Aarya Skill Centre</a></li>
+            <li><a href="our-work.html#pillar-environment" class="hover:text-brand-green transition-colors">Tree Protection</a></li>
+            <li><a href="our-work.html#pillar-relief" class="hover:text-brand-green transition-colors">Community Relief</a></li>
+          </ul>
+        </div>
+
+        <!-- Navigation -->
+        <div class="lg:col-span-2 space-y-4 text-sm">
+          <p class="font-display font-bold text-brand-navy uppercase tracking-wider text-[11px] flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-green"></span>Navigation</p>
+          <ul class="space-y-2.5 text-neutral-600">
+            <li><a href="index.html" class="hover:text-brand-green transition-colors">Home</a></li>
+            <li><a href="about.html" class="hover:text-brand-green transition-colors">About Us</a></li>
+            <li><a href="our-work.html" class="hover:text-brand-green transition-colors">Our Work</a></li>
+            <li><a href="gallery.html" class="hover:text-brand-green transition-colors">Field Gallery</a></li>
+            <li><a href="stories2.html" class="hover:text-brand-green transition-colors">Stories</a></li>
+            <li><a href="blog.html" class="hover:text-brand-green transition-colors">Blog</a></li>
+            <li><a href="reports.html" class="hover:text-brand-green transition-colors">Reports &amp; Audits</a></li>
+            <li><a href="volunteer.html" class="hover:text-brand-green transition-colors">Volunteer</a></li>
+            <li><a href="contact.html" class="hover:text-brand-green transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Stay Informed -->
+        <div class="lg:col-span-4 space-y-4">
+          <p class="font-display font-bold text-brand-navy uppercase tracking-wider text-[11px] flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-green"></span>Stay Informed</p>
+          <div class="bg-white rounded-2xl border border-neutral-200/80 p-5">
+            <p class="text-xs text-neutral-600 leading-relaxed">Subscribe to receive our verified quarterly field activity bulletins and volunteer opportunities.</p>
+            <form class="flex items-center gap-2 mt-4" onsubmit="event.preventDefault(); alert('Subscribed to Krutadnyata updates.');">
+              <input type="email" placeholder="Your email address" required class="bg-brand-bg border border-neutral-300 px-3.5 py-2.5 rounded-xl text-xs text-brand-navy placeholder-neutral-400 focus:outline-none focus:border-brand-green flex-1" />
+              <button type="submit" class="px-4 py-2.5 bg-brand-green text-white text-xs font-semibold rounded-xl hover:bg-emerald-700 transition-colors whitespace-nowrap">Join</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Disclaimer & Copyright -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-neutral-500 gap-4">
+        <div>
+          © 2019–2026 Krutadnyata Foundation (कृतज्ञता फाउंडेशन). All public contributions are utilized strictly towards community welfare programs.
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="privacy.html" class="hover:text-brand-navy transition-colors">Privacy Policy</a>
+          <a href="reports.html" class="hover:text-brand-navy transition-colors">MOU Records</a>
+          <a href="donation.html" class="hover:text-brand-navy transition-colors">80G Verification</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================================================================= -->
+  <!-- JAVASCRIPT LOGIC                                                  -->
+  <!-- ================================================================= -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Lenis Smooth Scrolling
+      const lenis = new Lenis({
+        duration: 1.1,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smooth: true,
+      });
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // 2. Mobile Menu
+      const mobileToggle = document.getElementById('mobile-toggle');
+      const mobileClose = document.getElementById('mobile-close');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      mobileToggle.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
+      mobileClose.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
+
+      // 3. Header shadow on scroll
+      const mainHeader = document.getElementById('main-header');
+      window.addEventListener('scroll', () => {
+        mainHeader.classList.toggle('scrolled', window.scrollY > 20);
+      });
+
+      // 4. Video Modal Handler
+      const videoCards = document.querySelectorAll('.video-card');
+      const videoModal = document.getElementById('video-modal');
+      const modalClose = document.getElementById('modal-close');
+      const modalTitle = document.getElementById('video-modal-title');
+      const modalMeta = document.getElementById('video-modal-meta');
+      const modalIframe = document.getElementById('video-modal-iframe');
+
+      videoCards.forEach((card) => {
+        card.addEventListener('click', () => {
+          const title = card.getAttribute('data-video-title');
+          const meta = card.getAttribute('data-video-meta');
+          const videoId = card.getAttribute('data-video-id');
+
+          modalTitle.textContent = title;
+          modalMeta.textContent = meta;
+          modalIframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0';
+
+          videoModal.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      const closeVideo = () => {
+        videoModal.classList.remove('open');
+        document.body.style.overflow = '';
+        modalIframe.src = '';
+      };
+
+      modalClose.addEventListener('click', closeVideo);
+      videoModal.addEventListener('click', (e) => {
+        if (e.target === videoModal) closeVideo();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && videoModal.classList.contains('open')) {
+          closeVideo();
+        }
+      });
+    });
+  </script>
+  <script>
+    (function () {
+      var path = location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.nav-link[href]').forEach(function (a) {
+        if (a.getAttribute('href') === path) {
+          a.classList.add('text-brand-navy', 'font-semibold');
+          a.classList.add('active-nav-link');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
