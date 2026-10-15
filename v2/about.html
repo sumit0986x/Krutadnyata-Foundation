@@ -78,8 +78,46 @@
       -webkit-backdrop-filter: blur(14px);
     }
 
+    /* Header: transparent + white text over the hero photo, frosted-white + dark text once scrolled */
+    #main-header {
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0));
+      transition: background 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
+    }
     #main-header.scrolled {
+      background: rgba(248, 249, 250, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       box-shadow: 0 4px 24px rgba(11, 45, 79, 0.06);
+    }
+    #main-header .nav-link,
+    #main-header button > span:first-child {
+      color: rgba(255, 255, 255, 0.95);
+      transition: color 0.3s ease;
+    }
+    #main-header svg.dropdown-caret {
+      color: rgba(255, 255, 255, 0.75);
+      transition: color 0.3s ease;
+    }
+    #main-header #mobile-toggle {
+      color: #ffffff;
+      transition: color 0.3s ease;
+    }
+    #main-header img.site-logo {
+      filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.45));
+      transition: filter 0.3s ease;
+    }
+    #main-header.scrolled .nav-link,
+    #main-header.scrolled button > span:first-child {
+      color: #737373;
+    }
+    #main-header.scrolled svg.dropdown-caret {
+      color: #a3a3a3;
+    }
+    #main-header.scrolled #mobile-toggle {
+      color: #262626;
+    }
+    #main-header.scrolled img.site-logo {
+      filter: none;
     }
 
     footer#contact {
@@ -104,12 +142,12 @@
   <!-- ================================================================= -->
   <!-- 1. HEADER                                                         -->
   <!-- ================================================================= -->
-  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-nav">
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-5 sm:px-8 h-20 flex items-center justify-between gap-6">
 
       <!-- Brand Logo -->
       <a href="index.html" class="flex items-center group shrink-0" aria-label="Krutadnyata Foundation Home">
-        <img src="assets/Krutadnyata Foundation logo (with text).png" alt="Krutadnyata Foundation" class="h-12 w-auto transition-transform duration-300 group-hover:scale-105" />
+        <img src="assets/Krutadnyata Foundation logo (with text).png" alt="Krutadnyata Foundation" class="site-logo h-12 w-auto transition-transform duration-300 group-hover:scale-105" />
       </a>
 
       <!-- Desktop Nav -->
@@ -121,7 +159,7 @@
         <div class="relative group">
           <button class="flex items-center gap-1.5 hover:text-brand-navy transition-colors py-1 focus:outline-none">
             <span>Our Work</span>
-            <svg class="w-3 h-3 text-neutral-400 group-hover:rotate-180 group-hover:text-brand-green transition-all duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg class="dropdown-caret w-3 h-3 text-neutral-400 group-hover:rotate-180 group-hover:text-brand-green transition-all duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
@@ -226,7 +264,7 @@
     <!-- ================================================================= -->
     <!-- 2. HERO — full-bleed photo                                        -->
     <!-- ================================================================= -->
-    <section class="relative min-h-[80vh] flex items-end overflow-hidden">
+    <section class="relative h-[85vh] flex items-end overflow-hidden">
       <img src="https://images.unsplash.com/photo-1594708767771-a7502209ff51?w=1800&h=1200&fit=crop" alt="Children of Maharashtra" class="absolute inset-0 w-full h-full object-cover" />
       <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/40 to-brand-navy/10"></div>
 
@@ -242,94 +280,151 @@
     </section>
 
     <!-- ================================================================= -->
-    <!-- 3. QUICK STATS STRIP                                              -->
+    <!-- 3. QUICK STATS STRIP — floating card overlapping the hero         -->
     <!-- ================================================================= -->
-    <section class="bg-white border-b border-brand-border">
-      <div class="max-w-7xl mx-auto px-5 sm:px-8 py-10 grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
-        <div>
-          <p class="font-display font-extrabold text-3xl sm:text-4xl text-brand-navy">2019</p>
-          <p class="text-xs text-neutral-500 mt-1 uppercase tracking-wide">Founded</p>
+    <section class="relative z-20 -mt-10 sm:-mt-12 px-5 sm:px-8">
+      <div class="max-w-6xl mx-auto bg-white rounded-3xl shadow-xl shadow-brand-navy/10 border border-brand-border grid grid-cols-2 sm:grid-cols-4 divide-x divide-y sm:divide-y-0 divide-brand-border/70 p-6 sm:p-8 text-center">
+        <div class="px-2 py-2 sm:py-0">
+          <p class="font-display font-extrabold text-2xl sm:text-3xl text-brand-navy">2019</p>
+          <p class="text-[11px] text-neutral-500 mt-1 uppercase tracking-wide">Founded</p>
         </div>
-        <div>
-          <p class="font-display font-extrabold text-3xl sm:text-4xl text-brand-navy">25K+</p>
-          <p class="text-xs text-neutral-500 mt-1 uppercase tracking-wide">Lives Touched</p>
+        <div class="px-2 py-2 sm:py-0">
+          <p class="font-display font-extrabold text-2xl sm:text-3xl text-brand-navy">25K+</p>
+          <p class="text-[11px] text-neutral-500 mt-1 uppercase tracking-wide">Lives Touched</p>
         </div>
-        <div>
-          <p class="font-display font-extrabold text-3xl sm:text-4xl text-brand-navy">7</p>
-          <p class="text-xs text-neutral-500 mt-1 uppercase tracking-wide">Focus Areas</p>
+        <div class="px-2 py-2 sm:py-0">
+          <p class="font-display font-extrabold text-2xl sm:text-3xl text-brand-navy">7</p>
+          <p class="text-[11px] text-neutral-500 mt-1 uppercase tracking-wide">Focus Areas</p>
         </div>
-        <div>
-          <p class="font-display font-extrabold text-3xl sm:text-4xl text-brand-navy">9+</p>
-          <p class="text-xs text-neutral-500 mt-1 uppercase tracking-wide">Institutional Partners</p>
+        <div class="px-2 py-2 sm:py-0">
+          <p class="font-display font-extrabold text-2xl sm:text-3xl text-brand-navy">9+</p>
+          <p class="text-[11px] text-neutral-500 mt-1 uppercase tracking-wide">Institutional Partners</p>
         </div>
       </div>
     </section>
 
     <!-- ================================================================= -->
-    <!-- 4. OUR STORY — alternating image/text rows                        -->
+    <!-- 3b. MISSION & VISION — icon-led split cards                       -->
     <!-- ================================================================= -->
-    <section class="py-24 bg-brand-bg">
-      <div class="max-w-7xl mx-auto px-5 sm:px-8 space-y-20">
-
-        <!-- Row 1 -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-          <div class="lg:col-span-6">
-            <div class="aspect-[4/3] rounded-3xl overflow-hidden shadow-lg">
-              <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=900&h=675&fit=crop" alt="Doctor examining a patient at a rural health camp" class="w-full h-full object-cover" loading="lazy" />
-            </div>
-          </div>
-          <div class="lg:col-span-6">
-            <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Where It Began</span>
-            <h2 class="font-display font-bold text-2xl sm:text-3xl text-brand-navy mt-2 leading-tight">
-              Healthcare that travels to where it's needed most.
-            </h2>
-            <p class="mt-4 text-sm text-neutral-600 leading-relaxed">
-              Our first camps were small — a handful of volunteers and a borrowed hall in Gorai. Today, free medical and Ayurvedic check-ups reach rural talukas like Sangola and Sangameshwar, where the nearest clinic can be hours away.
-            </p>
-          </div>
+    <section class="py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="max-w-2xl mb-14">
+          <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Why We Exist</span>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-brand-navy mt-1">Mission &amp; Vision</h2>
         </div>
 
-        <!-- Row 2 (reversed) -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-          <div class="lg:col-span-6 lg:order-2">
-            <div class="aspect-[4/3] rounded-3xl overflow-hidden shadow-lg">
-              <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?w=900&h=675&fit=crop" alt="Volunteers planting saplings" class="w-full h-full object-cover" loading="lazy" />
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+          <div class="relative bg-brand-navy text-white rounded-3xl p-8 sm:p-10 overflow-hidden">
+            <div class="absolute -right-10 -top-10 w-40 h-40 rounded-full bg-brand-green/20"></div>
+            <div class="relative z-10">
+              <div class="w-12 h-12 rounded-2xl bg-brand-green flex items-center justify-center mb-6">
+                <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <circle cx="12" cy="12" r="8" stroke-width="2" />
+                  <circle cx="12" cy="12" r="4.2" stroke-width="2" />
+                  <circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none" />
+                </svg>
+              </div>
+              <h3 class="font-display font-bold text-xl sm:text-2xl">Our Mission</h3>
+              <p class="mt-4 text-sm text-neutral-300 leading-relaxed">
+                To deliver dignity-first healthcare, education, and environmental action directly to Maharashtra's most overlooked communities — through free medical camps, vocational and competitive-exam training, tree-protection drives, and timely relief — while building the local partnerships that keep this work sustainable.
+              </p>
             </div>
           </div>
-          <div class="lg:col-span-6 lg:order-1">
-            <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Growing Roots</span>
-            <h2 class="font-display font-bold text-2xl sm:text-3xl text-brand-navy mt-2 leading-tight">
-              Protecting the ecosystems our communities depend on.
-            </h2>
-            <p class="mt-4 text-sm text-neutral-600 leading-relaxed">
-              The Nail-Free Tree Campaign and our Badlapur sapling drives grew out of a simple observation: a thriving community needs a thriving environment. We now run ongoing green initiatives alongside our welfare programs.
-            </p>
-          </div>
-        </div>
 
-        <!-- Row 3 -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-          <div class="lg:col-span-6">
-            <div class="aspect-[4/3] rounded-3xl overflow-hidden shadow-lg">
-              <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=900&h=675&fit=crop" alt="Students in a vocational skills classroom" class="w-full h-full object-cover" loading="lazy" />
+          <div class="relative bg-brand-mint/50 border border-brand-green/20 text-brand-navy rounded-3xl p-8 sm:p-10 overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 w-40 h-40 rounded-full bg-brand-accent/25"></div>
+            <div class="relative z-10">
+              <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center mb-6 shadow-sm">
+                <svg class="w-6 h-6 text-brand-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  <circle cx="12" cy="12" r="3" stroke-width="2" />
+                </svg>
+              </div>
+              <h3 class="font-display font-bold text-xl sm:text-2xl">Our Vision</h3>
+              <p class="mt-4 text-sm text-brand-navy/80 leading-relaxed">
+                A Maharashtra where no family forgoes care for distance, no student forgoes opportunity for circumstance, and every community has the skills, green cover, and civic trust to look after itself and its neighbors — gratitude, sustained as everyday action.
+              </p>
             </div>
           </div>
-          <div class="lg:col-span-6">
-            <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Opening Doors</span>
-            <h2 class="font-display font-bold text-2xl sm:text-3xl text-brand-navy mt-2 leading-tight">
-              Skills and guidance for the next generation.
-            </h2>
-            <p class="mt-4 text-sm text-neutral-600 leading-relaxed">
-              Through the Aarya Skill Centre and partnerships with MSSDC, we offer government-certified vocational training, competitive exam coaching, and career mentorship to youth who would otherwise have no access to either.
-            </p>
-          </div>
-        </div>
 
+        </div>
       </div>
     </section>
 
     <!-- ================================================================= -->
-    <!-- 5. FIELD GALLERY STRIP — photo mosaic                             -->
+    <!-- 4. OUR STORY — three-chapter card grid, center chapter elevated   -->
+    <!-- ================================================================= -->
+    <section class="py-24 bg-brand-bg border-t border-brand-border">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+
+        <div class="max-w-2xl mb-16">
+          <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Our Story</span>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-brand-navy mt-1">How We Grew</h2>
+          <p class="mt-3 text-sm text-neutral-600 leading-relaxed">Three chapters, one thread — a small team of volunteers answering whatever gap stood in front of them next.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-5 md:items-start">
+
+          <!-- Chapter 01 -->
+          <div class="bg-white rounded-[1.75rem] overflow-hidden shadow-md border border-neutral-200/70">
+            <div class="relative aspect-[4/3]">
+              <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=700&h=880&fit=crop" alt="Doctor examining a patient at a rural health camp" class="w-full h-full object-cover" loading="lazy" />
+              <span class="absolute top-4 left-4 w-9 h-9 rounded-full bg-white/95 backdrop-blur-xs flex items-center justify-center font-display font-extrabold text-brand-navy text-sm shadow">01</span>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-bold uppercase tracking-widest text-brand-green">Where It Began</span>
+              <h3 class="font-display font-bold text-lg text-brand-navy mt-2 leading-snug">
+                Healthcare that travels to where it's needed most.
+              </h3>
+              <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed">
+                Our first camps were small — a handful of volunteers and a borrowed hall in Gorai. Today, free medical and Ayurvedic check-ups reach rural talukas like Sangola and Sangameshwar.
+              </p>
+            </div>
+          </div>
+
+          <!-- Chapter 02 — elevated centerpiece -->
+          <div class="bg-brand-navy rounded-[1.75rem] overflow-hidden shadow-xl md:-translate-y-6 relative">
+            <div class="absolute top-4 right-4 z-10 px-2.5 py-1 rounded-full bg-brand-accent text-brand-navy text-[10px] font-bold uppercase tracking-wider">Turning Point</div>
+            <div class="relative aspect-[4/3]">
+              <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?w=700&h=880&fit=crop" alt="Volunteers planting saplings" class="w-full h-full object-cover opacity-90" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/10 to-transparent"></div>
+              <span class="absolute top-4 left-4 w-9 h-9 rounded-full bg-white/15 border border-white/30 flex items-center justify-center font-display font-extrabold text-white text-sm">02</span>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-bold uppercase tracking-widest text-brand-mint">Growing Roots</span>
+              <h3 class="font-display font-bold text-lg text-white mt-2 leading-snug">
+                Protecting the ecosystems our communities depend on.
+              </h3>
+              <p class="mt-3 text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                The Nail-Free Tree Campaign and our Badlapur sapling drives grew from one idea: a thriving community needs a thriving environment too.
+              </p>
+            </div>
+          </div>
+
+          <!-- Chapter 03 -->
+          <div class="bg-white rounded-[1.75rem] overflow-hidden shadow-md border border-neutral-200/70">
+            <div class="relative aspect-[4/3]">
+              <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=700&h=880&fit=crop" alt="Students in a vocational skills classroom" class="w-full h-full object-cover" loading="lazy" />
+              <span class="absolute top-4 left-4 w-9 h-9 rounded-full bg-white/95 backdrop-blur-xs flex items-center justify-center font-display font-extrabold text-brand-navy text-sm shadow">03</span>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-bold uppercase tracking-widest text-brand-green">Opening Doors</span>
+              <h3 class="font-display font-bold text-lg text-brand-navy mt-2 leading-snug">
+                Skills and guidance for the next generation.
+              </h3>
+              <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed">
+                Through the Aarya Skill Centre and partnerships with MSSDC, we offer government-certified vocational training and career mentorship to youth who'd otherwise have no access to either.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 5. FIELD GALLERY STRIP — bento-style photo mosaic                 -->
     <!-- ================================================================= -->
     <section class="py-20 bg-white border-t border-brand-border">
       <div class="max-w-7xl mx-auto px-5 sm:px-8">
@@ -343,25 +438,27 @@
           </a>
         </div>
 
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <div class="aspect-square rounded-2xl overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=500&h=500&fit=crop" alt="Marathon runners" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
+        <div class="grid grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 gap-4 lg:h-[440px]">
+          <div class="relative rounded-2xl overflow-hidden group lg:col-span-2 lg:row-span-2">
+            <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=800&h=800&fit=crop" alt="Marathon runners" class="w-full h-full object-cover aspect-square lg:aspect-auto group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <span class="absolute bottom-3 left-4 text-white text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity">State Sports Day Marathon</span>
           </div>
-          <div class="aspect-square rounded-2xl overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=500&h=500&fit=crop" alt="Community handshake" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <div class="relative rounded-2xl overflow-hidden group">
+            <img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=500&h=500&fit=crop" alt="Community handshake" class="w-full h-full object-cover aspect-square group-hover:scale-105 transition-transform duration-500" loading="lazy" />
           </div>
-          <div class="aspect-square rounded-2xl overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=500&h=500&fit=crop" alt="Volunteer group" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <div class="relative rounded-2xl overflow-hidden group">
+            <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=500&h=500&fit=crop" alt="Volunteer group" class="w-full h-full object-cover aspect-square group-hover:scale-105 transition-transform duration-500" loading="lazy" />
           </div>
-          <div class="aspect-square rounded-2xl overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500&h=500&fit=crop" alt="Friends and community members together" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <div class="relative rounded-2xl overflow-hidden group lg:col-span-2">
+            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=400&fit=crop" alt="Friends and community members together" class="w-full h-full object-cover aspect-square lg:aspect-auto group-hover:scale-105 transition-transform duration-500" loading="lazy" />
           </div>
         </div>
       </div>
     </section>
 
     <!-- ================================================================= -->
-    <!-- 6. CORE VALUES — cards with image headers                         -->
+    <!-- 6. CORE VALUES — numbered, text-forward accent cards              -->
     <!-- ================================================================= -->
     <section class="py-24 bg-brand-bg border-t border-brand-border">
       <div class="max-w-7xl mx-auto px-5 sm:px-8">
@@ -370,45 +467,37 @@
           <h2 class="font-display font-bold text-3xl sm:text-4xl text-brand-navy mt-1">Our Core Values</h2>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
 
-          <div class="rounded-2xl overflow-hidden bg-white border border-neutral-200/80 shadow-sm">
-            <div class="aspect-[16/10] overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=500&h=320&fit=crop" alt="Hands joined together" class="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <div class="p-5">
-              <h3 class="font-display font-bold text-base text-brand-navy">Compassion</h3>
-              <p class="text-xs text-neutral-600 mt-2 leading-relaxed">We treat every beneficiary with dignity — not as a statistic, but as a neighbor.</p>
+          <div class="flex gap-5 bg-white rounded-2xl border-l-4 border-brand-green p-6 sm:p-7 shadow-sm">
+            <span class="font-display font-extrabold text-3xl text-brand-green/30 shrink-0">01</span>
+            <div>
+              <h3 class="font-display font-bold text-lg text-brand-navy">Compassion</h3>
+              <p class="text-sm text-neutral-600 mt-2 leading-relaxed">We treat every beneficiary with dignity — not as a statistic, but as a neighbor.</p>
             </div>
           </div>
 
-          <div class="rounded-2xl overflow-hidden bg-white border border-neutral-200/80 shadow-sm">
-            <div class="aspect-[16/10] overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1536337005238-94b997371b40?w=500&h=320&fit=crop" alt="Transparency and open record keeping" class="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <div class="p-5">
-              <h3 class="font-display font-bold text-base text-brand-navy">Transparency</h3>
-              <p class="text-xs text-neutral-600 mt-2 leading-relaxed">Every rupee is documented. Our work reports and audits are public.</p>
+          <div class="flex gap-5 bg-white rounded-2xl border-l-4 border-brand-accent p-6 sm:p-7 shadow-sm">
+            <span class="font-display font-extrabold text-3xl text-brand-accent/40 shrink-0">02</span>
+            <div>
+              <h3 class="font-display font-bold text-lg text-brand-navy">Transparency</h3>
+              <p class="text-sm text-neutral-600 mt-2 leading-relaxed">Every rupee is documented. Our work reports and audits are public.</p>
             </div>
           </div>
 
-          <div class="rounded-2xl overflow-hidden bg-white border border-neutral-200/80 shadow-sm">
-            <div class="aspect-[16/10] overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=500&h=320&fit=crop" alt="Team collaborating together" class="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <div class="p-5">
-              <h3 class="font-display font-bold text-base text-brand-navy">Collaboration</h3>
-              <p class="text-xs text-neutral-600 mt-2 leading-relaxed">We scale impact by partnering with colleges, hospitals, and state bodies.</p>
+          <div class="flex gap-5 bg-white rounded-2xl border-l-4 border-brand-navy p-6 sm:p-7 shadow-sm">
+            <span class="font-display font-extrabold text-3xl text-brand-navy/20 shrink-0">03</span>
+            <div>
+              <h3 class="font-display font-bold text-lg text-brand-navy">Collaboration</h3>
+              <p class="text-sm text-neutral-600 mt-2 leading-relaxed">We scale impact by partnering with colleges, hospitals, and state bodies.</p>
             </div>
           </div>
 
-          <div class="rounded-2xl overflow-hidden bg-white border border-neutral-200/80 shadow-sm">
-            <div class="aspect-[16/10] overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500&h=320&fit=crop" alt="Measurable program outcomes" class="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <div class="p-5">
-              <h3 class="font-display font-bold text-base text-brand-navy">Measurable Impact</h3>
-              <p class="text-xs text-neutral-600 mt-2 leading-relaxed">We track outcomes, not just activity — certificates, receipts, and results.</p>
+          <div class="flex gap-5 bg-white rounded-2xl border-l-4 border-brand-green p-6 sm:p-7 shadow-sm">
+            <span class="font-display font-extrabold text-3xl text-brand-green/30 shrink-0">04</span>
+            <div>
+              <h3 class="font-display font-bold text-lg text-brand-navy">Measurable Impact</h3>
+              <p class="text-sm text-neutral-600 mt-2 leading-relaxed">We track outcomes, not just activity — certificates, receipts, and results.</p>
             </div>
           </div>
 
@@ -417,67 +506,133 @@
     </section>
 
     <!-- ================================================================= -->
-    <!-- 7. OUR JOURNEY — timeline with thumbnails                         -->
+    <!-- 7. OUR JOURNEY — horizontal snap-scroll carousel                  -->
     <!-- ================================================================= -->
-    <section class="py-24 bg-white border-t border-brand-border">
-      <div class="max-w-5xl mx-auto px-5 sm:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-16">
-          <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Milestones</span>
-          <h2 class="font-display font-bold text-3xl sm:text-4xl text-brand-navy mt-1">Our Journey So Far</h2>
+    <section class="py-24 bg-white border-t border-brand-border overflow-hidden">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+          <div class="max-w-2xl">
+            <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Milestones</span>
+            <h2 class="font-display font-bold text-3xl sm:text-4xl text-brand-navy mt-1">Our Journey So Far</h2>
+          </div>
+          <div class="hidden sm:flex items-center gap-2 shrink-0">
+            <button onclick="document.getElementById('journey-scroll').scrollBy({left:-336,behavior:'smooth'})" aria-label="Scroll left" class="w-10 h-10 rounded-full border border-neutral-200 flex items-center justify-center text-brand-navy hover:bg-brand-mint/40 hover:border-brand-green transition-colors">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            </button>
+            <button onclick="document.getElementById('journey-scroll').scrollBy({left:336,behavior:'smooth'})" aria-label="Scroll right" class="w-10 h-10 rounded-full border border-neutral-200 flex items-center justify-center text-brand-navy hover:bg-brand-mint/40 hover:border-brand-green transition-colors">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="journey-scroll" class="no-scrollbar flex gap-5 overflow-x-auto snap-x snap-mandatory px-5 sm:px-8 pb-4" style="scroll-padding-left: 1.25rem;">
+
+        <!-- 2019 -->
+        <div class="snap-start shrink-0 w-[280px] sm:w-[310px] bg-brand-bg rounded-2xl overflow-hidden shadow-sm border border-neutral-200/70">
+          <div class="relative aspect-[4/3]">
+            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=380&fit=crop" alt="2019 founding year" class="w-full h-full object-cover" loading="lazy" />
+            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/95 font-display font-extrabold text-brand-navy text-xs shadow">2019</span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display font-bold text-base text-brand-navy">Foundation Established</h3>
+            <p class="text-xs text-neutral-600 mt-1.5 leading-relaxed">Founded the Free Legal Advice Centre, ran the first Nail-Free Tree campaign, and held a self-defence workshop for 250 junior college girls.</p>
+          </div>
         </div>
 
-        <div class="space-y-10">
-
-          <div class="flex flex-col sm:flex-row gap-6 items-center">
-            <div class="w-full sm:w-40 aspect-[4/3] rounded-2xl overflow-hidden shrink-0">
-              <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=320&h=240&fit=crop" alt="2019 founding year" class="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <div>
-              <span class="font-display font-extrabold text-brand-green text-sm">2019</span>
-              <h3 class="font-display font-bold text-lg text-brand-navy mt-0.5">Foundation Established</h3>
-              <p class="text-xs text-neutral-600 mt-1 leading-relaxed">Krutadnyata Foundation begins operations in Suburban Mumbai with our first health camps and blood donation drives.</p>
-            </div>
+        <!-- 2020 -->
+        <div class="snap-start shrink-0 w-[280px] sm:w-[310px] bg-brand-bg rounded-2xl overflow-hidden shadow-sm border border-neutral-200/70">
+          <div class="relative aspect-[4/3]">
+            <img src="https://images.unsplash.com/photo-1607706189992-eae578626c86?w=500&h=380&fit=crop" alt="2020 regional health outreach and COVID relief" class="w-full h-full object-cover" loading="lazy" />
+            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/95 font-display font-extrabold text-brand-navy text-xs shadow">2020</span>
           </div>
-
-          <div class="flex flex-col sm:flex-row gap-6 items-center">
-            <div class="w-full sm:w-40 aspect-[4/3] rounded-2xl overflow-hidden shrink-0">
-              <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?w=320&h=240&fit=crop" alt="2021 environment drives" class="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <div>
-              <span class="font-display font-extrabold text-brand-green text-sm">2021</span>
-              <h3 class="font-display font-bold text-lg text-brand-navy mt-0.5">Environmental Drives Launch</h3>
-              <p class="text-xs text-neutral-600 mt-1 leading-relaxed">The Nail-Free Tree Campaign and World Environment Day sapling plantations begin in Badlapur and Kandivali.</p>
-            </div>
+          <div class="p-5">
+            <h3 class="font-display font-bold text-base text-brand-navy">Health Outreach &amp; COVID Relief</h3>
+            <p class="text-xs text-neutral-600 mt-1.5 leading-relaxed">Ayurvedic camps in Sangola and Sangameshwar, plus frontline health screenings at Bhatwadi and Ghatkopar during COVID-19.</p>
           </div>
-
-          <div class="flex flex-col sm:flex-row gap-6 items-center">
-            <div class="w-full sm:w-40 aspect-[4/3] rounded-2xl overflow-hidden shrink-0">
-              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=320&h=240&fit=crop" alt="2023 skill centre" class="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <div>
-              <span class="font-display font-extrabold text-brand-green text-sm">2023</span>
-              <h3 class="font-display font-bold text-lg text-brand-navy mt-0.5">Aarya Skill Centre Opens</h3>
-              <p class="text-xs text-neutral-600 mt-1 leading-relaxed">Government-certified vocational batches begin under MSSDC affiliation, training youth in web development and accounts.</p>
-            </div>
-          </div>
-
-          <div class="flex flex-col sm:flex-row gap-6 items-center">
-            <div class="w-full sm:w-40 aspect-[4/3] rounded-2xl overflow-hidden shrink-0">
-              <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=320&h=240&fit=crop" alt="2026 marathon" class="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <div>
-              <span class="font-display font-extrabold text-brand-green text-sm">2026</span>
-              <h3 class="font-display font-bold text-lg text-brand-navy mt-0.5">1,200+ Runner Marathon</h3>
-              <p class="text-xs text-neutral-600 mt-1 leading-relaxed">The State Sports Day Marathon becomes our largest civic mobilization yet, run with the Directorate of Sports Maharashtra.</p>
-            </div>
-          </div>
-
         </div>
+
+        <!-- 2021 -->
+        <div class="snap-start shrink-0 w-[280px] sm:w-[310px] bg-brand-bg rounded-2xl overflow-hidden shadow-sm border border-neutral-200/70">
+          <div class="relative aspect-[4/3]">
+            <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?w=500&h=380&fit=crop" alt="2021 environment drives" class="w-full h-full object-cover" loading="lazy" />
+            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/95 font-display font-extrabold text-brand-navy text-xs shadow">2021</span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display font-bold text-base text-brand-navy">Environmental Drives Launch</h3>
+            <p class="text-xs text-neutral-600 mt-1.5 leading-relaxed">The Nail-Free Tree Campaign and World Environment Day sapling plantations begin in Badlapur and Kandivali.</p>
+          </div>
+        </div>
+
+        <!-- 2022 -->
+        <div class="snap-start shrink-0 w-[280px] sm:w-[310px] bg-brand-bg rounded-2xl overflow-hidden shadow-sm border border-neutral-200/70">
+          <div class="relative aspect-[4/3]">
+            <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&h=380&fit=crop" alt="2022 civil services training drive" class="w-full h-full object-cover" loading="lazy" />
+            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/95 font-display font-extrabold text-brand-navy text-xs shadow">2022</span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display font-bold text-base text-brand-navy">Civil Services Training Drive</h3>
+            <p class="text-xs text-neutral-600 mt-1.5 leading-relaxed">Dedicated IAS/UPSC awareness and training programs with Aarya Academy for Maharashtra youth.</p>
+          </div>
+        </div>
+
+        <!-- 2023 — highlighted as a milestone year -->
+        <div class="snap-start shrink-0 w-[280px] sm:w-[310px] bg-brand-navy rounded-2xl overflow-hidden shadow-lg">
+          <div class="relative aspect-[4/3]">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500&h=380&fit=crop" alt="2023 skill centre" class="w-full h-full object-cover opacity-90" loading="lazy" />
+            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-brand-accent font-display font-extrabold text-brand-navy text-xs shadow">2023</span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display font-bold text-base text-white">Aarya Skill Centre Opens</h3>
+            <p class="text-xs text-neutral-300 mt-1.5 leading-relaxed">Government-certified vocational batches begin under MSSDC affiliation, training youth in web development and accounts.</p>
+          </div>
+        </div>
+
+        <!-- 2024 -->
+        <div class="snap-start shrink-0 w-[280px] sm:w-[310px] bg-brand-bg rounded-2xl overflow-hidden shadow-sm border border-neutral-200/70">
+          <div class="relative aspect-[4/3]">
+            <img src="https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?w=500&h=380&fit=crop" alt="2024 medical grant aid" class="w-full h-full object-cover" loading="lazy" />
+            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/95 font-display font-extrabold text-brand-navy text-xs shadow">2024</span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display font-bold text-base text-brand-navy">Medical Grant Aid &amp; Free Coaching</h3>
+            <p class="text-xs text-neutral-600 mt-1.5 leading-relaxed">₹3,00,000 donated for critical medical treatment in Pune, plus free blanket distribution and MBA/Law entrance training.</p>
+          </div>
+        </div>
+
+        <!-- 2025 -->
+        <div class="snap-start shrink-0 w-[280px] sm:w-[310px] bg-brand-bg rounded-2xl overflow-hidden shadow-sm border border-neutral-200/70">
+          <div class="relative aspect-[4/3]">
+            <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=500&h=380&fit=crop" alt="2025 BIS Quality Run" class="w-full h-full object-cover" loading="lazy" />
+            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/95 font-display font-extrabold text-brand-navy text-xs shadow">2025</span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display font-bold text-base text-brand-navy">BIS Clubs &amp; Quality Run</h3>
+            <p class="text-xs text-neutral-600 mt-1.5 leading-relaxed">Formed BIS Standard Clubs in colleges and organized the Quality Run in Borivali with 1,200+ citizens.</p>
+          </div>
+        </div>
+
+        <!-- 2026 — current, highlighted -->
+        <div class="snap-start shrink-0 w-[280px] sm:w-[310px] bg-brand-navy rounded-2xl overflow-hidden shadow-lg">
+          <div class="relative aspect-[4/3]">
+            <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=500&h=380&fit=crop" alt="2026 marathon" class="w-full h-full object-cover opacity-90" loading="lazy" />
+            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-brand-green text-white font-display font-extrabold text-xs shadow">2026</span>
+            <span class="absolute top-3 right-3 px-2 py-1 rounded-full bg-white/15 text-white text-[10px] font-semibold uppercase tracking-wider">Present</span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display font-bold text-base text-white">1,200+ Runner Marathon</h3>
+            <p class="text-xs text-neutral-300 mt-1.5 leading-relaxed">The State Sports Day Marathon becomes our largest civic mobilization yet, run with the Directorate of Sports Maharashtra.</p>
+          </div>
+        </div>
+
+        <!-- trailing spacer so the last card isn't flush against the edge -->
+        <div class="shrink-0 w-px sm:w-5" aria-hidden="true"></div>
+
       </div>
     </section>
 
     <!-- ================================================================= -->
-    <!-- 8. LEADERSHIP — photo cards                                       -->
+    <!-- 8. LEADERSHIP — photo cards with overlaid name/role               -->
     <!-- ================================================================= -->
     <section class="py-24 bg-brand-bg border-t border-brand-border">
       <div class="max-w-7xl mx-auto px-5 sm:px-8">
@@ -486,49 +641,41 @@
           <h2 class="font-display font-bold text-3xl sm:text-4xl text-brand-navy mt-1">Key Leadership &amp; Advisors</h2>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
 
-          <div class="bg-white rounded-2xl overflow-hidden border border-neutral-200/80 shadow-sm">
-            <div class="aspect-[4/5] overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=500&fit=crop" alt="Dr. Pradnya Lokhande" class="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <div class="p-5">
-              <h3 class="font-display font-bold text-base text-brand-navy">Dr. Pradnya Lokhande</h3>
-              <span class="text-[11px] font-semibold text-brand-green uppercase tracking-wider block mt-0.5">Trustee &amp; Medical Coordinator</span>
-              <p class="text-xs text-neutral-600 mt-3 leading-relaxed">Leads healthcare camp logistics across Mumbai and Konkan.</p>
+          <div class="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 aspect-[3/4]">
+            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=500&h=660&fit=crop" alt="Dr. Pradnya Lokhande" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 pt-16">
+              <h3 class="font-display font-bold text-white text-sm sm:text-base leading-snug">Dr. Pradnya Lokhande</h3>
+              <span class="text-[10px] sm:text-[11px] font-semibold text-brand-mint uppercase tracking-wider">Trustee &amp; Medical Coordinator</span>
+              <p class="text-[11px] text-neutral-200 mt-2 leading-relaxed">Leads healthcare camp logistics across Mumbai and Konkan.</p>
             </div>
           </div>
 
-          <div class="bg-white rounded-2xl overflow-hidden border border-neutral-200/80 shadow-sm">
-            <div class="aspect-[4/5] overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop" alt="Vaidya Mangesh Khade" class="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <div class="p-5">
-              <h3 class="font-display font-bold text-base text-brand-navy">Vaidya Mangesh Khade</h3>
-              <span class="text-[11px] font-semibold text-brand-green uppercase tracking-wider block mt-0.5">Ayurvedic Health Director</span>
-              <p class="text-xs text-neutral-600 mt-3 leading-relaxed">Drives rural health screening camps in Gorai and Sangola.</p>
+          <div class="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 aspect-[3/4]">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=660&fit=crop" alt="Vaidya Mangesh Khade" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 pt-16">
+              <h3 class="font-display font-bold text-white text-sm sm:text-base leading-snug">Vaidya Mangesh Khade</h3>
+              <span class="text-[10px] sm:text-[11px] font-semibold text-brand-mint uppercase tracking-wider">Ayurvedic Health Director</span>
+              <p class="text-[11px] text-neutral-200 mt-2 leading-relaxed">Drives rural health screening camps in Gorai and Sangola.</p>
             </div>
           </div>
 
-          <div class="bg-white rounded-2xl overflow-hidden border border-neutral-200/80 shadow-sm">
-            <div class="aspect-[4/5] overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop" alt="Shrikant Lokhande" class="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <div class="p-5">
-              <h3 class="font-display font-bold text-base text-brand-navy">Shrikant Lokhande</h3>
-              <span class="text-[11px] font-semibold text-brand-green uppercase tracking-wider block mt-0.5">Institutional Patron</span>
-              <p class="text-xs text-neutral-600 mt-3 leading-relaxed">President, Namita Education Society — environment &amp; sports.</p>
+          <div class="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 aspect-[3/4]">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&h=660&fit=crop" alt="Shrikant Lokhande" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 pt-16">
+              <h3 class="font-display font-bold text-white text-sm sm:text-base leading-snug">Shrikant Lokhande</h3>
+              <span class="text-[10px] sm:text-[11px] font-semibold text-brand-mint uppercase tracking-wider">Institutional Patron</span>
+              <p class="text-[11px] text-neutral-200 mt-2 leading-relaxed">President, Namita Education Society — environment &amp; sports.</p>
             </div>
           </div>
 
-          <div class="bg-white rounded-2xl overflow-hidden border border-neutral-200/80 shadow-sm">
-            <div class="aspect-[4/5] overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop" alt="Sambhaji Shirsath" class="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <div class="p-5">
-              <h3 class="font-display font-bold text-base text-brand-navy">Sambhaji Shirsath</h3>
-              <span class="text-[11px] font-semibold text-brand-green uppercase tracking-wider block mt-0.5">Academic Event Advisor</span>
-              <p class="text-xs text-neutral-600 mt-3 leading-relaxed">Coordinates inter-college seminars and student welfare.</p>
+          <div class="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 aspect-[3/4]">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&h=660&fit=crop" alt="Sambhaji Shirsath" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 pt-16">
+              <h3 class="font-display font-bold text-white text-sm sm:text-base leading-snug">Sambhaji Shirsath</h3>
+              <span class="text-[10px] sm:text-[11px] font-semibold text-brand-mint uppercase tracking-wider">Academic Event Advisor</span>
+              <p class="text-[11px] text-neutral-200 mt-2 leading-relaxed">Coordinates inter-college seminars and student welfare.</p>
             </div>
           </div>
 
@@ -537,27 +684,31 @@
     </section>
 
     <!-- ================================================================= -->
-    <!-- 9. CTA BANNER — full-bleed photo                                  -->
+    <!-- 9. CTA BANNER — contained split card (text + framed photo)        -->
     <!-- ================================================================= -->
-    <section class="relative py-28 overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1800&h=900&fit=crop" alt="Community standing together" class="absolute inset-0 w-full h-full object-cover" />
-      <div class="absolute inset-0 bg-brand-navy/80"></div>
-
-      <div class="relative z-10 max-w-3xl mx-auto px-5 sm:px-8 text-center">
-        <span class="text-xs font-bold uppercase tracking-widest text-brand-accent">Join The Movement</span>
-        <h2 class="mt-3 font-display font-bold text-3xl sm:text-4xl text-white leading-tight">
-          Gratitude is better shared. Be part of the next chapter.
-        </h2>
-        <p class="mt-4 text-sm text-neutral-200 leading-relaxed max-w-xl mx-auto">
-          Whether through a donation, a Saturday morning, or your professional skills — there's a place for you at Krutadnyata Foundation.
-        </p>
-        <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
-          <a href="donation.html" class="px-7 py-3.5 bg-brand-green text-white font-semibold rounded-full hover:bg-emerald-700 transition-all text-sm">
-            Donate Now
-          </a>
-          <a href="volunteer.html" class="px-7 py-3.5 bg-white/10 border border-white/25 text-white font-semibold rounded-full hover:bg-white/20 transition-all text-sm">
-            Become a Volunteer
-          </a>
+    <section class="py-20 sm:py-24 bg-brand-bg">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        <div class="rounded-[2.5rem] overflow-hidden grid grid-cols-1 lg:grid-cols-2 shadow-xl">
+          <div class="bg-brand-navy text-white p-10 sm:p-14 flex flex-col justify-center">
+            <span class="text-xs font-bold uppercase tracking-widest text-brand-accent">Join The Movement</span>
+            <h2 class="mt-3 font-display font-bold text-3xl sm:text-4xl leading-tight">
+              Gratitude is better shared. Be part of the next chapter.
+            </h2>
+            <p class="mt-4 text-sm text-neutral-300 leading-relaxed max-w-md">
+              Whether through a donation, a Saturday morning, or your professional skills — there's a place for you at Krutadnyata Foundation.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-4">
+              <a href="donation.html" class="px-7 py-3.5 bg-brand-green text-white font-semibold rounded-full hover:bg-emerald-600 transition-all text-sm">
+                Donate Now
+              </a>
+              <a href="volunteer.html" class="px-7 py-3.5 bg-white/10 border border-white/25 text-white font-semibold rounded-full hover:bg-white/20 transition-all text-sm">
+                Become a Volunteer
+              </a>
+            </div>
+          </div>
+          <div class="relative min-h-[280px] lg:min-h-0">
+            <img src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=900&h=900&fit=crop" alt="Community members joining hands together" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+          </div>
         </div>
       </div>
     </section>

@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Volunteer With Us — Krutadnyata Foundation (कृतज्ञता फाउंडेशन)</title>
+  <meta name="description" content="Join Krutadnyata Foundation as a field volunteer across Maharashtra. Gain grassroots experience in medical camps, sports marathons, environmental conservation, and education." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Mukta:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- GSAP & Lenis Smooth Scroll -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              green: 'var(--color-green)',
+              navy: 'var(--color-navy)',
+              mint: 'var(--color-mint)',
+              bg: 'var(--color-bg)',
+              ink: 'var(--color-ink)',
+              muted: 'var(--color-muted)',
+              accent: 'var(--color-accent)',
+              border: 'var(--color-border)',
+            }
+          },
+          fontFamily: {
+            sans: ['"Inter"', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+            marathi: ['"Mukta"', 'sans-serif'],
+          },
+          letterSpacing: {
+            tightest: '-0.035em',
+            tighter: '-0.02em',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --color-green: #00985A;
+      --color-navy: #0B2D4F;
+      --color-mint: #D6EFE5;
+      --color-bg: #FAFAF7;
+      --color-ink: #1A1A1A;
+      --color-muted: #6B7280;
+      --color-accent: #F2B84B;
+      --color-border: #E5E7EB;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-ink);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-marathi { font-family: 'Mukta', sans-serif; }
+
+    .glass-nav {
+      background: rgba(250, 250, 247, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    /* Role selection active state */
+    .role-card.selected {
+      border-color: var(--color-green);
+      background-color: #ffffff;
+      box-shadow: 0 10px 25px -5px rgba(0, 152, 90, 0.15);
+    }
+    .role-card.selected .check-circle {
+      background-color: var(--color-green);
+      border-color: var(--color-green);
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body class="selection:bg-brand-mint selection:text-brand-navy">
+
+  <!-- ================================================================= -->
+  <!-- 1. STICKY HEADER                                                  -->
+  <!-- ================================================================= -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-brand-border/60 glass-nav">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 h-24 flex items-center justify-between">
+
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center group" aria-label="Krutadnyata Foundation Home">
+        <img src="assets/Krutadnyata Foundation logo (with text).png" alt="Krutadnyata Foundation" class="h-16 w-auto transition-transform duration-300 group-hover:scale-105" />
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden xl:flex items-center gap-5 text-sm font-medium text-neutral-600">
+        <a href="index.html" class="nav-link hover:text-brand-navy transition-colors py-1">Home</a>
+        <a href="about.html" class="nav-link hover:text-brand-navy transition-colors py-1">About Us</a>
+
+        <!-- Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1.5 hover:text-brand-navy transition-colors py-1 focus:outline-none">
+            <span>Our Work</span>
+            <svg class="w-3.5 h-3.5 text-neutral-400 group-hover:rotate-180 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="absolute left-0 top-full pt-3 w-72 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200">
+            <div class="bg-white rounded-2xl p-2.5 shadow-xl border border-neutral-100 grid gap-1 text-xs">
+              <a href="our-work.html#pillar-health" class="px-3 py-2 rounded-xl hover:bg-neutral-50 hover:text-brand-green flex items-center justify-between font-medium">
+                <span>Health & Medical Camps</span>
+                <span class="text-[10px] text-neutral-400">Rural/Urban</span>
+              </a>
+              <a href="our-work.html#pillar-education" class="px-3 py-2 rounded-xl hover:bg-neutral-50 hover:text-brand-green flex items-center justify-between font-medium">
+                <span>Education & Civil Services</span>
+                <span class="text-[10px] text-neutral-400">UPSC/MPSC</span>
+              </a>
+              <a href="our-work.html#pillar-environment" class="px-3 py-2 rounded-xl hover:bg-neutral-50 hover:text-brand-green flex items-center justify-between font-medium">
+                <span>Environment & Conservation</span>
+                <span class="text-[10px] text-neutral-400">Nail-Free</span>
+              </a>
+              <a href="our-work.html#pillar-sports" class="px-3 py-2 rounded-xl hover:bg-neutral-50 hover:text-brand-green flex items-center justify-between font-medium">
+                <span>Youth & State Sports</span>
+                <span class="text-[10px] text-neutral-400">Marathons</span>
+              </a>
+              <a href="our-work.html#pillar-relief" class="px-3 py-2 rounded-xl hover:bg-neutral-50 hover:text-brand-green flex items-center justify-between font-medium">
+                <span>Community & Blanket Relief</span>
+                <span class="text-[10px] text-neutral-400">Disadvantaged</span>
+              </a>
+              <a href="our-work.html#pillar-skilling" class="px-3 py-2 rounded-xl hover:bg-neutral-50 hover:text-brand-green flex items-center justify-between font-medium">
+                <span>Skill Development (MSSDC)</span>
+                <span class="text-[10px] text-neutral-400">Vocational</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a href="gallery.html" class="nav-link hover:text-brand-navy transition-colors py-1">Gallery</a>
+        <a href="stories.html" class="nav-link hover:text-brand-navy transition-colors py-1">Stories</a>
+        <a href="blog.html" class="nav-link hover:text-brand-navy transition-colors py-1">Blog</a>
+        <a href="reports.html" class="nav-link hover:text-brand-navy transition-colors py-1">Reports &amp; Audits</a>
+        <a href="volunteer.html" class="nav-link hover:text-brand-navy transition-colors py-1">Volunteer</a>
+        <a href="contact.html" class="nav-link hover:text-brand-navy transition-colors py-1">Contact</a>
+      </nav>
+
+      <!-- Right Action CTA -->
+      <div class="hidden sm:flex items-center gap-5">
+        <a href="donation.html" class="bg-brand-green text-white text-xs font-semibold px-5 py-2.5 rounded-full hover:bg-emerald-700 active:scale-95 transition-all shadow-sm hover:shadow-md flex items-center gap-1.5">
+          <span>Donate Now</span>
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-toggle" aria-label="Toggle navigation menu" class="xl:hidden p-2 rounded-lg text-neutral-800 hover:bg-neutral-100 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-menu" class="fixed inset-0 bg-brand-navy/95 z-50 flex flex-col justify-between p-8 text-white translate-x-full transition-transform duration-300 xl:hidden overflow-y-auto">
+    <div class="flex items-center justify-between border-b border-white/10 pb-5">
+      <div class="flex items-center gap-3">
+        <img src="assets/Krutadnyata Foundation logo (icon only).png" alt="Krutadnyata Foundation" class="w-10 h-10 object-contain" />
+        <span class="font-display font-bold text-lg">Krutadnyata</span>
+      </div>
+      <button id="mobile-close" aria-label="Close menu" class="p-2 text-white/80 hover:text-white">
+        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="grid gap-4 text-lg font-display font-semibold py-6">
+      <a href="index.html" class="nav-link mobile-link text-white/80 hover:text-white">Home</a>
+      <a href="about.html" class="nav-link mobile-link text-white/80 hover:text-white">About Us</a>
+      <a href="our-work.html" class="nav-link mobile-link text-white/80 hover:text-white">Our Work</a>
+      <a href="gallery.html" class="nav-link mobile-link text-white/80 hover:text-white">Gallery</a>
+      <a href="stories.html" class="nav-link mobile-link text-white/80 hover:text-white">Stories</a>
+      <a href="blog.html" class="nav-link mobile-link text-white/80 hover:text-white">Blog</a>
+      <a href="reports.html" class="nav-link mobile-link text-white/80 hover:text-white">Reports &amp; Audits</a>
+      <a href="volunteer.html" class="nav-link mobile-link text-white/80 hover:text-white">Volunteer</a>
+      <a href="contact.html" class="nav-link mobile-link text-white/80 hover:text-white">Contact</a>
+    </div>
+
+    <div class="grid gap-3 pt-6 border-t border-white/10">
+      <a href="donation.html" class="mobile-link w-full py-3.5 bg-brand-green rounded-xl text-center font-semibold text-white">Donate to Programs</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ================================================================= -->
+    <!-- 2. VOLUNTEER HERO                                                 -->
+    <!-- ================================================================= -->
+    <section class="relative pt-36 pb-10 overflow-hidden bg-gradient-to-b from-brand-mint/30 via-brand-bg to-brand-bg">
+
+      <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8">
+
+        <div class="max-w-4xl mx-auto text-center">
+          <div class="flex items-center justify-center gap-4 mb-5">
+            <span class="h-px w-10 bg-neutral-300"></span>
+            <span class="text-[11px] font-bold uppercase tracking-[0.3em] text-neutral-500">Volunteer</span>
+            <span class="h-px w-10 bg-neutral-300"></span>
+          </div>
+          <h1 class="font-display font-bold text-3xl sm:text-5xl text-brand-navy leading-[1.15]">
+            Lend Your Energy. Shape Maharashtra.
+          </h1>
+          <p class="mt-5 text-sm sm:text-base text-neutral-600 max-w-2xl mx-auto leading-relaxed">
+            Real grassroots impact doesn't happen from behind a desk. Help us organize free health camps, coordinate state marathons, mentor school students, or protect trees across our neighborhoods.
+          </p>
+          <div class="mt-6 flex items-center justify-center">
+            <span class="h-px w-16 bg-brand-green"></span>
+          </div>
+        </div>
+
+        <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <a href="#volunteer-form" class="px-8 py-3.5 bg-brand-green text-white font-semibold rounded-full hover:bg-emerald-700 hover:shadow-lg transition-all text-sm flex items-center gap-2">
+            <span>Register as a Volunteer</span>
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+          <a href="#roles" class="px-7 py-3.5 bg-white border border-neutral-300 text-brand-navy font-semibold rounded-full hover:bg-neutral-50 transition-all text-sm">
+            Explore Available Roles
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 3. VOLUNTEER PILLARS: WHY JOIN US                                 -->
+    <!-- ================================================================= -->
+    <section class="pt-10 pb-20 bg-white border-b border-brand-border">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        
+        <div class="max-w-2xl mb-14">
+          <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Experience &amp; Purpose</span>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-brand-navy mt-1">Why Volunteer With Krutadnyata?</h2>
+          <p class="text-xs sm:text-sm text-neutral-600 mt-2 leading-relaxed">
+            We value your time as much as your dedication. Volunteering with us is structured, documented, and meaningful.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <div class="p-8 rounded-3xl bg-brand-bg border border-neutral-200/80">
+            <div class="w-12 h-12 rounded-2xl bg-brand-mint text-brand-green flex items-center justify-center font-bold text-lg mb-6">
+              01
+            </div>
+            <h3 class="font-display font-bold text-lg text-brand-navy">Genuine Grassroots Exposure</h3>
+            <p class="text-xs text-neutral-600 mt-3 leading-relaxed">
+              Work alongside doctors in rural Konkan clinics[cite: 1], coordinate with state sports authorities[cite: 1], and assist underprivileged families directly[cite: 1] — not hypothetical exercises.
+            </p>
+          </div>
+
+          <div class="p-8 rounded-3xl bg-brand-bg border border-neutral-200/80">
+            <div class="w-12 h-12 rounded-2xl bg-brand-mint text-brand-green flex items-center justify-center font-bold text-lg mb-6">
+              02
+            </div>
+            <h3 class="font-display font-bold text-lg text-brand-navy">Verifiable Certificates</h3>
+            <p class="text-xs text-neutral-600 mt-3 leading-relaxed">
+              Every completed initiative grants official social service hours certificates, recognized for college credit, NSS requirements, and corporate resumes.
+            </p>
+          </div>
+
+          <div class="p-8 rounded-3xl bg-brand-bg border border-neutral-200/80">
+            <div class="w-12 h-12 rounded-2xl bg-brand-mint text-brand-green flex items-center justify-center font-bold text-lg mb-6">
+              03
+            </div>
+            <h3 class="font-display font-bold text-lg text-brand-navy">Flexible Commitment</h3>
+            <p class="text-xs text-neutral-600 mt-3 leading-relaxed">
+              Choose between weekend-only event drives (marathons, blood camps)[cite: 1], weekly digital tasks, or rural weekend expedition teams based on your schedule.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 4. AVAILABLE VOLUNTEER ROLES (Interactive Selection)              -->
+    <!-- ================================================================= -->
+    <section id="roles" class="py-24 bg-brand-bg border-b border-brand-border">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-brand-green">On-Ground &amp; Remote Tracks</span>
+            <h2 class="font-display font-bold text-3xl sm:text-4xl text-brand-navy mt-1">Available Volunteer Roles</h2>
+          </div>
+          <p class="text-xs text-neutral-500 mt-2 sm:mt-0 max-w-sm">
+            Click any role to pre-select it in the application form below.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <!-- Role 1 -->
+          <div class="role-card group p-6 rounded-2xl bg-white border-2 border-neutral-200/80 cursor-pointer hover:border-brand-green transition-all" data-role-id="Medical & Health Camp Coordinator">
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-[10px] font-bold uppercase tracking-widest text-brand-green bg-brand-mint px-2.5 py-1 rounded-md">Healthcare</span>
+              <div class="check-circle w-5 h-5 rounded-full border-2 border-neutral-300 flex items-center justify-center text-[10px]">✓</div>
+            </div>
+            <h3 class="font-display font-bold text-base text-brand-navy">Medical Camp Logistics</h3>
+            <p class="text-xs text-neutral-600 mt-2 leading-relaxed">
+              Patient registration, queue management, doctor assistance, and medicine packaging at our rural &amp; urban clinics[cite: 1].
+            </p>
+            <div class="mt-4 pt-3 border-t border-neutral-100 flex justify-between text-[11px] text-neutral-400 font-medium">
+              <span>Weekends</span>
+              <span>Mumbai &amp; Ratnagiri[cite: 1]</span>
+            </div>
+          </div>
+
+          <!-- Role 2 -->
+          <div class="role-card group p-6 rounded-2xl bg-white border-2 border-neutral-200/80 cursor-pointer hover:border-brand-green transition-all" data-role-id="Marathon & Sports Event Marshall">
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-[10px] font-bold uppercase tracking-widest text-brand-navy bg-neutral-100 px-2.5 py-1 rounded-md">Sports Day</span>
+              <div class="check-circle w-5 h-5 rounded-full border-2 border-neutral-300 flex items-center justify-center text-[10px]">✓</div>
+            </div>
+            <h3 class="font-display font-bold text-base text-brand-navy">Marathon &amp; Event Crew</h3>
+            <p class="text-xs text-neutral-600 mt-2 leading-relaxed">
+              Route marshalling, hydration stations, participant kit distribution, and timing desk for our 1,000+ runner events[cite: 1].
+            </p>
+            <div class="mt-4 pt-3 border-t border-neutral-100 flex justify-between text-[11px] text-neutral-400 font-medium">
+              <span>Annual / Events</span>
+              <span>Suburban Mumbai[cite: 1]</span>
+            </div>
+          </div>
+
+          <!-- Role 3 -->
+          <div class="role-card group p-6 rounded-2xl bg-white border-2 border-neutral-200/80 cursor-pointer hover:border-brand-green transition-all" data-role-id="Tree Drive & Ecology Activist">
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-[10px] font-bold uppercase tracking-widest text-brand-green bg-brand-mint px-2.5 py-1 rounded-md">Ecology</span>
+              <div class="check-circle w-5 h-5 rounded-full border-2 border-neutral-300 flex items-center justify-center text-[10px]">✓</div>
+            </div>
+            <h3 class="font-display font-bold text-base text-brand-navy">Tree &amp; Environment Team</h3>
+            <p class="text-xs text-neutral-600 mt-2 leading-relaxed">
+              Sapling plantation, watering follow-ups, and roadside Nail-Free tree de-nailing operations[cite: 1].
+            </p>
+            <div class="mt-4 pt-3 border-t border-neutral-100 flex justify-between text-[11px] text-neutral-400 font-medium">
+              <span>Sundays</span>
+              <span>Badlapur &amp; Kandivali[cite: 1]</span>
+            </div>
+          </div>
+
+          <!-- Role 4 -->
+          <div class="role-card group p-6 rounded-2xl bg-white border-2 border-neutral-200/80 cursor-pointer hover:border-brand-green transition-all" data-role-id="Student Mentor & Career Assistant">
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-[10px] font-bold uppercase tracking-widest text-neutral-700 bg-neutral-100 px-2.5 py-1 rounded-md">Education</span>
+              <div class="check-circle w-5 h-5 rounded-full border-2 border-neutral-300 flex items-center justify-center text-[10px]">✓</div>
+            </div>
+            <h3 class="font-display font-bold text-base text-brand-navy">Student Guidance &amp; Tutoring</h3>
+            <p class="text-xs text-neutral-600 mt-2 leading-relaxed">
+              Assisting high-school students in competitive exam basics, cyber safety workshops, or entrance test coaching[cite: 1].
+            </p>
+            <div class="mt-4 pt-3 border-t border-neutral-100 flex justify-between text-[11px] text-neutral-400 font-medium">
+              <span>Flexible</span>
+              <span>Hybrid / Online[cite: 1]</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 5. VOLUNTEER REGISTRATION FORM                                    -->
+    <!-- ================================================================= -->
+    <section id="volunteer-form" class="py-24 bg-white">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+
+          <!-- Info Sidebar -->
+          <div class="lg:col-span-4">
+            <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Join The Movement</span>
+            <h2 class="font-display font-bold text-2xl sm:text-3xl text-brand-navy mt-1 leading-tight">Volunteer Application</h2>
+            <p class="text-xs sm:text-sm text-neutral-600 mt-3 leading-relaxed">
+              Fill in your details and our field coordinator will reach out via WhatsApp with upcoming project schedules.
+            </p>
+
+            <div class="mt-8 space-y-5 pt-6 border-t border-neutral-200">
+              <div class="flex items-start gap-3">
+                <span class="w-8 h-8 rounded-full bg-brand-mint text-brand-green flex items-center justify-center shrink-0 text-xs font-bold">✓</span>
+                <div>
+                  <p class="font-display font-bold text-sm text-brand-navy">Official Certificates</p>
+                  <p class="text-xs text-neutral-500 mt-0.5">Recognized for NSS &amp; college records</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="w-8 h-8 rounded-full bg-brand-mint text-brand-green flex items-center justify-center shrink-0 text-xs font-bold">✓</span>
+                <div>
+                  <p class="font-display font-bold text-sm text-brand-navy">Hands-On Field Leadership</p>
+                  <p class="text-xs text-neutral-500 mt-0.5">Real event execution experience</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="w-8 h-8 rounded-full bg-brand-mint text-brand-green flex items-center justify-center shrink-0 text-xs font-bold">✓</span>
+                <div>
+                  <p class="font-display font-bold text-sm text-brand-navy">Community Mentorship</p>
+                  <p class="text-xs text-neutral-500 mt-0.5">Connect with doctors, lawyers &amp; coaches</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="w-8 h-8 rounded-full bg-brand-mint text-brand-green flex items-center justify-center shrink-0 text-xs font-bold">✓</span>
+                <div>
+                  <p class="font-display font-bold text-sm text-brand-navy">Direct Social Impact</p>
+                  <p class="text-xs text-neutral-500 mt-0.5">Tangible aid to underprivileged lives</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form Card -->
+          <div class="lg:col-span-8">
+            <div class="rounded-2xl border border-neutral-200 p-6 sm:p-10">
+
+              <form class="space-y-5" onsubmit="event.preventDefault(); document.getElementById('volunteer-success').classList.remove('hidden'); this.reset();">
+
+                <!-- Hidden role input connected to cards -->
+                <input type="hidden" id="selected-role-input" name="selected_role" value="General Volunteer" />
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="text-xs font-semibold text-neutral-700 block mb-1">Full Name *</label>
+                    <input type="text" required placeholder="Your full name" class="w-full px-4 py-3 rounded-xl bg-brand-bg border border-neutral-200 text-xs text-neutral-800 placeholder-neutral-400 focus:outline-none focus:border-brand-green transition-all" />
+                  </div>
+                  <div>
+                    <label class="text-xs font-semibold text-neutral-700 block mb-1">WhatsApp Mobile Number *</label>
+                    <input type="tel" required placeholder="+91 98XXX XXXXX" class="w-full px-4 py-3 rounded-xl bg-brand-bg border border-neutral-200 text-xs text-neutral-800 placeholder-neutral-400 focus:outline-none focus:border-brand-green transition-all" />
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="text-xs font-semibold text-neutral-700 block mb-1">Email Address *</label>
+                    <input type="email" required placeholder="your.email@domain.com" class="w-full px-4 py-3 rounded-xl bg-brand-bg border border-neutral-200 text-xs text-neutral-800 placeholder-neutral-400 focus:outline-none focus:border-brand-green transition-all" />
+                  </div>
+                  <div>
+                    <label class="text-xs font-semibold text-neutral-700 block mb-1">Your City / College / Workplace *</label>
+                    <input type="text" required placeholder="e.g. Borivali / Sailee College / TCS" class="w-full px-4 py-3 rounded-xl bg-brand-bg border border-neutral-200 text-xs text-neutral-800 placeholder-neutral-400 focus:outline-none focus:border-brand-green transition-all" />
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="text-xs font-semibold text-neutral-700 block mb-1">Primary Area of Interest</label>
+                    <select id="role-dropdown" class="w-full px-4 py-3 rounded-xl bg-brand-bg border border-neutral-200 text-xs text-neutral-700 focus:outline-none focus:border-brand-green">
+                      <option value="General Volunteer">General Volunteer (Any upcoming initiative)</option>
+                      <option value="Medical & Health Camp Coordinator">Medical &amp; Health Camp Logistics</option>
+                      <option value="Marathon & Sports Event Marshall">Marathon &amp; State Sports Events</option>
+                      <option value="Tree Drive & Ecology Activist">Tree Plantation &amp; Nail-Free Campaign</option>
+                      <option value="Student Mentor & Career Assistant">Student Guidance &amp; Career Orientation</option>
+                      <option value="Free Legal Aid Clinic Support">Free Legal Advice Clinic Desk</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label class="text-xs font-semibold text-neutral-700 block mb-1">Your Availability</label>
+                    <select class="w-full px-4 py-3 rounded-xl bg-brand-bg border border-neutral-200 text-xs text-neutral-700 focus:outline-none focus:border-brand-green">
+                      <option value="Weekends Only">Weekends Only (Saturdays &amp; Sundays)</option>
+                      <option value="Sundays Only">Sundays Only</option>
+                      <option value="Full-time / Flexible">Flexible / Project-Based</option>
+                      <option value="Virtual / Remote">Virtual / Digital Support Only</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="text-xs font-semibold text-neutral-700 block mb-1">Why do you want to volunteer with Krutadnyata Foundation? (Optional)</label>
+                  <textarea rows="3" placeholder="Tell us briefly about your interests or previous community experience..." class="w-full px-4 py-3 rounded-xl bg-brand-bg border border-neutral-200 text-xs text-neutral-800 placeholder-neutral-400 focus:outline-none focus:border-brand-green transition-all resize-none"></textarea>
+                </div>
+
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2">
+                  <p class="text-[11px] text-neutral-500">
+                    Participation is voluntary. Official attendance certificates issued post-event.
+                  </p>
+                  <button type="submit" class="shrink-0 px-8 py-3.5 bg-brand-green text-white font-semibold text-xs rounded-xl hover:bg-emerald-700 transition-all shadow-md flex items-center justify-center gap-2">
+                    <span>Submit Application</span>
+                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </button>
+                </div>
+
+                <div id="volunteer-success" class="hidden mt-4 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs">
+                  <strong>Registration Received!</strong> Welcome to our volunteer network. Our Borivali coordination desk will message your WhatsApp group invitation shortly.
+                </div>
+
+              </form>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 6. VOLUNTEER TESTIMONIALS (Real Field Voice)                      -->
+    <!-- ================================================================= -->
+    <section class="py-20 bg-brand-bg border-t border-brand-border">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Field Experiences</span>
+          <h2 class="font-display font-bold text-3xl text-brand-navy mt-1">From Our Field Team</h2>
+          <p class="text-xs sm:text-sm text-neutral-500 mt-2">Hear from student leaders and volunteers who actively drove our recent camps and runs.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <div class="p-8 rounded-3xl bg-white border border-neutral-200/80 shadow-xs flex flex-col justify-between">
+            <p class="text-xs text-neutral-600 leading-relaxed italic">
+              “Managing route marshalling for over 1,200 runners at the Borivali Quality Run was my first major event management experience[cite: 1]. The team coordination and community spirit was unforgettable.”
+            </p>
+            <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-brand-navy text-white flex items-center justify-center font-bold text-xs">
+                SK
+              </div>
+              <div>
+                <p class="font-display font-bold text-xs text-brand-navy">Student Volunteer</p>
+                <span class="text-[10px] text-neutral-400">Sailee Degree College[cite: 1]</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-8 rounded-3xl bg-white border border-neutral-200/80 shadow-xs flex flex-col justify-between">
+            <p class="text-xs text-neutral-600 leading-relaxed italic">
+              “Assisting the doctors during the Sangola rural health screening camp opened my eyes to the healthcare deficit in remote talukas[cite: 1]. Knowing our work provided free medicines to hundreds is deeply fulfilling.”
+            </p>
+            <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-brand-green text-white flex items-center justify-center font-bold text-xs">
+                AM
+              </div>
+              <div>
+                <p class="font-display font-bold text-xs text-brand-navy">Medical Camp Volunteer</p>
+                <span class="text-[10px] text-neutral-400">Rural Healthcare Drive[cite: 1]</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-8 rounded-3xl bg-white border border-neutral-200/80 shadow-xs flex flex-col justify-between">
+            <p class="text-xs text-neutral-600 leading-relaxed italic">
+              “Removing heavy iron sign-nails from dozens of trees on Asha Nagar Road seemed small at first, but realizing how much damage it prevents made it one of our most rewarding Sunday mornings[cite: 1].”
+            </p>
+            <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-neutral-800 text-white flex items-center justify-center font-bold text-xs">
+                RT
+              </div>
+              <div>
+                <p class="font-display font-bold text-xs text-brand-navy">Eco-Warrior Volunteer</p>
+                <span class="text-[10px] text-neutral-400">Nail-Free Tree Campaign[cite: 1]</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================================================================= -->
+  <!-- 8. FOOTER                                                         -->
+  <!-- ================================================================= -->
+  <footer id="contact" class="bg-brand-navy text-white border-t border-neutral-800 pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-16 border-b border-white/10">
+
+        <!-- Foundation Info -->
+        <div class="lg:col-span-4 space-y-4">
+          <div class="flex items-center gap-3">
+            <img src="assets/Krutadnyata Foundation logo (with text).png" alt="Krutadnyata Foundation" class="h-14 w-auto object-contain" />
+          </div>
+          <p class="text-xs text-neutral-300 leading-relaxed font-normal">
+            A Maharashtra-based registered social organisation dedicated to bridging educational inequalities, conducting preventive healthcare, and empowering communities since 2019.
+          </p>
+          <div class="text-xs text-neutral-400 space-y-1">
+            <p><strong>Charity Reg:</strong> [TO CONFIRM: Trust Registration Number]</p>
+            <p><strong>Head Office:</strong> [TO CONFIRM: Official Registered Address], Suburban Mumbai, Maharashtra</p>
+            <p><strong>Helpline:</strong> +91 98338 61159 (Inquiries)</p>
+          </div>
+        </div>
+
+        <!-- Core Work -->
+        <div class="lg:col-span-2 space-y-3 text-xs">
+          <p class="font-display font-bold text-white uppercase tracking-wider text-[11px]">Core Work</p>
+          <ul class="space-y-2 text-neutral-300">
+            <li><a href="our-work.html#pillar-health" class="hover:text-brand-mint transition-colors">Health Camps</a></li>
+            <li><a href="our-work.html#pillar-sports" class="hover:text-brand-mint transition-colors">State Sports Day</a></li>
+            <li><a href="our-work.html#pillar-skilling" class="hover:text-brand-mint transition-colors">Aarya Skill Centre</a></li>
+            <li><a href="our-work.html#pillar-environment" class="hover:text-brand-mint transition-colors">Tree Protection</a></li>
+            <li><a href="our-work.html#pillar-relief" class="hover:text-brand-mint transition-colors">Community Relief</a></li>
+          </ul>
+        </div>
+
+        <!-- Navigation -->
+        <div class="lg:col-span-2 space-y-3 text-xs">
+          <p class="font-display font-bold text-white uppercase tracking-wider text-[11px]">Navigation</p>
+          <ul class="space-y-2 text-neutral-300">
+            <li><a href="index.html" class="hover:text-brand-mint transition-colors">Home</a></li>
+            <li><a href="about.html" class="hover:text-brand-mint transition-colors">About Us</a></li>
+            <li><a href="our-work.html" class="hover:text-brand-mint transition-colors">Our Work</a></li>
+            <li><a href="gallery.html" class="hover:text-brand-mint transition-colors">Field Gallery</a></li>
+            <li><a href="stories.html" class="hover:text-brand-mint transition-colors">Stories</a></li>
+            <li><a href="blog.html" class="hover:text-brand-mint transition-colors">Blog</a></li>
+            <li><a href="reports.html" class="hover:text-brand-mint transition-colors">Reports &amp; Audits</a></li>
+            <li><a href="volunteer.html" class="hover:text-brand-mint transition-colors">Volunteer</a></li>
+            <li><a href="contact.html" class="hover:text-brand-mint transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Stay Informed -->
+        <div class="lg:col-span-4 space-y-4">
+          <p class="font-display font-bold text-white uppercase tracking-wider text-[11px]">Stay Informed</p>
+          <p class="text-xs text-neutral-300 leading-relaxed">Subscribe to receive our verified quarterly field activity bulletins and volunteer opportunities.</p>
+
+          <form class="flex items-center gap-2" onsubmit="event.preventDefault(); alert('Subscribed to Krutadnyata updates.');">
+            <input type="email" placeholder="Your email address" required class="bg-white/10 border border-white/15 px-3.5 py-2.5 rounded-xl text-xs text-white placeholder-neutral-400 focus:outline-none focus:border-brand-green flex-1" />
+            <button type="submit" class="px-4 py-2.5 bg-brand-green text-white text-xs font-semibold rounded-xl hover:bg-emerald-700 transition-colors whitespace-nowrap">Join</button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- Bottom Disclaimer & Copyright -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-neutral-400 gap-4">
+        <div>
+          © 2019–2026 Krutadnyata Foundation (कृतज्ञता फाउंडेशन). All public contributions are utilized strictly towards community welfare programs.
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="privacy.html" class="hover:text-neutral-200 transition-colors">Privacy Policy</a>
+          <a href="reports.html" class="hover:text-neutral-200 transition-colors">MOU Records</a>
+          <a href="donation.html" class="hover:text-neutral-200 transition-colors">80G Verification</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================================================================= -->
+  <!-- JAVASCRIPT LOGIC                                                  -->
+  <!-- ================================================================= -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Lenis Smooth Scrolling
+      const lenis = new Lenis({
+        duration: 1.1,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smooth: true,
+      });
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // 2. Mobile Menu
+      const mobileToggle = document.getElementById('mobile-toggle');
+      const mobileClose = document.getElementById('mobile-close');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      mobileToggle.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
+      mobileClose.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
+
+      // 3. Interactive Role Selection Cards
+      const roleCards = document.querySelectorAll('.role-card');
+      const roleInput = document.getElementById('selected-role-input');
+      const roleDropdown = document.getElementById('role-dropdown');
+
+      roleCards.forEach((card) => {
+        card.addEventListener('click', () => {
+          roleCards.forEach(c => c.classList.remove('selected'));
+          card.classList.add('selected');
+
+          const roleId = card.getAttribute('data-role-id');
+          roleInput.value = roleId;
+          
+          if (roleDropdown) {
+            roleDropdown.value = roleId;
+          }
+
+          // Smooth scroll to form
+          const formElement = document.getElementById('volunteer-form');
+          if (formElement) {
+            formElement.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+
+      if (roleDropdown) {
+        roleDropdown.addEventListener('change', (e) => {
+          roleInput.value = e.target.value;
+          roleCards.forEach(card => {
+            if (card.getAttribute('data-role-id') === e.target.value) {
+              card.classList.add('selected');
+            } else {
+              card.classList.remove('selected');
+            }
+          });
+        });
+      }
+    });
+  </script>
+  <script>
+    (function () {
+      var path = location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.nav-link[href]').forEach(function (a) {
+        if (a.getAttribute('href') === path) {
+          a.classList.add('text-brand-navy', 'font-semibold');
+          a.classList.add('active-nav-link');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

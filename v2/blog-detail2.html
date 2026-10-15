@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stories from the Ground — Krutadnyata Foundation (कृतज्ञता फाउंडेशन)</title>
-  <meta name="description" content="First-person beneficiary testimonials and on-ground video documentaries from Krutadnyata Foundation's health camps, skilling batches, and community initiatives across Maharashtra." />
+  <title>State Sports Day Marathon 2026: Field Dispatch — Krutadnyata Foundation</title>
+  <meta name="description" content="Field report from Krutadnyata Foundation's State Sports Day Marathon 2026 organized in collaboration with the Directorate of Sports and Youth Services, Maharashtra." />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,7 +14,9 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Lenis Smooth Scroll CDN -->
+  <!-- GSAP & Lenis Smooth Scroll CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
 
   <script>
@@ -76,8 +78,46 @@
       -webkit-backdrop-filter: blur(14px);
     }
 
+    /* Header: transparent + white text over the hero photo, frosted-white + dark text once scrolled */
+    #main-header {
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0));
+      transition: background 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
+    }
     #main-header.scrolled {
+      background: rgba(248, 249, 250, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       box-shadow: 0 4px 24px rgba(11, 45, 79, 0.06);
+    }
+    #main-header .nav-link,
+    #main-header button > span:first-child {
+      color: rgba(255, 255, 255, 0.95);
+      transition: color 0.3s ease;
+    }
+    #main-header svg.dropdown-caret {
+      color: rgba(255, 255, 255, 0.75);
+      transition: color 0.3s ease;
+    }
+    #main-header #mobile-toggle {
+      color: #ffffff;
+      transition: color 0.3s ease;
+    }
+    #main-header img.site-logo {
+      filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.45));
+      transition: filter 0.3s ease;
+    }
+    #main-header.scrolled .nav-link,
+    #main-header.scrolled button > span:first-child {
+      color: #737373;
+    }
+    #main-header.scrolled svg.dropdown-caret {
+      color: #a3a3a3;
+    }
+    #main-header.scrolled #mobile-toggle {
+      color: #262626;
+    }
+    #main-header.scrolled img.site-logo {
+      filter: none;
     }
 
     footer#contact {
@@ -93,32 +133,57 @@
       background: linear-gradient(90deg, var(--color-green), var(--color-accent), var(--color-green));
     }
 
-    /* Video modal styles */
-    #video-modal {
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    #video-modal.open {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Article typography */
+    .article-body p {
+      margin-bottom: 1.5rem;
+      line-height: 1.85;
+      font-size: 1rem;
+      color: #374151;
+    }
+    .article-body p strong:first-child {
+      color: var(--color-navy);
+    }
+    .article-body ul {
+      list-style: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: #374151;
+      line-height: 1.85;
+    }
+    .article-body li {
+      margin-bottom: 0.5rem;
+    }
+    .article-body em {
+      color: var(--color-muted);
+    }
+
+    #reading-progress {
+      width: 0%;
+      transition: width 0.1s ease-out;
+    }
   </style>
 </head>
 <body class="selection:bg-brand-mint selection:text-brand-navy">
 
   <!-- ================================================================= -->
+  <!-- READING PROGRESS BAR                                              -->
+  <!-- ================================================================= -->
+  <div class="fixed top-0 left-0 right-0 h-1 z-[60] bg-transparent">
+    <div id="reading-progress" class="h-full bg-brand-green"></div>
+  </div>
+
+  <!-- ================================================================= -->
   <!-- 1. HEADER                                                         -->
   <!-- ================================================================= -->
-  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-nav">
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-5 sm:px-8 h-20 flex items-center justify-between gap-6">
 
       <!-- Brand Logo -->
       <a href="index.html" class="flex items-center group shrink-0" aria-label="Krutadnyata Foundation Home">
-        <img src="assets/Krutadnyata Foundation logo (with text).png" alt="Krutadnyata Foundation" class="h-12 w-auto transition-transform duration-300 group-hover:scale-105" />
+        <img src="assets/Krutadnyata Foundation logo (with text).png" alt="Krutadnyata Foundation" class="site-logo h-12 w-auto transition-transform duration-300 group-hover:scale-105" />
       </a>
 
       <!-- Desktop Nav -->
@@ -130,7 +195,7 @@
         <div class="relative group">
           <button class="flex items-center gap-1.5 hover:text-brand-navy transition-colors py-1 focus:outline-none">
             <span>Our Work</span>
-            <svg class="w-3 h-3 text-neutral-400 group-hover:rotate-180 group-hover:text-brand-green transition-all duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg class="dropdown-caret w-3 h-3 text-neutral-400 group-hover:rotate-180 group-hover:text-brand-green transition-all duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
@@ -171,7 +236,7 @@
         </div>
 
         <a href="gallery.html" class="nav-link hover:text-brand-navy transition-colors py-1">Gallery</a>
-        <a href="stories2.html" class="nav-link hover:text-brand-navy transition-colors py-1">Stories</a>
+        <a href="stories.html" class="nav-link hover:text-brand-navy transition-colors py-1">Stories</a>
         <a href="blog.html" class="nav-link hover:text-brand-navy transition-colors py-1">Blog</a>
         <a href="reports.html" class="nav-link hover:text-brand-navy transition-colors py-1">Reports &amp; Audits</a>
         <a href="volunteer.html" class="nav-link hover:text-brand-navy transition-colors py-1">Volunteer</a>
@@ -219,7 +284,7 @@
       <a href="about.html" class="nav-link mobile-link text-white/80 hover:text-white">About Us</a>
       <a href="our-work.html" class="nav-link mobile-link text-white/80 hover:text-white">Our Work</a>
       <a href="gallery.html" class="nav-link mobile-link text-white/80 hover:text-white">Gallery</a>
-      <a href="stories2.html" class="nav-link mobile-link text-white/80 hover:text-white">Stories</a>
+      <a href="stories.html" class="nav-link mobile-link text-white/80 hover:text-white">Stories</a>
       <a href="blog.html" class="nav-link mobile-link text-white/80 hover:text-white">Blog</a>
       <a href="reports.html" class="nav-link mobile-link text-white/80 hover:text-white">Reports &amp; Audits</a>
       <a href="volunteer.html" class="nav-link mobile-link text-white/80 hover:text-white">Volunteer</a>
@@ -233,150 +298,112 @@
 
   <main>
     <!-- ================================================================= -->
-    <!-- 2. STORIES HERO — intro copy, stat strip, photo mosaic            -->
+    <!-- 2. HERO — full-bleed photo (article cover image)                  -->
     <!-- ================================================================= -->
-    <section class="relative min-h-[70vh] flex items-end overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=1800&h=1200&fit=crop" alt="Volunteer recording a beneficiary's story in the field" class="absolute inset-0 w-full h-full object-cover" />
+    <section class="relative h-[85vh] flex items-end overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=1800&h=1200&fit=crop" alt="State Sports Day Marathon 2026 starting line and crowd gathering, Suburban Mumbai" class="absolute inset-0 w-full h-full object-cover" />
       <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/40 to-brand-navy/10"></div>
 
       <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 pb-16 pt-40 w-full">
-        <span class="text-xs font-bold uppercase tracking-[0.3em] text-brand-mint">Stories</span>
-        <h1 class="mt-3 font-display font-extrabold text-4xl sm:text-6xl lg:text-7xl text-white tracking-tightest leading-[1.05] max-w-3xl">
-          Every number represents a living human being.
+        <span class="text-xs font-bold uppercase tracking-[0.3em] text-brand-mint">Field Dispatch</span>
+        <h1 class="mt-3 font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl text-white tracking-tightest leading-[1.1] max-w-3xl">
+          State Sports Day Marathon 2026: Inspiring Community Wellness Across Suburban Mumbai
         </h1>
         <p class="mt-5 text-base sm:text-lg text-neutral-200 max-w-xl leading-relaxed">
-          Behind every statistic on this site is a name, a family, and a morning that changed because someone showed up. This page carries those voices directly — first-person accounts from the people we've worked alongside — next to the raw field footage that documents where and how it happened.
+          Field report from Krutadnyata Foundation's State Sports Day Marathon 2026, organized in collaboration with the Directorate of Sports and Youth Services, Maharashtra.
         </p>
       </div>
     </section>
 
-
     <!-- ================================================================= -->
-    <!-- 5. ON-GROUND VIDEO DOCUMENTARIES — featured + grid                -->
+    <!-- ARTICLE                                                           -->
     <!-- ================================================================= -->
-    <section class="pt-8 pb-20 bg-white border-b border-brand-border">
-      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <article class="max-w-5xl mx-auto px-5 sm:px-8 pt-16 pb-20">
 
-        <div class="mb-12">
-          <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Live Perspectives</span>
-          <h2 class="font-display font-bold text-3xl text-brand-navy mt-1">Ground Documentaries &amp; Field Footage</h2>
-          <p class="text-neutral-600 text-sm mt-3 leading-relaxed max-w-xl">Tap any card to preview raw footage captured on-site at our camps, drives, and events.</p>
+      <!-- Author & Date -->
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-full bg-brand-navy text-white flex items-center justify-center font-display font-bold text-xs shrink-0">
+          FS
         </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 gap-6">
-
-          <!-- Video Card 1 — Featured -->
-          <div class="video-card group cursor-pointer relative lg:col-span-2 lg:row-span-2 min-h-[320px] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" data-video-title="1,200 Runners at the BIS Quality Run" data-video-meta="Borivali, Mumbai • Sailee Degree College" data-video-id="aqz-KE-bpKQ">
-            <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=900&h=1000&fit=crop" alt="BIS Quality Run" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/50"></div>
-            <span class="absolute top-5 left-5 px-3 py-1.5 rounded-full bg-brand-accent text-brand-navy text-[10px] font-bold uppercase tracking-wider shadow">Flagship Footage</span>
-            <div class="absolute bottom-5 left-5 right-5">
-              <h3 class="font-display font-bold text-white text-xl sm:text-2xl leading-snug">1,200 Runners at the BIS Quality Run</h3>
-              <p class="text-xs sm:text-sm text-neutral-200 mt-1.5">Borivali, Mumbai &bull; Sailee Degree College</p>
-            </div>
-            <div class="absolute top-5 right-5 w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-              <svg class="w-5 h-5 text-brand-navy ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-          </div>
-
-          <!-- Video Card 2 -->
-          <div class="video-card group cursor-pointer relative aspect-[4/5] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" data-video-title="Sangameshwar Rural Ayurvedic Health Camp" data-video-meta="Dhamapur Dhanawade Wadi, Ratnagiri" data-video-id="eRsGyueVLvQ">
-            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=750&fit=crop" alt="Rural Ayurvedic Health Camp" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/50"></div>
-            <div class="absolute top-4 left-4 right-4">
-              <h3 class="font-display font-bold text-white text-base leading-snug">Sangameshwar Rural Ayurvedic Health Camp</h3>
-              <p class="text-xs text-neutral-200 mt-1">Dhamapur Dhanawade Wadi, Ratnagiri</p>
-            </div>
-            <div class="absolute bottom-4 left-4 w-11 h-11 rounded-full bg-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-              <svg class="w-4 h-4 text-brand-navy ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-          </div>
-
-          <!-- Video Card 3 -->
-          <div class="video-card group cursor-pointer relative aspect-[4/5] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" data-video-title="MSSDC Web Development & Accounts Batch" data-video-meta="Aarya Skill Development Centre" data-video-id="R6MlUcmOul8">
-            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=750&fit=crop" alt="MSSDC Web Development Batch" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/50"></div>
-            <div class="absolute top-4 left-4 right-4">
-              <h3 class="font-display font-bold text-white text-base leading-snug">MSSDC Web Development &amp; Accounts Batch</h3>
-              <p class="text-xs text-neutral-200 mt-1">Aarya Skill Development Centre</p>
-            </div>
-            <div class="absolute bottom-4 left-4 w-11 h-11 rounded-full bg-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-              <svg class="w-4 h-4 text-brand-navy ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-          </div>
-
-          <!-- Video Card 4 -->
-          <div class="video-card group cursor-pointer relative aspect-[4/5] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" data-video-title="Borivali Blood Donation Camp" data-video-meta="MHB Colony, Borivali West, Mumbai" data-video-id="aqz-KE-bpKQ">
-            <img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=600&h=750&fit=crop" alt="Borivali Blood Donation Camp" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/50"></div>
-            <div class="absolute top-4 left-4 right-4">
-              <h3 class="font-display font-bold text-white text-base leading-snug">Borivali Blood Donation Camp</h3>
-              <p class="text-xs text-neutral-200 mt-1">MHB Colony, Borivali West</p>
-            </div>
-            <div class="absolute bottom-4 left-4 w-11 h-11 rounded-full bg-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-              <svg class="w-4 h-4 text-brand-navy ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-          </div>
-
-          <!-- Video Card 5 -->
-          <div class="video-card group cursor-pointer relative aspect-[4/5] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" data-video-title="World Environment Day Tree Plantation" data-video-meta="Siddharth College, Badlapur, Thane" data-video-id="eRsGyueVLvQ">
-            <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?w=600&h=750&fit=crop" alt="Tree Plantation Drive" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/50"></div>
-            <div class="absolute top-4 left-4 right-4">
-              <h3 class="font-display font-bold text-white text-base leading-snug">World Environment Day Tree Plantation</h3>
-              <p class="text-xs text-neutral-200 mt-1">Badlapur, Thane</p>
-            </div>
-            <div class="absolute bottom-4 left-4 w-11 h-11 rounded-full bg-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-              <svg class="w-4 h-4 text-brand-navy ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-          </div>
-
-          <!-- Video Card 6 -->
-          <div class="video-card group cursor-pointer relative aspect-[4/5] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" data-video-title="State Sports Day Marathon 2026" data-video-meta="Suburban Mumbai, Maharashtra" data-video-id="R6MlUcmOul8">
-            <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=600&h=750&fit=crop" alt="State Sports Day Marathon" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/50"></div>
-            <div class="absolute top-4 left-4 right-4">
-              <h3 class="font-display font-bold text-white text-base leading-snug">State Sports Day Marathon 2026</h3>
-              <p class="text-xs text-neutral-200 mt-1">Suburban Mumbai</p>
-            </div>
-            <div class="absolute bottom-4 left-4 w-11 h-11 rounded-full bg-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-              <svg class="w-4 h-4 text-brand-navy ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-          </div>
-
+        <div>
+          <p class="text-xs text-neutral-500">Written by <span class="font-semibold text-neutral-800">Foundation Secretariat</span></p>
+          <p class="text-xs text-neutral-400 mt-0.5">25 January 2026</p>
         </div>
+      </div>
+
+      <div class="mt-6 pt-6 border-t border-neutral-200"></div>
+
+      <!-- Share row -->
+      <div class="flex items-center gap-3">
+        <span class="text-xs font-semibold text-neutral-500">Share</span>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank" rel="noopener" aria-label="Share on Facebook" class="w-8 h-8 rounded-full bg-neutral-100 hover:bg-brand-mint text-neutral-600 hover:text-brand-green flex items-center justify-center transition-colors">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+        </a>
+        <a href="https://twitter.com/intent/tweet?url=" target="_blank" rel="noopener" aria-label="Share on Twitter/X" class="w-8 h-8 rounded-full bg-neutral-100 hover:bg-brand-mint text-neutral-600 hover:text-brand-green flex items-center justify-center transition-colors">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=" target="_blank" rel="noopener" aria-label="Share on LinkedIn" class="w-8 h-8 rounded-full bg-neutral-100 hover:bg-brand-mint text-neutral-600 hover:text-brand-green flex items-center justify-center transition-colors">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.56z"/></svg>
+        </a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); this.querySelector('span').textContent='Copied!';" aria-label="Copy link" class="w-8 h-8 rounded-full bg-neutral-100 hover:bg-brand-mint text-neutral-600 hover:text-brand-green flex items-center justify-center transition-colors">
+          <span class="sr-only">Copy link</span>
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 010 5.656l-3 3a4 4 0 01-5.656-5.656l1.5-1.5M10.172 13.828a4 4 0 010-5.656l3-3a4 4 0 015.656 5.656l-1.5 1.5" /></svg>
+        </button>
+      </div>
+
+      <!-- Article Body -->
+      <div class="article-body mt-10">
+
+        <p>
+          <strong>Congratulations to the runners!</strong> On the morning of January 24, 2026, hundreds of students, athletes, and local citizens assembled in Suburban Mumbai to take part in the State Sports Day Marathon 2026 — Krutadnyata Foundation's continuing commitment to health, athletic discipline, and community cohesion.
+        </p>
+
+        <p>
+          Maharashtra celebrates its State Sports Day annually in honor of the birth anniversary of <strong>Khashaba Dadasaheb Jadhav</strong>, who made history at the 1952 Helsinki Summer Olympics by securing independent India's first individual Olympic medal in freestyle wrestling. To honor this feat, the Foundation envisioned the 2026 Marathon not merely as a competitive race, but as a broad civic movement to encourage healthy living and introduce young students from underprivileged backgrounds to institutional athletics.
+        </p>
+
+        <p>
+          <strong>Institutional Collaboration:</strong> Grassroots impact achieves genuine scale when civic organizations collaborate with statutory state bodies. The 2026 Marathon was executed in official collaboration with the Directorate of Sports and Youth Services, Maharashtra State, the District Sports Council, Sailee Degree College, and Jaywant Harchand Lokhande Law College.
+        </p>
+
+        <p>
+          <strong>Key Milestone:</strong> Building on the success of the 2025 BIS Quality Run, this year's marathon mobilized over 1,200 participants — families, junior college athletes, and senior citizens — across Suburban Mumbai along safe, municipal-sanctioned running corridors.
+        </p>
+
+        <p>
+          Managing a high-density urban run requires meticulous logistical planning. Over 40 trained Krutadnyata Foundation volunteers, working hand in hand with local traffic personnel, manned hydration desks, first-aid checkpoints, and participant registration lanes starting at 5:00 AM. Free participation kits, hydration fluids, and completion certificates were provided to every runner, with special sports kit donations presented to promising junior athletes from municipal high schools.
+        </p>
+
+        <p>
+          Here are some photos from the morning:
+        </p>
 
       </div>
-    </section>
 
+      <!-- Secondary Image -->
+      <div class="rounded-2xl overflow-hidden border border-neutral-200">
+        <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=1400&h=1050&fit=crop" alt="Volunteers and runners gathered at the State Sports Day Marathon" class="w-full h-auto object-cover" loading="lazy" />
+      </div>
+
+      <!-- Support CTA -->
+      <div class="article-body mt-10">
+        <p>
+          <strong>Support Youth Athletics:</strong> If you would like to support the Foundation's ongoing sports and youth wellness programs, you can do so through the following:
+        </p>
+        <ul>
+          <li><a href="donation.html" class="text-brand-green font-semibold hover:underline">Sponsor sports kits for school athletes</a></li>
+          <li><a href="volunteer.html" class="text-brand-green font-semibold hover:underline">Join the volunteer marshalling team</a></li>
+        </ul>
+        <p>
+          Thank you to every volunteer, partner institution, and runner for making this year's marathon a success. Your contributions make a significant difference in the lives of Maharashtra's youth.
+        </p>
+      </div>
+
+    </article>
   </main>
 
   <!-- ================================================================= -->
-  <!-- VIDEO MODAL PREVIEW                                               -->
-  <!-- ================================================================= -->
-  <div id="video-modal" class="fixed inset-0 z-50 bg-brand-navy/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8">
-    <div class="relative max-w-3xl w-full bg-neutral-900 rounded-3xl overflow-hidden shadow-2xl border border-white/10 p-6">
-
-      <button id="modal-close" class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors">
-        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-
-      <div class="aspect-video bg-neutral-800 rounded-2xl overflow-hidden border border-white/5">
-        <iframe id="video-modal-iframe" class="w-full h-full" src="" title="Video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-
-      <div class="pt-4">
-        <h4 id="video-modal-title" class="font-display font-bold text-lg text-white">Video Documentary</h4>
-        <p id="video-modal-meta" class="text-xs text-neutral-400 mt-1">Field Documentation Preview</p>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ================================================================= -->
-  <!-- 6. FOOTER                                                        -->
+  <!-- 3. FOOTER                                                        -->
   <!-- ================================================================= -->
   <footer id="contact" class="bg-brand-bg text-brand-navy pt-0 pb-12">
 
@@ -433,7 +460,7 @@
             <li><a href="about.html" class="hover:text-brand-green transition-colors">About Us</a></li>
             <li><a href="our-work.html" class="hover:text-brand-green transition-colors">Our Work</a></li>
             <li><a href="gallery.html" class="hover:text-brand-green transition-colors">Field Gallery</a></li>
-            <li><a href="stories2.html" class="hover:text-brand-green transition-colors">Stories</a></li>
+            <li><a href="stories.html" class="hover:text-brand-green transition-colors">Stories</a></li>
             <li><a href="blog.html" class="hover:text-brand-green transition-colors">Blog</a></li>
             <li><a href="reports.html" class="hover:text-brand-green transition-colors">Reports &amp; Audits</a></li>
             <li><a href="volunteer.html" class="hover:text-brand-green transition-colors">Volunteer</a></li>
@@ -501,44 +528,12 @@
         mainHeader.classList.toggle('scrolled', window.scrollY > 20);
       });
 
-      // 4. Video Modal Handler
-      const videoCards = document.querySelectorAll('.video-card');
-      const videoModal = document.getElementById('video-modal');
-      const modalClose = document.getElementById('modal-close');
-      const modalTitle = document.getElementById('video-modal-title');
-      const modalMeta = document.getElementById('video-modal-meta');
-      const modalIframe = document.getElementById('video-modal-iframe');
-
-      videoCards.forEach((card) => {
-        card.addEventListener('click', () => {
-          const title = card.getAttribute('data-video-title');
-          const meta = card.getAttribute('data-video-meta');
-          const videoId = card.getAttribute('data-video-id');
-
-          modalTitle.textContent = title;
-          modalMeta.textContent = meta;
-          modalIframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0';
-
-          videoModal.classList.add('open');
-          document.body.style.overflow = 'hidden';
-        });
-      });
-
-      const closeVideo = () => {
-        videoModal.classList.remove('open');
-        document.body.style.overflow = '';
-        modalIframe.src = '';
-      };
-
-      modalClose.addEventListener('click', closeVideo);
-      videoModal.addEventListener('click', (e) => {
-        if (e.target === videoModal) closeVideo();
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && videoModal.classList.contains('open')) {
-          closeVideo();
-        }
+      // 4. Scroll Reading Progress Bar
+      const progressBar = document.getElementById('reading-progress');
+      window.addEventListener('scroll', () => {
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (window.scrollY / totalHeight) * 100;
+        progressBar.style.width = `${Math.min(scrollPercent, 100)}%`;
       });
     });
   </script>

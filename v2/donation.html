@@ -54,7 +54,7 @@
       --color-green: #00985A;
       --color-navy: #0B2D4F;
       --color-mint: #D6EFE5;
-      --color-bg: #FAFAF7;
+      --color-bg: #F8F9FA;
       --color-ink: #1A1A1A;
       --color-muted: #6B7280;
       --color-accent: #F2B84B;
@@ -73,9 +73,64 @@
     .font-marathi { font-family: 'Mukta', sans-serif; }
 
     .glass-nav {
-      background: rgba(250, 250, 247, 0.9);
+      background: rgba(248, 249, 250, 0.92);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
+    }
+
+    /* Header: transparent + white text over the hero photo, frosted-white + dark text once scrolled */
+    #main-header {
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0));
+      transition: background 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
+    }
+    #main-header.scrolled {
+      background: rgba(248, 249, 250, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 4px 24px rgba(11, 45, 79, 0.06);
+    }
+    #main-header .nav-link,
+    #main-header button > span:first-child {
+      color: rgba(255, 255, 255, 0.95);
+      transition: color 0.3s ease;
+    }
+    #main-header svg.dropdown-caret {
+      color: rgba(255, 255, 255, 0.75);
+      transition: color 0.3s ease;
+    }
+    #main-header #mobile-toggle {
+      color: #ffffff;
+      transition: color 0.3s ease;
+    }
+    #main-header img.site-logo {
+      filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.45));
+      transition: filter 0.3s ease;
+    }
+    #main-header.scrolled .nav-link,
+    #main-header.scrolled button > span:first-child {
+      color: #737373;
+    }
+    #main-header.scrolled svg.dropdown-caret {
+      color: #a3a3a3;
+    }
+    #main-header.scrolled #mobile-toggle {
+      color: #262626;
+    }
+    #main-header.scrolled img.site-logo {
+      filter: none;
+    }
+
+    footer#contact {
+      position: relative;
+    }
+    footer#contact::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-green), var(--color-accent), var(--color-green));
     }
 
     /* Interactive donation chips */
@@ -113,16 +168,16 @@
   <!-- ================================================================= -->
   <!-- 1. HEADER                                                         -->
   <!-- ================================================================= -->
-  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-brand-border/60 glass-nav">
-    <div class="max-w-7xl mx-auto px-5 sm:px-8 h-24 flex items-center justify-between">
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 h-20 flex items-center justify-between gap-6">
 
       <!-- Brand Logo -->
-      <a href="index.html" class="flex items-center group" aria-label="Krutadnyata Foundation Home">
-        <img src="assets/Krutadnyata Foundation logo (with text).png" alt="Krutadnyata Foundation" class="h-16 w-auto transition-transform duration-300 group-hover:scale-105" />
+      <a href="index.html" class="flex items-center group shrink-0" aria-label="Krutadnyata Foundation Home">
+        <img src="assets/Krutadnyata Foundation logo (with text).png" alt="Krutadnyata Foundation" class="site-logo h-12 w-auto transition-transform duration-300 group-hover:scale-105" />
       </a>
 
       <!-- Desktop Nav -->
-      <nav class="hidden xl:flex items-center gap-5 text-sm font-medium text-neutral-600">
+      <nav class="hidden xl:flex items-center gap-7 text-[13px] font-semibold text-neutral-500 tracking-wide">
         <a href="index.html" class="nav-link hover:text-brand-navy transition-colors py-1">Home</a>
         <a href="about.html" class="nav-link hover:text-brand-navy transition-colors py-1">About Us</a>
 
@@ -130,35 +185,41 @@
         <div class="relative group">
           <button class="flex items-center gap-1.5 hover:text-brand-navy transition-colors py-1 focus:outline-none">
             <span>Our Work</span>
-            <svg class="w-3.5 h-3.5 text-neutral-400 group-hover:rotate-180 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg class="dropdown-caret w-3 h-3 text-neutral-400 group-hover:rotate-180 group-hover:text-brand-green transition-all duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
-          <div class="absolute left-0 top-full pt-3 w-72 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200">
-            <div class="bg-white rounded-2xl p-2.5 shadow-xl border border-neutral-100 grid gap-1 text-xs">
-              <a href="our-work.html#pillar-health" class="px-3 py-2 rounded-xl hover:bg-neutral-50 hover:text-brand-green flex items-center justify-between font-medium">
-                <span>Health & Medical Camps</span>
-                <span class="text-[10px] text-neutral-400">Rural/Urban</span>
+          <div class="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-80 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200">
+            <div class="bg-white rounded-2xl p-2 shadow-2xl shadow-brand-navy/10 border border-neutral-100 grid gap-0.5 text-xs">
+              <a href="our-work.html#pillar-health" class="px-3.5 py-2.5 rounded-xl hover:bg-brand-mint/40 flex items-center gap-3 font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-green shrink-0"></span>
+                <span class="flex-1">Health &amp; Medical Camps</span>
+                <span class="text-[10px] font-medium text-neutral-400">Rural/Urban</span>
               </a>
-              <a href="our-work.html#pillar-education" class="px-3 py-2 rounded-xl hover:bg-neutral-50 hover:text-brand-green flex items-center justify-between font-medium">
-                <span>Education & Civil Services</span>
-                <span class="text-[10px] text-neutral-400">UPSC/MPSC</span>
+              <a href="our-work.html#pillar-education" class="px-3.5 py-2.5 rounded-xl hover:bg-brand-mint/40 flex items-center gap-3 font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-green shrink-0"></span>
+                <span class="flex-1">Education &amp; Civil Services</span>
+                <span class="text-[10px] font-medium text-neutral-400">UPSC/MPSC</span>
               </a>
-              <a href="our-work.html#pillar-environment" class="px-3 py-2 rounded-xl hover:bg-neutral-50 hover:text-brand-green flex items-center justify-between font-medium">
-                <span>Environment & Conservation</span>
-                <span class="text-[10px] text-neutral-400">Nail-Free</span>
+              <a href="our-work.html#pillar-environment" class="px-3.5 py-2.5 rounded-xl hover:bg-brand-mint/40 flex items-center gap-3 font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-green shrink-0"></span>
+                <span class="flex-1">Environment &amp; Conservation</span>
+                <span class="text-[10px] font-medium text-neutral-400">Nail-Free</span>
               </a>
-              <a href="our-work.html#pillar-sports" class="px-3 py-2 rounded-xl hover:bg-neutral-50 hover:text-brand-green flex items-center justify-between font-medium">
-                <span>Youth & State Sports</span>
-                <span class="text-[10px] text-neutral-400">Marathons</span>
+              <a href="our-work.html#pillar-sports" class="px-3.5 py-2.5 rounded-xl hover:bg-brand-mint/40 flex items-center gap-3 font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-green shrink-0"></span>
+                <span class="flex-1">Youth &amp; State Sports</span>
+                <span class="text-[10px] font-medium text-neutral-400">Marathons</span>
               </a>
-              <a href="our-work.html#pillar-relief" class="px-3 py-2 rounded-xl hover:bg-neutral-50 hover:text-brand-green flex items-center justify-between font-medium">
-                <span>Community & Blanket Relief</span>
-                <span class="text-[10px] text-neutral-400">Disadvantaged</span>
+              <a href="our-work.html#pillar-relief" class="px-3.5 py-2.5 rounded-xl hover:bg-brand-mint/40 flex items-center gap-3 font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-green shrink-0"></span>
+                <span class="flex-1">Community &amp; Blanket Relief</span>
+                <span class="text-[10px] font-medium text-neutral-400">Disadvantaged</span>
               </a>
-              <a href="our-work.html#pillar-skilling" class="px-3 py-2 rounded-xl hover:bg-neutral-50 hover:text-brand-green flex items-center justify-between font-medium">
-                <span>Skill Development (MSSDC)</span>
-                <span class="text-[10px] text-neutral-400">Vocational</span>
+              <a href="our-work.html#pillar-skilling" class="px-3.5 py-2.5 rounded-xl hover:bg-brand-mint/40 flex items-center gap-3 font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-green shrink-0"></span>
+                <span class="flex-1">Skill Development (MSSDC)</span>
+                <span class="text-[10px] font-medium text-neutral-400">Vocational</span>
               </a>
             </div>
           </div>
@@ -173,26 +234,28 @@
       </nav>
 
       <!-- Right Action CTA -->
-      <div class="hidden sm:flex items-center gap-5">
-        <a href="donation.html" class="bg-brand-green text-white text-xs font-semibold px-5 py-2.5 rounded-full hover:bg-emerald-700 active:scale-95 transition-all shadow-sm hover:shadow-md flex items-center gap-1.5">
+      <div class="hidden sm:flex items-center gap-5 shrink-0">
+        <a href="#donation-flow" class="group relative bg-brand-navy text-white text-xs font-bold px-5 py-3 rounded-full hover:bg-brand-green active:scale-95 transition-all shadow-md hover:shadow-lg flex items-center gap-2 overflow-hidden">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse"></span>
           <span>Donate Now</span>
-          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
         </a>
       </div>
 
       <!-- Mobile Hamburger Button -->
-      <button id="mobile-toggle" aria-label="Toggle navigation menu" class="xl:hidden p-2 rounded-lg text-neutral-800 hover:bg-neutral-100 focus:outline-none">
+      <button id="mobile-toggle" aria-label="Toggle navigation menu" class="xl:hidden p-2 rounded-lg text-neutral-800 hover:bg-neutral-100 focus:outline-none shrink-0">
         <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
 
     </div>
+    <div class="h-px bg-gradient-to-r from-transparent via-brand-border to-transparent"></div>
   </header>
 
-  <!-- Mobile Drawer -->
+  <!-- Mobile Overlay Menu -->
   <div id="mobile-menu" class="fixed inset-0 bg-brand-navy/95 z-50 flex flex-col justify-between p-8 text-white translate-x-full transition-transform duration-300 xl:hidden overflow-y-auto">
     <div class="flex items-center justify-between border-b border-white/10 pb-5">
       <div class="flex items-center gap-3">
@@ -219,49 +282,40 @@
     </div>
 
     <div class="grid gap-3 pt-6 border-t border-white/10">
-      <a href="donation.html" class="mobile-link w-full py-3.5 bg-brand-green rounded-xl text-center font-semibold text-white">Donate to Programs</a>
+      <a href="#donation-flow" class="mobile-link w-full py-3.5 bg-brand-green rounded-xl text-center font-semibold text-white">Donate to Programs</a>
     </div>
   </div>
 
   <main>
     <!-- ================================================================= -->
-    <!-- 2. DONATION HERO                                                  -->
+    <!-- 2. HERO — full-bleed photo                                        -->
     <!-- ================================================================= -->
-    <section class="relative pt-36 pb-10 overflow-hidden bg-gradient-to-b from-brand-mint/30 via-brand-bg to-brand-bg">
+    <section class="relative h-[85vh] flex items-end overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=1800&h=1200&fit=crop" alt="Hands joined in community support" class="absolute inset-0 w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/40 to-brand-navy/10"></div>
 
-      <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8">
-
-        <div class="max-w-4xl mx-auto text-center">
-          <div class="flex items-center justify-center gap-4 mb-5">
-            <span class="h-px w-10 bg-neutral-300"></span>
-            <span class="text-[11px] font-bold uppercase tracking-[0.3em] text-neutral-500">Donate</span>
-            <span class="h-px w-10 bg-neutral-300"></span>
-          </div>
-          <h1 class="font-display font-bold text-3xl sm:text-5xl text-brand-navy leading-[1.15]">
-            Every Rupee Protects a Life, a Student, or an Ecosystem.
-          </h1>
-          <p class="mt-5 text-sm sm:text-base text-neutral-600 max-w-2xl mx-auto leading-relaxed">
-            Your contributions directly fund free medical camps in rural hamlets like Sangameshwar, educational essentials for youth, competitive coaching, and emergency aid for ailing patients across Maharashtra.
-          </p>
-          <div class="mt-6 flex items-center justify-center">
-            <span class="h-px w-16 bg-brand-green"></span>
-          </div>
-        </div>
-
+      <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 pb-16 pt-40 w-full">
+        <span class="text-xs font-bold uppercase tracking-[0.3em] text-brand-mint">Donate</span>
+        <h1 class="mt-3 font-display font-extrabold text-4xl sm:text-6xl lg:text-7xl text-white tracking-tightest leading-[1.05] max-w-3xl">
+          Every Rupee Protects a Life, a Student, or an Ecosystem.
+        </h1>
+        <p class="mt-5 text-base sm:text-lg text-neutral-200 max-w-xl leading-relaxed">
+          Your contributions directly fund free medical camps in rural hamlets like Sangameshwar, educational essentials for youth, competitive coaching, and emergency aid for ailing patients across Maharashtra.
+        </p>
       </div>
     </section>
 
     <!-- ================================================================= -->
     <!-- 3. INTERACTIVE DONATION FLOW & ALLOCATION SPLIT                   -->
     <!-- ================================================================= -->
-    <section id="donation-flow" class="pt-8 pb-20 bg-brand-bg">
+    <section id="donation-flow" class="pt-20 pb-20 bg-brand-bg">
       <div class="max-w-7xl mx-auto px-5 sm:px-8">
-        
+
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          
+
           <!-- Left Column: Unified Donation Checkout Card -->
           <div class="lg:col-span-7 bg-white rounded-3xl p-8 sm:p-12 border border-neutral-200/90 shadow-sm">
-            
+
             <!-- Frequency Toggle -->
             <div class="flex items-center justify-between pb-6 border-b border-neutral-100">
               <span class="text-xs font-bold uppercase tracking-widest text-neutral-500">Contribution Frequency</span>
@@ -300,7 +354,7 @@
             <div class="mt-8">
               <label class="text-xs font-bold text-neutral-700 uppercase tracking-wider block mb-3">Direct My Contribution Towards</label>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="allocation-container">
-                
+
                 <div class="allocation-card active p-3.5 rounded-xl border border-neutral-200 bg-brand-bg cursor-pointer hover:border-brand-green transition-all" data-allocation="Where Most Needed">
                   <div class="flex items-center justify-between">
                     <span class="text-xs font-bold text-brand-navy">Where Most Needed</span>
@@ -394,7 +448,7 @@
 
               <span class="text-xs font-bold uppercase tracking-widest text-brand-accent mb-2 block">Direct Beneficiary Reach</span>
               <h3 class="font-display font-bold text-2xl text-white">What Your Contribution Achieves</h3>
-              
+
               <div class="mt-6 space-y-4 text-xs">
                 <div class="p-4 rounded-2xl bg-white/10 border border-white/10">
                   <span class="font-bold text-brand-accent block text-sm">₹1,500 Contribution</span>
@@ -460,7 +514,7 @@
     <!-- ================================================================= -->
     <section id="bank-transfer" class="py-20 bg-white border-t border-brand-border">
       <div class="max-w-7xl mx-auto px-5 sm:px-8">
-        
+
         <div class="max-w-3xl mx-auto text-center mb-12">
           <span class="text-xs font-bold uppercase tracking-widest text-brand-green">High-Value Donors &amp; CSR Wings</span>
           <h2 class="font-display font-bold text-3xl text-brand-navy mt-1">Direct Bank Transfer / NEFT / RTGS</h2>
@@ -468,9 +522,9 @@
         </div>
 
         <div class="max-w-3xl mx-auto bg-brand-bg rounded-3xl p-8 sm:p-12 border border-neutral-200/90 shadow-sm">
-          
+
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-xs">
-            
+
             <div class="p-4 rounded-2xl bg-white border border-neutral-200/80">
               <span class="text-neutral-400 uppercase tracking-widest text-[10px] font-bold block">Account Beneficiary</span>
               <p class="font-display font-bold text-sm text-brand-navy mt-1">Krutadnyata Foundation</p>
@@ -522,14 +576,14 @@
     <!-- ================================================================= -->
     <section class="py-20 bg-brand-bg border-t border-brand-border">
       <div class="max-w-4xl mx-auto px-5 sm:px-8">
-        
+
         <div class="text-center mb-12">
           <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Transparency &amp; Governance</span>
           <h2 class="font-display font-bold text-3xl text-brand-navy mt-1">Questions About Giving</h2>
         </div>
 
         <div class="space-y-4">
-          
+
           <div class="p-6 rounded-2xl bg-white border border-neutral-200/80">
             <h4 class="font-display font-bold text-sm text-brand-navy">Can I specify which initiative my funds support?</h4>
             <p class="text-xs text-neutral-600 mt-2 leading-relaxed">
@@ -560,76 +614,92 @@
   <!-- ================================================================= -->
   <!-- 6. FOOTER                                                         -->
   <!-- ================================================================= -->
-  <footer id="contact" class="bg-brand-navy text-white border-t border-neutral-800 pt-16 pb-12">
-    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+  <footer id="contact" class="bg-brand-bg text-brand-navy pt-0 pb-12">
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-16 border-b border-white/10">
+    <!-- Featured CTA block -->
+    <div class="bg-brand-navy text-white">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 py-12 sm:py-14 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-widest text-brand-mint mb-2">Before You Go</p>
+          <h3 class="font-display font-bold text-2xl sm:text-3xl leading-tight max-w-lg">Your support reaches the field within the same quarter — not years later.</h3>
+        </div>
+        <a href="#donation-flow" class="shrink-0 px-7 py-3.5 bg-brand-green text-white font-semibold rounded-full hover:bg-emerald-600 hover:-translate-y-0.5 transition-all text-sm flex items-center gap-2">
+          <span>Donate Now</span>
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 pt-16">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-14 border-b border-neutral-200">
 
         <!-- Foundation Info -->
-        <div class="lg:col-span-4 space-y-4">
-          <div class="flex items-center gap-3">
-            <img src="assets/Krutadnyata Foundation logo (with text).png" alt="Krutadnyata Foundation" class="h-14 w-auto object-contain" />
-          </div>
-          <p class="text-xs text-neutral-300 leading-relaxed font-normal">
+        <div class="lg:col-span-4 space-y-5">
+          <img src="assets/Krutadnyata Foundation logo (with text).png" alt="Krutadnyata Foundation" class="h-12 w-auto object-contain" />
+          <p class="text-sm text-neutral-600 leading-relaxed font-normal max-w-xs">
             A Maharashtra-based registered social organisation dedicated to bridging educational inequalities, conducting preventive healthcare, and empowering communities since 2019.
           </p>
-          <div class="text-xs text-neutral-400 space-y-1">
-            <p><strong>Charity Reg:</strong> [TO CONFIRM: Trust Registration Number]</p>
-            <p><strong>Head Office:</strong> [TO CONFIRM: Official Registered Address], Suburban Mumbai, Maharashtra</p>
-            <p><strong>Helpline:</strong> +91 98338 61159 (Inquiries)</p>
+          <div class="text-xs text-neutral-500 space-y-1.5 border-l-2 border-brand-mint pl-3.5">
+            <p><strong class="text-brand-navy font-semibold">Charity Reg:</strong> [TO CONFIRM: Trust Registration Number]</p>
+            <p><strong class="text-brand-navy font-semibold">Head Office:</strong> [TO CONFIRM: Official Registered Address], Suburban Mumbai, Maharashtra</p>
+            <p><strong class="text-brand-navy font-semibold">Helpline:</strong> +91 98338 61159 (Inquiries)</p>
           </div>
         </div>
 
         <!-- Core Work -->
-        <div class="lg:col-span-2 space-y-3 text-xs">
-          <p class="font-display font-bold text-white uppercase tracking-wider text-[11px]">Core Work</p>
-          <ul class="space-y-2 text-neutral-300">
-            <li><a href="our-work.html#pillar-health" class="hover:text-brand-mint transition-colors">Health Camps</a></li>
-            <li><a href="our-work.html#pillar-sports" class="hover:text-brand-mint transition-colors">State Sports Day</a></li>
-            <li><a href="our-work.html#pillar-skilling" class="hover:text-brand-mint transition-colors">Aarya Skill Centre</a></li>
-            <li><a href="our-work.html#pillar-environment" class="hover:text-brand-mint transition-colors">Tree Protection</a></li>
-            <li><a href="our-work.html#pillar-relief" class="hover:text-brand-mint transition-colors">Community Relief</a></li>
+        <div class="lg:col-span-2 space-y-4 text-sm">
+          <p class="font-display font-bold text-brand-navy uppercase tracking-wider text-[11px] flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-green"></span>Core Work</p>
+          <ul class="space-y-2.5 text-neutral-600">
+            <li><a href="our-work.html#pillar-health" class="hover:text-brand-green transition-colors">Health Camps</a></li>
+            <li><a href="our-work.html#pillar-sports" class="hover:text-brand-green transition-colors">State Sports Day</a></li>
+            <li><a href="our-work.html#pillar-skilling" class="hover:text-brand-green transition-colors">Aarya Skill Centre</a></li>
+            <li><a href="our-work.html#pillar-environment" class="hover:text-brand-green transition-colors">Tree Protection</a></li>
+            <li><a href="our-work.html#pillar-relief" class="hover:text-brand-green transition-colors">Community Relief</a></li>
           </ul>
         </div>
 
         <!-- Navigation -->
-        <div class="lg:col-span-2 space-y-3 text-xs">
-          <p class="font-display font-bold text-white uppercase tracking-wider text-[11px]">Navigation</p>
-          <ul class="space-y-2 text-neutral-300">
-            <li><a href="index.html" class="hover:text-brand-mint transition-colors">Home</a></li>
-            <li><a href="about.html" class="hover:text-brand-mint transition-colors">About Us</a></li>
-            <li><a href="our-work.html" class="hover:text-brand-mint transition-colors">Our Work</a></li>
-            <li><a href="gallery.html" class="hover:text-brand-mint transition-colors">Field Gallery</a></li>
-            <li><a href="stories.html" class="hover:text-brand-mint transition-colors">Stories</a></li>
-            <li><a href="blog.html" class="hover:text-brand-mint transition-colors">Blog</a></li>
-            <li><a href="reports.html" class="hover:text-brand-mint transition-colors">Reports &amp; Audits</a></li>
-            <li><a href="volunteer.html" class="hover:text-brand-mint transition-colors">Volunteer</a></li>
-            <li><a href="contact.html" class="hover:text-brand-mint transition-colors">Contact</a></li>
+        <div class="lg:col-span-2 space-y-4 text-sm">
+          <p class="font-display font-bold text-brand-navy uppercase tracking-wider text-[11px] flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-green"></span>Navigation</p>
+          <ul class="space-y-2.5 text-neutral-600">
+            <li><a href="index.html" class="hover:text-brand-green transition-colors">Home</a></li>
+            <li><a href="about.html" class="hover:text-brand-green transition-colors">About Us</a></li>
+            <li><a href="our-work.html" class="hover:text-brand-green transition-colors">Our Work</a></li>
+            <li><a href="gallery.html" class="hover:text-brand-green transition-colors">Field Gallery</a></li>
+            <li><a href="stories.html" class="hover:text-brand-green transition-colors">Stories</a></li>
+            <li><a href="blog.html" class="hover:text-brand-green transition-colors">Blog</a></li>
+            <li><a href="reports.html" class="hover:text-brand-green transition-colors">Reports &amp; Audits</a></li>
+            <li><a href="volunteer.html" class="hover:text-brand-green transition-colors">Volunteer</a></li>
+            <li><a href="contact.html" class="hover:text-brand-green transition-colors">Contact</a></li>
           </ul>
         </div>
 
         <!-- Stay Informed -->
         <div class="lg:col-span-4 space-y-4">
-          <p class="font-display font-bold text-white uppercase tracking-wider text-[11px]">Stay Informed</p>
-          <p class="text-xs text-neutral-300 leading-relaxed">Subscribe to receive our verified quarterly field activity bulletins and volunteer opportunities.</p>
-
-          <form class="flex items-center gap-2" onsubmit="event.preventDefault(); alert('Subscribed to Krutadnyata updates.');">
-            <input type="email" placeholder="Your email address" required class="bg-white/10 border border-white/15 px-3.5 py-2.5 rounded-xl text-xs text-white placeholder-neutral-400 focus:outline-none focus:border-brand-green flex-1" />
-            <button type="submit" class="px-4 py-2.5 bg-brand-green text-white text-xs font-semibold rounded-xl hover:bg-emerald-700 transition-colors whitespace-nowrap">Join</button>
-          </form>
+          <p class="font-display font-bold text-brand-navy uppercase tracking-wider text-[11px] flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-green"></span>Stay Informed</p>
+          <div class="bg-white rounded-2xl border border-neutral-200/80 p-5">
+            <p class="text-xs text-neutral-600 leading-relaxed">Subscribe to receive our verified quarterly field activity bulletins and volunteer opportunities.</p>
+            <form class="flex items-center gap-2 mt-4" onsubmit="event.preventDefault(); alert('Subscribed to Krutadnyata updates.');">
+              <input type="email" placeholder="Your email address" required class="bg-brand-bg border border-neutral-300 px-3.5 py-2.5 rounded-xl text-xs text-brand-navy placeholder-neutral-400 focus:outline-none focus:border-brand-green flex-1" />
+              <button type="submit" class="px-4 py-2.5 bg-brand-green text-white text-xs font-semibold rounded-xl hover:bg-emerald-700 transition-colors whitespace-nowrap">Join</button>
+            </form>
+          </div>
         </div>
 
       </div>
 
       <!-- Bottom Disclaimer & Copyright -->
-      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-neutral-400 gap-4">
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-neutral-500 gap-4">
         <div>
           © 2019–2026 Krutadnyata Foundation (कृतज्ञता फाउंडेशन). All public contributions are utilized strictly towards community welfare programs.
         </div>
         <div class="flex items-center gap-6">
-          <a href="privacy.html" class="hover:text-neutral-200 transition-colors">Privacy Policy</a>
-          <a href="reports.html" class="hover:text-neutral-200 transition-colors">MOU Records</a>
-          <a href="donation.html" class="hover:text-neutral-200 transition-colors">80G Verification</a>
+          <a href="privacy.html" class="hover:text-brand-navy transition-colors">Privacy Policy</a>
+          <a href="reports.html" class="hover:text-brand-navy transition-colors">MOU Records</a>
+          <a href="donation.html" class="hover:text-brand-navy transition-colors">80G Verification</a>
         </div>
       </div>
 
@@ -661,7 +731,13 @@
       mobileToggle.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
       mobileClose.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
 
-      // 3. Dynamic Donation Amount Selection
+      // 3. Header shadow on scroll
+      const mainHeader = document.getElementById('main-header');
+      window.addEventListener('scroll', () => {
+        mainHeader.classList.toggle('scrolled', window.scrollY > 20);
+      });
+
+      // 4. Dynamic Donation Amount Selection
       const amountChips = document.querySelectorAll('.amount-chip');
       const customInput = document.getElementById('custom-amount-input');
       const finalAmountInput = document.getElementById('final-amount');
@@ -700,7 +776,7 @@
         }
       });
 
-      // 4. Frequency Selector
+      // 5. Frequency Selector
       const freqButtons = document.querySelectorAll('.frequency-btn');
       const finalFreqInput = document.getElementById('final-frequency');
 
@@ -716,7 +792,7 @@
         });
       });
 
-      // 5. Allocation Selection Cards
+      // 6. Allocation Selection Cards
       const allocationCards = document.querySelectorAll('.allocation-card');
       const finalAllocationInput = document.getElementById('final-allocation');
 
