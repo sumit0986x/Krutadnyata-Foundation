@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rural Ayurvedic Health Camps in Sangola &amp; Sangameshwar — Krutadnyata Foundation (कृतज्ञता फाउंडेशन)</title>
+  <meta name="description" content="Initiative dossier: free Ayurvedic diagnostic camps across Sangola, Sangameshwar and Pachal, COVID-era urban screenings in Bhatwadi-Ghatkopar, and voluntary blood drives in Borivali with Pushkar Ayurvedic Health Center." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Mukta:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lenis Smooth Scroll CDN -->
+  <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              green: 'var(--color-green)',
+              navy: 'var(--color-navy)',
+              mint: 'var(--color-mint)',
+              bg: 'var(--color-bg)',
+              ink: 'var(--color-ink)',
+              muted: 'var(--color-muted)',
+              accent: 'var(--color-accent)',
+              border: 'var(--color-border)',
+            }
+          },
+          fontFamily: {
+            sans: ['"Inter"', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+            marathi: ['"Mukta"', 'sans-serif'],
+          },
+          letterSpacing: {
+            tightest: '-0.035em',
+            tighter: '-0.02em',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --color-green: #00985A;
+      --color-navy: #0B2D4F;
+      --color-mint: #D6EFE5;
+      --color-bg: #F8F9FA;
+      --color-ink: #1A1A1A;
+      --color-muted: #6B7280;
+      --color-accent: #F2B84B;
+      --color-border: #E5E7EB;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-ink);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-marathi { font-family: 'Mukta', sans-serif; }
+
+    .glass-nav {
+      background: rgba(248, 249, 250, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    /* Header: transparent + white text over the hero photo, frosted-white + dark text once scrolled */
+    #main-header {
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0));
+      transition: background 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
+    }
+    #main-header.scrolled {
+      background: rgba(248, 249, 250, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 4px 24px rgba(11, 45, 79, 0.06);
+    }
+    #main-header .nav-link,
+    #main-header button > span:first-child {
+      color: rgba(255, 255, 255, 0.95);
+      transition: color 0.3s ease;
+    }
+    #main-header svg.dropdown-caret {
+      color: rgba(255, 255, 255, 0.75);
+      transition: color 0.3s ease;
+    }
+    #main-header #mobile-toggle {
+      color: #ffffff;
+      transition: color 0.3s ease;
+    }
+    #main-header img.site-logo {
+      filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.45));
+      transition: filter 0.3s ease;
+    }
+    #main-header.scrolled .nav-link,
+    #main-header.scrolled button > span:first-child {
+      color: #737373;
+    }
+    #main-header.scrolled svg.dropdown-caret {
+      color: #a3a3a3;
+    }
+    #main-header.scrolled #mobile-toggle {
+      color: #262626;
+    }
+    #main-header.scrolled img.site-logo {
+      filter: none;
+    }
+
+    footer#contact {
+      position: relative;
+    }
+    footer#contact::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-green), var(--color-accent), var(--color-green));
+    }
+
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="selection:bg-brand-mint selection:text-brand-navy">
+
+  <!-- ================================================================= -->
+  <!-- 1. HEADER                                                         -->
+  <!-- ================================================================= -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 h-20 flex items-center justify-between gap-6">
+
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center group shrink-0" aria-label="Krutadnyata Foundation Home">
+        <img src="assets/Krutadnyata Foundation logo (with text).png" alt="Krutadnyata Foundation" class="site-logo h-12 w-auto transition-transform duration-300 group-hover:scale-105" />
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden xl:flex items-center gap-7 text-[13px] font-semibold text-neutral-500 tracking-wide">
+        <a href="index.html" class="nav-link hover:text-brand-navy transition-colors py-1">Home</a>
+        <a href="about.html" class="nav-link hover:text-brand-navy transition-colors py-1">About Us</a>
+
+        <!-- Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1.5 hover:text-brand-navy transition-colors py-1 focus:outline-none">
+            <span>Our Work</span>
+            <svg class="dropdown-caret w-3 h-3 text-neutral-400 group-hover:rotate-180 group-hover:text-brand-green transition-all duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-80 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200">
+            <div class="bg-white rounded-2xl p-2 shadow-2xl shadow-brand-navy/10 border border-neutral-100 grid gap-0.5 text-xs">
+              <a href="our-work.html#pillar-health" class="px-3.5 py-2.5 rounded-xl hover:bg-brand-mint/40 flex items-center gap-3 font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-green shrink-0"></span>
+                <span class="flex-1">Health &amp; Medical Camps</span>
+                <span class="text-[10px] font-medium text-neutral-400">Rural/Urban</span>
+              </a>
+              <a href="our-work.html#pillar-education" class="px-3.5 py-2.5 rounded-xl hover:bg-brand-mint/40 flex items-center gap-3 font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-green shrink-0"></span>
+                <span class="flex-1">Education &amp; Civil Services</span>
+                <span class="text-[10px] font-medium text-neutral-400">UPSC/MPSC</span>
+              </a>
+              <a href="our-work.html#pillar-environment" class="px-3.5 py-2.5 rounded-xl hover:bg-brand-mint/40 flex items-center gap-3 font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-green shrink-0"></span>
+                <span class="flex-1">Environment &amp; Conservation</span>
+                <span class="text-[10px] font-medium text-neutral-400">Nail-Free</span>
+              </a>
+              <a href="our-work.html#pillar-sports" class="px-3.5 py-2.5 rounded-xl hover:bg-brand-mint/40 flex items-center gap-3 font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-green shrink-0"></span>
+                <span class="flex-1">Youth &amp; State Sports</span>
+                <span class="text-[10px] font-medium text-neutral-400">Marathons</span>
+              </a>
+              <a href="our-work.html#pillar-relief" class="px-3.5 py-2.5 rounded-xl hover:bg-brand-mint/40 flex items-center gap-3 font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-green shrink-0"></span>
+                <span class="flex-1">Community &amp; Blanket Relief</span>
+                <span class="text-[10px] font-medium text-neutral-400">Disadvantaged</span>
+              </a>
+              <a href="our-work.html#pillar-skilling" class="px-3.5 py-2.5 rounded-xl hover:bg-brand-mint/40 flex items-center gap-3 font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-green shrink-0"></span>
+                <span class="flex-1">Skill Development (MSSDC)</span>
+                <span class="text-[10px] font-medium text-neutral-400">Vocational</span>
+              </a>
+              <a href="our-work.html#pillar-civic" class="px-3.5 py-2.5 rounded-xl hover:bg-brand-mint/40 flex items-center gap-3 font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-green shrink-0"></span>
+                <span class="flex-1">Civic &amp; Cyber Awareness</span>
+                <span class="text-[10px] font-medium text-neutral-400">Multiple Batches</span>
+              </a>
+              <a href="our-work.html#pillar-legal" class="px-3.5 py-2.5 rounded-xl hover:bg-brand-mint/40 flex items-center gap-3 font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-green shrink-0"></span>
+                <span class="flex-1">Free Legal Advice</span>
+                <span class="text-[10px] font-medium text-neutral-400">Ongoing Service</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a href="gallery.html" class="nav-link hover:text-brand-navy transition-colors py-1">Gallery</a>
+        <a href="stories.html" class="nav-link hover:text-brand-navy transition-colors py-1">Stories</a>
+        <a href="blog.html" class="nav-link hover:text-brand-navy transition-colors py-1">Blog</a>
+        <a href="reports.html" class="nav-link hover:text-brand-navy transition-colors py-1">Reports &amp; Audits</a>
+        <a href="volunteer.html" class="nav-link hover:text-brand-navy transition-colors py-1">Volunteer</a>
+        <a href="contact.html" class="nav-link hover:text-brand-navy transition-colors py-1">Contact</a>
+      </nav>
+
+      <!-- Right Action CTA -->
+      <div class="hidden sm:flex items-center gap-5 shrink-0">
+        <a href="donation.html" class="group relative bg-brand-navy text-white text-xs font-bold px-5 py-3 rounded-full hover:bg-brand-green active:scale-95 transition-all shadow-md hover:shadow-lg flex items-center gap-2 overflow-hidden">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse"></span>
+          <span>Donate Now</span>
+          <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-toggle" aria-label="Toggle navigation menu" class="xl:hidden p-2 rounded-lg text-neutral-800 hover:bg-neutral-100 focus:outline-none shrink-0">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+    </div>
+    <div class="h-px bg-gradient-to-r from-transparent via-brand-border to-transparent"></div>
+  </header>
+
+  <!-- Mobile Overlay Menu -->
+  <div id="mobile-menu" class="fixed inset-0 bg-brand-navy/95 z-50 flex flex-col justify-between p-8 text-white translate-x-full transition-transform duration-300 xl:hidden overflow-y-auto">
+    <div class="flex items-center justify-between border-b border-white/10 pb-5">
+      <div class="flex items-center gap-3">
+        <img src="assets/Krutadnyata Foundation logo (icon only).png" alt="Krutadnyata Foundation" class="w-10 h-10 object-contain" />
+        <span class="font-display font-bold text-lg">Krutadnyata</span>
+      </div>
+      <button id="mobile-close" aria-label="Close menu" class="p-2 text-white/80 hover:text-white">
+        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="grid gap-4 text-lg font-display font-semibold py-6">
+      <a href="index.html" class="nav-link mobile-link text-white/80 hover:text-white">Home</a>
+      <a href="about.html" class="nav-link mobile-link text-white/80 hover:text-white">About Us</a>
+      <a href="our-work.html" class="nav-link mobile-link text-white/80 hover:text-white">Our Work</a>
+      <a href="gallery.html" class="nav-link mobile-link text-white/80 hover:text-white">Gallery</a>
+      <a href="stories.html" class="nav-link mobile-link text-white/80 hover:text-white">Stories</a>
+      <a href="blog.html" class="nav-link mobile-link text-white/80 hover:text-white">Blog</a>
+      <a href="reports.html" class="nav-link mobile-link text-white/80 hover:text-white">Reports &amp; Audits</a>
+      <a href="volunteer.html" class="nav-link mobile-link text-white/80 hover:text-white">Volunteer</a>
+      <a href="contact.html" class="nav-link mobile-link text-white/80 hover:text-white">Contact</a>
+    </div>
+
+    <div class="grid gap-3 pt-6 border-t border-white/10">
+      <a href="donation.html" class="mobile-link w-full py-3.5 bg-brand-green rounded-xl text-center font-semibold text-white">Donate to Programs</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ================================================================= -->
+    <!-- 2. HERO — full-bleed photo                                        -->
+    <!-- ================================================================= -->
+    <section class="relative h-[85vh] flex items-end overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=1800&h=1200&fit=crop" alt="Volunteer medical staff checking a patient's blood pressure during a free rural health camp" class="absolute inset-0 w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/45 to-brand-navy/10"></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 pb-16 pt-40 w-full">
+
+        <!-- Breadcrumb -->
+        <nav class="flex items-center gap-2 text-xs text-neutral-300 mb-6 font-medium">
+          <a href="index.html" class="hover:text-white transition-colors">Home</a>
+          <span>/</span>
+          <a href="our-work.html#pillar-health" class="hover:text-white transition-colors">Our Work</a>
+          <span>/</span>
+          <span class="text-brand-mint">Rural Ayurvedic Health Camps</span>
+        </nav>
+
+        <span class="text-xs font-bold uppercase tracking-[0.3em] text-brand-mint">Initiative Dossier · Health &amp; Medical Camps</span>
+        <h1 class="mt-3 font-display font-extrabold text-4xl sm:text-6xl lg:text-7xl text-white tracking-tightest leading-[1.05] max-w-3xl">
+          Rural Ayurvedic Health Camps in Sangola &amp; Sangameshwar
+        </h1>
+        <p class="mt-5 text-base sm:text-lg text-neutral-200 max-w-xl leading-relaxed">
+          Free primary health checkups and Ayurvedic pulse diagnosis carried directly into unreached Konkan and Solapur wadis — extended through COVID-era urban screenings in Bhatwadi-Ghatkopar and voluntary blood drives in Borivali.
+        </p>
+
+        <!-- Partner strip -->
+        <div class="mt-8 flex flex-wrap items-center gap-6 text-xs font-medium pt-6 border-t border-white/15">
+          <div>
+            <span class="text-neutral-400 block text-[10px] uppercase font-bold tracking-wider">Key Medical Partner</span>
+            <span class="font-semibold text-white">Pushkar Ayurvedic Health Center, Vaidya Mangesh Khade</span>
+          </div>
+          <div class="w-px h-8 bg-white/15 hidden sm:block"></div>
+          <div>
+            <span class="text-neutral-400 block text-[10px] uppercase font-bold tracking-wider">Academic Partners</span>
+            <span class="font-semibold text-white">Sailee Degree College &amp; CDS College of Engineering</span>
+          </div>
+          <div class="w-px h-8 bg-white/15 hidden sm:block"></div>
+          <div>
+            <span class="text-neutral-400 block text-[10px] uppercase font-bold tracking-wider">Field Coverage</span>
+            <span class="font-semibold text-brand-mint">Solapur, Ratnagiri &amp; Mumbai Suburban</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 3. QUANTIFIABLE IMPACT — floating card overlapping the hero       -->
+    <!-- ================================================================= -->
+    <section class="relative z-20 -mt-10 sm:-mt-12 px-5 sm:px-8">
+      <div class="max-w-6xl mx-auto bg-white rounded-3xl shadow-xl shadow-brand-navy/10 border border-brand-border grid grid-cols-2 sm:grid-cols-4 divide-x divide-y sm:divide-y-0 divide-brand-border/70 p-6 sm:p-8 text-center">
+        <div class="px-2 py-2 sm:py-0">
+          <p class="font-display font-extrabold text-2xl sm:text-3xl text-brand-navy">1,500+</p>
+          <p class="text-[11px] text-neutral-500 mt-1 uppercase tracking-wide">Citizens Screened</p>
+        </div>
+        <div class="px-2 py-2 sm:py-0">
+          <p class="font-display font-extrabold text-2xl sm:text-3xl text-brand-navy">4</p>
+          <p class="text-[11px] text-neutral-500 mt-1 uppercase tracking-wide">Districts Covered</p>
+        </div>
+        <div class="px-2 py-2 sm:py-0">
+          <p class="font-display font-extrabold text-2xl sm:text-3xl text-brand-navy">Voluntary</p>
+          <p class="text-[11px] text-neutral-500 mt-1 uppercase tracking-wide">Blood Donation Drives</p>
+        </div>
+        <div class="px-2 py-2 sm:py-0">
+          <p class="font-display font-extrabold text-2xl sm:text-3xl text-brand-navy">Free</p>
+          <p class="text-[11px] text-neutral-500 mt-1 uppercase tracking-wide">Ayurvedic Medicines Dispensed</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 4. CORE OBJECTIVES & IMPLEMENTATION NARRATIVE                     -->
+    <!-- ================================================================= -->
+    <section class="py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+
+          <!-- Main narrative column -->
+          <div class="lg:col-span-8 space-y-14">
+
+            <!-- Intro -->
+            <div class="max-w-3xl">
+              <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Strategic Scope</span>
+              <h2 class="font-display font-bold text-3xl sm:text-4xl text-brand-navy mt-1 leading-tight">
+                Closing the distance between a diagnosis and a doorstep
+              </h2>
+              <p class="mt-5 text-sm sm:text-base text-neutral-600 leading-relaxed">
+                Healthcare access in remote Maharashtra talukas is severely hindered by distance, cost, and the absence of a nearby practitioner. Krutadnyata Foundation addresses this gap directly — carrying free primary medical checkups, Ayurvedic consultations, and voluntary blood donation drives into villages and urban informal settlements that formal healthcare infrastructure rarely reaches.
+              </p>
+            </div>
+
+            <!-- Narrative block 1: image left, text right -->
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
+              <div class="sm:col-span-5">
+                <div class="relative rounded-[1.75rem] overflow-hidden shadow-md aspect-[4/3]">
+                  <img src="https://images.unsplash.com/photo-1512069772995-ec65ed45afd6?w=700&h=520&fit=crop" alt="Ayurvedic physician conducting pulse diagnosis at a rural health camp" class="w-full h-full object-cover" loading="lazy" />
+                  <span class="absolute top-4 left-4 px-2.5 py-1 rounded-full bg-white/95 text-brand-navy text-[10px] font-bold uppercase">Sangola &amp; Sangameshwar</span>
+                </div>
+              </div>
+              <div class="sm:col-span-7 space-y-3">
+                <span class="text-[11px] font-bold uppercase tracking-widest text-brand-green">Rural Ayurvedic Diagnostic Camps</span>
+                <h3 class="font-display font-bold text-xl text-brand-navy leading-snug">
+                  Pulse examination and free medicine in drought-prone and coastal wadis
+                </h3>
+                <p class="text-sm text-neutral-600 leading-relaxed">
+                  Working in association with the <strong class="text-brand-navy">Pushkar Ayurvedic Health Center</strong> and <strong class="text-brand-navy">Vaidya Mangesh Khade</strong>, we conduct free Ayurvedic diagnostic camps at Dhamapur Dhanawade Wadi (Sangameshwar, Ratnagiri), Pachal (Rajapur), and the drought-prone taluka of Sangola (Solapur). Each camp offers specialized pulse (nadi) diagnosis, dietary counseling for chronic disorders, and free Ayurvedic remedies dispensed on the spot — no travel to a district hospital required.
+                </p>
+              </div>
+            </div>
+
+            <!-- Narrative block 2: text left, image right -->
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
+              <div class="sm:col-span-7 order-2 sm:order-1 space-y-3">
+                <span class="text-[11px] font-bold uppercase tracking-widest text-brand-green">Urban Screenings &amp; Blood Drives</span>
+                <h3 class="font-display font-bold text-xl text-brand-navy leading-snug">
+                  Extending the same care into Mumbai's informal settlements
+                </h3>
+                <p class="text-sm text-neutral-600 leading-relaxed">
+                  As the COVID-19 pandemic strained access to routine checkups, we ran an on-ground primary health screening camp at Bhatwadi, Ghatkopar, reaching residents who could not safely travel to a clinic. In parallel, we organize regular voluntary blood donation drives at Manapurna Banquet, Borivali, in partnership with Sailee Degree College, CDS College of Engineering, and NSS units — sustaining the regional blood bank supply across Mumbai Suburban.
+                </p>
+              </div>
+              <div class="sm:col-span-5 order-1 sm:order-2">
+                <div class="relative rounded-[1.75rem] overflow-hidden shadow-md aspect-[4/3]">
+                  <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=700&h=520&fit=crop" alt="Doctor conducting a health screening checkup during a community camp" class="w-full h-full object-cover" loading="lazy" />
+                  <span class="absolute bottom-4 right-4 bg-white/95 text-brand-navy text-[10px] font-bold px-2.5 py-1 rounded-full shadow-xs">Bhatwadi, Ghatkopar</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pull quote -->
+            <blockquote class="relative border-l-4 border-brand-green bg-brand-mint/30 rounded-2xl p-7 sm:p-9">
+              <p class="font-display font-semibold text-lg sm:text-xl text-brand-navy leading-snug">
+                "A pulse examination under a village tin roof carries the same weight as one in a city hospital corridor — the difference is simply whether anyone showed up to take it."
+              </p>
+              <span class="mt-4 block text-xs font-semibold text-neutral-600 uppercase tracking-wide">Krutadnyata Foundation, Field Note — Sangola, Solapur</span>
+            </blockquote>
+
+            <!-- Timeline -->
+            <div class="bg-brand-bg p-8 sm:p-10 rounded-3xl border border-neutral-200/90 space-y-6">
+              <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Chronological Timeline</span>
+              <h3 class="font-display font-bold text-2xl text-brand-navy">Program roadmap &amp; on-ground milestones</h3>
+
+              <div class="space-y-6 border-l-2 border-brand-green/40 pl-6 ml-2 text-xs">
+
+                <div class="relative">
+                  <span class="w-3.5 h-3.5 rounded-full bg-brand-green absolute -left-[31px] top-0.5 border-2 border-white"></span>
+                  <span class="font-bold text-brand-navy text-sm block">Sangola Rural Ayurvedic Camp launched</span>
+                  <span class="text-neutral-400 block mt-0.5">26 January 2020 · Sangola, Solapur</span>
+                  <p class="text-neutral-600 mt-2 leading-relaxed">
+                    The flagship Ayurvedic diagnostic camp reached drought-prone talukas of Solapur with pulse diagnosis, chronic disorder consultations, and free medicines, in association with Pushkar Ayurvedic Health Center.
+                  </p>
+                </div>
+
+                <div class="relative">
+                  <span class="w-3.5 h-3.5 rounded-full bg-brand-navy absolute -left-[31px] top-0.5 border-2 border-white"></span>
+                  <span class="font-bold text-brand-navy text-sm block">COVID-era urban screening camp</span>
+                  <span class="text-neutral-400 block mt-0.5">2020–2021 · Bhatwadi, Ghatkopar</span>
+                  <p class="text-neutral-600 mt-2 leading-relaxed">
+                    An on-ground primary health check-up camp served residents of Bhatwadi amid pandemic restrictions, when routine clinic visits were hardest to make.
+                  </p>
+                </div>
+
+                <div class="relative">
+                  <span class="w-3.5 h-3.5 rounded-full bg-neutral-300 absolute -left-[31px] top-0.5 border-2 border-white"></span>
+                  <span class="font-bold text-brand-navy text-sm block">Konkan coastal camps extend the network</span>
+                  <span class="text-neutral-400 block mt-0.5">Ongoing · Sangameshwar &amp; Pachal, Ratnagiri</span>
+                  <p class="text-neutral-600 mt-2 leading-relaxed">
+                    Diagnostic camps at Dhamapur Dhanawade Wadi (Sangameshwar) and Pachal (Rajapur) brought the same Ayurvedic consultation model to remote Konkan wadis, in continued partnership with Vaidya Mangesh Khade.
+                  </p>
+                </div>
+
+                <div class="relative">
+                  <span class="w-3.5 h-3.5 rounded-full bg-brand-green/60 absolute -left-[31px] top-0.5 border-2 border-white"></span>
+                  <span class="font-bold text-brand-navy text-sm block">Borivali blood donation drive, December 2025</span>
+                  <span class="text-neutral-400 block mt-0.5">13 December 2025 · Manapurna Banquet, Borivali West</span>
+                  <p class="text-neutral-600 mt-2 leading-relaxed">
+                    Organized in loving memory of Late Mrs. Mandakini Lokhande with Sailee Degree College, Jaywant Harchand Lokhande Law College, and CDS College of Engineering, collecting voluntary units for regional blood banks. Drives continue on a recurring basis with NSS units.
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Visual documentation -->
+            <div class="space-y-6">
+              <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Visual Documentation</span>
+              <h3 class="font-display font-bold text-2xl text-brand-navy">Ground evidence from the work report</h3>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="aspect-[16/10] rounded-2xl overflow-hidden relative border border-neutral-200">
+                  <img src="https://images.unsplash.com/photo-1615461066159-fea0960485d5?w=700&h=440&fit=crop" alt="Voluntary blood donation in progress at the Borivali blood donation camp" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/70 via-transparent to-transparent"></div>
+                  <span class="absolute bottom-3 left-3 text-white text-xs font-semibold">Borivali Blood Donation Drive</span>
+                  <span class="absolute bottom-3 right-3 bg-white/95 text-brand-navy text-[9px] font-bold px-2 py-0.5 rounded shadow-xs">Manapurna Banquet</span>
+                </div>
+                <div class="aspect-[16/10] rounded-2xl overflow-hidden relative border border-neutral-200">
+                  <img src="https://images.unsplash.com/photo-1584362917165-526a968579e8?w=700&h=440&fit=crop" alt="Free Ayurvedic medicines dispensed to patients at the rural health camp" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/70 via-transparent to-transparent"></div>
+                  <span class="absolute bottom-3 left-3 text-white text-xs font-semibold">Free Ayurvedic Remedies</span>
+                  <span class="absolute bottom-3 right-3 bg-white/95 text-brand-navy text-[9px] font-bold px-2 py-0.5 rounded shadow-xs">Pushkar Ayurvedic Center</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Sticky sidebar -->
+          <aside class="lg:col-span-4 space-y-6 lg:sticky lg:top-28">
+
+            <!-- Factsheet -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 border border-neutral-200/90 shadow-sm space-y-4">
+              <span class="text-xs font-bold uppercase tracking-widest text-brand-green block">Initiative Factsheet</span>
+              <h4 class="font-display font-bold text-base text-brand-navy">Program Details</h4>
+
+              <div class="space-y-3 text-xs border-t border-neutral-100 pt-4">
+                <div>
+                  <span class="text-neutral-400 uppercase tracking-widest text-[9px] font-bold block">Key Medical Partner</span>
+                  <p class="font-semibold text-neutral-800 mt-0.5">Pushkar Ayurvedic Health Center &amp; Vaidya Mangesh Khade</p>
+                </div>
+                <div>
+                  <span class="text-neutral-400 uppercase tracking-widest text-[9px] font-bold block">Academic Partners</span>
+                  <p class="font-semibold text-neutral-800 mt-0.5">Sailee Degree College, CDS College of Engineering, NSS</p>
+                </div>
+                <div>
+                  <span class="text-neutral-400 uppercase tracking-widest text-[9px] font-bold block">Locations</span>
+                  <p class="font-semibold text-neutral-800 mt-0.5">Sangola (Solapur), Sangameshwar &amp; Pachal (Ratnagiri), Bhatwadi (Ghatkopar), Borivali</p>
+                </div>
+                <div>
+                  <span class="text-neutral-400 uppercase tracking-widest text-[9px] font-bold block">Program Span</span>
+                  <p class="font-semibold text-neutral-800 mt-0.5">2020 – Ongoing</p>
+                </div>
+                <div>
+                  <span class="text-neutral-400 uppercase tracking-widest text-[9px] font-bold block">Documentation Source</span>
+                  <p class="font-semibold text-brand-green mt-0.5">Field Gallery &amp; Work Reports</p>
+                </div>
+              </div>
+
+              <div class="pt-2 border-t border-neutral-100">
+                <a href="gallery.html" class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-navy hover:text-brand-green transition-colors">
+                  <span>View Camp Photo Gallery</span>
+                  <span>→</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Direct support CTA -->
+            <div class="bg-brand-navy text-white rounded-3xl p-6 sm:p-8 shadow-sm relative overflow-hidden">
+              <div class="absolute -right-8 -bottom-8 w-36 h-36 rounded-full bg-brand-green/20 blur-xl pointer-events-none"></div>
+
+              <span class="text-[10px] font-bold uppercase tracking-widest text-brand-accent block mb-1">Sponsorship Opportunity</span>
+              <h4 class="font-display font-bold text-lg text-white">Sponsor a village health camp</h4>
+              <p class="text-xs text-neutral-300 mt-2 leading-relaxed">
+                Your support funds Ayurvedic medicine stock, diagnostic materials, and transport for medical volunteers reaching the next unreached wadi.
+              </p>
+
+              <div class="mt-6 pt-4 border-t border-white/10 space-y-2">
+                <a href="donation.html" class="w-full py-3 bg-brand-green text-white font-semibold text-xs rounded-xl hover:bg-emerald-700 transition-colors block text-center shadow-sm">
+                  Donate to Health Camps
+                </a>
+                <a href="volunteer.html" class="w-full py-2.5 bg-white/10 text-white font-semibold text-xs rounded-xl hover:bg-white/20 transition-colors block text-center">
+                  Volunteer at the Next Blood Drive
+                </a>
+              </div>
+            </div>
+
+            <!-- Back link -->
+            <a href="our-work.html#pillar-health" class="flex items-center justify-between gap-2 bg-brand-bg border border-neutral-200/90 rounded-2xl px-5 py-4 text-xs font-bold text-brand-navy hover:border-brand-green transition-colors">
+              <span>← Back to Our Work: Health &amp; Medical Camps</span>
+            </a>
+
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 4B. ALL HEALTH INITIATIVES — scalable card grid                   -->
+    <!-- ================================================================= -->
+    <section id="all-events" class="py-24 bg-white border-t border-brand-border">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+
+        <div class="max-w-2xl mb-12">
+          <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Full Activity Record</span>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-brand-navy mt-1 leading-tight">All Health Initiatives</h2>
+          <p class="mt-4 text-sm sm:text-base text-neutral-600 leading-relaxed">
+            Every verified health and medical camp we've run to date, in one place — this list grows as new camps are documented in our field gallery and work reports.
+          </p>
+        </div>
+
+        <div id="health-events-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Event 1 -->
+          <div class="health-event-card bg-white rounded-2xl border border-neutral-200/90 overflow-hidden hover:shadow-lg hover:border-brand-green transition-all">
+            <div class="aspect-[4/3] relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1512069772995-ec65ed45afd6?w=500&h=380&fit=crop" alt="Ayurvedic physician conducting pulse diagnosis at the Sangola rural health camp" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <span class="absolute top-3 left-3 bg-white/95 text-brand-navy text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Health Camp</span>
+            </div>
+            <div class="p-5 space-y-2">
+              <div class="flex items-center gap-2 text-[11px] font-semibold text-neutral-500">
+                <span>26 January 2020</span>
+                <span class="w-1 h-1 rounded-full bg-neutral-300"></span>
+                <span>Sangola, Solapur</span>
+              </div>
+              <h3 class="font-display font-bold text-base text-brand-navy leading-snug">Sangola Rural Ayurvedic Camp</h3>
+              <p class="text-xs text-neutral-500 leading-relaxed">Flagship diagnostic camp with pulse examination and free medicines across drought-prone Solapur talukas.</p>
+            </div>
+          </div>
+
+          <!-- Event 2 -->
+          <div class="health-event-card bg-white rounded-2xl border border-neutral-200/90 overflow-hidden hover:shadow-lg hover:border-brand-green transition-all">
+            <div class="aspect-[4/3] relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=500&h=380&fit=crop" alt="Doctor conducting a health screening checkup during the Bhatwadi urban camp" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <span class="absolute top-3 left-3 bg-white/95 text-brand-navy text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Health Camp</span>
+            </div>
+            <div class="p-5 space-y-2">
+              <div class="flex items-center gap-2 text-[11px] font-semibold text-neutral-500">
+                <span>2020–2021</span>
+                <span class="w-1 h-1 rounded-full bg-neutral-300"></span>
+                <span>Bhatwadi, Ghatkopar</span>
+              </div>
+              <h3 class="font-display font-bold text-base text-brand-navy leading-snug">COVID-Era Urban Screening Camp</h3>
+              <p class="text-xs text-neutral-500 leading-relaxed">On-ground primary health check-ups for residents who could not safely travel to a clinic during the pandemic.</p>
+            </div>
+          </div>
+
+          <!-- Event 3 -->
+          <div class="health-event-card bg-white rounded-2xl border border-neutral-200/90 overflow-hidden hover:shadow-lg hover:border-brand-green transition-all">
+            <div class="aspect-[4/3] relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=500&h=380&fit=crop" alt="Volunteer medical staff checking a patient's blood pressure during a coastal Konkan health camp" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <span class="absolute top-3 left-3 bg-white/95 text-brand-navy text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Health Camp</span>
+            </div>
+            <div class="p-5 space-y-2">
+              <div class="flex items-center gap-2 text-[11px] font-semibold text-neutral-500">
+                <span>Ongoing</span>
+                <span class="w-1 h-1 rounded-full bg-neutral-300"></span>
+                <span>Sangameshwar &amp; Pachal, Ratnagiri</span>
+              </div>
+              <h3 class="font-display font-bold text-base text-brand-navy leading-snug">Konkan Coastal Diagnostic Camps</h3>
+              <p class="text-xs text-neutral-500 leading-relaxed">Ayurvedic consultations at Dhamapur Dhanawade Wadi and Pachal, extending the model to remote Konkan wadis.</p>
+            </div>
+          </div>
+
+          <!-- Event 4 -->
+          <div class="health-event-card bg-white rounded-2xl border border-neutral-200/90 overflow-hidden hover:shadow-lg hover:border-brand-green transition-all">
+            <div class="aspect-[4/3] relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1615461066159-fea0960485d5?w=500&h=380&fit=crop" alt="Voluntary blood donation in progress at the Borivali blood donation camp" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <span class="absolute top-3 left-3 bg-white/95 text-brand-navy text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Health Camp</span>
+            </div>
+            <div class="p-5 space-y-2">
+              <div class="flex items-center gap-2 text-[11px] font-semibold text-neutral-500">
+                <span>13 December 2025</span>
+                <span class="w-1 h-1 rounded-full bg-neutral-300"></span>
+                <span>Borivali West, Mumbai</span>
+              </div>
+              <h3 class="font-display font-bold text-base text-brand-navy leading-snug">Borivali Blood Donation Camp</h3>
+              <p class="text-xs text-neutral-500 leading-relaxed">Organized at Manapurna Banquet in loving memory of Late Mrs. Mandakini Lokhande, collecting voluntary units for regional blood banks.</p>
+            </div>
+          </div>
+
+          <!-- Event 5 -->
+          <div class="health-event-card bg-white rounded-2xl border border-neutral-200/90 overflow-hidden hover:shadow-lg hover:border-brand-green transition-all">
+            <div class="aspect-[4/3] relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=500&h=380&fit=crop" alt="Food safety and adulteration awareness session for the Eat Safe, Eat Healthy camp" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <span class="absolute top-3 left-3 bg-white/95 text-brand-navy text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Health Camp</span>
+            </div>
+            <div class="p-5 space-y-2">
+              <div class="flex items-center gap-2 text-[11px] font-semibold text-neutral-500">
+                <span>28 November 2025</span>
+                <span class="w-1 h-1 rounded-full bg-neutral-300"></span>
+                <span>Borivali West, Mumbai</span>
+              </div>
+              <h3 class="font-display font-bold text-base text-brand-navy leading-snug">Eat Safe, Eat Healthy FDA Session</h3>
+              <p class="text-xs text-neutral-500 leading-relaxed">Household food adulteration tests and Food Act awareness led by a retired FDA Senior Scientific Officer.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mt-8 text-center">
+          <a href="gallery.html" class="text-xs font-bold text-brand-navy hover:text-brand-green transition-colors">
+            Browse the full field gallery for photo documentation of every camp →
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 5. RELATED INITIATIVES DIRECTORY                                  -->
+    <!-- ================================================================= -->
+    <section class="py-24 bg-brand-bg border-t border-brand-border">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+
+        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
+          <div class="max-w-2xl">
+            <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Explore More Work</span>
+            <h2 class="font-display font-bold text-3xl sm:text-4xl text-brand-navy mt-1">Other Flagship Initiatives</h2>
+            <p class="mt-3 text-sm text-neutral-600 leading-relaxed">Each of our six pillars carries a dossier like this one — here are three more worth a look.</p>
+          </div>
+          <a href="our-work.html" class="text-xs font-bold text-brand-navy hover:text-brand-green transition-colors whitespace-nowrap">
+            View all 6 verticals →
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+
+          <a href="initiative-quality-run-2025.html" class="group bg-white p-7 rounded-2xl border border-neutral-200/80 hover:border-brand-green hover:shadow-lg transition-all block">
+            <div class="w-11 h-11 rounded-2xl bg-brand-mint/50 flex items-center justify-center mb-5">
+              <svg class="w-5 h-5 text-brand-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <span class="text-[10px] font-bold text-brand-green uppercase tracking-wider block mb-1">Sports Pillar</span>
+            <h3 class="font-display font-bold text-base text-brand-navy group-hover:text-brand-green transition-colors leading-snug">
+              BIS Standard Clubs &amp; Borivali Quality Run
+            </h3>
+            <p class="text-xs text-neutral-500 mt-2 leading-relaxed">
+              1,200+ runners and a BIS-partnered quality-consciousness campaign across schools and colleges.
+            </p>
+            <span class="mt-4 inline-flex items-center gap-1 text-xs font-bold text-brand-navy group-hover:text-brand-green transition-colors">Read the dossier <span>→</span></span>
+          </a>
+
+          <a href="initiative-civil-services-coaching.html" class="group bg-white p-7 rounded-2xl border border-neutral-200/80 hover:border-brand-green hover:shadow-lg transition-all block">
+            <div class="w-11 h-11 rounded-2xl bg-brand-mint/50 flex items-center justify-center mb-5">
+              <svg class="w-5 h-5 text-brand-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.42A8 8 0 0112 20a8 8 0 01-6.16-9.42L12 14z" />
+              </svg>
+            </div>
+            <span class="text-[10px] font-bold text-brand-green uppercase tracking-wider block mb-1">Education Pillar</span>
+            <h3 class="font-display font-bold text-base text-brand-navy group-hover:text-brand-green transition-colors leading-snug">
+              Civil Services &amp; Free Entrance Coaching
+            </h3>
+            <p class="text-xs text-neutral-500 mt-2 leading-relaxed">
+              750+ aspirants mentored toward UPSC, MPSC, and zero-fee MBA/law entrance batches.
+            </p>
+            <span class="mt-4 inline-flex items-center gap-1 text-xs font-bold text-brand-navy group-hover:text-brand-green transition-colors">Read the dossier <span>→</span></span>
+          </a>
+
+          <a href="initiative-nail-free-tree-campaign.html" class="group bg-white p-7 rounded-2xl border border-neutral-200/80 hover:border-brand-green hover:shadow-lg transition-all block">
+            <div class="w-11 h-11 rounded-2xl bg-brand-mint/50 flex items-center justify-center mb-5">
+              <svg class="w-5 h-5 text-brand-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3c-3 3-5 6-5 9a5 5 0 0010 0c0-3-2-6-5-9z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21v-5" />
+              </svg>
+            </div>
+            <span class="text-[10px] font-bold text-brand-green uppercase tracking-wider block mb-1">Environment Pillar</span>
+            <h3 class="font-display font-bold text-base text-brand-navy group-hover:text-brand-green transition-colors leading-snug">
+              Nail-Free Tree Campaign
+            </h3>
+            <p class="text-xs text-neutral-500 mt-2 leading-relaxed">
+              Removing nails and hoardings from street trees across Mumbai's suburbs to protect urban green cover.
+            </p>
+            <span class="mt-4 inline-flex items-center gap-1 text-xs font-bold text-brand-navy group-hover:text-brand-green transition-colors">Read the dossier <span>→</span></span>
+          </a>
+
+        </div>
+
+        <!-- Secondary links to the remaining two -->
+        <div class="mt-6 flex flex-wrap items-center gap-3 text-xs">
+          <span class="text-neutral-400 font-medium">Also in this series:</span>
+          <a href="initiative-aarya-skill-centre.html" class="px-3.5 py-1.5 rounded-full bg-white border border-neutral-200/80 text-brand-navy font-semibold hover:border-brand-green transition-colors">Aarya Skill Development Centre</a>
+          <a href="initiative-free-legal-aid.html" class="px-3.5 py-1.5 rounded-full bg-white border border-neutral-200/80 text-brand-navy font-semibold hover:border-brand-green transition-colors">Free Legal Advice</a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ================================================================= -->
+  <!-- 6. FOOTER                                                         -->
+  <!-- ================================================================= -->
+  <footer id="contact" class="bg-brand-bg text-brand-navy pt-0 pb-12">
+
+    <!-- Featured CTA block -->
+    <div class="bg-brand-navy text-white">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 py-12 sm:py-14 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-widest text-brand-mint mb-2">Before You Go</p>
+          <h3 class="font-display font-bold text-2xl sm:text-3xl leading-tight max-w-lg">Your support reaches the field within the same quarter — not years later.</h3>
+        </div>
+        <a href="donation.html" class="shrink-0 px-7 py-3.5 bg-brand-green text-white font-semibold rounded-full hover:bg-emerald-600 hover:-translate-y-0.5 transition-all text-sm flex items-center gap-2">
+          <span>Donate Now</span>
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 pt-16">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-14 border-b border-neutral-200">
+
+        <!-- Foundation Info -->
+        <div class="lg:col-span-4 space-y-5">
+          <img src="assets/Krutadnyata Foundation logo (with text).png" alt="Krutadnyata Foundation" class="h-12 w-auto object-contain" />
+          <p class="text-sm text-neutral-600 leading-relaxed font-normal max-w-xs">
+            A Maharashtra-based registered social organisation dedicated to bridging educational inequalities, conducting preventive healthcare, and empowering communities since 2019.
+          </p>
+          <div class="text-xs text-neutral-500 space-y-1.5 border-l-2 border-brand-mint pl-3.5">
+            <p><strong class="text-brand-navy font-semibold">Charity Reg:</strong> [TO CONFIRM: Trust Registration Number]</p>
+            <p><strong class="text-brand-navy font-semibold">Head Office:</strong> [TO CONFIRM: Official Registered Address], Suburban Mumbai, Maharashtra</p>
+            <p><strong class="text-brand-navy font-semibold">Helpline:</strong> +91 98338 61159 (Inquiries)</p>
+          </div>
+        </div>
+
+        <!-- Core Work -->
+        <div class="lg:col-span-2 space-y-4 text-sm">
+          <p class="font-display font-bold text-brand-navy uppercase tracking-wider text-[11px] flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-green"></span>Core Work</p>
+          <ul class="space-y-2.5 text-neutral-600">
+            <li><a href="our-work.html#pillar-health" class="hover:text-brand-green transition-colors">Health Camps</a></li>
+            <li><a href="our-work.html#pillar-sports" class="hover:text-brand-green transition-colors">State Sports Day</a></li>
+            <li><a href="our-work.html#pillar-skilling" class="hover:text-brand-green transition-colors">Aarya Skill Centre</a></li>
+            <li><a href="our-work.html#pillar-environment" class="hover:text-brand-green transition-colors">Tree Protection</a></li>
+            <li><a href="our-work.html#pillar-relief" class="hover:text-brand-green transition-colors">Community Relief</a></li>
+            <li><a href="our-work.html#pillar-civic" class="hover:text-brand-green transition-colors">Civic &amp; Cyber Awareness</a></li>
+            <li><a href="our-work.html#pillar-legal" class="hover:text-brand-green transition-colors">Free Legal Advice</a></li>
+          </ul>
+        </div>
+
+        <!-- Navigation -->
+        <div class="lg:col-span-2 space-y-4 text-sm">
+          <p class="font-display font-bold text-brand-navy uppercase tracking-wider text-[11px] flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-green"></span>Navigation</p>
+          <ul class="space-y-2.5 text-neutral-600">
+            <li><a href="index.html" class="hover:text-brand-green transition-colors">Home</a></li>
+            <li><a href="about.html" class="hover:text-brand-green transition-colors">About Us</a></li>
+            <li><a href="our-work.html" class="hover:text-brand-green transition-colors">Our Work</a></li>
+            <li><a href="gallery.html" class="hover:text-brand-green transition-colors">Field Gallery</a></li>
+            <li><a href="stories.html" class="hover:text-brand-green transition-colors">Stories</a></li>
+            <li><a href="blog.html" class="hover:text-brand-green transition-colors">Blog</a></li>
+            <li><a href="reports.html" class="hover:text-brand-green transition-colors">Reports &amp; Audits</a></li>
+            <li><a href="volunteer.html" class="hover:text-brand-green transition-colors">Volunteer</a></li>
+            <li><a href="contact.html" class="hover:text-brand-green transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Stay Informed -->
+        <div class="lg:col-span-4 space-y-4">
+          <p class="font-display font-bold text-brand-navy uppercase tracking-wider text-[11px] flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-green"></span>Stay Informed</p>
+          <div class="bg-white rounded-2xl border border-neutral-200/80 p-5">
+            <p class="text-xs text-neutral-600 leading-relaxed">Subscribe to receive our verified quarterly field activity bulletins and volunteer opportunities.</p>
+            <form class="flex items-center gap-2 mt-4" onsubmit="event.preventDefault(); alert('Subscribed to Krutadnyata updates.');">
+              <input type="email" placeholder="Your email address" required class="bg-brand-bg border border-neutral-300 px-3.5 py-2.5 rounded-xl text-xs text-brand-navy placeholder-neutral-400 focus:outline-none focus:border-brand-green flex-1" />
+              <button type="submit" class="px-4 py-2.5 bg-brand-green text-white text-xs font-semibold rounded-xl hover:bg-emerald-700 transition-colors whitespace-nowrap">Join</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Disclaimer & Copyright -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-neutral-500 gap-4">
+        <div>
+          © 2019–2026 Krutadnyata Foundation (कृतज्ञता फाउंडेशन). All public contributions are utilized strictly towards community welfare programs.
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="privacy.html" class="hover:text-brand-navy transition-colors">Privacy Policy</a>
+          <a href="reports.html" class="hover:text-brand-navy transition-colors">MOU Records</a>
+          <a href="donation.html" class="hover:text-brand-navy transition-colors">80G Verification</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================================================================= -->
+  <!-- JAVASCRIPT LOGIC                                                  -->
+  <!-- ================================================================= -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Lenis Smooth Scrolling
+      const lenis = new Lenis({
+        duration: 1.1,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smooth: true,
+      });
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // 2. Mobile Menu
+      const mobileToggle = document.getElementById('mobile-toggle');
+      const mobileClose = document.getElementById('mobile-close');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      mobileToggle.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
+      mobileClose.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
+
+      // 3. Header shadow on scroll
+      const mainHeader = document.getElementById('main-header');
+      window.addEventListener('scroll', () => {
+        mainHeader.classList.toggle('scrolled', window.scrollY > 20);
+      });
+    });
+  </script>
+  <script>
+    (function () {
+      var path = location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.nav-link[href]').forEach(function (a) {
+        if (a.getAttribute('href') === path) {
+          a.classList.add('text-brand-navy', 'font-semibold');
+          a.classList.add('active-nav-link');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

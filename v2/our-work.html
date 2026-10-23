@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Our Work &amp; Strategic Initiatives — Krutadnyata Foundation (कृतज्ञता फाउंडेशन)</title>
-  <meta name="description" content="Explore Krutadnyata Foundation's comprehensive on-ground initiatives across healthcare, competitive education, ecological sustainability, youth sports, community relief, and vocational skilling in Maharashtra." />
+  <meta name="description" content="Explore Krutadnyata Foundation's comprehensive on-ground initiatives across healthcare, competitive education, ecological sustainability, youth sports, community relief, vocational skilling, civic &amp; cyber awareness, and free legal aid in Maharashtra." />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -78,47 +78,20 @@
       -webkit-backdrop-filter: blur(14px);
     }
 
-    /* Header: transparent + white text over the hero photo, frosted-white + dark text once scrolled */
+    /* This page's hero is light (no dark photo band), so the header stays permanently in its
+       frosted-white, dark-text "scrolled" state rather than the transparent-over-photo state
+       used on pages with a full-bleed photo hero (e.g. about.html). */
     #main-header {
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0));
-      transition: background 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
-    }
-    #main-header.scrolled {
       background: rgba(248, 249, 250, 0.92);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       box-shadow: 0 4px 24px rgba(11, 45, 79, 0.06);
     }
     #main-header .nav-link,
-    #main-header button > span:first-child {
-      color: rgba(255, 255, 255, 0.95);
-      transition: color 0.3s ease;
-    }
-    #main-header svg.dropdown-caret {
-      color: rgba(255, 255, 255, 0.75);
-      transition: color 0.3s ease;
-    }
-    #main-header #mobile-toggle {
-      color: #ffffff;
-      transition: color 0.3s ease;
-    }
-    #main-header img.site-logo {
-      filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.45));
-      transition: filter 0.3s ease;
-    }
-    #main-header.scrolled .nav-link,
-    #main-header.scrolled button > span:first-child {
-      color: #737373;
-    }
-    #main-header.scrolled svg.dropdown-caret {
-      color: #a3a3a3;
-    }
-    #main-header.scrolled #mobile-toggle {
-      color: #262626;
-    }
-    #main-header.scrolled img.site-logo {
-      filter: none;
-    }
+    #main-header button > span:first-child { color: #737373; }
+    #main-header svg.dropdown-caret { color: #a3a3a3; }
+    #main-header #mobile-toggle { color: #262626; }
+    #main-header img.site-logo { filter: none; }
 
     footer#contact {
       position: relative;
@@ -133,16 +106,31 @@
       background: linear-gradient(90deg, var(--color-green), var(--color-accent), var(--color-green));
     }
 
-    /* Sticky pillar sub-navigation */
+    /* Sticky pillar progress bar */
     .sticky-subnav {
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
     }
+    .step-num {
+      transition: background-color .25s ease, border-color .25s ease, color .25s ease;
+    }
     .subnav-link.active {
       color: var(--color-navy);
-      background: var(--color-mint);
       font-weight: 700;
+    }
+    .subnav-link.active .step-num {
+      background: var(--color-navy);
+      border-color: var(--color-navy);
+      color: #ffffff;
+    }
+    .subnav-link.active .step-line {
+      background: var(--color-navy);
+    }
+
+    .pillar-tile:hover .tile-icon {
+      background: var(--color-green);
+      color: #ffffff;
     }
 
     .no-scrollbar::-webkit-scrollbar { display: none; }
@@ -206,6 +194,16 @@
                 <span class="w-1.5 h-1.5 rounded-full bg-brand-green shrink-0"></span>
                 <span class="flex-1">Skill Development (MSSDC)</span>
                 <span class="text-[10px] font-medium text-neutral-400">Vocational</span>
+              </a>
+              <a href="our-work.html#pillar-civic" class="px-3.5 py-2.5 rounded-xl hover:bg-brand-mint/40 flex items-center gap-3 font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-green shrink-0"></span>
+                <span class="flex-1">Civic &amp; Cyber Awareness</span>
+                <span class="text-[10px] font-medium text-neutral-400">Multiple Batches</span>
+              </a>
+              <a href="our-work.html#pillar-legal" class="px-3.5 py-2.5 rounded-xl hover:bg-brand-mint/40 flex items-center gap-3 font-semibold text-neutral-700 hover:text-brand-navy transition-colors">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-green shrink-0"></span>
+                <span class="flex-1">Free Legal Advice</span>
+                <span class="text-[10px] font-medium text-neutral-400">Ongoing Service</span>
               </a>
             </div>
           </div>
@@ -274,111 +272,220 @@
 
   <main>
     <!-- ================================================================= -->
-    <!-- 2. HERO — full-bleed photo                                        -->
+    <!-- 2. HERO — split: narrative left, live "pillar index" grid right  -->
     <!-- ================================================================= -->
-    <section class="relative h-[85vh] flex items-end overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?w=1800&h=1200&fit=crop" alt="Volunteers coordinating a grassroots relief and outreach drive" class="absolute inset-0 w-full h-full object-cover" />
-      <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/40 to-brand-navy/10"></div>
+    <section class="relative pt-32 sm:pt-40 pb-16 sm:pb-20 overflow-hidden bg-gradient-to-br from-brand-mint/40 via-brand-bg to-brand-bg border-b border-brand-border/60">
 
-      <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 pb-16 pt-40 w-full">
-        <span class="text-xs font-bold uppercase tracking-[0.3em] text-brand-mint">Our Work</span>
-        <h1 class="mt-3 font-display font-extrabold text-4xl sm:text-6xl lg:text-7xl text-white tracking-tightest leading-[1.05] max-w-3xl">
-          Structured interventions. Grassroots impact.
-        </h1>
-        <p class="mt-5 text-base sm:text-lg text-neutral-200 max-w-xl leading-relaxed">
-          We bridge deep social divides by delivering healthcare to remote villages, certified career coaching to underserved students, environmental restoration in urban districts, and direct relief to vulnerable families across Maharashtra.
-        </p>
-        <div class="mt-8 flex items-center gap-4 text-xs font-semibold text-neutral-300">
-          <span>Scroll to explore key pillars</span>
-          <span class="w-8 h-[1px] bg-white/40"></span>
-          <span class="text-brand-mint">6 Operational Verticals</span>
+      <span class="absolute -right-10 -top-6 sm:-top-10 font-display font-extrabold text-brand-navy/5 text-[220px] sm:text-[340px] leading-none select-none pointer-events-none -z-0">08</span>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+
+          <!-- Narrative -->
+          <div class="lg:col-span-5">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-brand-border shadow-xs text-xs font-medium text-neutral-700 mb-6">
+              <span class="w-2 h-2 rounded-full bg-brand-green"></span>
+              <span>Programmatic Blueprint • 2019 to Present</span>
+            </div>
+
+            <h1 class="font-display font-extrabold text-4xl sm:text-5xl text-brand-navy tracking-tightest leading-[1.08]">
+              Eight pillars. One mission: gratitude in motion.
+            </h1>
+
+            <p class="mt-6 text-base text-neutral-600 leading-relaxed max-w-md">
+              We bridge deep social divides by delivering healthcare to remote villages, certified career coaching to underserved students, environmental restoration in urban districts, and direct relief to vulnerable families across Maharashtra.
+            </p>
+
+            <div class="mt-8 flex flex-wrap items-center gap-4">
+              <a href="#pillar-health" class="inline-flex items-center gap-2 px-6 py-3.5 bg-brand-navy text-white text-sm font-semibold rounded-full hover:bg-brand-green active:scale-95 transition-all shadow-md">
+                Explore the Pillars
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
+              </a>
+              <a href="donation.html" class="text-sm font-bold text-brand-green hover:underline">Support These Programs →</a>
+            </div>
+          </div>
+
+          <!-- Live pillar index -->
+          <div class="lg:col-span-7">
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+
+              <a href="#pillar-health" class="pillar-tile group bg-white rounded-2xl border border-neutral-200/80 p-5 flex flex-col gap-3 hover:border-brand-green hover:shadow-lg hover:-translate-y-1 transition-all">
+                <div class="flex items-start justify-between">
+                  <span class="tile-icon w-10 h-10 rounded-xl bg-brand-mint text-brand-green flex items-center justify-center transition-colors">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.76a2.5 2.5 0 00-.73-1.77l-7.3-7.3a1.5 1.5 0 00-2.12 0l-7.3 7.3a2.5 2.5 0 000 3.54l6.72 6.72c.6.6 1.57.6 2.17 0l6.73-6.72c.47-.47.8-1.08.83-1.77z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6M12 9v6" /></svg>
+                  </span>
+                  <span class="text-[11px] font-bold text-neutral-300 font-display">01</span>
+                </div>
+                <span class="font-display font-bold text-sm text-brand-navy leading-snug">Health &amp; Medicine</span>
+              </a>
+
+              <a href="#pillar-education" class="pillar-tile group bg-white rounded-2xl border border-neutral-200/80 p-5 flex flex-col gap-3 hover:border-brand-green hover:shadow-lg hover:-translate-y-1 transition-all">
+                <div class="flex items-start justify-between">
+                  <span class="tile-icon w-10 h-10 rounded-xl bg-brand-mint text-brand-green flex items-center justify-center transition-colors">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.42A12.08 12.08 0 0118 20.05 12.08 12.08 0 0012 16.5a12.08 12.08 0 00-6.16 3.55A12.08 12.08 0 015.84 10.58L12 14z" /></svg>
+                  </span>
+                  <span class="text-[11px] font-bold text-neutral-300 font-display">02</span>
+                </div>
+                <span class="font-display font-bold text-sm text-brand-navy leading-snug">Education &amp; Careers</span>
+              </a>
+
+              <a href="#pillar-environment" class="pillar-tile group bg-white rounded-2xl border border-neutral-200/80 p-5 flex flex-col gap-3 hover:border-brand-green hover:shadow-lg hover:-translate-y-1 transition-all">
+                <div class="flex items-start justify-between">
+                  <span class="tile-icon w-10 h-10 rounded-xl bg-brand-mint text-brand-green flex items-center justify-center transition-colors">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /><circle cx="12" cy="12" r="3" stroke-width="2" /></svg>
+                  </span>
+                  <span class="text-[11px] font-bold text-neutral-300 font-display">03</span>
+                </div>
+                <span class="font-display font-bold text-sm text-brand-navy leading-snug">Environment &amp; Trees</span>
+              </a>
+
+              <a href="#pillar-sports" class="pillar-tile group bg-white rounded-2xl border border-neutral-200/80 p-5 flex flex-col gap-3 hover:border-brand-green hover:shadow-lg hover:-translate-y-1 transition-all">
+                <div class="flex items-start justify-between">
+                  <span class="tile-icon w-10 h-10 rounded-xl bg-brand-mint text-brand-green flex items-center justify-center transition-colors">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                  </span>
+                  <span class="text-[11px] font-bold text-neutral-300 font-display">04</span>
+                </div>
+                <span class="font-display font-bold text-sm text-brand-navy leading-snug">Youth &amp; Sports</span>
+              </a>
+
+              <a href="#pillar-relief" class="pillar-tile group bg-white rounded-2xl border border-neutral-200/80 p-5 flex flex-col gap-3 hover:border-brand-green hover:shadow-lg hover:-translate-y-1 transition-all">
+                <div class="flex items-start justify-between">
+                  <span class="tile-icon w-10 h-10 rounded-xl bg-brand-mint text-brand-green flex items-center justify-center transition-colors">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21s-7.5-4.6-9.8-9.1C.6 8.4 2.2 5 5.6 4.3c1.9-.4 3.7.4 4.9 2 .3-.3.6-.6 1-.8 1.5-1 3.4-1 4.9.2 2.5 2 2.5 5.6.6 8.2C14.6 17.1 12 21 12 21z" /></svg>
+                  </span>
+                  <span class="text-[11px] font-bold text-neutral-300 font-display">05</span>
+                </div>
+                <span class="font-display font-bold text-sm text-brand-navy leading-snug">Community Relief</span>
+              </a>
+
+              <a href="#pillar-skilling" class="pillar-tile group bg-white rounded-2xl border border-neutral-200/80 p-5 flex flex-col gap-3 hover:border-brand-green hover:shadow-lg hover:-translate-y-1 transition-all">
+                <div class="flex items-start justify-between">
+                  <span class="tile-icon w-10 h-10 rounded-xl bg-brand-mint text-brand-green flex items-center justify-center transition-colors">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.7 6.3a1 1 0 010 1.4l-6.6 6.6a1 1 0 01-1.4 0l-2.1-2.1a1 1 0 011.4-1.4l1.4 1.4 5.9-5.9a1 1 0 011.4 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16.5 9.5l3-3a3.2 3.2 0 10-4.5-4.5l-3 3M7.5 14.5l-3 3a3.2 3.2 0 104.5 4.5l3-3" /></svg>
+                  </span>
+                  <span class="text-[11px] font-bold text-neutral-300 font-display">06</span>
+                </div>
+                <span class="font-display font-bold text-sm text-brand-navy leading-snug">Skills &amp; Legal Aid</span>
+              </a>
+
+              <a href="#pillar-civic" class="pillar-tile group bg-white rounded-2xl border border-neutral-200/80 p-5 flex flex-col gap-3 hover:border-brand-green hover:shadow-lg hover:-translate-y-1 transition-all">
+                <div class="flex items-start justify-between">
+                  <span class="tile-icon w-10 h-10 rounded-xl bg-brand-mint text-brand-green flex items-center justify-center transition-colors">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                  </span>
+                  <span class="text-[11px] font-bold text-neutral-300 font-display">07</span>
+                </div>
+                <span class="font-display font-bold text-sm text-brand-navy leading-snug">Civic &amp; Cyber Safety</span>
+              </a>
+
+              <a href="#pillar-legal" class="pillar-tile group bg-white rounded-2xl border border-neutral-200/80 p-5 flex flex-col gap-3 hover:border-brand-green hover:shadow-lg hover:-translate-y-1 transition-all">
+                <div class="flex items-start justify-between">
+                  <span class="tile-icon w-10 h-10 rounded-xl bg-brand-mint text-brand-green flex items-center justify-center transition-colors">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" /></svg>
+                  </span>
+                  <span class="text-[11px] font-bold text-neutral-300 font-display">08</span>
+                </div>
+                <span class="font-display font-bold text-sm text-brand-navy leading-snug">Free Legal Advice</span>
+              </a>
+
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
     <!-- ================================================================= -->
-    <!-- 3. STICKY SUB-NAVIGATION BAR                                      -->
+    <!-- 3. STICKY PROGRESS BAR                                            -->
     <!-- ================================================================= -->
-    <div class="sticky top-20 z-40 border-b border-neutral-200/80 sticky-subnav py-3.5 px-5 sm:px-8 shadow-sm">
-      <div class="max-w-7xl mx-auto flex items-center justify-between gap-4 overflow-x-auto no-scrollbar">
-        <div class="flex items-center gap-1.5 sm:gap-2 text-xs whitespace-nowrap">
-          <a href="#pillar-health" class="subnav-link px-3.5 py-1.5 rounded-full text-neutral-600 hover:text-brand-navy hover:bg-neutral-100 transition-all font-semibold">Health &amp; Medicine</a>
-          <a href="#pillar-education" class="subnav-link px-3.5 py-1.5 rounded-full text-neutral-600 hover:text-brand-navy hover:bg-neutral-100 transition-all font-semibold">Education &amp; Careers</a>
-          <a href="#pillar-environment" class="subnav-link px-3.5 py-1.5 rounded-full text-neutral-600 hover:text-brand-navy hover:bg-neutral-100 transition-all font-semibold">Environment &amp; Trees</a>
-          <a href="#pillar-sports" class="subnav-link px-3.5 py-1.5 rounded-full text-neutral-600 hover:text-brand-navy hover:bg-neutral-100 transition-all font-semibold">Youth &amp; State Sports</a>
-          <a href="#pillar-relief" class="subnav-link px-3.5 py-1.5 rounded-full text-neutral-600 hover:text-brand-navy hover:bg-neutral-100 transition-all font-semibold">Community Relief</a>
-          <a href="#pillar-skilling" class="subnav-link px-3.5 py-1.5 rounded-full text-neutral-600 hover:text-brand-navy hover:bg-neutral-100 transition-all font-semibold">Skills &amp; Legal Aid</a>
+    <div class="sticky top-20 z-40 border-b border-neutral-200/80 sticky-subnav py-3 px-5 sm:px-8 shadow-sm">
+      <div class="max-w-7xl mx-auto flex items-center gap-4">
+        <div class="flex items-center gap-1 sm:gap-1.5 overflow-x-auto no-scrollbar flex-1">
+          <a href="#pillar-health" class="subnav-link flex items-center gap-2 pr-2 sm:pr-3 py-1.5 rounded-full text-[11px] sm:text-xs font-semibold text-neutral-500 hover:text-brand-navy whitespace-nowrap transition-colors">
+            <span class="step-num w-5 h-5 rounded-full border border-neutral-300 text-[10px] font-bold flex items-center justify-center shrink-0">01</span>
+            Health
+          </a>
+          <span class="step-line hidden sm:block w-5 h-px bg-neutral-200 shrink-0"></span>
+          <a href="#pillar-education" class="subnav-link flex items-center gap-2 pr-2 sm:pr-3 py-1.5 rounded-full text-[11px] sm:text-xs font-semibold text-neutral-500 hover:text-brand-navy whitespace-nowrap transition-colors">
+            <span class="step-num w-5 h-5 rounded-full border border-neutral-300 text-[10px] font-bold flex items-center justify-center shrink-0">02</span>
+            Education
+          </a>
+          <span class="step-line hidden sm:block w-5 h-px bg-neutral-200 shrink-0"></span>
+          <a href="#pillar-environment" class="subnav-link flex items-center gap-2 pr-2 sm:pr-3 py-1.5 rounded-full text-[11px] sm:text-xs font-semibold text-neutral-500 hover:text-brand-navy whitespace-nowrap transition-colors">
+            <span class="step-num w-5 h-5 rounded-full border border-neutral-300 text-[10px] font-bold flex items-center justify-center shrink-0">03</span>
+            Environment
+          </a>
+          <span class="step-line hidden sm:block w-5 h-px bg-neutral-200 shrink-0"></span>
+          <a href="#pillar-sports" class="subnav-link flex items-center gap-2 pr-2 sm:pr-3 py-1.5 rounded-full text-[11px] sm:text-xs font-semibold text-neutral-500 hover:text-brand-navy whitespace-nowrap transition-colors">
+            <span class="step-num w-5 h-5 rounded-full border border-neutral-300 text-[10px] font-bold flex items-center justify-center shrink-0">04</span>
+            Sports
+          </a>
+          <span class="step-line hidden sm:block w-5 h-px bg-neutral-200 shrink-0"></span>
+          <a href="#pillar-relief" class="subnav-link flex items-center gap-2 pr-2 sm:pr-3 py-1.5 rounded-full text-[11px] sm:text-xs font-semibold text-neutral-500 hover:text-brand-navy whitespace-nowrap transition-colors">
+            <span class="step-num w-5 h-5 rounded-full border border-neutral-300 text-[10px] font-bold flex items-center justify-center shrink-0">05</span>
+            Relief
+          </a>
+          <span class="step-line hidden sm:block w-5 h-px bg-neutral-200 shrink-0"></span>
+          <a href="#pillar-skilling" class="subnav-link flex items-center gap-2 pr-2 sm:pr-3 py-1.5 rounded-full text-[11px] sm:text-xs font-semibold text-neutral-500 hover:text-brand-navy whitespace-nowrap transition-colors">
+            <span class="step-num w-5 h-5 rounded-full border border-neutral-300 text-[10px] font-bold flex items-center justify-center shrink-0">06</span>
+            Skilling
+          </a>
+          <span class="step-line hidden sm:block w-5 h-px bg-neutral-200 shrink-0"></span>
+          <a href="#pillar-civic" class="subnav-link flex items-center gap-2 pr-2 sm:pr-3 py-1.5 rounded-full text-[11px] sm:text-xs font-semibold text-neutral-500 hover:text-brand-navy whitespace-nowrap transition-colors">
+            <span class="step-num w-5 h-5 rounded-full border border-neutral-300 text-[10px] font-bold flex items-center justify-center shrink-0">07</span>
+            Civic
+          </a>
+          <span class="step-line hidden sm:block w-5 h-px bg-neutral-200 shrink-0"></span>
+          <a href="#pillar-legal" class="subnav-link flex items-center gap-2 pr-2 sm:pr-3 py-1.5 rounded-full text-[11px] sm:text-xs font-semibold text-neutral-500 hover:text-brand-navy whitespace-nowrap transition-colors">
+            <span class="step-num w-5 h-5 rounded-full border border-neutral-300 text-[10px] font-bold flex items-center justify-center shrink-0">08</span>
+            Legal
+          </a>
         </div>
-        <a href="donation.html" class="hidden md:inline-flex text-xs font-bold text-brand-green hover:underline whitespace-nowrap">
+        <a href="donation.html" class="hidden md:inline-flex text-xs font-bold text-brand-green hover:underline whitespace-nowrap shrink-0">
           Support These Programs →
         </a>
       </div>
     </div>
 
     <!-- ================================================================= -->
-    <!-- 4. BENEFICIARY GROUPS SERVED (Preface Mandate)                    -->
+    <!-- 4. BENEFICIARY GROUPS SERVED — editorial ledger rows              -->
     <!-- ================================================================= -->
-    <section class="py-20 bg-white border-b border-brand-border">
+    <section class="py-16 sm:py-20 bg-white border-b border-brand-border">
       <div class="max-w-7xl mx-auto px-5 sm:px-8">
 
-        <div class="max-w-2xl mb-12">
-          <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Charter &amp; Inclusion</span>
-          <h2 class="font-display font-bold text-2xl sm:text-3xl text-brand-navy mt-1">Whom We Serve Across Maharashtra</h2>
-          <p class="mt-2 text-sm text-neutral-500">Directly mandated by our founding constitution and welfare bylaws.</p>
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+          <div class="max-w-2xl">
+            <span class="text-xs font-bold uppercase tracking-widest text-brand-green">Charter &amp; Inclusion</span>
+            <h2 class="font-display font-bold text-2xl sm:text-3xl text-brand-navy mt-1">Whom We Serve Across Maharashtra</h2>
+          </div>
+          <p class="text-sm text-neutral-500 max-w-sm">Directly mandated by our founding constitution and welfare bylaws.</p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="border-t border-neutral-200">
 
-          <div class="group p-6 rounded-2xl bg-brand-bg border border-neutral-200/80 hover:border-brand-green/40 hover:shadow-md transition-all">
-            <div class="flex items-center justify-between mb-4">
-              <span class="w-11 h-11 rounded-xl bg-brand-navy flex items-center justify-center text-brand-mint group-hover:bg-brand-green transition-colors">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.42A12.08 12.08 0 0118 20.05 12.08 12.08 0 0012 16.5a12.08 12.08 0 00-6.16 3.55A12.08 12.08 0 015.84 10.58L12 14z" /></svg>
-              </span>
-              <span class="text-[11px] font-bold text-neutral-300">01</span>
-            </div>
-            <h3 class="font-display font-bold text-base text-brand-navy">Underprivileged Youth</h3>
-            <p class="text-xs text-neutral-600 mt-2 leading-relaxed">
-              Delivering free entrance coaching, career guidance, school uniforms, and international university scholarship advisory.
-            </p>
+          <div class="grid grid-cols-1 sm:grid-cols-[3rem_1fr] md:grid-cols-[4rem_14rem_1fr] gap-3 md:gap-8 py-6 border-b border-neutral-200 items-baseline">
+            <span class="font-display font-extrabold text-2xl sm:text-3xl text-brand-green/40">01</span>
+            <h3 class="font-display font-bold text-base sm:text-lg text-brand-navy">Underprivileged Youth</h3>
+            <p class="text-sm text-neutral-600 leading-relaxed">Delivering free entrance coaching, career guidance, school uniforms, and international university scholarship advisory.</p>
           </div>
 
-          <div class="group p-6 rounded-2xl bg-brand-bg border border-neutral-200/80 hover:border-brand-green/40 hover:shadow-md transition-all">
-            <div class="flex items-center justify-between mb-4">
-              <span class="w-11 h-11 rounded-xl bg-brand-navy flex items-center justify-center text-brand-mint group-hover:bg-brand-green transition-colors">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2.5l7.5 3.4v5.3c0 4.6-3.2 8.7-7.5 9.9-4.3-1.2-7.5-5.3-7.5-9.9V5.9L12 2.5z" /></svg>
-              </span>
-              <span class="text-[11px] font-bold text-neutral-300">02</span>
-            </div>
-            <h3 class="font-display font-bold text-base text-brand-navy">Women &amp; Girls</h3>
-            <p class="text-xs text-neutral-600 mt-2 leading-relaxed">
-              Self-defence workshops for junior college students, bi-monthly legal aid clinics, and healthcare awareness camps.
-            </p>
+          <div class="grid grid-cols-1 sm:grid-cols-[3rem_1fr] md:grid-cols-[4rem_14rem_1fr] gap-3 md:gap-8 py-6 border-b border-neutral-200 items-baseline">
+            <span class="font-display font-extrabold text-2xl sm:text-3xl text-brand-green/40">02</span>
+            <h3 class="font-display font-bold text-base sm:text-lg text-brand-navy">Women &amp; Girls</h3>
+            <p class="text-sm text-neutral-600 leading-relaxed">Self-defence workshops for junior college students, bi-monthly legal aid clinics, and healthcare awareness camps.</p>
           </div>
 
-          <div class="group p-6 rounded-2xl bg-brand-bg border border-neutral-200/80 hover:border-brand-green/40 hover:shadow-md transition-all">
-            <div class="flex items-center justify-between mb-4">
-              <span class="w-11 h-11 rounded-xl bg-brand-navy flex items-center justify-center text-brand-mint group-hover:bg-brand-green transition-colors">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21s-7.5-4.6-9.8-9.1C.6 8.4 2.2 5 5.6 4.3c1.9-.4 3.7.4 4.9 2 .3-.3.6-.6 1-.8 1.5-1 3.4-1 4.9.2 2.5 2 2.5 5.6.6 8.2C14.6 17.1 12 21 12 21z" /></svg>
-              </span>
-              <span class="text-[11px] font-bold text-neutral-300">03</span>
-            </div>
-            <h3 class="font-display font-bold text-base text-brand-navy">Transgender Community</h3>
-            <p class="text-xs text-neutral-600 mt-2 leading-relaxed">
-              Bridging healthcare gaps, legal aid protection, vocational skilling, and livelihood facilitation towards dignity and inclusion.
-            </p>
+          <div class="grid grid-cols-1 sm:grid-cols-[3rem_1fr] md:grid-cols-[4rem_14rem_1fr] gap-3 md:gap-8 py-6 border-b border-neutral-200 items-baseline">
+            <span class="font-display font-extrabold text-2xl sm:text-3xl text-brand-green/40">03</span>
+            <h3 class="font-display font-bold text-base sm:text-lg text-brand-navy">Transgender Community</h3>
+            <p class="text-sm text-neutral-600 leading-relaxed">Bridging healthcare gaps, legal aid protection, vocational skilling, and livelihood facilitation towards dignity and inclusion.</p>
           </div>
 
-          <div class="group p-6 rounded-2xl bg-brand-bg border border-neutral-200/80 hover:border-brand-green/40 hover:shadow-md transition-all">
-            <div class="flex items-center justify-between mb-4">
-              <span class="w-11 h-11 rounded-xl bg-brand-navy flex items-center justify-center text-brand-mint group-hover:bg-brand-green transition-colors">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 12.75l6 6 9-13.5" /></svg>
-              </span>
-              <span class="text-[11px] font-bold text-neutral-300">04</span>
-            </div>
-            <h3 class="font-display font-bold text-base text-brand-navy">Divyangjan &amp; Needy</h3>
-            <p class="text-xs text-neutral-600 mt-2 leading-relaxed">
-              Emergency medical grants for life-saving surgeries, winter blankets for homeless citizens, and specialized therapy camps.
-            </p>
+          <div class="grid grid-cols-1 sm:grid-cols-[3rem_1fr] md:grid-cols-[4rem_14rem_1fr] gap-3 md:gap-8 py-6 border-b border-neutral-200 items-baseline">
+            <span class="font-display font-extrabold text-2xl sm:text-3xl text-brand-green/40">04</span>
+            <h3 class="font-display font-bold text-base sm:text-lg text-brand-navy">Divyangjan &amp; Needy</h3>
+            <p class="text-sm text-neutral-600 leading-relaxed">Emergency medical grants for life-saving surgeries, winter blankets for homeless citizens, and specialized therapy camps.</p>
           </div>
 
         </div>
@@ -387,63 +494,65 @@
     </section>
 
     <!-- ================================================================= -->
-    <!-- 5. DETAILED OPERATIONAL VERTICALS                                 -->
+    <!-- 5. DETAILED OPERATIONAL VERTICALS — editorial magazine template   -->
     <!-- ================================================================= -->
-    <div class="divide-y divide-neutral-200/70">
+    <div>
 
-      <!-- PILLAR 1: HEALTH & MEDICAL CAMPS (image right, framed card) -->
-      <section id="pillar-health" class="py-24 bg-brand-bg">
-        <div class="max-w-7xl mx-auto px-5 sm:px-8">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <!-- PILLAR 1: HEALTH & MEDICAL CAMPS -->
+      <section id="pillar-health" class="relative py-20 sm:py-28 bg-brand-bg overflow-hidden border-b border-brand-border/60">
+        <span class="absolute -left-8 -top-10 sm:-top-16 font-display font-extrabold text-brand-navy/5 text-[150px] sm:text-[240px] leading-none select-none pointer-events-none">01</span>
 
-            <div class="lg:col-span-6 space-y-5">
-              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-mint text-brand-green text-xs font-semibold">
-                <span>Vertical 01</span>
-                <span>•</span>
-                <span>Healthcare Access</span>
+        <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+
+            <div class="lg:col-span-7 space-y-6">
+              <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-brand-green">
+                <span class="w-8 h-px bg-brand-green"></span>
+                Vertical 01 — Healthcare Access
               </div>
 
-              <h2 class="font-display font-bold text-3xl sm:text-4xl text-brand-navy leading-tight">
+              <h2 class="font-display font-bold text-3xl sm:text-5xl text-brand-navy leading-[1.1] max-w-xl">
                 Health &amp; Medical Camps: Bringing Preventive Care to Unreached Wadis
               </h2>
 
-              <p class="text-sm text-neutral-600 leading-relaxed font-normal">
+              <p class="text-base text-neutral-600 leading-relaxed max-w-xl">
                 Healthcare access in remote Maharashtra talukas is severely hindered by distance and expense. We organize comprehensive free primary medical checkups, Ayurvedic consultations, and blood donation drives directly in villages and urban informal settlements.
               </p>
 
-              <div class="space-y-3 pt-2">
-                <div class="flex items-start gap-3 text-xs text-neutral-700">
-                  <span class="w-1.5 h-1.5 rounded-full bg-brand-green mt-1.5 shrink-0"></span>
-                  <p><strong>Rural Ratnagiri &amp; Solapur:</strong> Free Ayurvedic diagnostic camps conducted at Dhamapur Dhanawade Wadi (Sangameshwar), Pachal (Rajapur), and Sangola (Solapur) in association with Pushkar Ayurvedic Center.</p>
-                </div>
-                <div class="flex items-start gap-3 text-xs text-neutral-700">
-                  <span class="w-1.5 h-1.5 rounded-full bg-brand-green mt-1.5 shrink-0"></span>
-                  <p><strong>COVID-19 Urban Screenings:</strong> On-ground primary health check-up camp at Bhatwadi, Ghatkopar amid the COVID-19 pandemic.</p>
-                </div>
-                <div class="flex items-start gap-3 text-xs text-neutral-700">
-                  <span class="w-1.5 h-1.5 rounded-full bg-brand-green mt-1.5 shrink-0"></span>
-                  <p><strong>Voluntary Blood Drives:</strong> Regular camps organized at Manapurna Banquet (Borivali) with Sailee Degree College, CDS College of Engineering, and NSS units.</p>
-                </div>
-              </div>
+              <ol class="space-y-5 max-w-xl pt-2">
+                <li class="flex gap-4">
+                  <span class="shrink-0 w-7 h-7 rounded-full bg-white border border-brand-green/30 text-brand-green text-[11px] font-bold flex items-center justify-center font-display">1</span>
+                  <p class="text-sm text-neutral-700 leading-relaxed pt-0.5"><strong class="text-brand-navy">Rural Ratnagiri &amp; Solapur:</strong> Free Ayurvedic diagnostic camps conducted at Dhamapur Dhanawade Wadi (Sangameshwar), Pachal (Rajapur), and Sangola (Solapur) in association with Pushkar Ayurvedic Center.</p>
+                </li>
+                <li class="flex gap-4">
+                  <span class="shrink-0 w-7 h-7 rounded-full bg-white border border-brand-green/30 text-brand-green text-[11px] font-bold flex items-center justify-center font-display">2</span>
+                  <p class="text-sm text-neutral-700 leading-relaxed pt-0.5"><strong class="text-brand-navy">COVID-19 Urban Screenings:</strong> On-ground primary health check-up camp at Bhatwadi, Ghatkopar amid the COVID-19 pandemic.</p>
+                </li>
+                <li class="flex gap-4">
+                  <span class="shrink-0 w-7 h-7 rounded-full bg-white border border-brand-green/30 text-brand-green text-[11px] font-bold flex items-center justify-center font-display">3</span>
+                  <p class="text-sm text-neutral-700 leading-relaxed pt-0.5"><strong class="text-brand-navy">Voluntary Blood Drives:</strong> Regular camps organized at Manapurna Banquet (Borivali) with Sailee Degree College, CDS College of Engineering, and NSS units.</p>
+                </li>
+              </ol>
 
-              <div class="pt-4 flex items-center gap-6 text-xs text-neutral-500 font-medium">
-                <div><span class="font-display font-bold text-lg text-brand-navy block">1,500+</span> Screened Citizens</div>
-                <div class="w-[1px] h-8 bg-neutral-200"></div>
-                <div><span class="font-display font-bold text-lg text-brand-navy block">4</span> Districts Covered</div>
-              </div>
+              <a href="initiative-health-sangola-camp.html" class="inline-flex items-center gap-2 pt-4 text-sm font-bold text-brand-navy hover:text-brand-green transition-colors group">
+                Read the Full Story
+                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+              </a>
             </div>
 
-            <div class="lg:col-span-6">
-              <div class="bg-white p-4 rounded-3xl border border-neutral-200 shadow-sm space-y-3">
-                <div class="aspect-[16/10] rounded-2xl relative overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1631248055158-edec7a3c072b?w=900&h=600&fit=crop" alt="Free rural health and Ayurvedic diagnostic camp" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-                  <div class="absolute top-3 left-3 bg-brand-navy text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase">
-                    Field Camp
-                  </div>
+            <div class="lg:col-span-5">
+              <div class="bg-white rounded-3xl border border-neutral-200 shadow-sm p-6 sm:p-7 space-y-6">
+                <div class="rounded-2xl overflow-hidden aspect-[4/3] relative">
+                  <img src="https://images.unsplash.com/photo-1631248055158-edec7a3c072b?w=700&h=560&fit=crop" alt="Free rural health and Ayurvedic diagnostic camp" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                  <span class="absolute top-3 left-3 bg-brand-navy text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase">Field Camp</span>
                 </div>
-                <div class="p-3">
+                <div class="grid grid-cols-2 gap-4 text-center border-t border-neutral-100 pt-5">
+                  <div><span class="font-display font-extrabold text-2xl text-brand-navy block">1,500+</span><span class="text-[11px] uppercase tracking-wide text-neutral-500">Screened Citizens</span></div>
+                  <div><span class="font-display font-extrabold text-2xl text-brand-navy block">4</span><span class="text-[11px] uppercase tracking-wide text-neutral-500">Districts Covered</span></div>
+                </div>
+                <div class="border-t border-neutral-100 pt-5">
                   <span class="text-[10px] font-bold text-brand-green uppercase tracking-wider">Key Medical Partner</span>
-                  <h4 class="font-display font-bold text-sm text-brand-navy mt-0.5">Pushkar Ayurvedic Health Center &amp; Vaidya Mangesh Khade</h4>
+                  <h4 class="font-display font-bold text-sm text-brand-navy mt-1">Pushkar Ayurvedic Health Center &amp; Vaidya Mangesh Khade</h4>
                   <p class="text-xs text-neutral-500 mt-1">Providing pulse examination, dietary counseling, and free Ayurvedic remedies.</p>
                 </div>
               </div>
@@ -453,127 +562,126 @@
         </div>
       </section>
 
-      <!-- PILLAR 2: EDUCATION & CAREERS (image left, full-bleed overlay style) -->
-      <section id="pillar-education" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-5 sm:px-8">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <!-- PILLAR 2: EDUCATION & CAREERS -->
+      <section id="pillar-education" class="relative py-20 sm:py-28 bg-white overflow-hidden border-b border-brand-border/60">
+        <span class="absolute -right-8 -top-10 sm:-top-16 font-display font-extrabold text-brand-navy/5 text-[150px] sm:text-[240px] leading-none select-none pointer-events-none">02</span>
 
-            <div class="lg:col-span-6 order-2 lg:order-1">
-              <div class="relative rounded-[1.75rem] overflow-hidden shadow-lg aspect-[16/11]">
-                <img src="https://images.unsplash.com/photo-1509869175650-a1d97972541a?w=900&h=620&fit=crop" alt="UPSC and MPSC orientation and coaching seminar for aspirants" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-                <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/15 to-transparent"></div>
-                <span class="absolute top-4 left-4 px-2.5 py-1 rounded-full bg-brand-green text-white text-[10px] font-semibold uppercase">
-                  Academic Empowerment
-                </span>
-                <div class="absolute inset-x-0 bottom-0 p-5">
-                  <span class="text-[10px] font-bold text-brand-mint uppercase tracking-wider">Exam Partnerships</span>
-                  <h4 class="font-display font-bold text-sm text-white mt-0.5">Aarya Institute &amp; Career Managers</h4>
-                  <p class="text-xs text-neutral-200 mt-1">Guidance on civil services, combined PSI/STI/ASO, and police recruitment.</p>
+        <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+
+            <div class="lg:col-span-5 order-2 lg:order-1">
+              <div class="bg-brand-bg rounded-3xl border border-neutral-200 shadow-sm p-6 sm:p-7 space-y-6">
+                <div class="rounded-2xl overflow-hidden aspect-[4/3] relative">
+                  <img src="https://images.unsplash.com/photo-1509869175650-a1d97972541a?w=700&h=560&fit=crop" alt="UPSC and MPSC orientation and coaching seminar for aspirants" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                  <span class="absolute top-3 left-3 bg-brand-green text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase">Academic Empowerment</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-center border-t border-neutral-200 pt-5">
+                  <div><span class="font-display font-extrabold text-2xl text-brand-navy block">750+</span><span class="text-[11px] uppercase tracking-wide text-neutral-500">Aspirants Mentored</span></div>
+                  <div><span class="font-display font-extrabold text-2xl text-brand-navy block">100%</span><span class="text-[11px] uppercase tracking-wide text-neutral-500">Free Entrance Access</span></div>
+                </div>
+                <div class="border-t border-neutral-200 pt-5">
+                  <span class="text-[10px] font-bold text-brand-navy uppercase tracking-wider">Exam Partnerships</span>
+                  <h4 class="font-display font-bold text-sm text-brand-navy mt-1">Aarya Institute &amp; Career Managers</h4>
+                  <p class="text-xs text-neutral-500 mt-1">Guidance on civil services, combined PSI/STI/ASO, and police recruitment.</p>
                 </div>
               </div>
             </div>
 
-            <div class="lg:col-span-6 order-1 lg:order-2 space-y-5">
-              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-mint text-brand-green text-xs font-semibold">
-                <span>Vertical 02</span>
-                <span>•</span>
-                <span>Equal Opportunity</span>
+            <div class="lg:col-span-7 order-1 lg:order-2 space-y-6">
+              <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-brand-green">
+                <span class="w-8 h-px bg-brand-green"></span>
+                Vertical 02 — Equal Opportunity
               </div>
 
-              <h2 class="font-display font-bold text-3xl sm:text-4xl text-brand-navy leading-tight">
+              <h2 class="font-display font-bold text-3xl sm:text-5xl text-brand-navy leading-[1.1] max-w-xl">
                 Education &amp; Career Guidance: Unlocking Competitive Futures
               </h2>
 
-              <p class="text-sm text-neutral-600 leading-relaxed font-normal">
+              <p class="text-base text-neutral-600 leading-relaxed max-w-xl">
                 Financial limitations should never cap student ambition. We run competitive examination coaching, entrance test preparation for professional degrees, and career counseling for students navigating post-10th and post-12th crossroads.
               </p>
 
-              <div class="space-y-3 pt-2">
-                <div class="flex items-start gap-3 text-xs text-neutral-700">
-                  <span class="w-1.5 h-1.5 rounded-full bg-brand-green mt-1.5 shrink-0"></span>
-                  <p><strong>Civil Services Coaching:</strong> Dedicated orientation programs with Aarya Institute of Administrative Services to increase youth representation in state and national administrative cadres.</p>
-                </div>
-                <div class="flex items-start gap-3 text-xs text-neutral-700">
-                  <span class="w-1.5 h-1.5 rounded-full bg-brand-green mt-1.5 shrink-0"></span>
-                  <p><strong>Free MBA &amp; Law Training:</strong> Zero-fee entrance test batches organized with AEC Trust, covering ₹20,000 course fees for 100 deserving students.</p>
-                </div>
-                <div class="flex items-start gap-3 text-xs text-neutral-700">
-                  <span class="w-1.5 h-1.5 rounded-full bg-brand-green mt-1.5 shrink-0"></span>
-                  <p><strong>International University Scholarships:</strong> End-to-end admission guidance enabling students to secure funded placements across Germany, Ireland, the UK, and the USA.</p>
-                </div>
-              </div>
+              <ol class="space-y-5 max-w-xl pt-2">
+                <li class="flex gap-4">
+                  <span class="shrink-0 w-7 h-7 rounded-full bg-brand-bg border border-brand-green/30 text-brand-green text-[11px] font-bold flex items-center justify-center font-display">1</span>
+                  <p class="text-sm text-neutral-700 leading-relaxed pt-0.5"><strong class="text-brand-navy">Civil Services Coaching:</strong> Dedicated orientation programs with Aarya Institute of Administrative Services to increase youth representation in state and national administrative cadres.</p>
+                </li>
+                <li class="flex gap-4">
+                  <span class="shrink-0 w-7 h-7 rounded-full bg-brand-bg border border-brand-green/30 text-brand-green text-[11px] font-bold flex items-center justify-center font-display">2</span>
+                  <p class="text-sm text-neutral-700 leading-relaxed pt-0.5"><strong class="text-brand-navy">Free MBA &amp; Law Training:</strong> Zero-fee entrance test batches organized with AEC Trust, covering ₹20,000 course fees for 100 deserving students.</p>
+                </li>
+                <li class="flex gap-4">
+                  <span class="shrink-0 w-7 h-7 rounded-full bg-brand-bg border border-brand-green/30 text-brand-green text-[11px] font-bold flex items-center justify-center font-display">3</span>
+                  <p class="text-sm text-neutral-700 leading-relaxed pt-0.5"><strong class="text-brand-navy">International University Scholarships:</strong> End-to-end admission guidance enabling students to secure funded placements across Germany, Ireland, the UK, and the USA.</p>
+                </li>
+              </ol>
 
-              <div class="pt-4 flex items-center gap-6 text-xs text-neutral-500 font-medium">
-                <div><span class="font-display font-bold text-lg text-brand-navy block">750+</span> Aspirants Mentored</div>
-                <div class="w-[1px] h-8 bg-neutral-200"></div>
-                <div><span class="font-display font-bold text-lg text-brand-navy block">100%</span> Free Entrance Test Access</div>
-              </div>
+              <a href="initiative-civil-services-coaching.html" class="inline-flex items-center gap-2 pt-4 text-sm font-bold text-brand-navy hover:text-brand-green transition-colors group">
+                Read the Full Story
+                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+              </a>
             </div>
 
           </div>
         </div>
       </section>
 
-      <!-- PILLAR 3: ENVIRONMENT & CONSERVATION (image right, framed card w/ corner stat) -->
-      <section id="pillar-environment" class="py-24 bg-brand-bg">
-        <div class="max-w-7xl mx-auto px-5 sm:px-8">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <!-- PILLAR 3: ENVIRONMENT & CONSERVATION -->
+      <section id="pillar-environment" class="relative py-20 sm:py-28 bg-brand-bg overflow-hidden border-b border-brand-border/60">
+        <span class="absolute -left-8 -top-10 sm:-top-16 font-display font-extrabold text-brand-navy/5 text-[150px] sm:text-[240px] leading-none select-none pointer-events-none">03</span>
 
-            <div class="lg:col-span-6 space-y-5">
-              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-mint text-brand-green text-xs font-semibold">
-                <span>Vertical 03</span>
-                <span>•</span>
-                <span>Ecological Stewardship</span>
+        <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+
+            <div class="lg:col-span-7 space-y-6">
+              <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-brand-green">
+                <span class="w-8 h-px bg-brand-green"></span>
+                Vertical 03 — Ecological Stewardship
               </div>
 
-              <h2 class="font-display font-bold text-3xl sm:text-4xl text-brand-navy leading-tight">
+              <h2 class="font-display font-bold text-3xl sm:text-5xl text-brand-navy leading-[1.1] max-w-xl">
                 Environment &amp; Trees: Hands-on Ecological Preservation
               </h2>
 
-              <p class="text-sm text-neutral-600 leading-relaxed font-normal">
+              <p class="text-base text-neutral-600 leading-relaxed max-w-xl">
                 Environmental responsibility is an active duty. We conduct physical conservation drives that remediate urban green belts, eliminate metal nail hazards from living trees, and plant native saplings in educational institutions.
               </p>
 
-              <div class="space-y-3 pt-2">
-                <div class="flex items-start gap-3 text-xs text-neutral-700">
-                  <span class="w-1.5 h-1.5 rounded-full bg-brand-green mt-1.5 shrink-0"></span>
-                  <p><strong>Nail-Free Tree Campaign:</strong> Active de-nailing drive in Kandivali East removing heavy commercial iron nails from trees alongside 'Angholichi Goli'.</p>
-                </div>
-                <div class="flex items-start gap-3 text-xs text-neutral-700">
-                  <span class="w-1.5 h-1.5 rounded-full bg-brand-green mt-1.5 shrink-0"></span>
-                  <p><strong>World Environment Day Drives:</strong> Large-scale tree plantation at Siddharth College (Badlapur, Thane) alongside educational trusts.</p>
-                </div>
-                <div class="flex items-start gap-3 text-xs text-neutral-700">
-                  <span class="w-1.5 h-1.5 rounded-full bg-brand-green mt-1.5 shrink-0"></span>
-                  <p><strong>Green Business Symposia:</strong> Lectures for 300+ educators and students on adopting sustainable entrepreneurship by eminent environmentalist Dr. Rajashekhar Patil.</p>
-                </div>
-              </div>
+              <ol class="space-y-5 max-w-xl pt-2">
+                <li class="flex gap-4">
+                  <span class="shrink-0 w-7 h-7 rounded-full bg-white border border-brand-green/30 text-brand-green text-[11px] font-bold flex items-center justify-center font-display">1</span>
+                  <p class="text-sm text-neutral-700 leading-relaxed pt-0.5"><strong class="text-brand-navy">Nail-Free Tree Campaign:</strong> Active de-nailing drive in Kandivali East removing heavy commercial iron nails from trees alongside 'Angholichi Goli'.</p>
+                </li>
+                <li class="flex gap-4">
+                  <span class="shrink-0 w-7 h-7 rounded-full bg-white border border-brand-green/30 text-brand-green text-[11px] font-bold flex items-center justify-center font-display">2</span>
+                  <p class="text-sm text-neutral-700 leading-relaxed pt-0.5"><strong class="text-brand-navy">World Environment Day Drives:</strong> Large-scale tree plantation at Siddharth College (Badlapur, Thane) alongside educational trusts.</p>
+                </li>
+                <li class="flex gap-4">
+                  <span class="shrink-0 w-7 h-7 rounded-full bg-white border border-brand-green/30 text-brand-green text-[11px] font-bold flex items-center justify-center font-display">3</span>
+                  <p class="text-sm text-neutral-700 leading-relaxed pt-0.5"><strong class="text-brand-navy">Green Business Symposia:</strong> Lectures for 300+ educators and students on adopting sustainable entrepreneurship by eminent environmentalist Dr. Rajashekhar Patil.</p>
+                </li>
+              </ol>
 
-              <div class="pt-4 flex items-center gap-6 text-xs text-neutral-500 font-medium">
-                <div><span class="font-display font-bold text-lg text-brand-navy block">Hundreds</span> Of Trees De-nailed</div>
-                <div class="w-[1px] h-8 bg-neutral-200"></div>
-                <div><span class="font-display font-bold text-lg text-brand-navy block">300+</span> Seminar Participants</div>
-              </div>
+              <a href="initiative-nail-free-tree-campaign.html" class="inline-flex items-center gap-2 pt-4 text-sm font-bold text-brand-navy hover:text-brand-green transition-colors group">
+                Read the Full Story
+                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+              </a>
             </div>
 
-            <div class="lg:col-span-6">
-              <div class="relative">
-                <div class="bg-white p-4 rounded-3xl border border-neutral-200 shadow-sm space-y-3">
-                  <div class="aspect-[16/10] rounded-2xl relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=900&h=600&fit=crop" alt="Volunteers planting saplings during a tree plantation and de-nailing drive" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-                    <div class="absolute top-3 left-3 bg-brand-green text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase">
-                      Ecology in Action
-                    </div>
-                  </div>
-                  <div class="p-3">
-                    <span class="text-[10px] font-bold text-brand-green uppercase tracking-wider">Campaign Footprint</span>
-                    <h4 class="font-display font-bold text-sm text-brand-navy mt-0.5">Badlapur Reforestation &amp; Kandivali Urban Drives</h4>
-                    <p class="text-xs text-neutral-500 mt-1">Multi-lingual public contests and practical street tree preservation.</p>
-                  </div>
+            <div class="lg:col-span-5">
+              <div class="bg-white rounded-3xl border border-neutral-200 shadow-sm p-6 sm:p-7 space-y-6">
+                <div class="rounded-2xl overflow-hidden aspect-[4/3] relative">
+                  <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=700&h=560&fit=crop" alt="Volunteers planting saplings during a tree plantation and de-nailing drive" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                  <span class="absolute top-3 left-3 bg-brand-green text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase">Ecology in Action</span>
                 </div>
-                <div class="hidden sm:flex absolute -bottom-6 -left-6 bg-brand-navy text-white rounded-2xl shadow-xl px-5 py-4 items-center gap-3">
-                  <span class="font-display font-extrabold text-2xl text-brand-mint">300+</span>
-                  <span class="text-[11px] text-neutral-200 leading-tight max-w-[7rem]">Educators &amp; students reached at green symposia</span>
+                <div class="grid grid-cols-2 gap-4 text-center border-t border-neutral-100 pt-5">
+                  <div><span class="font-display font-extrabold text-2xl text-brand-navy block">Hundreds</span><span class="text-[11px] uppercase tracking-wide text-neutral-500">Of Trees De-nailed</span></div>
+                  <div><span class="font-display font-extrabold text-2xl text-brand-navy block">300+</span><span class="text-[11px] uppercase tracking-wide text-neutral-500">Seminar Participants</span></div>
+                </div>
+                <div class="border-t border-neutral-100 pt-5">
+                  <span class="text-[10px] font-bold text-brand-green uppercase tracking-wider">Campaign Footprint</span>
+                  <h4 class="font-display font-bold text-sm text-brand-navy mt-1">Badlapur Reforestation &amp; Kandivali Urban Drives</h4>
+                  <p class="text-xs text-neutral-500 mt-1">Multi-lingual public contests and practical street tree preservation.</p>
                 </div>
               </div>
             </div>
@@ -582,131 +690,136 @@
         </div>
       </section>
 
-      <!-- PILLAR 4: YOUTH, SPORTS & FITNESS (image left, full-bleed overlay + ribbon) -->
-      <section id="pillar-sports" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-5 sm:px-8">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <!-- PILLAR 4: YOUTH, SPORTS & FITNESS -->
+      <section id="pillar-sports" class="relative py-20 sm:py-28 bg-white overflow-hidden border-b border-brand-border/60">
+        <span class="absolute -right-8 -top-10 sm:-top-16 font-display font-extrabold text-brand-navy/5 text-[150px] sm:text-[240px] leading-none select-none pointer-events-none">04</span>
 
-            <div class="lg:col-span-6 order-2 lg:order-1">
-              <div class="relative rounded-[1.75rem] overflow-hidden shadow-lg aspect-[16/11]">
-                <img src="https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=900&h=620&fit=crop" alt="Marathon runners participating in the State Sports Day event" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-                <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/15 to-transparent"></div>
-                <span class="absolute top-4 left-4 px-2.5 py-1 rounded-full bg-brand-navy text-white text-[10px] font-semibold uppercase">
-                  Mass Civic Event
-                </span>
-                <div class="absolute inset-x-0 bottom-0 p-5">
-                  <span class="text-[10px] font-bold text-brand-mint uppercase tracking-wider">Government Alignment</span>
-                  <h4 class="font-display font-bold text-sm text-white mt-0.5">Directorate of Sports &amp; Bureau of Indian Standards</h4>
-                  <p class="text-xs text-neutral-200 mt-1">Covered by Press Information Bureau (PIB) with 1,200+ citizens participating.</p>
+        <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+
+            <div class="lg:col-span-5 order-2 lg:order-1">
+              <div class="bg-brand-bg rounded-3xl border border-neutral-200 shadow-sm p-6 sm:p-7 space-y-6">
+                <div class="rounded-2xl overflow-hidden aspect-[4/3] relative">
+                  <img src="https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=700&h=560&fit=crop" alt="Marathon runners participating in the State Sports Day event" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                  <span class="absolute top-3 left-3 bg-brand-navy text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase">Mass Civic Event</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-center border-t border-neutral-200 pt-5">
+                  <div><span class="font-display font-extrabold text-2xl text-brand-navy block">1,200+</span><span class="text-[11px] uppercase tracking-wide text-neutral-500">Marathon Runners</span></div>
+                  <div><span class="font-display font-extrabold text-2xl text-brand-navy block">250</span><span class="text-[11px] uppercase tracking-wide text-neutral-500">Girls Trained</span></div>
+                  <div><span class="font-display font-extrabold text-2xl text-brand-navy block">2</span><span class="text-[11px] uppercase tracking-wide text-neutral-500">State Dept. Partners</span></div>
+                  <div><span class="font-display font-extrabold text-2xl text-brand-navy block">PIB</span><span class="text-[11px] uppercase tracking-wide text-neutral-500">Press Covered</span></div>
+                </div>
+                <div class="border-t border-neutral-200 pt-5">
+                  <span class="text-[10px] font-bold text-brand-navy uppercase tracking-wider">Government Alignment</span>
+                  <h4 class="font-display font-bold text-sm text-brand-navy mt-1">Directorate of Sports &amp; Bureau of Indian Standards</h4>
+                  <p class="text-xs text-neutral-500 mt-1">Covered by Press Information Bureau (PIB) with 1,200+ citizens participating.</p>
                 </div>
               </div>
             </div>
 
-            <div class="lg:col-span-6 order-1 lg:order-2 space-y-5">
-              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-mint text-brand-green text-xs font-semibold">
-                <span>Vertical 04</span>
-                <span>•</span>
-                <span>Athletics &amp; Civic Pride</span>
+            <div class="lg:col-span-7 order-1 lg:order-2 space-y-6">
+              <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-brand-green">
+                <span class="w-8 h-px bg-brand-green"></span>
+                Vertical 04 — Athletics &amp; Civic Pride
               </div>
 
-              <h2 class="font-display font-bold text-3xl sm:text-4xl text-brand-navy leading-tight">
+              <h2 class="font-display font-bold text-3xl sm:text-5xl text-brand-navy leading-[1.1] max-w-xl">
                 Youth, Sports &amp; Fitness: Building Healthy Communities
               </h2>
 
-              <p class="text-sm text-neutral-600 leading-relaxed font-normal">
+              <p class="text-base text-neutral-600 leading-relaxed max-w-xl">
                 Physical culture instills discipline, mental clarity, and camaraderie. We organize state-level marathons, self-defense workshops for girls, and supply sports equipment to ensure economic boundaries don't hold young athletes back.
               </p>
 
-              <div class="space-y-3 pt-2">
-                <div class="flex items-start gap-3 text-xs text-neutral-700">
-                  <span class="w-1.5 h-1.5 rounded-full bg-brand-green mt-1.5 shrink-0"></span>
-                  <p><strong>State Sports Day Marathon 2026:</strong> Arranged in collaboration with the Directorate of Sports &amp; Youth Services Maharashtra to commemorate Olympic wrestler KD Jadhav's legacy.</p>
-                </div>
-                <div class="flex items-start gap-3 text-xs text-neutral-700">
-                  <span class="w-1.5 h-1.5 rounded-full bg-brand-green mt-1.5 shrink-0"></span>
-                  <p><strong>BIS Quality Run 2025:</strong> Over 1,200 participants mobilized in Borivali to champion standards, safety, and physical vitality.</p>
-                </div>
-                <div class="flex items-start gap-3 text-xs text-neutral-700">
-                  <span class="w-1.5 h-1.5 rounded-full bg-brand-green mt-1.5 shrink-0"></span>
-                  <p><strong>Girls' Self-Defence Workshop:</strong> 250 junior college girls trained in martial art defense techniques alongside Rotary Club of Borivali.</p>
-                </div>
-                <div class="flex items-start gap-3 text-xs text-neutral-700">
-                  <span class="w-1.5 h-1.5 rounded-full bg-brand-green mt-1.5 shrink-0"></span>
-                  <p><strong>School Uniform Distribution:</strong> Supplying proper athletic gear to underprivileged students at Harchand Lokhande High School.</p>
-                </div>
-              </div>
+              <ol class="space-y-5 max-w-xl pt-2">
+                <li class="flex gap-4">
+                  <span class="shrink-0 w-7 h-7 rounded-full bg-brand-bg border border-brand-green/30 text-brand-green text-[11px] font-bold flex items-center justify-center font-display">1</span>
+                  <p class="text-sm text-neutral-700 leading-relaxed pt-0.5"><strong class="text-brand-navy">State Sports Day Marathon 2026:</strong> Arranged in collaboration with the Directorate of Sports &amp; Youth Services Maharashtra to commemorate Olympic wrestler KD Jadhav's legacy.</p>
+                </li>
+                <li class="flex gap-4">
+                  <span class="shrink-0 w-7 h-7 rounded-full bg-brand-bg border border-brand-green/30 text-brand-green text-[11px] font-bold flex items-center justify-center font-display">2</span>
+                  <p class="text-sm text-neutral-700 leading-relaxed pt-0.5"><strong class="text-brand-navy">BIS Quality Run 2025:</strong> Over 1,200 participants mobilized in Borivali to champion standards, safety, and physical vitality.</p>
+                </li>
+                <li class="flex gap-4">
+                  <span class="shrink-0 w-7 h-7 rounded-full bg-brand-bg border border-brand-green/30 text-brand-green text-[11px] font-bold flex items-center justify-center font-display">3</span>
+                  <p class="text-sm text-neutral-700 leading-relaxed pt-0.5"><strong class="text-brand-navy">Girls' Self-Defence Workshop:</strong> 250 junior college girls trained in martial art defense techniques alongside Rotary Club of Borivali.</p>
+                </li>
+                <li class="flex gap-4">
+                  <span class="shrink-0 w-7 h-7 rounded-full bg-brand-bg border border-brand-green/30 text-brand-green text-[11px] font-bold flex items-center justify-center font-display">4</span>
+                  <p class="text-sm text-neutral-700 leading-relaxed pt-0.5"><strong class="text-brand-navy">School Uniform Distribution:</strong> Supplying proper athletic gear to underprivileged students at Harchand Lokhande High School.</p>
+                </li>
+              </ol>
 
+              <a href="initiative-quality-run-2025.html" class="inline-flex items-center gap-2 pt-4 text-sm font-bold text-brand-navy hover:text-brand-green transition-colors group">
+                Read the Full Story
+                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+              </a>
             </div>
-          </div>
 
-          <!-- Stat ribbon spanning full width -->
-          <div class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 bg-brand-bg rounded-2xl border border-neutral-200/80 p-6 text-center">
-            <div><span class="font-display font-extrabold text-xl sm:text-2xl text-brand-navy block">1,200+</span><span class="text-[11px] text-neutral-500 uppercase tracking-wide">Marathon Participants</span></div>
-            <div><span class="font-display font-extrabold text-xl sm:text-2xl text-brand-navy block">250</span><span class="text-[11px] text-neutral-500 uppercase tracking-wide">Girls Trained</span></div>
-            <div><span class="font-display font-extrabold text-xl sm:text-2xl text-brand-navy block">2</span><span class="text-[11px] text-neutral-500 uppercase tracking-wide">State Dept. Partners</span></div>
-            <div><span class="font-display font-extrabold text-xl sm:text-2xl text-brand-navy block">PIB</span><span class="text-[11px] text-neutral-500 uppercase tracking-wide">Press Covered</span></div>
           </div>
         </div>
       </section>
 
-      <!-- PILLAR 5: COMMUNITY RELIEF & CIVIC SAFETY (image right, accent/gold tag) -->
-      <section id="pillar-relief" class="py-24 bg-brand-bg">
-        <div class="max-w-7xl mx-auto px-5 sm:px-8">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <!-- PILLAR 5: COMMUNITY RELIEF & CIVIC SAFETY — inverted navy treatment -->
+      <section id="pillar-relief" class="relative py-20 sm:py-28 bg-brand-navy text-white overflow-hidden border-b border-brand-border/60">
+        <span class="absolute -left-8 -top-10 sm:-top-16 font-display font-extrabold text-white/5 text-[150px] sm:text-[240px] leading-none select-none pointer-events-none">05</span>
 
-            <div class="lg:col-span-6 space-y-5">
-              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-accent/20 text-brand-navy text-xs font-semibold">
-                <span>Vertical 05</span>
-                <span>•</span>
-                <span>Direct Humanitarian Aid</span>
+        <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+
+            <div class="lg:col-span-7 space-y-6">
+              <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-brand-accent">
+                <span class="w-8 h-px bg-brand-accent"></span>
+                Vertical 05 — Direct Humanitarian Aid
               </div>
 
-              <h2 class="font-display font-bold text-3xl sm:text-4xl text-brand-navy leading-tight">
+              <h2 class="font-display font-bold text-3xl sm:text-5xl text-white leading-[1.1] max-w-xl">
                 Community Relief: Direct Lifelines in Times of Need
               </h2>
 
-              <p class="text-sm text-neutral-600 leading-relaxed font-normal">
+              <p class="text-base text-neutral-300 leading-relaxed max-w-xl">
                 When unexpected medical crises strike marginalized families or harsh winter weather hits homeless populations, we deploy direct emergency grants and essential supplies without administrative delays.
               </p>
 
-              <div class="space-y-3 pt-2">
-                <div class="flex items-start gap-3 text-xs text-neutral-700">
-                  <span class="w-1.5 h-1.5 rounded-full bg-brand-accent mt-1.5 shrink-0"></span>
-                  <p><strong>₹3,00,000 Emergency Medical Aid:</strong> Financial donation disbursed directly to the family of an ailing patient from Pune for critical medical treatment.</p>
-                </div>
-                <div class="flex items-start gap-3 text-xs text-neutral-700">
-                  <span class="w-1.5 h-1.5 rounded-full bg-brand-accent mt-1.5 shrink-0"></span>
-                  <p><strong>Winter Blanket Drives:</strong> Free blanket distributions to poor and homeless citizens in Borivali West and Gorai.</p>
-                </div>
-                <div class="flex items-start gap-3 text-xs text-neutral-700">
-                  <span class="w-1.5 h-1.5 rounded-full bg-brand-accent mt-1.5 shrink-0"></span>
-                  <p><strong>Rajgruha Mahaparinirvan Diwas Relief:</strong> Distribution of packaged drinking water and biscuits to thousands paying homage to Dr. Babasaheb Ambedkar in Matunga.</p>
-                </div>
-                <div class="flex items-start gap-3 text-xs text-neutral-700">
-                  <span class="w-1.5 h-1.5 rounded-full bg-brand-accent mt-1.5 shrink-0"></span>
-                  <p><strong>Public Safety Sessions:</strong> Cyber security and social media scam prevention seminars for students conducted with certified ethical hackers.</p>
-                </div>
-              </div>
+              <ol class="space-y-5 max-w-xl pt-2">
+                <li class="flex gap-4">
+                  <span class="shrink-0 w-7 h-7 rounded-full bg-white/10 border border-brand-accent/40 text-brand-accent text-[11px] font-bold flex items-center justify-center font-display">1</span>
+                  <p class="text-sm text-neutral-200 leading-relaxed pt-0.5"><strong class="text-white">₹3,00,000 Emergency Medical Aid:</strong> Financial donation disbursed directly to the family of an ailing patient from Pune for critical medical treatment.</p>
+                </li>
+                <li class="flex gap-4">
+                  <span class="shrink-0 w-7 h-7 rounded-full bg-white/10 border border-brand-accent/40 text-brand-accent text-[11px] font-bold flex items-center justify-center font-display">2</span>
+                  <p class="text-sm text-neutral-200 leading-relaxed pt-0.5"><strong class="text-white">Winter Blanket Drives:</strong> Free blanket distributions to poor and homeless citizens in Borivali West and Gorai.</p>
+                </li>
+                <li class="flex gap-4">
+                  <span class="shrink-0 w-7 h-7 rounded-full bg-white/10 border border-brand-accent/40 text-brand-accent text-[11px] font-bold flex items-center justify-center font-display">3</span>
+                  <p class="text-sm text-neutral-200 leading-relaxed pt-0.5"><strong class="text-white">Rajgruha Mahaparinirvan Diwas Relief:</strong> Distribution of packaged drinking water and biscuits to thousands paying homage to Dr. Babasaheb Ambedkar in Matunga.</p>
+                </li>
+                <li class="flex gap-4">
+                  <span class="shrink-0 w-7 h-7 rounded-full bg-white/10 border border-brand-accent/40 text-brand-accent text-[11px] font-bold flex items-center justify-center font-display">4</span>
+                  <p class="text-sm text-neutral-200 leading-relaxed pt-0.5"><strong class="text-white">Public Safety Sessions:</strong> Cyber security and social media scam prevention seminars for students conducted with certified ethical hackers.</p>
+                </li>
+              </ol>
 
-              <div class="pt-4 flex items-center gap-6 text-xs text-neutral-500 font-medium">
-                <div><span class="font-display font-bold text-lg text-brand-navy block">₹3 Lakh</span> Single Emergency Grant</div>
-                <div class="w-[1px] h-8 bg-neutral-200"></div>
-                <div><span class="font-display font-bold text-lg text-brand-navy block">100%</span> Direct Field Distribution</div>
-              </div>
+              <a href="initiative-emergency-medical-aid.html" class="inline-flex items-center gap-2 pt-4 text-sm font-bold text-brand-accent hover:text-white transition-colors group">
+                Read the Full Story
+                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+              </a>
             </div>
 
-            <div class="lg:col-span-6">
-              <div class="bg-white p-4 rounded-3xl border border-brand-accent/30 shadow-sm space-y-3">
-                <div class="aspect-[16/10] rounded-2xl relative overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=900&h=600&fit=crop" alt="Volunteers packing and distributing winter blankets and relief supplies" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-                  <div class="absolute top-3 left-3 bg-brand-accent text-brand-navy text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">
-                    Humanitarian Disbursal
-                  </div>
+            <div class="lg:col-span-5">
+              <div class="bg-white/5 border border-white/15 rounded-3xl shadow-sm p-6 sm:p-7 space-y-6">
+                <div class="rounded-2xl overflow-hidden aspect-[4/3] relative">
+                  <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=700&h=560&fit=crop" alt="Volunteers packing and distributing winter blankets and relief supplies" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                  <span class="absolute top-3 left-3 bg-brand-accent text-brand-navy text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Humanitarian Disbursal</span>
                 </div>
-                <div class="p-3">
-                  <span class="text-[10px] font-bold text-brand-green uppercase tracking-wider">Disaster &amp; Crisis Response</span>
-                  <h4 class="font-display font-bold text-sm text-brand-navy mt-0.5">Emergency Assistance &amp; Food Distribution</h4>
-                  <p class="text-xs text-neutral-500 mt-1">Verified patient records and pavement relief documentation.</p>
+                <div class="grid grid-cols-2 gap-4 text-center border-t border-white/10 pt-5">
+                  <div><span class="font-display font-extrabold text-2xl text-white block">₹3 Lakh</span><span class="text-[11px] uppercase tracking-wide text-neutral-400">Single Emergency Grant</span></div>
+                  <div><span class="font-display font-extrabold text-2xl text-white block">100%</span><span class="text-[11px] uppercase tracking-wide text-neutral-400">Direct Field Distribution</span></div>
+                </div>
+                <div class="border-t border-white/10 pt-5">
+                  <span class="text-[10px] font-bold text-brand-accent uppercase tracking-wider">Disaster &amp; Crisis Response</span>
+                  <h4 class="font-display font-bold text-sm text-white mt-1">Emergency Assistance &amp; Food Distribution</h4>
+                  <p class="text-xs text-neutral-400 mt-1">Verified patient records and pavement relief documentation.</p>
                 </div>
               </div>
             </div>
@@ -715,62 +828,192 @@
         </div>
       </section>
 
-      <!-- PILLAR 6: VOCATIONAL SKILLS & LEGAL AID (image left, framed card) -->
-      <section id="pillar-skilling" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-5 sm:px-8">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <!-- PILLAR 6: VOCATIONAL SKILLS & LEGAL AID -->
+      <section id="pillar-skilling" class="relative py-20 sm:py-28 bg-white overflow-hidden border-b border-brand-border/60">
+        <span class="absolute -right-8 -top-10 sm:-top-16 font-display font-extrabold text-brand-navy/5 text-[150px] sm:text-[240px] leading-none select-none pointer-events-none">06</span>
 
-            <div class="lg:col-span-6 order-2 lg:order-1">
-              <div class="bg-brand-bg p-4 rounded-3xl border border-neutral-200 shadow-sm space-y-3">
-                <div class="aspect-[16/10] rounded-2xl relative overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=900&h=600&fit=crop" alt="Students training in a government-certified vocational computer skilling centre" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-                  <div class="absolute top-3 left-3 bg-brand-navy text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase">
-                    MSSDC Affiliated
-                  </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+
+            <div class="lg:col-span-5 order-2 lg:order-1">
+              <div class="bg-brand-bg rounded-3xl border border-neutral-200 shadow-sm p-6 sm:p-7 space-y-6">
+                <div class="rounded-2xl overflow-hidden aspect-[4/3] relative">
+                  <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=700&h=560&fit=crop" alt="Students training in a government-certified vocational computer skilling centre" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                  <span class="absolute top-3 left-3 bg-brand-navy text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase">MSSDC Affiliated</span>
                 </div>
-                <div class="p-3">
+                <div class="grid grid-cols-2 gap-4 text-center border-t border-neutral-200 pt-5">
+                  <div><span class="font-display font-extrabold text-xl text-brand-navy block">Govt. Certified</span><span class="text-[11px] uppercase tracking-wide text-neutral-500">MSSDC Batches</span></div>
+                  <div><span class="font-display font-extrabold text-xl text-brand-navy block">Ongoing</span><span class="text-[11px] uppercase tracking-wide text-neutral-500">Free Legal Clinics</span></div>
+                </div>
+                <div class="border-t border-neutral-200 pt-5">
                   <span class="text-[10px] font-bold text-brand-navy uppercase tracking-wider">Statutory Affiliation</span>
-                  <h4 class="font-display font-bold text-sm text-brand-navy mt-0.5">Maharashtra State Skill Development Corporation</h4>
+                  <h4 class="font-display font-bold text-sm text-brand-navy mt-1">Maharashtra State Skill Development Corporation</h4>
                   <p class="text-xs text-neutral-500 mt-1">Government-certified batches for Accounts Executives and Web Developers.</p>
                 </div>
               </div>
             </div>
 
-            <div class="lg:col-span-6 order-1 lg:order-2 space-y-5">
-              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-mint text-brand-green text-xs font-semibold">
-                <span>Vertical 06</span>
-                <span>•</span>
-                <span>Livelihood &amp; Justice</span>
+            <div class="lg:col-span-7 order-1 lg:order-2 space-y-6">
+              <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-brand-green">
+                <span class="w-8 h-px bg-brand-green"></span>
+                Vertical 06 — Livelihood &amp; Justice
               </div>
 
-              <h2 class="font-display font-bold text-3xl sm:text-4xl text-brand-navy leading-tight">
+              <h2 class="font-display font-bold text-3xl sm:text-5xl text-brand-navy leading-[1.1] max-w-xl">
                 Skill Development &amp; Free Legal Aid: Sustainable Self-Reliance
               </h2>
 
-              <p class="text-sm text-neutral-600 leading-relaxed font-normal">
+              <p class="text-base text-neutral-600 leading-relaxed max-w-xl">
                 Charity solves immediate distress, but vocational skills and legal protection ensure long-term autonomy. We run government-certified IT and commerce vocational centers, paired with ongoing free legal clinics for citizens.
               </p>
 
-              <div class="space-y-3 pt-2">
-                <div class="flex items-start gap-3 text-xs text-neutral-700">
-                  <span class="w-1.5 h-1.5 rounded-full bg-brand-green mt-1.5 shrink-0"></span>
-                  <p><strong>Aarya Skill Development Centre:</strong> Running certified courses in Accounts Executive and Web Development with the Maharashtra State Skill Development Corporation (MSSDC).</p>
-                </div>
-                <div class="flex items-start gap-3 text-xs text-neutral-700">
-                  <span class="w-1.5 h-1.5 rounded-full bg-brand-green mt-1.5 shrink-0"></span>
-                  <p><strong>Free Legal Advice Centre:</strong> Bi-monthly consultation clinics conducted on 2nd &amp; 4th Saturdays in Mumbai in association with Wonders Group.</p>
-                </div>
-                <div class="flex items-start gap-3 text-xs text-neutral-700">
-                  <span class="w-1.5 h-1.5 rounded-full bg-brand-green mt-1.5 shrink-0"></span>
-                  <p><strong>Standards Clubs in Schools:</strong> Partnered with Bureau of Indian Standards (BIS) to establish Standards Clubs fostering consumer safety culture in youth.</p>
-                </div>
+              <ol class="space-y-5 max-w-xl pt-2">
+                <li class="flex gap-4">
+                  <span class="shrink-0 w-7 h-7 rounded-full bg-brand-bg border border-brand-green/30 text-brand-green text-[11px] font-bold flex items-center justify-center font-display">1</span>
+                  <p class="text-sm text-neutral-700 leading-relaxed pt-0.5"><strong class="text-brand-navy">Aarya Skill Development Centre:</strong> Running certified courses in Accounts Executive and Web Development with the Maharashtra State Skill Development Corporation (MSSDC).</p>
+                </li>
+                <li class="flex gap-4">
+                  <span class="shrink-0 w-7 h-7 rounded-full bg-brand-bg border border-brand-green/30 text-brand-green text-[11px] font-bold flex items-center justify-center font-display">2</span>
+                  <p class="text-sm text-neutral-700 leading-relaxed pt-0.5"><strong class="text-brand-navy">Free Legal Advice Centre:</strong> Bi-monthly consultation clinics conducted on 2nd &amp; 4th Saturdays in Mumbai in association with Wonders Group.</p>
+                </li>
+                <li class="flex gap-4">
+                  <span class="shrink-0 w-7 h-7 rounded-full bg-brand-bg border border-brand-green/30 text-brand-green text-[11px] font-bold flex items-center justify-center font-display">3</span>
+                  <p class="text-sm text-neutral-700 leading-relaxed pt-0.5"><strong class="text-brand-navy">Standards Clubs in Schools:</strong> Partnered with Bureau of Indian Standards (BIS) to establish Standards Clubs fostering consumer safety culture in youth.</p>
+                </li>
+              </ol>
+
+              <a href="initiative-aarya-skill-centre.html" class="inline-flex items-center gap-2 pt-4 text-sm font-bold text-brand-navy hover:text-brand-green transition-colors group">
+                Read the Full Story
+                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- PILLAR 7: CIVIC & CYBER AWARENESS -->
+      <section id="pillar-civic" class="relative py-20 sm:py-28 bg-brand-bg overflow-hidden border-b border-brand-border/60">
+        <span class="absolute -left-8 -top-10 sm:-top-16 font-display font-extrabold text-brand-navy/5 text-[150px] sm:text-[240px] leading-none select-none pointer-events-none">07</span>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+
+            <div class="lg:col-span-7 space-y-6">
+              <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-brand-green">
+                <span class="w-8 h-px bg-brand-green"></span>
+                Vertical 07 — Digital &amp; Consumer Safety
               </div>
 
-              <div class="pt-4 flex items-center gap-6 text-xs text-neutral-500 font-medium">
-                <div><span class="font-display font-bold text-lg text-brand-navy block">Govt Certified</span> MSSDC Batches</div>
-                <div class="w-[1px] h-8 bg-neutral-200"></div>
-                <div><span class="font-display font-bold text-lg text-brand-navy block">Ongoing</span> Free Legal Clinics</div>
+              <h2 class="font-display font-bold text-3xl sm:text-5xl text-brand-navy leading-[1.1] max-w-xl">
+                Civic &amp; Cyber Awareness: Shielding Citizens in a Digital Age
+              </h2>
+
+              <p class="text-base text-neutral-600 leading-relaxed max-w-xl">
+                As daily life moves online, digital fraud and counterfeit goods pose growing threats to ordinary families. We run practical awareness sessions on cyber safety, consumer standards, and food safety directly in schools and communities.
+              </p>
+
+              <ol class="space-y-5 max-w-xl pt-2">
+                <li class="flex gap-4">
+                  <span class="shrink-0 w-7 h-7 rounded-full bg-white border border-brand-green/30 text-brand-green text-[11px] font-bold flex items-center justify-center font-display">1</span>
+                  <p class="text-sm text-neutral-700 leading-relaxed pt-0.5"><strong class="text-brand-navy">Cyber Security Seminars:</strong> Digital fraud and social media scam prevention sessions for students in classes 5–11, conducted with certified ethical investigators.</p>
+                </li>
+                <li class="flex gap-4">
+                  <span class="shrink-0 w-7 h-7 rounded-full bg-white border border-brand-green/30 text-brand-green text-[11px] font-bold flex items-center justify-center font-display">2</span>
+                  <p class="text-sm text-neutral-700 leading-relaxed pt-0.5"><strong class="text-brand-navy">BIS Quality Clubs:</strong> Standards Clubs established in schools and colleges with the Bureau of Indian Standards to build a lifelong consumer-safety culture.</p>
+                </li>
+                <li class="flex gap-4">
+                  <span class="shrink-0 w-7 h-7 rounded-full bg-white border border-brand-green/30 text-brand-green text-[11px] font-bold flex items-center justify-center font-display">3</span>
+                  <p class="text-sm text-neutral-700 leading-relaxed pt-0.5"><strong class="text-brand-navy">FDA Food Safety Lectures:</strong> Adulteration-awareness sessions delivered by retired FDA officials across multiple batches of students and residents.</p>
+                </li>
+              </ol>
+
+              <a href="initiative-cyber-safety-awareness.html" class="inline-flex items-center gap-2 pt-4 text-sm font-bold text-brand-navy hover:text-brand-green transition-colors group">
+                Read the Full Story
+                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+              </a>
+            </div>
+
+            <div class="lg:col-span-5">
+              <div class="bg-white rounded-3xl border border-neutral-200 shadow-sm p-6 sm:p-7 space-y-6">
+                <div class="rounded-2xl overflow-hidden aspect-[4/3] relative">
+                  <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=700&h=560&fit=crop" alt="Cyber security and digital fraud awareness session for students" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                  <span class="absolute top-3 left-3 bg-brand-navy text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase">Awareness Drive</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-center border-t border-neutral-100 pt-5">
+                  <div><span class="font-display font-extrabold text-2xl text-brand-navy block">Certified</span><span class="text-[11px] uppercase tracking-wide text-neutral-500">Ethical Investigators</span></div>
+                  <div><span class="font-display font-extrabold text-2xl text-brand-navy block">Multiple</span><span class="text-[11px] uppercase tracking-wide text-neutral-500">Batches Covered</span></div>
+                </div>
+                <div class="border-t border-neutral-100 pt-5">
+                  <span class="text-[10px] font-bold text-brand-green uppercase tracking-wider">Statutory Partners</span>
+                  <h4 class="font-display font-bold text-sm text-brand-navy mt-1">Bureau of Indian Standards &amp; FDA Maharashtra</h4>
+                  <p class="text-xs text-neutral-500 mt-1">Standards Clubs and food-safety lectures fostering citizen vigilance.</p>
+                </div>
               </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- PILLAR 8: FREE LEGAL ADVICE CENTER -->
+      <section id="pillar-legal" class="relative py-20 sm:py-28 bg-white overflow-hidden">
+        <span class="absolute -right-8 -top-10 sm:-top-16 font-display font-extrabold text-brand-navy/5 text-[150px] sm:text-[240px] leading-none select-none pointer-events-none">08</span>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+
+            <div class="lg:col-span-5 order-2 lg:order-1">
+              <div class="bg-brand-bg rounded-3xl border border-neutral-200 shadow-sm p-6 sm:p-7 space-y-6">
+                <div class="rounded-2xl overflow-hidden aspect-[4/3] relative">
+                  <img src="https://images.unsplash.com/photo-1589391886645-d51941baf7fb?w=700&h=560&fit=crop" alt="Free legal advice consultation clinic for underserved families" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                  <span class="absolute top-3 left-3 bg-brand-navy text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase">Pro-Bono Clinic</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-center border-t border-neutral-200 pt-5">
+                  <div><span class="font-display font-extrabold text-xl text-brand-navy block">2nd &amp; 4th Sat</span><span class="text-[11px] uppercase tracking-wide text-neutral-500">Bi-Monthly Clinics</span></div>
+                  <div><span class="font-display font-extrabold text-xl text-brand-navy block">Ongoing</span><span class="text-[11px] uppercase tracking-wide text-neutral-500">Service Since 2019</span></div>
+                </div>
+                <div class="border-t border-neutral-200 pt-5">
+                  <span class="text-[10px] font-bold text-brand-navy uppercase tracking-wider">Legal Partner</span>
+                  <h4 class="font-display font-bold text-sm text-brand-navy mt-1">Wonders Group</h4>
+                  <p class="text-xs text-neutral-500 mt-1">Facilitating pro-bono consultation clinics for Mumbai's underserved communities.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-7 order-1 lg:order-2 space-y-6">
+              <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-brand-green">
+                <span class="w-8 h-px bg-brand-green"></span>
+                Vertical 08 — Access to Justice
+              </div>
+
+              <h2 class="font-display font-bold text-3xl sm:text-5xl text-brand-navy leading-[1.1] max-w-xl">
+                Free Legal Advice Center: Justice Without the Price Tag
+              </h2>
+
+              <p class="text-base text-neutral-600 leading-relaxed max-w-xl">
+                Legal literacy and representation are often out of reach for Mumbai's most vulnerable residents. Our Free Legal Advice Center runs a dependable, recurring clinic offering plain-language guidance to women, families, and marginalized groups.
+              </p>
+
+              <ol class="space-y-5 max-w-xl pt-2">
+                <li class="flex gap-4">
+                  <span class="shrink-0 w-7 h-7 rounded-full bg-brand-bg border border-brand-green/30 text-brand-green text-[11px] font-bold flex items-center justify-center font-display">1</span>
+                  <p class="text-sm text-neutral-700 leading-relaxed pt-0.5"><strong class="text-brand-navy">Bi-Monthly Consultation Clinics:</strong> Free legal advice sessions conducted on the 2nd &amp; 4th Saturdays of every month in Mumbai, in association with Wonders Group.</p>
+                </li>
+                <li class="flex gap-4">
+                  <span class="shrink-0 w-7 h-7 rounded-full bg-brand-bg border border-brand-green/30 text-brand-green text-[11px] font-bold flex items-center justify-center font-display">2</span>
+                  <p class="text-sm text-neutral-700 leading-relaxed pt-0.5"><strong class="text-brand-navy">Priority Access for Women &amp; Families:</strong> Dedicated guidance for women, families, and marginalized groups navigating matrimonial, property, and labour disputes.</p>
+                </li>
+                <li class="flex gap-4">
+                  <span class="shrink-0 w-7 h-7 rounded-full bg-brand-bg border border-brand-green/30 text-brand-green text-[11px] font-bold flex items-center justify-center font-display">3</span>
+                  <p class="text-sm text-neutral-700 leading-relaxed pt-0.5"><strong class="text-brand-navy">An Ongoing Service, Not a One-Off:</strong> Running continuously since the Foundation's earliest years, with no appointment fee and no eligibility gatekeeping.</p>
+                </li>
+              </ol>
+
+              <a href="initiative-free-legal-aid.html" class="inline-flex items-center gap-2 pt-4 text-sm font-bold text-brand-navy hover:text-brand-green transition-colors group">
+                Read the Full Story
+                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+              </a>
             </div>
 
           </div>
@@ -785,32 +1028,42 @@
     <section class="py-20 sm:py-24 bg-brand-bg">
       <div class="max-w-7xl mx-auto px-5 sm:px-8">
 
-        <div class="p-8 sm:p-14 rounded-[2rem] bg-brand-navy text-white relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-10">
-          <div class="absolute -right-16 -top-16 w-80 h-80 rounded-full bg-brand-green/20 blur-3xl pointer-events-none"></div>
-          <div class="absolute -left-10 -bottom-20 w-64 h-64 rounded-full bg-brand-accent/10 blur-3xl pointer-events-none"></div>
+        <div class="rounded-[2rem] border border-brand-border overflow-hidden shadow-sm">
+          <div class="h-1.5 bg-gradient-to-r from-brand-green via-brand-accent to-brand-green"></div>
 
-          <div class="relative z-10 max-w-2xl">
-            <span class="text-xs font-bold uppercase tracking-widest text-brand-accent mb-2 block">Institutional Engagement</span>
-            <h3 class="font-display font-bold text-2xl sm:text-4xl text-white leading-tight">
-              Partner With Us on Verifiable CSR Initiatives
-            </h3>
-            <p class="mt-4 text-xs sm:text-sm text-neutral-300 leading-relaxed font-normal">
-              Every CSR partnership is executed with strict metric documentation: attendance audits, high-resolution photography, expenditure ledgers, and formal impact certificates.
-            </p>
-            <div class="mt-6 flex flex-wrap gap-4 text-xs text-neutral-300">
-              <span class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4.5 12.75l6 6 9-13.5" /></svg>Signed MOUs with State Bodies</span>
-              <span class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4.5 12.75l6 6 9-13.5" /></svg>41-Page Public Work Report</span>
-              <span class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-brand-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4.5 12.75l6 6 9-13.5" /></svg>Direct Field Implementation</span>
+          <div class="bg-brand-navy text-white p-8 sm:p-14 grid grid-cols-1 lg:grid-cols-12 gap-10">
+            <div class="lg:col-span-7">
+              <span class="text-xs font-bold uppercase tracking-widest text-brand-accent mb-2 block">Institutional Engagement</span>
+              <h3 class="font-display font-bold text-2xl sm:text-4xl text-white leading-tight">
+                Partner With Us on Verifiable CSR Initiatives
+              </h3>
+              <p class="mt-4 text-xs sm:text-sm text-neutral-300 leading-relaxed font-normal max-w-lg">
+                Every CSR partnership is executed with strict metric documentation: attendance audits, high-resolution photography, expenditure ledgers, and formal impact certificates.
+              </p>
+            </div>
+
+            <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-3 gap-5 content-center">
+              <div class="flex items-start gap-2.5 sm:border-l sm:border-white/15 sm:pl-4">
+                <svg class="w-4 h-4 text-brand-mint shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                <span class="text-xs text-neutral-300 leading-snug">Signed MOUs with State Bodies</span>
+              </div>
+              <div class="flex items-start gap-2.5 sm:border-l sm:border-white/15 sm:pl-4">
+                <svg class="w-4 h-4 text-brand-mint shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                <span class="text-xs text-neutral-300 leading-snug">41-Page Public Work Report</span>
+              </div>
+              <div class="flex items-start gap-2.5 sm:border-l sm:border-white/15 sm:pl-4">
+                <svg class="w-4 h-4 text-brand-mint shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                <span class="text-xs text-neutral-300 leading-snug">Direct Field Implementation</span>
+              </div>
             </div>
           </div>
 
-          <div class="relative z-10 flex flex-col sm:flex-row items-center gap-4 w-full lg:w-auto shrink-0">
-            <a href="contact.html" class="w-full sm:w-auto px-8 py-4 bg-brand-green text-white font-semibold text-xs rounded-xl hover:bg-emerald-600 transition-all text-center">
-              Request CSR Consultation
-            </a>
-            <a href="gallery.html" class="w-full sm:w-auto px-6 py-4 bg-white/10 text-white font-semibold text-xs rounded-xl hover:bg-white/20 transition-all text-center">
-              View Field Archives
-            </a>
+          <div class="bg-white px-8 sm:px-14 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <span class="text-xs sm:text-sm text-neutral-600 font-medium">Ready to document real, verifiable impact together?</span>
+            <div class="flex flex-wrap gap-3">
+              <a href="contact.html" class="px-6 py-3 bg-brand-green text-white text-xs font-semibold rounded-full hover:bg-emerald-600 transition-all">Request CSR Consultation</a>
+              <a href="gallery.html" class="px-6 py-3 bg-brand-bg border border-neutral-200 text-brand-navy text-xs font-semibold rounded-full hover:bg-neutral-100 transition-all">View Field Archives</a>
+            </div>
           </div>
         </div>
 
@@ -865,6 +1118,8 @@
             <li><a href="our-work.html#pillar-skilling" class="hover:text-brand-green transition-colors">Aarya Skill Centre</a></li>
             <li><a href="our-work.html#pillar-environment" class="hover:text-brand-green transition-colors">Tree Protection</a></li>
             <li><a href="our-work.html#pillar-relief" class="hover:text-brand-green transition-colors">Community Relief</a></li>
+            <li><a href="our-work.html#pillar-civic" class="hover:text-brand-green transition-colors">Civic &amp; Cyber Awareness</a></li>
+            <li><a href="our-work.html#pillar-legal" class="hover:text-brand-green transition-colors">Free Legal Advice</a></li>
           </ul>
         </div>
 
@@ -938,13 +1193,7 @@
       mobileToggle.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
       mobileClose.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
 
-      // 3. Header shadow on scroll
-      const mainHeader = document.getElementById('main-header');
-      window.addEventListener('scroll', () => {
-        mainHeader.classList.toggle('scrolled', window.scrollY > 20);
-      });
-
-      // 4. Subnav Active Highlighting on Scroll
+      // 3. Subnav Active Highlighting on Scroll
       const sections = document.querySelectorAll('section[id^="pillar-"]');
       const subnavLinks = document.querySelectorAll('.subnav-link');
 
